@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thelaunchera.com/sitemap.xml
