@@ -304,20 +304,10 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 .hub-flow span{border:1px solid var(--ink);padding:8px 10px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .hub-flow b{color:var(--ink);font-weight:700}
 .hub-spotlight .btn{border-color:var(--ink)}
-.hub-product{background:var(--ivory);color:var(--ink);border:1px solid rgba(255,255,255,.32);box-shadow:18px 18px 0 var(--blue);padding:18px}
-.hub-product-top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:2px 2px 15px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.hub-product-top span:last-child{color:var(--muted)}
-.hub-product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-top:18px}
-.hub-product-card{min-height:132px;border:1px solid var(--line);background:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
-.hub-product-card:nth-child(2){background:var(--blue-soft)}
-.hub-product-card:nth-child(3){background:#FFF9D8}
-.hub-product-card:nth-child(4){background:var(--ink);color:#fff}
-.hub-product-label{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.hub-product-card:nth-child(4) .hub-product-label{color:rgba(255,255,255,.62)}
-.hub-product-value{font-size:22px;font-weight:600;line-height:1.08;letter-spacing:-.03em}
-.hub-product-status{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-top:8px}
+.hub-product{margin:0;background:var(--ivory);color:var(--ink);border:1px solid var(--line);box-shadow:18px 18px 0 var(--blue);overflow:hidden}
+.hub-product img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}
 @media(max-width:920px){.hub-spotlight-grid{grid-template-columns:1fr}.hub-product{box-shadow:10px 10px 0 var(--blue)}}
-@media(max-width:560px){.hub-spotlight{padding:66px 0}.hub-spotlight-grid{gap:38px}.hub-spotlight h2{font-size:42px}.hub-spotlight-copy>p{font-size:16px}.hub-product{padding:12px}.hub-product-grid{gap:6px}.hub-product-card{min-height:112px;padding:14px}.hub-product-value{font-size:18px}}
+@media(max-width:560px){.hub-spotlight{padding:66px 0}.hub-spotlight-grid{gap:38px}.hub-spotlight h2{font-size:42px}.hub-spotlight-copy>p{font-size:16px}}
 
 </style>
 </head>
@@ -415,15 +405,7 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       <div class="hub-flow" aria-label="Recorrido del cliente"><span>Lead</span><b aria-hidden="true">→</b><span>Cotización</span><b aria-hidden="true">→</b><span>Cliente reservado</span><b aria-hidden="true">→</b><span>Factura</span></div>
       <a class="btn btn-yellow" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Explorar My Cleaning Hub</a>
     </div>
-    <div class="hub-product" aria-label="Vista previa del recorrido del cliente en My Cleaning Hub">
-      <div class="hub-product-top"><span>My Cleaning Hub</span><span>Flujo del cliente</span></div>
-      <div class="hub-product-grid">
-        <div class="hub-product-card"><div class="hub-product-label">Nueva consulta</div><div><div class="hub-product-value">Lead añadido</div><div class="hub-product-status">Necesita seguimiento</div></div></div>
-        <div class="hub-product-card"><div class="hub-product-label">Cotización</div><div><div class="hub-product-value">Lista para enviar</div><div class="hub-product-status">Borrador</div></div></div>
-        <div class="hub-product-card"><div class="hub-product-label">Próxima reserva</div><div><div class="hub-product-value">Servicio programado</div><div class="hub-product-status">Confirmado</div></div></div>
-        <div class="hub-product-card"><div class="hub-product-label">Factura</div><div><div class="hub-product-value">Pago registrado</div><div class="hub-product-status">Pagada</div></div></div>
-      </div>
-    </div>
+    <figure class="hub-product"><img src="../assets/my-cleaning-hub-preview.webp" alt="Panel de My Cleaning Hub con trabajos, clientes, cotizaciones, facturas y la próxima cita" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
