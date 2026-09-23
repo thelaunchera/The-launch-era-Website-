@@ -226,10 +226,12 @@ footer{margin-top:90px}.footer-title{font-size:22px;letter-spacing:.02em}
 @keyframes uiIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .ui-panel-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .ui-panel h3{font-size:clamp(30px,3.2vw,44px);line-height:.96;letter-spacing:-.045em;margin:0 0 14px}
-.ui-panel p{font-size:14px;color:var(--muted);margin:0 0 24px;max-width:440px}
+.ui-panel p{font-size:14px;color:var(--muted);margin:0 0 16px;max-width:440px}
+.ui-service-line{font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;padding:8px 10px;border-left:3px solid var(--butter);background:var(--blue-soft)}
 .ui-board{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ui-tile{border:1px solid var(--ink);min-height:90px;padding:12px;font-size:10px;font-weight:800;display:flex;align-items:flex-end;position:relative;overflow:hidden}
 .ui-tile:nth-child(2){background:var(--blue)}.ui-tile:nth-child(3){background:var(--butter)}.ui-tile:nth-child(4){background:var(--ink);color:#fff}
+.ui-board-five .ui-tile:last-child{grid-column:1/-1;min-height:64px;background:var(--blue-soft);color:var(--ink)}
 .ui-tile:before{content:"";position:absolute;inset:10px 10px auto auto;width:28px;height:28px;border:1px solid currentColor;border-radius:50%;opacity:.2}
 .ui-footerline{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
@@ -322,12 +324,12 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       </div>
       <div class="proof-row"><span>Build trust</span><span>Follow up faster</span><span>Keep client work organized</span></div>
     </div>
-    <aside class="ui-preview" aria-label="Interactive preview of the content system">
+    <aside class="ui-preview" aria-label="Interactive preview of how The Launch Era helps cleaning businesses">
       <div class="ui-topbar">
         <div class="ui-dots"><span></span><span></span><span></span></div>
-        <div class="ui-toplabel">From Inquiry to Booking</div>
+        <div class="ui-toplabel">How The Launch Era Helps</div>
       </div>
-      <div class="ui-tabs" role="tablist" aria-label="Content system preview">
+      <div class="ui-tabs" role="tablist" aria-label="Inquiry-to-booking support preview">
         <button class="ui-tab active" type="button" data-ui-tab="strategy">Trust</button>
         <button class="ui-tab" type="button" data-ui-tab="design">Follow Up</button>
         <button class="ui-tab" type="button" data-ui-tab="delivery">Book</button>
@@ -335,23 +337,26 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       <div class="ui-screen">
         <div class="ui-panel active" data-ui-panel="strategy">
           <div class="ui-panel-kicker">01 · Build trust</div>
-          <h3>Look ready to hire before they message.</h3>
-          <p>Clear offers, proof, reviews and strategic content help homeowners understand your business and feel confident taking the next step.</p>
-          <div class="ui-board"><div class="ui-tile">OFFER</div><div class="ui-tile">PROOF</div><div class="ui-tile">REVIEWS</div><div class="ui-tile">CONTENT</div></div>
+          <h3>Make the business easier to trust before they message.</h3>
+          <p>We improve what a homeowner sees first: clear services, proof, reviews, strategic content and a clear way to inquire.</p>
+          <div class="ui-service-line">How we help · Instagram Audit + Content</div>
+          <div class="ui-board"><div class="ui-tile">CLEAR OFFER</div><div class="ui-tile">PROOF</div><div class="ui-tile">REVIEWS</div><div class="ui-tile">CONTENT + CTA</div></div>
         </div>
         <div class="ui-panel" data-ui-panel="design">
           <div class="ui-panel-kicker">02 · Follow up</div>
-          <h3>Do not let a warm inquiry go cold.</h3>
-          <p>Automation and structured follow-up give interested leads a clearer next step instead of leaving them buried in DMs or notes.</p>
-          <div class="ui-board"><div class="ui-tile">REPLY</div><div class="ui-tile">ROUTE</div><div class="ui-tile">FOLLOW UP</div><div class="ui-tile">NEXT STEP</div></div>
+          <h3>Give every warm inquiry a clear next step.</h3>
+          <p>We set up replies, routing, reminders and follow-up so interested leads do not get buried in DMs, texts or notes.</p>
+          <div class="ui-service-line">How we help · DM Automation + VA Support</div>
+          <div class="ui-board"><div class="ui-tile">QUICK REPLY</div><div class="ui-tile">ROUTE</div><div class="ui-tile">FOLLOW-UP</div><div class="ui-tile">NEXT STEP</div></div>
         </div>
         <div class="ui-panel" data-ui-panel="delivery">
           <div class="ui-panel-kicker">03 · Book + organize</div>
-          <h3>Keep the client path in one place.</h3>
-          <p>Quotes, client details, invoices and next actions stay organized so the business can keep moving after the first inquiry.</p>
-          <div class="ui-board"><div class="ui-tile">LEAD</div><div class="ui-tile">QUOTE</div><div class="ui-tile">CLIENT</div><div class="ui-tile">INVOICE</div></div>
+          <h3>Keep the full client path organized after they inquire.</h3>
+          <p>We help keep what they asked for, the quote, follow-up, client details, invoice and next action in one clearer workflow.</p>
+          <div class="ui-service-line">How we help · My Cleaning Hub + VA Support</div>
+          <div class="ui-board ui-board-five"><div class="ui-tile">INQUIRY</div><div class="ui-tile">QUOTE</div><div class="ui-tile">FOLLOW-UP</div><div class="ui-tile">BOOKED CLIENT</div><div class="ui-tile">INVOICE + NEXT ACTION</div></div>
         </div>
-        <div class="ui-footerline"><span>Built for cleaning businesses</span><span>Inquiry → booked client ↗</span></div>
+        <div class="ui-footerline"><span>Built for residential cleaning businesses</span><span>Trust → Follow-up → Booked client ↗</span></div>
       </div>
     </aside>
   </div>
