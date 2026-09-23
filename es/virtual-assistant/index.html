@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soporte de Asistente Virtual para Negocios de Limpieza | The Launch Era</title>
+<meta name="description" content="Soporte esencial de asistente virtual para dueños de negocios de limpieza: consultas, seguimientos aprobados, calendario, preparación de cotizaciones y facturas, programación aprobada y reportes semanales.">
+<link rel="canonical" href="https://thelaunchera.github.io/The-launch-era-Website-/es/virtual-assistant/">
+<link rel="alternate" hreflang="en" href="https://thelaunchera.github.io/The-launch-era-Website-/virtual-assistant/">
+<link rel="alternate" hreflang="es" href="https://thelaunchera.github.io/The-launch-era-Website-/es/virtual-assistant/">
+<link rel="icon" type="image/png" href="../../the-launch-era-favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#FAF8F3;--ink:#191919;--yellow:#F2D85B;--blue:#B9D7FF;--blue-soft:#EAF3FF;--muted:#69645E;--line:#DED8CE;--white:#fff;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:Futura,"Avenir Next",Arial,sans-serif;line-height:1.55}h1,h2,h3,.brand{font-family:"Prompt",Arial,sans-serif}a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:30;background:rgba(250,248,243,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:700;font-size:21px}.navlinks{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:700}.navcta{background:var(--ink);color:#fff;padding:12px 17px;border-radius:999px}.mobile{display:none;border:1px solid var(--line);background:#fff;border-radius:14px;width:46px;height:46px;font-size:22px}.panel{display:none;padding:8px 0 20px}.panel a{display:block;padding:11px 0;font-weight:700}
+.hero{padding:86px 0 62px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:end}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin-bottom:16px}.hero h1{font-size:clamp(50px,7vw,82px);line-height:.98;letter-spacing:-.055em;margin:0 0 22px;max-width:820px}.lead{font-size:clamp(18px,2vw,23px);color:var(--muted);max-width:740px;margin:0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;justify-content:center;align-items:center;border:1.5px solid var(--ink);border-radius:999px;padding:14px 20px;font-weight:800}.dark{background:var(--ink);color:#fff}.yellow{background:var(--yellow)}.blue{background:var(--blue)}
+.hero-card{background:var(--blue);border:1px solid rgba(25,25,25,.12);border-radius:28px;padding:30px}.hero-card .big{font-family:"Prompt";font-size:60px;line-height:.95;font-weight:700}.hero-card p{margin:12px 0 0;color:#3e3e3e;font-size:17px}.micro{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{font-size:12px;font-weight:800;border:1px solid rgba(25,25,25,.18);background:rgba(255,255,255,.55);border-radius:999px;padding:8px 10px}
+section{padding:72px 0}.alt{background:#fffdf9;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.title{font-size:clamp(40px,5.7vw,66px);line-height:1.01;letter-spacing:-.045em;margin:0 0 16px;max-width:900px}.intro{font-size:19px;color:var(--muted);max-width:780px;margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}.card:nth-child(2),.card:nth-child(5){background:var(--blue-soft)}.card:nth-child(3){background:#fff8d7}.num{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin-bottom:22px}.card h3{font-size:24px;line-height:1.12;margin:0 0 10px}.card p{margin:0;color:var(--muted)}
+.week{display:grid;grid-template-columns:1fr 1fr;gap:20px}.weekbox{border-radius:26px;padding:30px;border:1px solid var(--line);background:#fff}.weekbox.blue{background:var(--blue);color:var(--ink)}.weekbox h3{font-size:30px;margin:0 0 14px}.weekbox ul{margin:0;padding-left:20px;display:grid;gap:9px}.weekbox p{color:var(--muted);margin:0}.weekbox.blue p{color:#3f3f3f}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{border-top:2px solid var(--ink);padding-top:18px}.step strong{font-family:"Prompt";font-size:13px}.step h3{font-size:22px;margin:8px 0}.step p{color:var(--muted);margin:0;font-size:14px}
+.package{background:var(--ink);color:#fff;border-radius:30px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px}.package h2{font-size:clamp(42px,5vw,62px);line-height:1;margin:0 0 18px}.price{font-family:"Prompt";font-size:50px;font-weight:700}.price small{font-size:15px;font-family:Futura,"Avenir Next",Arial,sans-serif;font-weight:500;opacity:.65}.package p{opacity:.72;font-size:18px}.include{background:#fff;color:var(--ink);border-radius:24px;padding:26px}.include h3{font-size:28px;margin:0 0 14px}.include ul{margin:0;padding-left:20px;display:grid;gap:9px}.not{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:10px 0}.faq summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);margin:10px 0 0}
+.final{background:var(--blue);border-radius:30px;padding:44px;text-align:center}.final h2{font-size:clamp(40px,6vw,64px);line-height:1;margin:0 0 16px}.final p{max-width:680px;margin:0 auto;color:#424242;font-size:18px}.final .actions{justify-content:center}
+footer{padding:48px 0 30px;border-top:1px solid var(--line);margin-top:60px}.footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+@media(max-width:900px){.navlinks{display:none}.mobile{display:block}.panel.open{display:block}.hero-grid,.grid,.week,.process,.package{grid-template-columns:1fr}.hero{padding-top:58px}.actions .btn{width:100%}.hero-card .big{font-size:48px}}
+
+/* 2026-09-22 VA editorial layout pass */
+body{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,.brand{font-family:"Helvetica Neue","Avenir Next",Arial,sans-serif}
+.nav{height:72px}.brand{font-size:19px;letter-spacing:.035em}.navlinks{font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.navcta,.btn{border-radius:0;text-transform:uppercase;letter-spacing:.045em;font-size:12px}
+.mobile{border-radius:0;background:transparent}
+.hero{padding:104px 0 88px}.hero-grid{grid-template-columns:1.35fr .65fr;gap:70px;align-items:stretch}
+.hero h1{font-size:clamp(52px,7.2vw,90px);font-weight:600;line-height:.92}
+.hero-card{border-radius:0;background:var(--yellow);padding:34px;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px}
+.hero-card .big{font-family:inherit;font-size:78px;font-weight:600;letter-spacing:-.06em}
+.chip{border-radius:0;background:transparent;border-color:rgba(25,25,25,.35)}
+section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;line-height:.98}
+.intro{font-size:18px;line-height:1.6}
+
+#help .grid{grid-template-columns:1fr;gap:0;border-top:1px solid var(--ink)}
+#help .card{display:grid;grid-template-columns:170px 1.05fr 1.4fr;gap:28px;align-items:start;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:30px 0;background:transparent!important}
+#help .card .num{margin:5px 0 0;font-size:10px;letter-spacing:.14em}
+#help .card h3{font-size:clamp(24px,2.6vw,34px);line-height:1;margin:0;font-weight:600;letter-spacing:-.035em}
+#help .card p{font-size:15px;line-height:1.6}
+#help .card:hover h3{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--yellow)}
+
+.week{grid-template-columns:.82fr 1.18fr;gap:0;border:1px solid var(--ink)}
+.weekbox{border:0;border-radius:0;padding:42px;min-height:360px}
+.weekbox.blue{background:var(--ink);color:#fff}
+.weekbox.blue p{color:rgba(255,255,255,.7);font-size:17px}
+.weekbox h3{font-size:clamp(30px,4vw,46px);line-height:.98;font-weight:500}
+.weekbox:not(.blue){background:var(--blue-soft)}
+.weekbox ul{list-style:none;padding:0;gap:0}.weekbox li{padding:13px 0;border-bottom:1px solid rgba(25,25,25,.15)}.weekbox li:last-child{border-bottom:0}
+
+#workflow .process{grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+#workflow .step{border:0;border-right:1px solid var(--line);padding:28px 24px 34px;min-height:285px}
+#workflow .step:last-child{border-right:0}
+#workflow .step strong{font-family:inherit;font-size:10px;letter-spacing:.14em}
+#workflow .step h3{font-size:26px;line-height:1.02;margin:48px 0 12px;font-weight:600}
+#workflow .step:nth-child(2){background:var(--blue-soft)}
+#workflow .step:nth-child(3){background:var(--yellow)}
+#workflow .step:nth-child(4){background:#fff}
+
+.package{border-radius:0;padding:0;gap:0;grid-template-columns:1.08fr .92fr;border:1px solid var(--ink);background:var(--ink)}
+.package>div:first-child{padding:48px}
+.package h2{font-weight:500;font-size:clamp(42px,5vw,64px)}
+.price{font-family:inherit;font-size:58px;font-weight:600;letter-spacing:-.055em}
+.price small{font-family:inherit}
+.include{border-radius:0;padding:48px;background:var(--yellow)}
+.include h3{font-size:31px;font-weight:600}
+.include ul{list-style:none;padding:0;gap:0}.include li{padding:10px 0;border-bottom:1px solid rgba(25,25,25,.18)}
+.include li:last-child{border-bottom:0}.not{border-color:rgba(25,25,25,.24)}
+.faq details{border-radius:0;border-width:0 0 1px;background:transparent;padding:21px 0}
+.final{border-radius:0;text-align:left;background:var(--blue);display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end;padding:54px}
+.final h2{font-weight:500}.final p{margin:0;max-width:640px}.final .actions{justify-content:flex-end;align-self:end}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}.hero-card{min-height:300px}
+  #help .card{grid-template-columns:1fr;gap:8px}
+  #help .card .num{margin-bottom:10px}
+  .week,.package,.final{grid-template-columns:1fr}
+  #workflow .process{grid-template-columns:1fr 1fr}
+  #workflow .step:nth-child(2){border-right:0}
+  #workflow .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .final .actions{justify-content:flex-start}
+}
+@media(max-width:560px){
+  .hero{padding:72px 0 56px}.hero h1{font-size:52px}.hero-card .big{font-size:62px}
+  section{padding:68px 0}
+  .weekbox,.package>div:first-child,.include,.final{padding:30px 24px}
+  #workflow .process{grid-template-columns:1fr}
+  #workflow .step{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
+  #workflow .step:last-child{border-bottom:0}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../">THE LAUNCH ERA</a>
+    <nav class="navlinks">
+      <a href="#help">En qué te ayudo</a>
+      <a href="#workflow">Cómo funciona</a>
+      <a href="#package">Paquete</a>
+      <a href="../">Todos los servicios</a>
+      <a href="../../virtual-assistant/" hreflang="en">EN</a><a class="navcta" href="#package">Ver paquete VA</a>
+    </nav>
+    <button class="mobile" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="wrap panel" id="panel">
+    <a href="#help" onclick="toggleMenu(false)">What I help with</a>
+    <a href="#workflow" onclick="toggleMenu(false)">How it works</a>
+    <a href="#package" onclick="toggleMenu(false)">Package</a>
+    <a href="../../virtual-assistant/" hreflang="en">English</a><a href="../">← Volver a todos los servicios</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Soporte de asistente virtual · negocios de limpieza</div>
+      <h1>Mantén en movimiento el trabajo detrás de tu negocio de limpieza.</h1>
+      <p class="lead">Ayudo a dueños de negocios de limpieza a mantener organizadas las consultas, los seguimientos de clientes, el calendario y las tareas administrativas esenciales sin contratar a tiempo completo.</p>
+      <div class="actions"><a class="btn dark" href="#help">Ver exactamente qué manejo</a><a class="btn" href="#package">Ver paquete + precio</a></div>
+    </div>
+    <aside class="hero-card">
+      <div class="eyebrow">VA Essential Support</div>
+      <div class="big">8 horas</div>
+      <p>Hasta 8 horas de soporte enfocado cada mes para las tareas esenciales que protegen tus consultas, la comunicación con clientes y tu calendario.</p>
+      <div class="micro"><span class="chip">Consultas</span><span class="chip">Seguimientos</span><span class="chip">Clientes</span><span class="chip">Calendario</span><span class="chip">Reporte semanal</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="alt" id="help">
+  <div class="wrap">
+    <div class="eyebrow">En qué te ayudo realmente</div>
+    <h2 class="title">Las pequeñas tareas operativas que se siguen acumulando.</h2>
+    <p class="intro">Esto no es “ayuda de VA” sin límites claros. Acordamos prioridades y trabajo las tareas recurrentes que mantienen organizada la información de tu negocio y visibles tus próximas acciones.</p>
+    <div class="grid">
+      <article class="card"><div class="num">01 · CONSULTAS</div><h3>Organización de consultas + preparación de seguimiento</h3><p>Mantengo organizadas las nuevas consultas, actualizo estados, ordeno datos de contacto y preparo mensajes de seguimiento para que las oportunidades no se pierdan entre DMs o notas.</p></article>
+      <article class="card"><div class="num">02 · CLIENTES</div><h3>Registros de clientes + próximos pasos</h3><p>Mantengo organizados los datos del cliente, notas del servicio y próximas acciones en el sistema acordado para que encuentres rápidamente lo que necesitas.</p></article>
+      <article class="card"><div class="num">03 · CALENDARIO</div><h3>Calendario + actualizaciones de citas</h3><p>Agrego o actualizo citas acordadas, fechas límite y recordatorios para que sea más fácil dar seguimiento al trabajo importante de clientes.</p></article>
+      <article class="card"><div class="num">04 · SEGUIMIENTOS</div><h3>Seguimientos aprobados por email</h3><p>Preparo y envío emails de seguimiento acordados usando mensajes aprobados, y registro la próxima acción para que las conversaciones no se pierdan.</p></article>
+      <article class="card"><div class="num">05 · COTIZACIONES + FACTURAS</div><h3>Preparación de información + organización</h3><p>Preparo y organizo la información del cliente necesaria para cotizaciones y facturas y mantengo fáciles de localizar los registros relacionados. No incluye contabilidad.</p></article>
+      <article class="card"><div class="num">06 · VISIBILIDAD SEMANAL</div><h3>Programación aprobada + resumen semanal</h3><p>Programo publicaciones sociales que ya estén aprobadas y preparo un resumen semanal simple del trabajo completado, pendientes y decisiones que necesitas tomar.</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Cómo puede verse esto en la práctica</div>
+    <h2 class="title">Tú mantienes el control. Yo mantengo avanzando las tareas acordadas.</h2>
+    <div class="week">
+      <div class="weekbox blue"><h3>Cuando llegan nuevas consultas</h3><p>Puedo actualizar su información, marcar en qué etapa están, preparar el próximo seguimiento y mantener el registro claro para que sepas quién todavía necesita atención.</p></div>
+      <div class="weekbox"><h3>Cuando la semana se complica</h3><ul><li>Actualizar información de clientes</li><li>Preparar emails de seguimiento aprobados</li><li>Registrar próximas acciones de consultas y clientes</li><li>Preparar información para cotizaciones/facturas</li><li>Actualizar elementos del calendario</li><li>Programar contenido aprobado</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="workflow">
+  <div class="wrap">
+    <div class="eyebrow">Ritmo de trabajo simple</div>
+    <h2 class="title">Sin un sistema complicado de VA que tengas que aprender.</h2>
+    <div class="process">
+      <div class="step"><strong>01 · PRIORIZA</strong><h3>Elige el trabajo que más importa.</h3><p>Definimos las tareas recurrentes y qué debe ir primero.</p></div>
+      <div class="step"><strong>02 · ORGANIZA</strong><h3>Usa las herramientas que ya tienes.</h3><p>Acordamos dónde deben vivir la información de clientes, las tareas y los archivos.</p></div>
+      <div class="step"><strong>03 · SOPORTE</strong><h3>Trabajo la lista aprobada.</h3><p>Manejo las tareas acordadas de consultas, seguimiento, calendario, cotizaciones/facturas y programación dentro de tus horas mensuales.</p></div>
+      <div class="step"><strong>04 · VISIBILIDAD</strong><h3>Puedes ver qué avanzó.</h3><p>Las actualizaciones se mantienen organizadas para que sepas qué está terminado y qué todavía necesita tu decisión.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="package">
+  <div class="wrap package">
+    <div>
+      <div class="eyebrow" style="color:var(--yellow)">VA Essential Support</div>
+      <h2>Un paquete mensual de soporte práctico.</h2>
+      <div class="price"><span style="font-size:24px;opacity:.65"><s>$219</s></span> $179 <small>/ mes</small></div>
+      <p><strong>Precio de Cliente Fundador.</strong> Hasta 8 horas al mes para un dueño de negocio de limpieza que necesita apoyo enfocado para mantener consultas, seguimientos y administración esencial en movimiento. No requiere cupón.</p>
+      <div class="actions"><a class="btn yellow" href="https://buy.stripe.com/cNi00igTBbXHc4xfzC93y0i" target="_blank" rel="noopener noreferrer">Comenzar Soporte VA →</a></div>
+    </div>
+    <div class="include">
+      <h3>El soporte puede incluir:</h3>
+      <ul>
+        <li>Organización de consultas y clientes</li>
+        <li>Preparación de seguimientos</li>
+        <li>Actualizaciones de calendario y citas</li>
+        <li>Emails de seguimiento aprobados</li>
+        <li>Resumen semanal de actividad</li>
+        <li>Preparación de información para cotizaciones y facturas</li>
+        <li>Programación de publicaciones sociales aprobadas</li>
+      </ul>
+      <div class="not"><strong>No incluido:</strong> diseño en Canva, limpieza general de archivos, bookkeeping/accounting, llamadas en vivo, edición de video, servicio al cliente 24/7, trabajo técnico avanzado ni administración general sin límites.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq">
+    <div class="eyebrow">Preguntas rápidas</div>
+    <h2 class="title">Antes de comenzar.</h2>
+    <details><summary>¿Administras todo mi negocio?</summary><p>No. Manejo las tareas de soporte acordadas dentro del paquete. Las decisiones del negocio, aprobaciones y trabajo fuera del alcance definido siguen siendo tuyos.</p></details>
+    <details><summary>¿Puedes contestar llamadas para mi negocio de limpieza?</summary><p>No. El manejo de llamadas en vivo no está incluido.</p></details>
+    <details><summary>¿Puedes hacer bookkeeping o contabilidad?</summary><p>No. Puedo organizar información de cotizaciones y facturas, pero bookkeeping, contabilidad y trabajo de impuestos no están incluidos.</p></details>
+    <details><summary>¿Creas todo mi contenido para redes sociales?</summary><p>La creación mensual completa de contenido y el diseño en Canva son servicios separados. El Soporte VA puede programar publicaciones que ya estén aprobadas y listas para publicar.</p></details>
+    <details><summary>¿Qué sucede primero?</summary><p>Identificamos las tareas que más tiempo consumen, acordamos prioridades y confirmamos dónde se manejará el trabajo antes de comenzar el soporte.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap final">
+    <h2>Pon en orden la operación interna sin contratar a tiempo completo.</h2>
+    <p>Empieza con las tareas recurrentes que más tiempo te están costando. Mantenemos el alcance claro y construimos desde ahí.</p>
+    <div class="actions"><a class="btn dark" href="https://buy.stripe.com/cNi00igTBbXHc4xfzC93y0i" target="_blank" rel="noopener noreferrer">Comenzar Soporte VA →</a><a class="btn" href="../">Volver a todos los servicios</a></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap footer"><span>© 2026 The Launch Era</span><span>Soporte de asistente virtual para negocios de limpieza en EE. UU.</span></div></footer>
+<script>
+function toggleMenu(force){const p=document.getElementById('panel');const b=document.querySelector('.mobile');const open=typeof force==='boolean'?force:!p.classList.contains('open');p.classList.toggle('open',open);b.textContent=open?'×':'☰'}
+</script>
+</body>
+</html>
