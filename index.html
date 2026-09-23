@@ -294,6 +294,31 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:920px){.journey-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.journey-section{padding:58px 0}.journey-grid{grid-template-columns:1fr}.journey-card{min-height:auto}}
 
+/* Product proof: show the operating system before the content offer */
+.hub-spotlight{padding:96px 0;background:var(--ink);color:#fff;border-bottom:1px solid var(--ink)}
+.hub-spotlight-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(440px,1.18fr);gap:64px;align-items:center}
+.hub-spotlight .eyebrow{color:var(--butter)}
+.hub-spotlight h2{font-size:clamp(42px,5.4vw,72px);line-height:.96;letter-spacing:-.05em;font-weight:500;margin:0 0 20px;max-width:680px}
+.hub-spotlight-copy>p{font-size:18px;line-height:1.62;color:rgba(255,255,255,.72);max-width:620px;margin:0 0 26px}
+.hub-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 30px}
+.hub-flow span{border:1px solid rgba(255,255,255,.42);padding:8px 10px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hub-flow b{color:var(--butter);font-weight:700}
+.hub-spotlight .btn{border-color:#fff}
+.hub-product{background:var(--ivory);color:var(--ink);border:1px solid rgba(255,255,255,.32);box-shadow:18px 18px 0 var(--blue);padding:18px}
+.hub-product-top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:2px 2px 15px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hub-product-top span:last-child{color:var(--muted)}
+.hub-product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-top:18px}
+.hub-product-card{min-height:132px;border:1px solid var(--line);background:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.hub-product-card:nth-child(2){background:var(--blue-soft)}
+.hub-product-card:nth-child(3){background:#FFF9D8}
+.hub-product-card:nth-child(4){background:var(--ink);color:#fff}
+.hub-product-label{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.hub-product-card:nth-child(4) .hub-product-label{color:rgba(255,255,255,.62)}
+.hub-product-value{font-size:22px;font-weight:600;line-height:1.08;letter-spacing:-.03em}
+.hub-product-status{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-top:8px}
+@media(max-width:920px){.hub-spotlight-grid{grid-template-columns:1fr}.hub-product{box-shadow:10px 10px 0 var(--blue)}}
+@media(max-width:560px){.hub-spotlight{padding:66px 0}.hub-spotlight-grid{gap:38px}.hub-spotlight h2{font-size:42px}.hub-spotlight-copy>p{font-size:16px}.hub-product{padding:12px}.hub-product-grid{gap:6px}.hub-product-card{min-height:112px;padding:14px}.hub-product-value{font-size:18px}}
+
 </style>
 </head>
 <body>
@@ -377,6 +402,27 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       <article class="journey-card"><div class="journey-num">02 · BUILD TRUST</div><h3>Give them reasons to feel confident.</h3><p>Clear services, reviews, proof and strategic content help the business look established, consistent and ready to hire.</p></article>
       <article class="journey-card"><div class="journey-num">03 · FOLLOW UP</div><h3>Keep warm inquiries from disappearing.</h3><p>Clear replies, automation and structured follow-up make it easier to move an interested lead toward the next step.</p></article>
       <article class="journey-card"><div class="journey-num">04 · BOOK + ORGANIZE</div><h3>Keep the client path simple after yes.</h3><p>Track leads, quotes, clients, invoices and next actions in one clearer workflow instead of scattered messages and notes.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="hub-spotlight" data-reveal>
+  <div class="wrap hub-spotlight-grid">
+    <div class="hub-spotlight-copy">
+      <div class="eyebrow">See the system in action</div>
+      <h2>One clear place for the work that starts after the inquiry.</h2>
+      <p>My Cleaning Hub keeps leads, client details, quotes, invoices and next actions connected, so important follow-up is easier to see and act on.</p>
+      <div class="hub-flow" aria-label="Client workflow"><span>Lead</span><b aria-hidden="true">→</b><span>Quote</span><b aria-hidden="true">→</b><span>Booked client</span><b aria-hidden="true">→</b><span>Invoice</span></div>
+      <a class="btn btn-yellow" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Explore My Cleaning Hub</a>
+    </div>
+    <div class="hub-product" aria-label="Preview of the My Cleaning Hub client workflow">
+      <div class="hub-product-top"><span>My Cleaning Hub</span><span>Client workflow</span></div>
+      <div class="hub-product-grid">
+        <div class="hub-product-card"><div class="hub-product-label">New inquiry</div><div><div class="hub-product-value">Lead added</div><div class="hub-product-status">Needs follow-up</div></div></div>
+        <div class="hub-product-card"><div class="hub-product-label">Quote</div><div><div class="hub-product-value">Ready to send</div><div class="hub-product-status">Draft</div></div></div>
+        <div class="hub-product-card"><div class="hub-product-label">Next booking</div><div><div class="hub-product-value">Service scheduled</div><div class="hub-product-status">Confirmed</div></div></div>
+        <div class="hub-product-card"><div class="hub-product-label">Invoice</div><div><div class="hub-product-value">Payment tracked</div><div class="hub-product-status">Paid</div></div></div>
+      </div>
     </div>
   </div>
 </section>
