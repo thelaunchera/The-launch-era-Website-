@@ -309,6 +309,30 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:920px){.hub-spotlight-grid{grid-template-columns:1fr}.hub-product{box-shadow:10px 10px 0 var(--blue)}}
 @media(max-width:560px){.hub-spotlight{padding:66px 0}.hub-spotlight-grid{gap:38px}.hub-spotlight h2{font-size:42px}.hub-spotlight-copy>p{font-size:16px}}
 
+/* Color-led sales hero */
+.sales-hero{padding:0;background:var(--ivory);border-bottom:1px solid var(--line)}
+.sales-hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:770px}
+.sales-hero-copy{padding:76px max(36px,calc((100vw - var(--max))/2)) 50px max(36px,calc((100vw - var(--max))/2));padding-right:64px;background:var(--blue);display:flex;flex-direction:column;justify-content:center}
+.sales-hero .kicker{margin-bottom:26px}
+.sales-hero h1{font-size:clamp(50px,5.5vw,76px);line-height:.98;letter-spacing:-.05em;margin:0 0 26px;max-width:700px}
+.sales-hero-copy>p{font-size:clamp(18px,1.7vw,23px);line-height:1.5;color:#404040;max-width:650px;margin:0}
+.sales-hero .hero-actions{margin-top:32px}
+.sales-hero-note{font-size:13px;font-weight:700;color:#464646;margin-top:22px}
+.sales-hero-visual{position:relative;min-height:770px;overflow:hidden;background:#eaf3ff}
+.sales-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% center}
+.sales-hero-message{position:absolute;z-index:2;right:0;top:0;width:min(36%,260px);background:var(--butter);padding:54px 30px 46px;font-size:17px;line-height:1.55;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.sales-hero-product{position:absolute;z-index:3;left:8%;right:10%;bottom:44px;margin:0;border:1px solid rgba(25,25,25,.18);background:#fff;box-shadow:0 22px 55px rgba(25,25,25,.2)}
+.sales-hero-product img{display:block;width:100%;height:auto}
+.sales-path{grid-column:1/-1;background:var(--ivory);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:30px max(36px,calc((100vw - var(--max))/2));gap:0}
+.sales-path-step{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;padding:0 24px;border-right:1px solid var(--line)}
+.sales-path-step:first-child{padding-left:0}.sales-path-step:last-child{border-right:0;padding-right:0}
+.sales-path-num{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:var(--blue);font-weight:800;font-size:13px}
+.sales-path-step:nth-child(even) .sales-path-num{background:var(--butter)}
+.sales-path-step strong{display:block;font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin:2px 0 5px}
+.sales-path-step p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+@media(max-width:980px){.sales-hero-grid{grid-template-columns:1fr}.sales-hero-copy{padding:70px max(28px,calc((100vw - var(--max))/2)) 54px}.sales-hero-visual{min-height:620px}.sales-path{grid-template-columns:repeat(2,1fr);row-gap:28px}.sales-path-step:nth-child(2){border-right:0}.sales-path-step:nth-child(3){padding-left:0}}
+@media(max-width:560px){.sales-hero-copy{padding:54px 20px 44px}.sales-hero h1{font-size:46px;line-height:1}.sales-hero-copy>p{font-size:17px}.sales-hero .hero-actions{display:grid}.sales-hero .hero-actions .btn{width:100%;text-align:center}.sales-hero-visual{min-height:430px}.sales-hero-message{width:42%;padding:26px 18px;font-size:12px}.sales-hero-product{left:6%;right:6%;bottom:22px}.sales-path{grid-template-columns:1fr;padding:28px 20px;row-gap:22px}.sales-path-step,.sales-path-step:nth-child(3){padding:0 0 22px;border-right:0;border-bottom:1px solid var(--line)}.sales-path-step:last-child{border-bottom:0;padding-bottom:0}}
+
 </style>
 </head>
 <body>
@@ -332,53 +356,29 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   </div>
 </header>
 <main id="top">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
+<section class="hero sales-hero">
+  <div class="sales-hero-grid">
+    <div class="sales-hero-copy">
       <div class="kicker"><span class="kicker-dot"></span>Marketing + client systems for residential cleaning businesses</div>
       <h1>Turn more cleaning inquiries into booked clients.</h1>
-      <p>The Launch Era helps cleaning businesses build trust online, follow up faster and keep the path from inquiry to booking organized — without turning marketing into another full-time job.</p>
+      <p>Build trust online, follow up faster and keep every client next step organized.</p>
       <div class="hero-actions">
-        <a class="btn btn-dark" href="#journey">See How It Works</a>
-        <a class="btn btn-light" href="#more">Explore Services</a>
+        <a class="btn btn-dark" href="#more">Explore services</a>
+        <a class="btn btn-light" href="#journey">See how it works</a>
       </div>
-      <div class="proof-row"><span>Build trust</span><span>Follow up faster</span><span>Keep client work organized</span></div>
+      <div class="sales-hero-note">Built for residential cleaning businesses · English + Español</div>
     </div>
-    <aside class="ui-preview" aria-label="Interactive preview of how The Launch Era helps cleaning businesses">
-      <div class="ui-topbar">
-        <div class="ui-dots"><span></span><span></span><span></span></div>
-        <div class="ui-toplabel">How The Launch Era Helps</div>
-      </div>
-      <div class="ui-tabs" role="tablist" aria-label="Inquiry-to-booking support preview">
-        <button class="ui-tab active" type="button" data-ui-tab="strategy">Trust</button>
-        <button class="ui-tab" type="button" data-ui-tab="design">Follow Up</button>
-        <button class="ui-tab" type="button" data-ui-tab="delivery">Book</button>
-      </div>
-      <div class="ui-screen">
-        <div class="ui-panel active" data-ui-panel="strategy">
-          <div class="ui-panel-kicker">01 · Build trust</div>
-          <h3>Make the business easier to trust before they message.</h3>
-          <p>We improve what a homeowner sees first: clear services, proof, reviews, strategic content and a clear way to inquire.</p>
-          <div class="ui-service-line">How we help · Instagram Audit + Content</div>
-          <div class="ui-board"><div class="ui-tile">CLEAR OFFER</div><div class="ui-tile">PROOF</div><div class="ui-tile">REVIEWS</div><div class="ui-tile">CONTENT + CTA</div></div>
-        </div>
-        <div class="ui-panel" data-ui-panel="design">
-          <div class="ui-panel-kicker">02 · Follow up</div>
-          <h3>Give every warm inquiry a clear next step.</h3>
-          <p>We set up replies, routing, reminders and follow-up so interested leads do not get buried in DMs, texts or notes.</p>
-          <div class="ui-service-line">How we help · DM Automation + VA Support</div>
-          <div class="ui-board"><div class="ui-tile">QUICK REPLY</div><div class="ui-tile">ROUTE</div><div class="ui-tile">FOLLOW-UP</div><div class="ui-tile">NEXT STEP</div></div>
-        </div>
-        <div class="ui-panel" data-ui-panel="delivery">
-          <div class="ui-panel-kicker">03 · Book + organize</div>
-          <h3>Keep the full client path organized after they inquire.</h3>
-          <p>We help keep what they asked for, the quote, follow-up, client details, invoice and next action in one clearer workflow.</p>
-          <div class="ui-service-line">How we help · My Cleaning Hub + VA Support</div>
-          <div class="ui-board ui-board-five"><div class="ui-tile">INQUIRY</div><div class="ui-tile">QUOTE</div><div class="ui-tile">FOLLOW-UP</div><div class="ui-tile">BOOKED CLIENT</div><div class="ui-tile">INVOICE + NEXT ACTION</div></div>
-        </div>
-        <div class="ui-footerline"><span>Built for residential cleaning businesses</span><span>Trust → Follow-up → Booked client ↗</span></div>
-      </div>
-    </aside>
+    <div class="sales-hero-visual" aria-label="Cleaning professional and My Cleaning Hub dashboard">
+      <img class="sales-hero-photo" src="assets/cleaning-professional-hero.webp" alt="Residential cleaning professional making a bed in a bright home" width="1536" height="1024" fetchpriority="high">
+      <div class="sales-hero-message">We help cleaning businesses grow with systems that work.</div>
+      <figure class="sales-hero-product"><img src="assets/my-cleaning-hub-preview.webp" alt="My Cleaning Hub dashboard organizing cleanings, money and next appointments" width="1672" height="941"></figure>
+    </div>
+    <div class="sales-path" aria-label="Path from inquiry to booked client">
+      <div class="sales-path-step"><span class="sales-path-num">01</span><div><strong>Inquiry</strong><p>Turn website visits, DMs and calls into captured inquiries.</p></div></div>
+      <div class="sales-path-step"><span class="sales-path-num">02</span><div><strong>Trust</strong><p>Share clear services, proof and useful content.</p></div></div>
+      <div class="sales-path-step"><span class="sales-path-num">03</span><div><strong>Follow-up</strong><p>Respond faster with simple systems and reminders.</p></div></div>
+      <div class="sales-path-step"><span class="sales-path-num">04</span><div><strong>Booked client</strong><p>Keep the next step organized from inquiry to booking.</p></div></div>
+    </div>
   </div>
 </section>
 
