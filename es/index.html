@@ -333,6 +333,25 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:980px){.sales-hero-grid{grid-template-columns:1fr}.sales-hero-copy{padding:70px max(28px,calc((100vw - var(--max))/2)) 54px}.sales-hero-visual{min-height:620px}.sales-path{grid-template-columns:repeat(2,1fr);row-gap:28px}.sales-path-step:nth-child(2){border-right:0}.sales-path-step:nth-child(3){padding-left:0}}
 @media(max-width:560px){.sales-hero-copy{padding:54px 20px 44px}.sales-hero h1{font-size:46px;line-height:1}.sales-hero-copy>p{font-size:17px}.sales-hero .hero-actions{display:grid}.sales-hero .hero-actions .btn{width:100%;text-align:center}.sales-hero-visual{min-height:430px}.sales-hero-message{width:42%;padding:26px 18px;font-size:12px}.sales-hero-product{left:0;right:0;bottom:0;border-left:0;border-right:0;border-bottom:0;box-shadow:none}.sales-path{grid-template-columns:1fr;padding:28px 20px;row-gap:22px}.sales-path-step,.sales-path-step:nth-child(3){padding:0 0 22px;border-right:0;border-bottom:1px solid var(--line)}.sales-path-step:last-child{border-bottom:0;padding-bottom:0}}
 
+
+/* 2026-09-24 conversion architecture: dolor -> Hub flagship oculto -> sistema -> servicios -> prueba -> contenido */
+.pain-section{padding:92px 0;background:var(--ink);color:#fff;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.pain-section .eyebrow{color:var(--butter)}
+.pain-section .section-title{max-width:980px}
+.pain-section .section-intro{color:rgba(255,255,255,.68);max-width:780px}
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.22);margin-top:34px}
+.pain-card{background:var(--ink);padding:30px;min-height:245px;display:flex;flex-direction:column}
+.pain-card .pain-num{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--butter);margin-bottom:44px}
+.pain-card h3{font-size:25px;line-height:1.05;margin:0 0 12px;letter-spacing:-.03em}
+.pain-card p{margin:0;color:rgba(255,255,255,.66)}
+.flagship-label{display:inline-flex;border:1px solid var(--ink);padding:8px 10px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;background:var(--butter)}
+.support-intro{max-width:820px}
+.start-card{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;border:1px solid var(--ink);background:#fff;padding:42px}
+.start-card h2{font-size:clamp(34px,4.5vw,58px);line-height:.98;letter-spacing:-.045em;margin:0 0 12px;font-weight:500}
+.start-card p{font-size:18px;color:var(--muted);max-width:760px;margin:0}
+@media(max-width:920px){.pain-grid{grid-template-columns:repeat(2,1fr)}.start-card{grid-template-columns:1fr}}
+@media(max-width:560px){.pain-section{padding:64px 0}.pain-grid{grid-template-columns:1fr}.pain-card{min-height:auto}.start-card{padding:30px 22px}.start-card .btn{width:100%}}
+
 </style>
 </head>
 <body>
@@ -341,8 +360,8 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
     <a class="brand" href="#top">THE LAUNCH ERA</a>
     <nav class="menu" aria-label="Navegación principal">
       <a href="#journey">Cómo funciona</a>
+      <a href="#more">Servicios</a>
       <a href="#pricing">Contenido</a>
-      <a href="#more">Soporte</a>
       <a class="lang-link" href="../" lang="en" hreflang="en" aria-label="View site in English">EN</a>
       <a class="nav-cta" href="#more">Ver servicios</a>
     </nav>
@@ -350,8 +369,8 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   </div>
   <div class="mobile-panel" id="mobilePanel">
     <a href="#journey" onclick="closeMenu()">Cómo funciona</a>
+    <a href="#more" onclick="closeMenu()">Servicios</a>
     <a href="#pricing" onclick="closeMenu()">Contenido</a>
-    <a href="#more" onclick="closeMenu()">Soporte</a>
     <a href="../" lang="en" hreflang="en">English</a>
   </div>
 </header>
@@ -360,220 +379,205 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   <div class="sales-hero-grid">
     <div class="sales-hero-copy">
       <div class="kicker"><span class="kicker-dot"></span>Marketing + sistemas de clientes para negocios de limpieza residencial</div>
-      <h1>Convierte más consultas de limpieza en clientes reservados.</h1>
-      <p>Genera confianza online, da seguimiento más rápido y mantén organizado cada próximo paso del cliente.</p>
+      <h1>Convierte más consultas de limpieza en clientes reservados — sin perder el control de lo que pasa después.</h1>
+      <p>The Launch Era ayuda a negocios de limpieza residencial a generar confianza, responder más rápido y mantener organizado el recorrido del cliente desde la primera consulta hasta el pago.</p>
       <div class="hero-actions">
-        <a class="btn btn-dark" href="#more">Ver servicios</a>
+        <a class="btn btn-dark" href="https://buy.stripe.com/7sYeVcgTB6DnfgJ4UY93y0g" target="_blank" rel="noopener">Obtén tu auditoría de Instagram</a>
         <a class="btn btn-light" href="#journey">Ver cómo funciona</a>
       </div>
-      <div class="sales-hero-note">Creado para negocios de limpieza residencial · English + Español</div>
+      <div class="sales-hero-note">Creado para negocios de limpieza residencial en EE.UU. · English + Español</div>
     </div>
-    <div class="sales-hero-visual" aria-label="Residential cleaning professional">
-      <img class="sales-hero-photo" src="../assets/cleaning-professional-hero.webp" alt="Profesional de limpieza residencial haciendo una cama en una casa luminosa" width="1536" height="1024" fetchpriority="high">
-      <div class="sales-hero-message">Ayudamos a negocios de limpieza a crecer con sistemas que funcionan.</div>
-      
+    <div class="sales-hero-visual" aria-label="Profesional de limpieza residencial">
+      <img class="sales-hero-photo" src="../assets/cleaning-professional-hero.webp" alt="Profesional de limpieza residencial preparando una cama en una casa luminosa" width="1536" height="1024" fetchpriority="high">
+      <div class="sales-hero-message">El marketing debe ayudar a mover al cliente hacia adelante.</div>
     </div>
-    <div class="sales-path" aria-label="Recorrido desde la consulta hasta el cliente reservado">
-      <div class="sales-path-step"><span class="sales-path-num">01</span><div><strong>Consulta</strong><p>Convierte visitas, DMs y llamadas en consultas registradas.</p></div></div>
-      <div class="sales-path-step"><span class="sales-path-num">02</span><div><strong>Confianza</strong><p>Comparte servicios claros, evidencia y contenido útil.</p></div></div>
-      <div class="sales-path-step"><span class="sales-path-num">03</span><div><strong>Seguimiento</strong><p>Responde más rápido con sistemas simples y recordatorios.</p></div></div>
-      <div class="sales-path-step"><span class="sales-path-num">04</span><div><strong>Cliente reservado</strong><p>Mantén organizado el próximo paso desde la consulta hasta la reserva.</p></div></div>
+  </div>
+</section>
+
+<section class="pain-section" id="problems" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">Dónde se pierden buenas consultas</div>
+    <h2 class="section-title">Más consultas no arreglan un sistema de seguimiento roto.</h2>
+    <p class="section-intro">La mayoría de los negocios de limpieza no necesitan más tareas de marketing al azar. Necesitan un camino más claro desde que alguien descubre el negocio hasta que reserva y paga.</p>
+    <div class="pain-grid">
+      <article class="pain-card"><div class="pain-num">01 · CLARIDAD</div><h3>Tu negocio es visible, pero el próximo paso no está claro.</h3><p>Los posibles clientes deben entender rápido qué ofreces, por qué confiar en ti y cómo contactarte.</p></article>
+      <article class="pain-card"><div class="pain-num">02 · RESPUESTA</div><h3>Las consultas llegan mientras estás ocupada haciendo el trabajo.</h3><p>DMs, formularios y mensajes pueden enfriarse cuando cada respuesta depende de que estés disponible en el momento correcto.</p></article>
+      <article class="pain-card"><div class="pain-num">03 · SEGUIMIENTO</div><h3>El seguimiento vive en tu memoria.</h3><p>Los leads interesados desaparecen cuando no hay un sistema simple que muestre quién necesita respuesta y qué sigue.</p></article>
+      <article class="pain-card"><div class="pain-num">04 · ORGANIZACIÓN</div><h3>Cotizaciones, clientes, trabajos y facturas viven en lugares diferentes.</h3><p>Mientras más crece el negocio, más difícil es mantener organizada la parte de clientes con notas y mensajes dispersos.</p></article>
     </div>
+  </div>
+</section>
+
+<section class="hub-spotlight" id="hub-primary" data-reveal style="display:none" aria-hidden="true">
+  <div class="wrap hub-spotlight-grid">
+    <div class="hub-spotlight-copy">
+      <div class="flagship-label">El sistema central</div>
+      <div class="eyebrow">My Cleaning Hub</div>
+      <h2>Un solo lugar para manejar la parte de clientes de tu negocio de limpieza.</h2>
+      <p>Dale a tus clientes una forma clara de pedir cotización o reservar y mantén clientes, calendario, cotizaciones, facturas y seguimiento de pagos conectados dentro de un espacio privado.</p>
+      <div class="hub-flow" aria-label="Flujo del cliente"><span>Consulta</span><b aria-hidden="true">→</b><span>Cotización</span><b aria-hidden="true">→</b><span>Cliente</span><b aria-hidden="true">→</b><span>Calendario</span><b aria-hidden="true">→</b><span>Factura</span><b aria-hidden="true">→</b><span>Pago</span></div>
+      <p><strong>Primer mes gratis · Luego $5.99/mes.</strong></p>
+      <a class="btn btn-yellow" href="../cleaning-hub/">Ver My Cleaning Hub</a>
+    </div>
+    <figure class="hub-product"><img src="../assets/my-cleaning-hub-preview.webp" alt="Dashboard de My Cleaning Hub con trabajos, clientes, cotizaciones, facturas y próxima cita" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
 <section class="journey-section" id="journey" data-reveal>
   <div class="wrap">
     <div class="eyebrow">El sistema de The Launch Era</div>
-    <h2 class="section-title">De visibilidad a cliente reservado.</h2>
-    <p class="section-intro">No tratamos el marketing como una colección de publicaciones al azar. Cada capa de soporte fortalece una etapa del recorrido del cliente para que más oportunidades tengan un próximo paso claro.</p>
+    <h2 class="section-title">Que te encuentren. Genera confianza. Da seguimiento. Convierte.</h2>
+    <p class="section-intro">Cada servicio apoya una parte específica del recorrido del cliente. En vez de tratar contenido, automatización y administración como tareas separadas, las conectamos alrededor de un objetivo: hacer más fácil que una buena consulta se convierta en cliente.</p>
     <div class="journey-grid">
-      <article class="journey-card"><div class="journey-num">01 · HAZTE ENCONTRAR</div><h3>Haz que el negocio sea fácil de entender.</h3><p>Cuando los propietarios te descubren por recomendaciones, Google, Facebook o Instagram, deben entender rápidamente qué ofreces y para quién es.</p></article>
-      <article class="journey-card"><div class="journey-num">02 · GENERA CONFIANZA</div><h3>Dales razones para sentirse seguros al contratarte.</h3><p>Servicios claros, reseñas, evidencia y contenido estratégico ayudan a que el negocio se vea establecido, consistente y listo para contratar.</p></article>
-      <article class="journey-card"><div class="journey-num">03 · DA SEGUIMIENTO</div><h3>Evita que las consultas interesadas desaparezcan.</h3><p>Respuestas claras, automatización y seguimiento estructurado facilitan guiar a una persona interesada hacia el próximo paso.</p></article>
-      <article class="journey-card"><div class="journey-num">04 · RESERVA + ORGANIZA</div><h3>Mantén simple el recorrido del cliente después del sí.</h3><p>Controla consultas, cotizaciones, clientes, facturas y próximas acciones en un flujo claro, en lugar de mensajes y notas dispersas.</p></article>
+      <article class="journey-card"><div class="journey-num">01 · QUE TE ENCUENTREN</div><h3>Haz que el negocio sea fácil de entender.</h3><p>Servicios y posicionamiento claros ayudan a que los dueños de casa entiendan rápido qué haces y a quién ayudas.</p></article>
+      <article class="journey-card"><div class="journey-num">02 · GENERA CONFIANZA</div><h3>Dales razones para sentirse seguros.</h3><p>Contenido útil, prueba y una presencia consistente hacen que el negocio se vea establecido y listo para contratar.</p></article>
+      <article class="journey-card"><div class="journey-num">03 · DA SEGUIMIENTO</div><h3>No dejes desaparecer consultas interesadas.</h3><p>Respuestas claras, automatización y seguimiento estructurado le dan a cada persona un siguiente paso obvio.</p></article>
+      <article class="journey-card"><div class="journey-num">04 · CONVIERTE</div><h3>Mantén organizado lo que pasa después del “sí”.</h3><p>Mueve al cliente hacia adelante con un camino más claro para cotizaciones, calendario, facturas y próximas acciones.</p></article>
     </div>
   </div>
 </section>
 
-<section class="hub-spotlight" data-reveal style="display:none" aria-hidden="true">
-  <div class="wrap hub-spotlight-grid">
-    <div class="hub-spotlight-copy">
-      <div class="eyebrow">Mira el sistema en acción</div>
-      <h2>Un lugar claro para el trabajo que comienza después de la consulta.</h2>
-      <p>My Cleaning Hub mantiene conectados los leads, datos del cliente, cotizaciones, facturas y próximas acciones para que el seguimiento importante sea más fácil de ver y completar.</p>
-      <div class="hub-flow" aria-label="Recorrido del cliente"><span>Lead</span><b aria-hidden="true">→</b><span>Cotización</span><b aria-hidden="true">→</b><span>Cliente reservado</span><b aria-hidden="true">→</b><span>Factura</span></div>
-      <a class="btn btn-yellow" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Explorar My Cleaning Hub</a>
+<section class="section alt" id="more" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">Elige qué parte necesita arreglarse</div>
+    <h2 class="section-title">Soporte para la parte del recorrido del cliente que está frenando tu negocio.</h2>
+    <p class="section-intro support-intro">Empieza con un diagnóstico, fortalece cómo el negocio genera confianza, automatiza pasos repetitivos de consultas o delega la administración que te sigue quitando tiempo.</p>
+    <div class="service-explorer">
+      <div class="service-nav" role="tablist" aria-label="Servicios de The Launch Era">
+        <button type="button" data-service-tab="hub" style="display:none" aria-hidden="true">My Cleaning Hub</button>
+        <button class="active" type="button" data-service-tab="audit">Auditoría de Instagram</button>
+        <button type="button" data-service-tab="automation">Automatización de Instagram</button>
+        <button type="button" data-service-tab="va">Soporte VA</button>
+      </div>
+      <div class="service-display">
+        <div class="service-pane" data-service-pane="hub" style="display:none" aria-hidden="true">
+          <div class="service-num">Sistema central · Organización</div>
+          <h3>Maneja la parte de clientes de tu negocio desde un solo lugar.</h3>
+          <p>Mantén solicitudes de cotización, clientes, calendario, cotizaciones, facturas y seguimiento de pagos conectados en vez de dispersos entre mensajes y notas.</p>
+          <div class="service-meta"><span>Primer mes gratis</span><span>Luego $5.99/mes</span><span>Espacio privado</span></div>
+          <a class="btn btn-blue service-link" href="../cleaning-hub/">Ver My Cleaning Hub</a>
+        </div>
+        <div class="service-pane active" data-service-pane="audit">
+          <div class="service-num">01 · Diagnóstico</div>
+          <h3>Encuentra qué está haciendo que tu Instagram sea más difícil de entender, confiar o usar.</h3>
+          <p>La auditoría revisa tu perfil, claridad de oferta, señales de confianza, contenido, llamadas a la acción y camino de consulta, y te entrega un plan corto y priorizado.</p>
+          <div class="service-meta"><span><s>$20</s> <strong>$15 precio founding</strong></span><span>Una vez</span><span>3 días hábiles</span></div>
+          <a class="btn btn-dark service-link" href="https://buy.stripe.com/7sYeVcgTB6DnfgJ4UY93y0g" target="_blank" rel="noopener">Obtener la auditoría</a>
+        </div>
+        <div class="service-pane" data-service-pane="automation">
+          <div class="service-num">02 · Respuesta más rápida</div>
+          <h3>Responde consultas de Instagram antes de que se enfríen.</h3>
+          <p>Construimos el flujo de DM acordado, respuestas, etiquetas y rutas para que las consultas comunes reciban un próximo paso claro sin escribir lo mismo una y otra vez.</p>
+          <div class="service-meta"><span><s>$129</s> <strong>$99 precio founding</strong></span><span>Setup único</span><span>Flujo de Instagram DM</span></div>
+          <a class="btn btn-yellow service-link" href="automation/">Explorar automatización</a>
+        </div>
+        <div class="service-pane" data-service-pane="va">
+          <div class="service-num">03 · Soporte práctico</div>
+          <h3>Delega el seguimiento y la administración que te están robando tiempo.</h3>
+          <p>El soporte VA cubre el seguimiento acordado de leads, follow-ups, actualizaciones de calendario, preparación de cotizaciones y facturas, programación aprobada de posts y un resumen semanal de actividad.</p>
+          <div class="service-meta"><span><s>$162.49/mes</s> <strong>$129.99/mes founding</strong></span><span>Hasta 8 horas</span><span>Soporte mensual</span></div>
+          <a class="btn btn-dark service-link" href="virtual-assistant/">Explorar soporte VA</a>
+        </div>
+      </div>
     </div>
-    <figure class="hub-product"><img src="../assets/my-cleaning-hub-preview.webp" alt="Panel de My Cleaning Hub con trabajos, clientes, cotizaciones, facturas y la próxima cita" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section class="audit-compact" data-reveal>
+  <div class="wrap">
+    <div class="start-card">
+      <div>
+        <div class="eyebrow">¿No sabes por dónde empezar?</div>
+        <h2>Empieza con la auditoría de Instagram.</h2>
+        <p>Antes de añadir más herramientas o más contenido, encuentra las mayores brechas en tu perfil, oferta, señales de confianza y camino de consulta. Recibirás un plan priorizado que puedes usar aunque no compres otro servicio.</p>
+      </div>
+      <a class="btn btn-yellow" href="https://buy.stripe.com/7sYeVcgTB6DnfgJ4UY93y0g" target="_blank" rel="noopener">Obtener auditoría founding por $15</a>
+    </div>
   </div>
 </section>
 
 <section class="sample-section" id="samples" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">Genera confianza</div>
-    <h2 class="section-title">El contenido debe ayudar a que los propietarios confíen en el negocio — no solo llenar la cuadrícula.</h2>
-    <p class="section-intro">Tu contenido mensual se construye alrededor de servicios claros, evidencia, ofertas y próximos pasos para que quien revise tu negocio entienda lo que haces y se sienta más seguro al contactarte.</p>
+    <div class="eyebrow">Mira el trabajo</div>
+    <h2 class="section-title">El contenido debe ayudar a que los clientes confíen en el negocio — no solo llenar el feed.</h2>
+    <p class="section-intro">Tu contenido mensual se construye alrededor de servicios claros, prueba, ofertas y próximos pasos para que alguien que revise tu negocio entienda qué haces y se sienta más seguro al contactarte.</p>
     <div class="sample-grid">
-      <div class="sample-item">
-        <div class="sample-label">Publicación individual</div>
-        <div class="sample-frame sample-single"><img src="../assets/tle-single-post.webp" alt="A Cleaner Home ejemplo de publicación para redes sociales" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="sample-item">
-        <div class="sample-label">Publicación individual</div>
-        <div class="sample-frame sample-carousel"><img src="../assets/tle-carousel-cover.webp" alt="Refresh Your Space with Professional Deep Cleaning ejemplo de publicación individual" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="sample-item">
-        <div class="sample-label">Historia de Instagram</div>
-        <div class="sample-frame sample-story"><img src="../assets/tle-instagram-story.webp" alt="Spend Less Time Cleaning Historia de Instagram example" loading="lazy" decoding="async"></div>
-      </div>
+      <div class="sample-item"><div class="sample-label">Post individual</div><div class="sample-frame sample-single"><img src="../assets/tle-single-post.webp" alt="Ejemplo de post de redes sociales" loading="lazy" decoding="async"></div></div>
+      <div class="sample-item"><div class="sample-label">Post individual</div><div class="sample-frame sample-carousel"><img src="../assets/tle-carousel-cover.webp" alt="Ejemplo de post de limpieza profunda" loading="lazy" decoding="async"></div></div>
+      <div class="sample-item"><div class="sample-label">Historia de Instagram</div><div class="sample-frame sample-story"><img src="../assets/tle-instagram-story.webp" alt="Ejemplo de historia de Instagram" loading="lazy" decoding="async"></div></div>
     </div>
-    <div class="sample-note">Solo ejemplos de formato. Cada entrega se adapta al negocio de limpieza, su marca y su oferta.</div>
+    <div class="sample-note">Solo ejemplos de formato. Cada lote se adapta al negocio de limpieza, marca y oferta.</div>
   </div>
 </section>
 
 <section class="section alt" id="system" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">Contenido que genera confianza</div>
-    <h2 class="section-title">Tu contenido tiene un trabajo: facilitar el próximo paso.</h2>
+    <div class="eyebrow">Genera confianza con contenido</div>
+    <h2 class="section-title">Tu contenido tiene un trabajo: hacer que el próximo paso sea más fácil.</h2>
     <p class="section-intro">Nos das los detalles del negocio. Los convertimos en un sistema mensual de contenido diseñado para aclarar la oferta, fortalecer la confianza y guiar a posibles clientes hacia una consulta.</p>
     <div class="feature-grid">
-      <article class="feature-card"><div class="num">01</div><h3>Estrategia primero</h3><p>Elegimos lo que tu contenido necesita comunicar según tus servicios, ofertas y recorrido del cliente.</p></article>
-      <article class="feature-card"><div class="num">02</div><h3>Diseño personalizado</h3><p>Tus publicaciones se diseñan alrededor de tu marca para que la cuenta se vea consistente, clara y profesional.</p></article>
-      <article class="feature-card"><div class="num">03</div><h3>Textos incluidos</h3><p>Cada publicación incluye el texto terminado y hashtags relevantes, listos para tu cuenta.</p></article>
-      <article class="feature-card"><div class="num">04</div><h3>Contenido que genera confianza</h3><p>Combinamos educación, evidencia, ofertas y mensajes centrados en el cliente en lugar de publicar solo por mantener la cuenta activa.</p></article>
-      <article class="feature-card"><div class="num">05</div><h3>Historias incluidas</h3><p>Las historias apoyan el contenido mensual de la cuadrícula y refuerzan ofertas, confianza y próximos pasos.</p></article>
-      <article class="feature-card"><div class="num">06</div><h3>Entrega organizada</h3><p>Recibes los materiales terminados en una entrega mensual organizada para que publicar sea más fácil.</p></article>
+      <article class="feature-card"><div class="num">01</div><h3>Estrategia primero</h3><p>Elegimos qué necesita comunicar tu contenido según tus servicios, ofertas y recorrido del cliente.</p></article>
+      <article class="feature-card"><div class="num">02</div><h3>Visuales personalizados</h3><p>Los posts se diseñan alrededor de tu marca para que la cuenta se sienta consistente, clara y profesional.</p></article>
+      <article class="feature-card"><div class="num">03</div><h3>Captions incluidos</h3><p>Cada post incluye copy terminado y un set relevante de hashtags listo para tu cuenta.</p></article>
+      <article class="feature-card"><div class="num">04</div><h3>Contenido que genera confianza</h3><p>Combinamos educación, prueba, ofertas y mensajes enfocados en el cliente en vez de publicar solo por mantener actividad.</p></article>
+      <article class="feature-card"><div class="num">05</div><h3>Historias incluidas</h3><p>Los assets de Stories apoyan el contenido mensual y refuerzan ofertas, confianza y próximos pasos.</p></article>
+      <article class="feature-card"><div class="num">06</div><h3>Entrega organizada</h3><p>Recibes los assets terminados en un lote mensual claro para que publicar sea más fácil.</p></article>
     </div>
   </div>
 </section>
-
-
 
 <section class="section alt" id="pricing" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">Genera confianza · Planes mensuales de contenido</div>
-    <h2 class="section-title">Elige la cantidad de contenido que tu negocio necesita este mes.</h2>
-    <p class="section-intro">Cada plan incluye estrategia, diseño personalizado, textos terminados y hashtags. <strong>El precio para clientes fundadores está limitado a los primeros 10 clientes de Contenido.</strong> Elige según la cantidad de contenido que quieras cada mes.</p>
+    <div class="eyebrow">Planes mensuales de contenido</div>
+    <h2 class="section-title">Elige cuánto contenido para generar confianza necesita tu negocio este mes.</h2>
+    <p class="section-intro">Cada plan incluye estrategia, diseño personalizado, captions terminados y sets de hashtags. <strong>El precio Founding Client está limitado a los primeros 10 clientes de Content.</strong></p>
     <div class="pricing-grid">
       <article class="plan">
-        <h3>Starter</h3>
-        <div class="sub">Una presencia mensual clara para una cuenta nueva o con poca actividad.</div>
-        <div class="price-offer">Precio para clientes fundadores</div>
-        <div class="price-now"><span class="amount">$29.99</span><span class="term">/ mes</span></div>
-        <div class="price-after"><s>$37.49/mes</s> precio regular</div>
-        <div class="coupon-line">Disponible para los primeros 10 clientes de Contenido. Tu precio fundador se mantiene mientras tu suscripción permanezca activa.</div>
-        <ul>
-          <li><strong>4 publicaciones de la cuadrícula</strong> · 3 publicaciones individuales + 1 carrusel</li>
-          <li><strong>2 historias</strong></li>
-          <li>Textos + hashtags incluidos</li>
-          <li>Entrega estimada en 5 días hábiles</li>
-        </ul>
-        <div class="plan-micro">1 revisión consolidada</div>
-        <a class="btn btn-light" href="https://buy.stripe.com/28EfZgfPxd1LgkN1IM93y0p" target="_blank" rel="noopener">Elegir Starter</a>
+        <h3>Starter</h3><div class="sub">Una presencia mensual limpia para una cuenta nueva o con poca actividad.</div>
+        <div class="price-offer">Founding Client Price</div><div class="price-now"><span class="amount">$29.99</span><span class="term">/ mes</span></div><div class="price-after"><s>$37.49/mes</s> precio regular</div>
+        <div class="coupon-line">Disponible para los primeros 10 clientes de Content. Tu precio founding se mantiene mientras la suscripción siga activa.</div>
+        <ul><li><strong>4 feed posts</strong> · 3 individuales + 1 carrusel</li><li><strong>2 Stories</strong></li><li>Captions + hashtags incluidos</li><li>Meta de entrega: 5 días hábiles</li></ul>
+        <div class="plan-micro">1 revisión consolidada</div><a class="btn btn-light" href="https://buy.stripe.com/28EfZgfPxd1LgkN1IM93y0p" target="_blank" rel="noopener">Elegir Starter</a>
       </article>
       <article class="plan popular">
-        <div class="badge">Más popular</div>
-        <h3>Growth</h3>
-        <div class="sub">Más consistencia, más variedad de campañas y una presencia mensual más fuerte.</div>
-        <div class="price-offer">Precio para clientes fundadores</div>
-        <div class="price-now"><span class="amount">$49.99</span><span class="term">/ mes</span></div>
-        <div class="price-after"><s>$62.49/mes</s> precio regular</div>
-        <div class="coupon-line">Disponible para los primeros 10 clientes de Contenido. Tu precio fundador se mantiene mientras tu suscripción permanezca activa.</div>
-        <ul>
-          <li><strong>8 publicaciones de la cuadrícula</strong> · 6 publicaciones individuales + 2 carruseles</li>
-          <li><strong>4 historias</strong></li>
-          <li>Textos + hashtags incluidos</li>
-          <li>Entrega estimada en 7 días hábiles</li>
-        </ul>
-        <div class="plan-micro">1 revisión consolidada</div>
-        <a class="btn btn-yellow" href="https://buy.stripe.com/9B67sKbzh2n75G9dru93y0q" target="_blank" rel="noopener">Elegir Growth</a>
+        <div class="badge">Más popular</div><h3>Growth</h3><div class="sub">Más consistencia, más rango de campaña y una presencia mensual más fuerte.</div>
+        <div class="price-offer">Founding Client Price</div><div class="price-now"><span class="amount">$49.99</span><span class="term">/ mes</span></div><div class="price-after"><s>$62.49/mes</s> precio regular</div>
+        <div class="coupon-line">Disponible para los primeros 10 clientes de Content. Tu precio founding se mantiene mientras la suscripción siga activa.</div>
+        <ul><li><strong>8 feed posts</strong> · 6 individuales + 2 carruseles</li><li><strong>4 Stories</strong></li><li>Captions + hashtags incluidos</li><li>Meta de entrega: 7 días hábiles</li></ul>
+        <div class="plan-micro">1 revisión consolidada</div><a class="btn btn-yellow" href="https://buy.stripe.com/9B67sKbzh2n75G9dru93y0q" target="_blank" rel="noopener">Elegir Growth</a>
       </article>
       <article class="plan">
-        <h3>Pro</h3>
-        <div class="sub">El sistema mensual más completo para desarrollar mejor el mensaje y cubrir más contenido.</div>
-        <div class="price-offer">Precio para clientes fundadores</div>
-        <div class="price-now"><span class="amount">$79.99</span><span class="term">/ mes</span></div>
-        <div class="price-after"><s>$99.99/mes</s> precio regular</div>
-        <div class="coupon-line">Disponible para los primeros 10 clientes de Contenido. Tu precio fundador se mantiene mientras tu suscripción permanezca activa.</div>
-        <ul>
-          <li><strong>12 publicaciones de la cuadrícula</strong> · 9 publicaciones individuales + 3 carruseles</li>
-          <li><strong>6 historias</strong></li>
-          <li>Textos + hashtags incluidos</li>
-          <li>Entrega estimada en 10 días hábiles</li>
-        </ul>
-        <div class="plan-micro">2 revisiones consolidadas</div>
-        <a class="btn btn-dark" href="https://buy.stripe.com/28E3cu9r93rb8Sl1IM93y0r" target="_blank" rel="noopener">Elegir Pro</a>
+        <h3>Pro</h3><div class="sub">El sistema mensual más completo para más storytelling y cobertura de contenido.</div>
+        <div class="price-offer">Founding Client Price</div><div class="price-now"><span class="amount">$79.99</span><span class="term">/ mes</span></div><div class="price-after"><s>$99.99/mes</s> precio regular</div>
+        <div class="coupon-line">Disponible para los primeros 10 clientes de Content. Tu precio founding se mantiene mientras la suscripción siga activa.</div>
+        <ul><li><strong>12 feed posts</strong> · 9 individuales + 3 carruseles</li><li><strong>6 Stories</strong></li><li>Captions + hashtags incluidos</li><li>Meta de entrega: 10 días hábiles</li></ul>
+        <div class="plan-micro">2 revisiones consolidadas</div><a class="btn btn-dark" href="https://buy.stripe.com/28E3cu9r93rb8Sl1IM93y0r" target="_blank" rel="noopener">Elegir Pro</a>
       </article>
     </div>
-    <p class="pricing-footnote"><strong>El precio para clientes fundadores está limitado a los primeros 10 clientes de Contenido en total entre Starter, Growth y Pro.</strong> Los carruseles están incluidos dentro del total de publicaciones de la cuadrícula. Los planes de Contenido no incluyen Reels, publicación/programación, gestión de comunidad ni anuncios pagados.</p>
+    <p class="pricing-footnote"><strong>El precio Founding Client está limitado a los primeros 10 clientes de Content entre Starter, Growth y Pro.</strong> Los carruseles están incluidos dentro del total de feed posts. Reels, posting/scheduling, community management y ads pagados no están incluidos.</p>
   </div>
 </section>
 
-
-<section class="section alt" id="more" data-reveal>
-  <div class="wrap">
-    <div class="eyebrow">Más allá del contenido</div>
-    <h2 class="section-title">Corrige la parte del proceso de consulta a reserva que está frenando tu negocio.</h2>
-    <p class="section-intro">The Launch Era conecta confianza, seguimiento y organización. Elige el soporte que corresponde a la parte del recorrido del cliente que hoy necesita mejorar.</p>
-    <div class="service-explorer">
-      <div class="service-nav" role="tablist" aria-label="Más soporte services">
-        <button class="active" type="button" data-service-tab="audit">Auditoría de Instagram</button>
-        <button type="button" data-service-tab="automation">Automatización de Instagram</button>
-        <button type="button" data-service-tab="hub" style="display:none" aria-hidden="true">My Cleaning Hub</button>
-        <button type="button" data-service-tab="va">Soporte VA</button>
-      </div>
-      <div class="service-display">
-        <div class="service-pane active" data-service-pane="audit">
-          <div class="service-num">01 · Diagnóstico</div>
-          <h3>Descubre qué está dificultando que tu Instagram genere confianza o impulse a actuar.</h3>
-          <p>La Auditoría de Instagram revisa tu perfil, la claridad de tu oferta, las señales de confianza, el contenido, las llamadas a la acción y el recorrido de consulta; después recibes un plan de acción corto y priorizado.</p>
-          <div class="service-meta"><span><s>$20</s> <strong>$15 fundador</strong></span><span>Pago único</span><span>3 días hábiles</span></div>
-          <a class="btn btn-light service-link" href="https://buy.stripe.com/7sYeVcgTB6DnfgJ4UY93y0g" target="_blank" rel="noopener">Obtener la Auditoría de Instagram</a>
-        </div>
-        <div class="service-pane" data-service-pane="automation">
-          <div class="service-num">02 · Automatización</div>
-          <h3>Responde las consultas de Instagram antes de que pierdan interés.</h3>
-          <p>Creamos el flujo acordado de DMs en Instagram, respuestas, etiquetas y rutas para que las consultas frecuentes reciban un próximo paso claro sin que tengas que escribir lo mismo una y otra vez.</p>
-          <div class="service-meta"><span><s>$129</s> <strong>$99 fundador</strong></span><span>Configuración única</span><span>Flujo de DMs de Instagram</span></div>
-          <a class="btn btn-yellow service-link" href="automation/">Ver automatización</a>
-        </div>
-        <div class="service-pane" data-service-pane="hub" style="display:none" aria-hidden="true">
-          <div class="service-num">03 · Organización</div>
-          <h3>Mantén cada consulta avanzando después del primer contacto.</h3>
-          <p>My Cleaning Hub ofrece a dueños de negocios de limpieza un lugar simple para consultas, clientes, cotizaciones y facturas, para que sea más fácil dar seguimiento a los próximos pasos importantes.</p>
-          <div class="service-meta"><span>Primer mes gratis</span><span>Después $5.99/mes</span><span>Creado para negocios de limpieza</span></div>
-          <a class="btn btn-blue service-link" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Ver My Cleaning Hub</a>
-        </div>
-        <div class="service-pane" data-service-pane="va">
-          <div class="service-num">04 · Soporte</div>
-          <h3>Delega el seguimiento y las tareas administrativas que te están quitando tiempo.</h3>
-          <p>El Soporte VA cubre el seguimiento acordado de consultas y clientes, seguimientos, actualizaciones del calendario, preparación de cotizaciones y facturas, programación aprobada de publicaciones y un resumen semanal de actividad.</p>
-          <div class="service-meta"><span><s>$162.49/mes</s> <strong>$129.99/mes fundador</strong></span><span>Hasta 8 horas</span><span>Soporte mensual</span></div>
-          <a class="btn btn-dark service-link" href="virtual-assistant/">Ver Soporte VA</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="section">
   <div class="wrap">
     <div class="eyebrow">Preguntas</div>
     <h2 class="section-title">Lo que debes saber antes de comprar.</h2>
     <div class="faq">
-      <details><summary>¿Los planes mensuales de contenido incluyen Reels?</summary><p>No. Starter, Growth y Pro incluyen publicaciones estáticas de la cuadrícula, carruseles, historias, textos y hashtags. Los Reels no están incluidos.</p></details>
-      <details><summary>¿Publican o administran mis redes sociales por mí?</summary><p>No. Las suscripciones de Contenido cubren estrategia, redacción y diseño. Recibes contenido terminado y listo para publicar. No se incluyen Reels, publicación, programación, gestión de comunidad ni anuncios pagados. La programación/publicación aprobada puede manejarse por separado mediante Soporte VA cuando esté dentro del alcance de ese servicio.</p></details>
-            <details><summary>¿Qué paquete debo elegir?</summary><p>Starter es el ciclo mensual más pequeño, Growth ofrece más consistencia y variedad de campañas, y Pro es el sistema mensual más completo. Growth es la opción intermedia para negocios que quieren contenido consistente sin pasar al plan más grande.</p></details>
-      <details style="display:none" aria-hidden="true"><summary>¿Es obligatorio usar My Cleaning Hub?</summary><p>No. My Cleaning Hub es independiente. Está disponible cuando quieras un lugar más simple para organizar consultas, clientes, cotizaciones, facturas y tu flujo de trabajo.</p></details>
-      <details><summary>¿Garantizan consultas o reservas?</summary><p>No. The Launch Era no promete una cantidad específica de consultas ni clientes reservados. Mejoramos la confianza, el seguimiento y la organización alrededor de las oportunidades que recibe tu negocio para que menos consultas valiosas se pierdan.</p></details>
+      <details><summary>¿Por dónde debería empezar?</summary><p>Si no sabes qué está frenando tu marketing o camino de consulta, empieza con la Auditoría de Instagram. Recibirás un plan priorizado antes de comprometerte con un servicio mayor.</p></details>
+      <details><summary>¿Los planes mensuales incluyen Reels?</summary><p>No. Starter, Growth y Pro incluyen posts estáticos, carruseles, Stories, captions y hashtags. Reels no están incluidos.</p></details>
+      <details><summary>¿Publican o administran mis redes sociales?</summary><p>No. Las suscripciones de contenido cubren estrategia, escritura y diseño. Recibes contenido terminado y listo para publicar. El scheduling aprobado puede manejarse por separado dentro del alcance de VA Support.</p></details>
+      <details><summary>¿Qué paquete de Content debería elegir?</summary><p>Starter es el ciclo mensual más pequeño, Growth ofrece más consistencia y rango de campaña, y Pro es el sistema mensual de contenido más profundo.</p></details>
+      <details style="display:none" aria-hidden="true"><summary>¿Qué es My Cleaning Hub?</summary><p>My Cleaning Hub es el espacio central para solicitudes de cotización, clientes, calendario, cotizaciones, facturas y seguimiento de pagos. Es separado de los servicios de marketing.</p></details>
+      <details><summary>¿Garantizan leads o reservas?</summary><p>No. The Launch Era no promete una cantidad específica de leads o clientes reservados. Mejoramos la claridad, confianza, seguimiento y organización alrededor de las oportunidades que recibe tu negocio.</p></details>
     </div>
   </div>
 </section>
+
 <section class="section" id="contact">
   <div class="wrap">
     <div class="final-cta">
-      <div><h2>Tu marketing no debe terminar en la publicación.</h2><p>Genera confianza, da seguimiento más rápido y mantén organizado el camino hacia la reserva con soporte diseñado específicamente para negocios de limpieza.</p></div>
-      <a class="btn btn-yellow" href="#more">Ver servicios</a>
+      <div><h2>Tu marketing no debería terminar en el post.</h2><p>Encuentra qué está frenando el recorrido del cliente, fortalece la confianza y crea un camino más claro desde consulta hasta cliente reservado.</p></div>
+      <a class="btn btn-yellow" href="https://buy.stripe.com/7sYeVcgTB6DnfgJ4UY93y0g" target="_blank" rel="noopener">Empieza con la auditoría</a>
     </div>
   </div>
 </section>
