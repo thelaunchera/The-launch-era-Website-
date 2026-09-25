@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Landing Page + My Cleaning Hub client intake for The Launch Era.">
+<title>Landing + Hub Intake — The Launch Era</title>
+<link rel="icon" type="image/png" href="../the-launch-era-favicon.png">
+<style>
+:root{--ivory:#FAF8F3;--ink:#191919;--butter:#F2D85B;--blue:#B9D7FF;--soft:#EAF3FF;--line:#D9D5CD;--muted:#69645E;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--ink);font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;line-height:1.5}
+.wrap{width:min(860px,calc(100% - 32px));margin:auto}.top{padding:26px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.04em}
+.hero{padding:56px 0 34px}.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,64px);line-height:.98;letter-spacing:-.045em;margin:14px 0}.hero p{font-size:18px;color:var(--muted);max-width:720px}
+.note{background:var(--blue);border:1px solid var(--ink);padding:20px;margin-top:24px}
+form{padding:10px 0 70px}.section{background:var(--white);border:1px solid var(--line);padding:28px;margin-top:14px}.section h2{font-size:25px;margin:0 0 4px}.section>p{margin:0 0 22px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:800;letter-spacing:.03em;margin-bottom:7px}
+input,select,textarea{width:100%;border:1px solid #aaa;background:#fff;padding:13px 12px;font:inherit;color:var(--ink);border-radius:0}
+textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);padding:12px}.check input{width:auto;margin-top:4px}
+.actions{margin-top:18px}.btn{width:100%;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:16px 20px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}.btn:disabled{opacity:.45}
+.status{margin-top:14px;font-weight:700}.small{font-size:12px;color:var(--muted)}.lang{float:right;font-size:12px;font-weight:800}
+@media(max-width:650px){.grid,.checks{grid-template-columns:1fr}.section{padding:22px}.hero{padding-top:42px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="brand">THE LAUNCH ERA</span><span class="lang">Landing + My Cleaning Hub</span></div></header>
+<main class="wrap">
+<section class="hero">
+<div class="kicker">Client Intake / Formulario del cliente</div>
+<h1>Let’s build the front end — and set up the back end.</h1>
+<p>Please complete this once after purchasing Landing Page + My Cleaning Hub. You can answer in English or Spanish.</p>
+<div class="note"><strong>What happens next:</strong> we use this information to build your landing page and configure the services, booking options and business details connected to My Cleaning Hub.</div>
+</section>
+
+<form id="intakeForm">
+<input type="hidden" name="type" value="tle.landing_hub_intake">
+
+<section class="section">
+<h2>1. Business basics</h2><p>Información básica del negocio</p>
+<div class="grid">
+<div><label>Preferred language / Idioma</label><select name="language" required><option value="english">English</option><option value="spanish">Español</option></select></div>
+<div><label>Your name / Tu nombre</label><input name="full_name" required></div>
+<div><label>Business name / Nombre del negocio</label><input name="business_name" required></div>
+<div><label>Email</label><input type="email" name="email" required></div>
+<div><label>Phone / Teléfono</label><input name="phone" required></div>
+<div><label>Hub account email / Email de tu cuenta Hub</label><input type="email" name="hub_account_email" placeholder="If different / Si es diferente"></div>
+<div class="full"><label>Service areas / Áreas de servicio</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
+<div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
+<div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
+</div>
+</section>
+
+<section class="section">
+<h2>2. Landing page</h2><p>What your clients should see first / Lo que verán tus clientes</p>
+<div class="grid">
+<div><label>Existing domain / Dominio actual</label><input name="existing_domain" placeholder="Leave blank if none"></div>
+<div><label>Brand colors / Colores</label><input name="brand_colors" placeholder="Names or hex codes"></div>
+<div class="full"><label>Logo or brand files link / Link de logo y archivos</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
+<div class="full"><label>Photo folder link / Link de fotos</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
+<div class="full"><label>Short About / Sobre el negocio</label><textarea name="about_business" placeholder="What should a new client know about your business?"></textarea></div>
+<div class="full"><label>Reviews / Reseñas</label><textarea name="reviews" placeholder="Paste 2–4 reviews or add a link where we can find them."></textarea></div>
+<div class="full"><label>Main message or special offer / Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Optional"></textarea></div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. Services + pricing</h2><p>This will guide both the landing and My Cleaning Hub.</p>
+<div class="grid">
+<div class="full"><label>Cleaning services / Servicios</label><textarea name="services" required placeholder="Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — starting at $220 — 4 hours"></textarea></div>
+<div><label>Default pricing style / Tipo de precio</label><select name="pricing_style" required><option value="fixed">Fixed price</option><option value="starting_at">Starting at</option><option value="quote_only">Quote only</option><option value="mixed">Different by service</option></select></div>
+<div><label>Typical service duration / Duración</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
+<div class="full"><label>Add-ons / Extras</label><textarea name="add_ons" placeholder="Inside fridge, inside oven, laundry, pet hair, etc. Include price if applicable."></textarea></div>
+</div>
+</section>
+
+<section class="section">
+<h2>4. Booking + quote setup</h2><p>Choose what your clients should be able to do.</p>
+<div class="checks">
+<label class="check"><input type="checkbox" name="booking_enabled" checked><span><strong>Book a Cleaning</strong><br><span class="small">Show available dates and times.</span></span></label>
+<label class="check"><input type="checkbox" name="quote_enabled" checked><span><strong>Get a Free Quote</strong><br><span class="small">Send request into Quotes.</span></span></label>
+</div>
+<div class="grid" style="margin-top:16px">
+<div class="full"><label>Booking availability / Disponibilidad</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
+<div><label>Preferred contact method / Contacto preferido</label><select name="preferred_contact"><option>Email</option><option>Text</option><option>WhatsApp</option></select></div>
+<div><label>Reply-to / Owner email</label><input type="email" name="owner_email" required></div>
+<div class="full"><label>Payment methods offered / Métodos de pago</label><div class="checks">
+<label class="check"><input type="checkbox" name="payment_cash"><span>Cash on Spot</span></label>
+<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle</span></label>
+<label class="check"><input type="checkbox" name="payment_stripe"><span>Stripe</span></label>
+<label class="check"><input type="checkbox" name="payment_other"><span>Other / Otro</span></label>
+</div></div>
+</div>
+</section>
+
+<section class="section">
+<h2>5. Final notes</h2><p>Anything we should know before building?</p>
+<div class="grid">
+<div><label>Target launch date / Fecha deseada</label><input type="date" name="target_launch_date"></div>
+<div><label>Do you need Hub setup? / ¿Necesitas configurar el Hub?</label><select name="hub_setup_needed"><option value="yes">Yes / Sí</option><option value="review">I already have it — review it</option></select></div>
+<div class="full"><label>Anything else? / ¿Algo más?</label><textarea name="notes"></textarea></div>
+</div>
+</section>
+
+<div class="actions">
+<button class="btn" id="submitBtn" type="submit">Submit Intake / Enviar Formulario</button>
+<div class="status" id="status" aria-live="polite"></div>
+</div>
+</form>
+</main>
+
+<script>
+const endpoint="https://hook.us2.make.com/71gescpt0jssc2102yon8qhubqbau1rj";
+const form=document.getElementById("intakeForm"), statusEl=document.getElementById("status"), btn=document.getElementById("submitBtn");
+function bool(fd,k){return fd.has(k);}
+form.addEventListener("submit",async(e)=>{
+ e.preventDefault(); btn.disabled=true; statusEl.textContent="Sending… / Enviando…";
+ const fd=new FormData(form);
+ const obj={};
+ for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
+ ["booking_enabled","quote_enabled","payment_cash","payment_zelle","payment_stripe","payment_other"].forEach(k=>obj[k]=bool(fd,k));
+ obj.submitted_at=new Date().toISOString();
+ const payload={type:"tle.landing_hub_intake",data:{object:obj}};
+ try{
+   const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   if(!r.ok) throw new Error("Submission failed");
+   form.reset();
+   statusEl.textContent="✓ Intake received. We’ll use this to build your Landing + Hub setup. / Formulario recibido.";
+   window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+ }catch(err){
+   statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com so we can help.";
+ }finally{btn.disabled=false;}
+});
+</script>
+</body>
+</html>
