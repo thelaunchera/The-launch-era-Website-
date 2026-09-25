@@ -118,6 +118,7 @@ form.addEventListener("submit",async(e)=>{
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
  ["booking_enabled","quote_enabled","payment_cash","payment_zelle","payment_stripe","payment_other"].forEach(k=>obj[k]=bool(fd,k));
+ obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
  obj.submitted_at=new Date().toISOString();
  const payload={type:"tle.landing_hub_intake",data:{object:obj}};
  try{
