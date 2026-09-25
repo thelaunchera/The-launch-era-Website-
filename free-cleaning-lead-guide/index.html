@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-language="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BHMC432Q"></script>
@@ -186,9 +186,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 44px;color:var(--muted);f
 .footer-links{display:flex;gap:16px}
 .footer-links a{color:inherit}
 
-[data-lang-block="es"]{display:none}
-html[data-language="es"] [data-lang-block="en"]{display:none}
-html[data-language="es"] [data-lang-block="es"]{display:block}
+html[data-language="en"] [data-lang-block="es"]{display:none!important}
+html[data-language="es"] [data-lang-block="en"]{display:none!important}
 
 @media(max-width:900px){
   .hero-grid,.get-grid{grid-template-columns:1fr}
