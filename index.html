@@ -11,20 +11,20 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Marketing, client systems, Instagram content, automation and virtual assistant support built for residential cleaning businesses.">
-<title>The Launch Era — Marketing, Systems & Support for Cleaning Businesses</title>
+<meta name="description" content="No website? The Launch Era builds a professional landing page for your cleaning business and connects it to My Cleaning Hub for bookings, quotes, clients, calendar and invoices.">
+<title>The Launch Era — Landing Page + My Cleaning Hub for Cleaning Businesses</title>
 <link rel="canonical" href="https://thelaunchera.github.io/The-launch-era-Website-/">
 <link rel="alternate" hreflang="en" href="https://thelaunchera.github.io/The-launch-era-Website-/">
 <link rel="alternate" hreflang="es" href="https://thelaunchera.github.io/The-launch-era-Website-/es/">
 <link rel="alternate" hreflang="x-default" href="https://thelaunchera.github.io/The-launch-era-Website-/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thelaunchera.github.io/The-launch-era-Website-/">
-<meta property="og:title" content="The Launch Era — Built for Residential Cleaning Businesses">
-<meta property="og:description" content="Marketing, systems and support to help residential cleaning businesses follow up faster, stay organized and show up clearly.">
+<meta property="og:title" content="The Launch Era — Landing Page + My Cleaning Hub">
+<meta property="og:description" content="No website? Get the front end and the back end: a professional landing page connected to My Cleaning Hub.">
 <meta property="og:image" content="https://thelaunchera.github.io/The-launch-era-Website-/11321B4A-BE6E-42D4-A624-7FFED6CDE153.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Launch Era — Marketing, Systems & Support">
-<meta name="twitter:description" content="Built for residential cleaning businesses: My Cleaning Hub, content, automation, audits and VA support.">
+<meta name="twitter:title" content="The Launch Era — Landing Page + My Cleaning Hub">
+<meta name="twitter:description" content="A professional landing page for your cleaning business, with My Cleaning Hub working behind it.">
 <meta name="twitter:image" content="https://thelaunchera.github.io/The-launch-era-Website-/11321B4A-BE6E-42D4-A624-7FFED6CDE153.png">
 <meta name="theme-color" content="#FAF8F3">
 <link rel="icon" type="image/png" href="the-launch-era-favicon.png">
@@ -388,6 +388,17 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:920px){.brand-home-grid,.brand-start-grid{grid-template-columns:1fr}.brand-home-copy{padding:66px 28px 52px}.brand-home-visual{min-height:470px}.brand-service-grid,.brand-content-plans{grid-template-columns:1fr}.brand-final-card{grid-template-columns:1fr}}
 @media(max-width:560px){.brand-home-copy{padding:52px 20px 42px}.brand-home-copy h1{font-size:48px}.brand-home-visual{min-height:350px}.brand-home-stamp{padding:20px 16px;max-width:180px;font-size:10px}.brand-start,.brand-services,.brand-content{padding:64px 0}.brand-start-grid{gap:34px}.brand-hub-preview{box-shadow:10px 10px 0 var(--blue)}.brand-service-card{min-height:auto}.brand-final-card{padding:30px 22px}.brand-final-card .btn{width:100%}}
 
+/* 2026-09-25 Landing + Hub offer */
+.frontback-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:34px}
+.frontback-card{border:1px solid var(--line);padding:38px;min-height:330px}
+.frontback-card h3{font-size:clamp(32px,4vw,48px);line-height:1;margin:0 0 16px;letter-spacing:-.04em}
+.frontback-card p{font-size:17px;color:var(--muted);max-width:560px}
+.front-card{background:#fff}.back-card{background:var(--blue-soft)}
+.offer-flow{margin-top:10px;border:1px solid var(--ink);background:var(--butter);padding:26px 28px}
+.offer-flow strong{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.offer-flow p{margin:0;font-size:16px;max-width:900px}
+@media(max-width:760px){.frontback-grid{grid-template-columns:1fr}.frontback-card{min-height:auto;padding:30px 22px}.offer-flow{padding:24px 22px}}
+
 </style>
 </head>
 <body>
@@ -395,20 +406,20 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   <div class="wrap nav-inner">
     <a class="brand" href="#top">THE LAUNCH ERA</a>
     <nav class="menu" aria-label="Primary">
-      <a href="#hub-primary">My Cleaning Hub</a>
+      <a href="#website-hub">Landing + Hub</a>
       <a href="#more">Services</a>
       <a href="#pricing">Content</a>
       <a class="lang-link" href="es/" lang="es" hreflang="es" aria-label="Ver sitio en español">ES</a>
-      <a class="nav-cta" href="cleaning-hub/" data-hub-cta="nav">Start 30 Days Free</a>
+      <a class="nav-cta" href="mailto:hello@thelaunchera.com?subject=Landing%20Page%20%2B%20My%20Cleaning%20Hub">Get Landing + Hub</a>
     </nav>
     <button class="mobile-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
   </div>
   <div class="mobile-panel" id="mobilePanel">
-    <a href="#hub-primary" onclick="closeMenu()">My Cleaning Hub</a>
+    <a href="#website-hub" onclick="closeMenu()">Landing + Hub</a>
     <a href="#more" onclick="closeMenu()">Services</a>
     <a href="#pricing" onclick="closeMenu()">Content</a>
     <a href="es/" lang="es" hreflang="es">Español</a>
-    <a href="cleaning-hub/" onclick="closeMenu()" data-hub-cta="mobile-nav">Start 30 Days Free</a>
+    <a href="mailto:hello@thelaunchera.com?subject=Landing%20Page%20%2B%20My%20Cleaning%20Hub" onclick="closeMenu()">Get Landing + Hub</a>
   </div>
 </header>
 <main id="top">
@@ -416,38 +427,53 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   <div class="brand-home-grid">
     <div class="brand-home-copy">
       <div class="kicker"><span class="kicker-dot"></span>For residential cleaning businesses</div>
-      <h1>Marketing, systems and support — built for cleaning businesses.</h1>
-      <p>The Launch Era helps you show up clearly, follow up faster and keep the client side of your business organized without adding more chaos to your day.</p>
+      <h1>No website? I’ve got you covered — front end and back end.</h1>
+      <p>Get a professional landing page your clients can trust, connected directly to My Cleaning Hub for bookings, quote requests and the client side of your business.</p>
       <div class="hero-actions">
-        <a class="btn btn-dark" href="cleaning-hub/" data-hub-cta="brand-hero">Start with My Cleaning Hub</a>
-        <a class="btn btn-light" href="#more">Explore support</a>
+        <a class="btn btn-dark" href="#website-hub">See the setup</a>
+        <a class="btn btn-light" href="cleaning-hub/" data-hub-cta="brand-hero">Explore My Cleaning Hub</a>
       </div>
       <div class="brand-trust">
-        <span>30-day Hub trial</span>
-        <span>No card to start</span>
-        <span>English + Spanish</span>
+        <span>Professional landing page</span>
+        <span>Booking + quote links connected</span>
+        <span>Hub behind the scenes</span>
       </div>
     </div>
     <div class="brand-home-visual">
       <img src="assets/hero-cleaning-hub-20260925.webp" alt="Residential cleaning business owner managing her business while on the go" width="1200" height="800" fetchpriority="high" loading="eager" decoding="async">
-      <div class="brand-home-stamp">Marketing. Systems. Follow-up. Support.</div>
+      <div class="brand-home-stamp">Your website in front. Your system behind it.</div>
     </div>
   </div>
 </section>
 
-<section class="brand-start" id="hub-primary" data-reveal>
-  <div class="wrap brand-start-grid">
-    <div class="brand-start-copy">
-      <div class="eyebrow">Start here</div>
-      <h2>My Cleaning Hub keeps the client side in one place.</h2>
-      <p>Quote requests, bookings, clients, calendar, invoices and follow-up stay connected so you are not trying to run the business from scattered messages and notes.</p>
-      <div class="brand-flow"><span>Inquiry</span><span>Quote</span><span>Client</span><span>Calendar</span><span>Invoice</span><span>Payment</span></div>
-      <p class="secondary-note">30 days free · No card required · Then $5.99/month</p>
-      <a class="btn btn-dark" href="cleaning-hub/" data-hub-cta="brand-start">Explore My Cleaning Hub</a>
+<section class="brand-start" id="website-hub" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">One simple setup</div>
+    <h2 class="section-title">Your clients see a professional business. You get the system behind it.</h2>
+    <p class="section-intro">Instead of building a full website and a separate booking system, we connect the two parts your cleaning business actually needs.</p>
+    <div class="frontback-grid">
+      <article class="frontback-card front-card">
+        <div class="eyebrow">Front end</div>
+        <h3>Professional Landing Page</h3>
+        <p>A clean, branded page with your services, service areas, photos, reviews, contact information and clear calls to action.</p>
+        <div class="brand-flow"><span>Services</span><span>Reviews</span><span>Service Areas</span><span>Book</span><span>Get a Quote</span></div>
+      </article>
+      <article class="frontback-card back-card">
+        <div class="eyebrow">Back end</div>
+        <h3>My Cleaning Hub</h3>
+        <p>Your Book a Cleaning and Get a Free Quote buttons connect directly to your Hub, where bookings, quotes, clients, calendar, jobs and invoices stay organized.</p>
+        <div class="brand-flow"><span>Booking</span><span>Quotes</span><span>Clients</span><span>Calendar</span><span>Invoices</span></div>
+        <p class="secondary-note">Hub: 30 days free · No card required · Then $5.99/month</p>
+      </article>
     </div>
-    <figure class="brand-hub-preview">
-      <img src="assets/my-cleaning-hub-preview.webp" alt="My Cleaning Hub dashboard preview" loading="lazy" decoding="async">
-    </figure>
+    <div class="offer-flow">
+      <strong>How it works</strong>
+      <p>Instagram / Google / referrals → your landing page → Book a Cleaning or Get a Free Quote → My Cleaning Hub → automatic booking confirmation + organized client flow.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="mailto:hello@thelaunchera.com?subject=Landing%20Page%20%2B%20My%20Cleaning%20Hub">Get My Landing + Hub</a>
+      <a class="btn btn-light" href="cleaning-hub/" data-hub-cta="brand-start">See My Cleaning Hub</a>
+    </div>
   </div>
 </section>
 
@@ -455,7 +481,7 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   <div class="wrap">
     <div class="eyebrow">More support</div>
     <h2 class="section-title">Choose the help your business actually needs.</h2>
-    <p class="section-intro">The Hub gives you the system. These services help when Instagram, follow-up or admin still needs hands-on support.</p>
+    <p class="section-intro">Landing + Hub gives you the core setup. These services are available when Instagram, follow-up or admin still needs hands-on support.</p>
     <div class="brand-service-grid">
       <article class="brand-service-card">
         <div class="eyebrow">Instagram Audit</div>
@@ -506,9 +532,10 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
     <div class="eyebrow">Questions</div>
     <h2 class="section-title">Where should I start?</h2>
     <div class="faq">
-      <details><summary>Is My Cleaning Hub required to use your other services?</summary><p>No. My Cleaning Hub, Content, Automation, Audit and VA Support can be used separately.</p></details>
-      <details><summary>What is the easiest place to start?</summary><p>If the client side of your business feels scattered, start with My Cleaning Hub. If Instagram content is the problem, start with an Audit or Content. If repetitive DMs or website lead follow-up are the problem, choose the matching Automation setup.</p></details>
-      <details><summary>Do you work only with cleaning businesses?</summary><p>The Launch Era is built specifically around the needs and customer journey of residential cleaning businesses.</p></details>
+      <details><summary>What do I get with Landing Page + My Cleaning Hub?</summary><p>You get a professional one-page online presence for your cleaning business, connected to your Hub booking and quote links so the front end and back end work together.</p></details>
+      <details><summary>Do I need an existing website?</summary><p>No. This setup is designed especially for small cleaning businesses that do not have a website yet or need a simpler online presence.</p></details>
+      <details><summary>What happens when a client books?</summary><p>Your client books through your My Cleaning Hub page. The booking is saved in the Hub, the client receives a confirmation email, and the owner receives a new-booking notification.</p></details>
+      <details><summary>Can I still use your other services?</summary><p>Yes. Content, Automation, Audit and VA Support remain available separately when your business needs them.</p></details>
       <details><summary>Is support available in Spanish?</summary><p>Yes. The website and client communication can be handled in English or Spanish.</p></details>
     </div>
   </div>
@@ -518,10 +545,10 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
   <div class="wrap">
     <div class="brand-final-card">
       <div>
-        <h2>Start with the part of the business that feels hardest to manage.</h2>
-        <p>You do not need every service. Choose the system or support that solves the problem you have now.</p>
+        <h2>No website? You can still look professional and take bookings online.</h2>
+        <p>We build the landing page your clients see and connect the system that keeps the work organized behind it.</p>
       </div>
-      <a class="btn btn-dark" href="cleaning-hub/" data-hub-cta="brand-final">Start My Cleaning Hub</a>
+      <a class="btn btn-dark" href="mailto:hello@thelaunchera.com?subject=Landing%20Page%20%2B%20My%20Cleaning%20Hub">Get Landing + Hub</a>
     </div>
   </div>
 </section>
@@ -529,8 +556,8 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 <footer>
   <div class="wrap">
     <div class="footer-grid">
-      <div><div class="footer-title">THE LAUNCH ERA</div><p style="color:var(--muted);max-width:430px">Marketing is more than posting. We help residential cleaning businesses build trust, follow up faster and create a clearer path from inquiry to booked client.</p></div>
-      <div class="footer-links"><span>Start here</span><a href="cleaning-hub/" data-hub-cta="footer">My Cleaning Hub · 30 days free</a></div>
+      <div><div class="footer-title">THE LAUNCH ERA</div><p style="color:var(--muted);max-width:430px">No website? I’ve got you covered — front end and back end. A professional landing page for your clients, with My Cleaning Hub working behind it.</p></div>
+      <div class="footer-links"><span>Start here</span><a href="#website-hub">Landing Page + My Cleaning Hub</a><a href="cleaning-hub/" data-hub-cta="footer">My Cleaning Hub · 30 days free</a></div>
       <div class="footer-links"><span>More support</span><a href="automation/">Automation</a><a href="virtual-assistant/">VA Support</a><a href="mailto:hello@thelaunchera.com">hello@thelaunchera.com</a><a href="https://www.instagram.com/marketingforcleanerss/" target="_blank" rel="noopener">@marketingforcleanerss</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
     </div>
     <div class="fine"><span>© 2026 The Launch Era</span><span><strong>Se habla español</strong> · Built for cleaning business owners in the U.S.</span></div>
