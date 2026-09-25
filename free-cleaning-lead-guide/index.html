@@ -394,7 +394,11 @@ html[data-language="es"] [data-lang-block="en"]{display:none!important}
 </footer>
 
 <script>
-const FORM_ENDPOINT = ""; // Paste your Make webhook URL here when you are ready.
+const FORM_ENDPOINT = "https://hook.us2.make.com/71gescpt0jssc2102yon8qhubqbau1rj";
+const FREEBIE_URLS = {
+  en: "https://drive.google.com/drive/folders/1aLMtaB9NySnKhE-CNHhlF4rkC8mV8XjC",
+  es: "https://drive.google.com/drive/folders/1xNu3evYuejlatBQFaZf0KmaxAZQ4VOnJ"
+};
 
 const root = document.documentElement;
 const buttons = document.querySelectorAll("[data-language-btn]");
@@ -441,8 +445,15 @@ document.getElementById("freebieForm").addEventListener("submit", async (event) 
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
         type:"tle.freebie_requested",
-        email,
-        language
+        data:{
+          object:{
+            customer_details:{email},
+            metadata:{
+              language,
+              freebie_url:FREEBIE_URLS[language]
+            }
+          }
+        }
       })
     });
     if(!response.ok) throw new Error("Request failed");
