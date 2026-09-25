@@ -311,15 +311,15 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 
 /* Color-led sales hero */
 .sales-hero{padding:0;background:var(--ivory);border-bottom:1px solid var(--line)}
-.sales-hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:770px}
+.sales-hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:660px}
 .sales-hero-copy{padding:76px max(36px,calc((100vw - var(--max))/2)) 50px max(36px,calc((100vw - var(--max))/2));padding-right:64px;background:var(--blue);display:flex;flex-direction:column;justify-content:center}
 .sales-hero .kicker{margin-bottom:26px}
 .sales-hero h1{font-size:clamp(50px,4.8vw,68px);line-height:.98;letter-spacing:-.05em;margin:0 0 26px;max-width:700px}
 .sales-hero-copy>p{font-size:clamp(18px,1.7vw,23px);line-height:1.5;color:#404040;max-width:650px;margin:0}
 .sales-hero .hero-actions{margin-top:32px}
 .sales-hero-note{font-size:13px;font-weight:700;color:#464646;margin-top:22px}
-.sales-hero-visual{position:relative;min-height:770px;overflow:hidden;background:#eaf3ff}
-.sales-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% center}
+.sales-hero-visual{position:relative;min-height:660px;overflow:hidden;background:#eaf3ff}
+.sales-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:54% 42%}
 .sales-hero-message{position:absolute;z-index:2;left:0;top:0;width:min(36%,260px);background:var(--butter);padding:54px 30px 46px;font-size:17px;line-height:1.55;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .sales-hero-product{position:absolute;z-index:3;left:8%;right:10%;bottom:44px;margin:0;border:1px solid rgba(25,25,25,.18);background:#fff;box-shadow:0 22px 55px rgba(25,25,25,.2)}
 .sales-hero-product img{display:block;width:100%;height:auto}
@@ -330,8 +330,8 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 .sales-path-step:nth-child(even) .sales-path-num{background:var(--butter)}
 .sales-path-step strong{display:block;font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin:2px 0 5px}
 .sales-path-step p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
-@media(max-width:980px){.sales-hero-grid{grid-template-columns:1fr}.sales-hero-copy{padding:70px max(28px,calc((100vw - var(--max))/2)) 54px}.sales-hero-visual{min-height:620px}.sales-path{grid-template-columns:repeat(2,1fr);row-gap:28px}.sales-path-step:nth-child(2){border-right:0}.sales-path-step:nth-child(3){padding-left:0}}
-@media(max-width:560px){.sales-hero-copy{padding:54px 20px 44px}.sales-hero h1{font-size:46px;line-height:1}.sales-hero-copy>p{font-size:17px}.sales-hero .hero-actions{display:grid}.sales-hero .hero-actions .btn{width:100%;text-align:center}.sales-hero-visual{min-height:430px}.sales-hero-message{width:42%;padding:26px 18px;font-size:12px}.sales-hero-product{left:0;right:0;bottom:0;border-left:0;border-right:0;border-bottom:0;box-shadow:none}.sales-path{grid-template-columns:1fr;padding:28px 20px;row-gap:22px}.sales-path-step,.sales-path-step:nth-child(3){padding:0 0 22px;border-right:0;border-bottom:1px solid var(--line)}.sales-path-step:last-child{border-bottom:0;padding-bottom:0}}
+@media(max-width:980px){.sales-hero-grid{grid-template-columns:1fr}.sales-hero-copy{padding:70px max(28px,calc((100vw - var(--max))/2)) 54px}.sales-hero-visual{min-height:520px}.sales-path{grid-template-columns:repeat(2,1fr);row-gap:28px}.sales-path-step:nth-child(2){border-right:0}.sales-path-step:nth-child(3){padding-left:0}}
+@media(max-width:560px){.sales-hero-copy{padding:54px 20px 44px}.sales-hero h1{font-size:46px;line-height:1}.sales-hero-copy>p{font-size:17px}.sales-hero .hero-actions{display:grid}.sales-hero .hero-actions .btn{width:100%;text-align:center}.sales-hero-visual{min-height:360px}.sales-hero-message{width:42%;padding:26px 18px;font-size:12px}.sales-hero-product{left:0;right:0;bottom:0;border-left:0;border-right:0;border-bottom:0;box-shadow:none}.sales-path{grid-template-columns:1fr;padding:28px 20px;row-gap:22px}.sales-path-step,.sales-path-step:nth-child(3){padding:0 0 22px;border-right:0;border-bottom:1px solid var(--line)}.sales-path-step:last-child{border-bottom:0;padding-bottom:0}}
 
 
 /* 2026-09-24 conversion architecture: pain -> hidden flagship Hub -> system -> support -> proof -> content */
@@ -388,7 +388,7 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       <div class="sales-hero-note">30 days free · No card required to start · Then $5.99/month</div>
     </div>
     <div class="sales-hero-visual" aria-label="Residential cleaning professional">
-      <img class="sales-hero-photo" src="assets/hero-on-the-go-user.webp?v=20260924d" alt="Cleaning business owner managing quotes, bookings and clients from her phone while on the go" width="320" height="213" fetchpriority="high" decoding="async">
+      <img class="sales-hero-photo" src="assets/hero-on-the-go.webp?v=20260925a" alt="Cleaning business owner managing quotes, bookings and clients from her phone while on the go" width="800" height="533" fetchpriority="high" decoding="async">
       <div class="sales-hero-message">Your business, on the go.</div>
     </div>
   </div>
