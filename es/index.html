@@ -352,6 +352,17 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:920px){.pain-grid{grid-template-columns:repeat(2,1fr)}.start-card{grid-template-columns:1fr}}
 @media(max-width:560px){.pain-section{padding:64px 0}.pain-grid{grid-template-columns:1fr}.pain-card{min-height:auto}.start-card{padding:30px 22px}.start-card .btn{width:100%}}
 
+
+/* Hub CTA between pain and services */
+.hub-cta-strip{padding:0 0 72px;background:var(--ink)}
+.hub-cta-card{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;background:var(--butter);border:1px solid var(--ink);padding:38px 40px}
+.hub-cta-card .eyebrow{margin-bottom:10px}
+.hub-cta-card h2{font-size:clamp(30px,3.5vw,46px);line-height:1.02;letter-spacing:-.04em;margin:0 0 12px;max-width:760px;font-weight:600}
+.hub-cta-card p{margin:0;color:#3f3a31;max-width:760px;font-size:17px;line-height:1.55}
+.hub-cta-note{margin-top:16px;font-size:12px;font-weight:800;letter-spacing:.035em}
+.hub-cta-card .btn{white-space:nowrap}
+@media(max-width:760px){.hub-cta-strip{padding-bottom:54px}.hub-cta-card{grid-template-columns:1fr;padding:30px 22px;gap:24px}.hub-cta-card h2{font-size:34px}.hub-cta-card p{font-size:16px}.hub-cta-card .btn{width:100%}}
+
 </style>
 </head>
 <body>
@@ -416,6 +427,21 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
       <article class="pain-card"><div class="pain-num">02 · RESPUESTA</div><h3>Las consultas llegan mientras estás ocupada haciendo el trabajo.</h3><p>DMs, formularios y mensajes pueden enfriarse cuando cada respuesta depende de que estés disponible en el momento correcto.</p></article>
       <article class="pain-card"><div class="pain-num">03 · SEGUIMIENTO</div><h3>El seguimiento vive en tu memoria.</h3><p>Los leads interesados desaparecen cuando no hay un sistema simple que muestre quién necesita respuesta y qué sigue.</p></article>
       <article class="pain-card"><div class="pain-num">04 · ORGANIZACIÓN</div><h3>Cotizaciones, clientes, trabajos y facturas viven en lugares diferentes.</h3><p>Mientras más crece el negocio, más difícil es mantener organizada la parte de clientes con notas y mensajes dispersos.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section class="hub-cta-strip" data-reveal>
+  <div class="wrap">
+    <div class="hub-cta-card">
+      <div>
+        <div class="eyebrow">MY CLEANING HUB</div>
+        <h2>Mantén cotizaciones, clientes, reservas y facturas en un solo lugar.</h2>
+        <p>Si la parte de clientes de tu negocio se siente desorganizada, My Cleaning Hub te da un lugar simple para manejarla.</p>
+        <div class="hub-cta-note">30 días gratis · Sin tarjeta para empezar · Luego $5.99/mes</div>
+      </div>
+      <a class="btn btn-dark" href="../cleaning-hub/" data-hub-cta="pain-section">Empezar 30 días gratis</a>
     </div>
   </div>
 </section>
