@@ -5,6 +5,11 @@ import { requireBusiness } from "@/lib/business";
 import { createClient } from "@/lib/supabase/server";
 import { createService, deactivateService } from "./actions";
 
+type ServiceRow = {
+  id:string; name:string; pricing_type:string; base_price:number|string|null;
+  default_duration_minutes:number;
+};
+
 export default async function Page(){
   if(!hasSupabaseEnv){
     return <SectionPage active="Services" eyebrow="SERVICES + ADD-ONS" title="Set the work once." description="Define pricing type, duration and add-ons so quotes and bookings use the same service information."><BackendSetupNotice /></SectionPage>;
@@ -14,6 +19,7 @@ export default async function Page(){
   const supabase=await createClient();
   const {data:services,error}=await supabase.from("services").select("*").eq("business_id",business.id).eq("active",true).order("name");
   if(error) throw new Error(error.message);
+  const serviceRows=(services || []) as ServiceRow[];
 
   return <SectionPage active="Services" eyebrow="SERVICES + ADD-ONS" title="Set the work once." description="Define pricing type, duration and add-ons so quotes and bookings use the same service information.">
     <div className="two-column">
@@ -29,10 +35,10 @@ export default async function Page(){
         </form>
       </section>
       <section className="card">
-        <div className="section-title"><h2>Services</h2><span className="badge">{services?.length || 0} active</span></div>
-        {!services?.length ? <div className="empty">No services yet. Add your first cleaning service.</div> :
+        <div className="section-title"><h2>Services</h2><span className="badge">{serviceRows.length} active</span></div>
+        {!serviceRows.length ? <div className="empty">No services yet. Add your first cleaning service.</div> :
           <div className="records">
-            {services.map((service)=>(
+            {serviceRows.map((service:ServiceRow)=>(
               <article className="record" key={service.id}>
                 <div>
                   <strong>{service.name}</strong>
