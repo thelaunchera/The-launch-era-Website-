@@ -31,7 +31,7 @@ export async function finishAuthRedirect() {
 
   url.searchParams.delete("code");
   url.searchParams.delete("recovery");
-  window.history.replaceState({}, "", url.pathname + url.search);
+  window.history.replaceState({}, "", url.pathname + url.search + window.location.hash);
 
   if (recovery) {
     window.location.hash = "#/reset-password";
