@@ -402,6 +402,25 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:650px){.offer-price{display:grid}.offer-price span{padding-left:0;border-left:0}}
 @media(max-width:760px){.frontback-grid{grid-template-columns:1fr}.frontback-card{min-height:auto;padding:30px 22px}.offer-flow{padding:24px 22px}}
 
+
+/* 2026-09-25 conversion clarity pass */
+.brand-home-copy .kicker{margin-bottom:14px}
+.brand-home-copy h1{max-width:780px}
+.brand-home-copy>p{max-width:700px}
+.offer-flow p{font-size:18px;line-height:1.6;margin:14px 0 0}
+.offer-flow .flow-outcome{display:block;margin-top:16px;font-weight:700;font-size:15px}
+.fit-section{padding:88px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fffdf9}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.fit-card{background:var(--ivory);padding:36px}
+.fit-card.not-fit{background:var(--blue-soft)}
+.fit-card h3{font-size:30px;line-height:1.05;margin:0 0 22px;letter-spacing:-.035em}
+.fit-card ul{list-style:none;padding:0;margin:0;display:grid;gap:15px}
+.fit-card li{position:relative;padding-left:25px;color:var(--muted);font-size:16px;line-height:1.5}
+.fit-card li:before{position:absolute;left:0;top:0;font-weight:800;color:var(--ink)}
+.fit-card.for-you li:before{content:"✓"}
+.fit-card.not-fit li:before{content:"—"}
+@media(max-width:700px){.fit-section{padding:64px 0}.fit-grid{grid-template-columns:1fr}.fit-card{padding:28px}.offer-flow p{font-size:16px}}
+
 </style>
 </head>
 <body>
@@ -429,17 +448,17 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 <section class="brand-home-hero">
   <div class="brand-home-grid">
     <div class="brand-home-copy">
-      <div class="kicker"><span class="kicker-dot"></span>For residential cleaning businesses</div>
-      <h1>No website? I’ve got you covered — front end and back end.</h1>
-      <p>Get a professional landing page your clients can trust, connected directly to My Cleaning Hub for bookings, quote requests and the client side of your business.</p>
+      <div class="kicker"><span class="kicker-dot"></span>Landing page + booking system for residential cleaners</div>
+      <h1>No website? Give clients one clear place to book.</h1>
+      <p>I build a professional landing page for your cleaning business and connect it to My Cleaning Hub, so new leads can book or request a quote without bouncing between DMs, texts and different links.</p>
       <div class="hero-actions">
         <a class="btn btn-dark" href="#website-hub">See the setup</a>
         <a class="btn btn-light" href="cleaning-hub/" data-hub-cta="brand-hero">Explore My Cleaning Hub</a>
       </div>
       <div class="brand-trust">
-        <span>Professional landing page</span>
-        <span>Booking + quote links connected</span>
-        <span>Hub behind the scenes</span>
+        <span>$39.99 one-time setup</span>
+        <span>Ready in 4 business days</span>
+        <span>2 months of Hub free</span>
       </div>
     </div>
     <div class="brand-home-visual">
@@ -472,11 +491,39 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
     </div>
     <div class="offer-flow">
       <strong>How it works</strong>
-      <p>Instagram / Google / referrals → your landing page → Book a Cleaning or Get a Free Quote → My Cleaning Hub → automatic booking confirmation + organized client flow.</p>
+      <p>A ready-to-book client finds you on Instagram, Google or through a referral. Instead of making them hunt through DMs, texts and different links, your landing page gives them two clear next steps: <strong>Book a Cleaning</strong> or <strong>Get a Free Quote</strong>. Their request goes into My Cleaning Hub, where bookings, quotes, client details, calendar, jobs and invoices stay organized in one place.</p>
+      <span class="flow-outcome">Less back-and-forth. One clear path from “I’m interested” to the next step.</span>
     </div>
     <div class="hero-actions">
       <a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get My Landing + Hub</a>
       <a class="btn btn-light" href="cleaning-hub/" data-hub-cta="brand-start">See My Cleaning Hub</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="fit-section" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">Before you buy</div>
+    <h2 class="section-title">Is Landing + Hub right for your cleaning business?</h2>
+    <p class="section-intro">This is built to make the next step obvious for small residential cleaning businesses — not to give you more tech to manage.</p>
+    <div class="fit-grid">
+      <article class="fit-card for-you">
+        <h3>This is for you if…</h3>
+        <ul>
+          <li>You get leads from Instagram, Google or referrals, but booking still happens manually in DMs or texts.</li>
+          <li>You do not have a website, or your current page does not clearly tell clients what to do next.</li>
+          <li>You want one simple, professional place for services, quote requests and bookings.</li>
+        </ul>
+      </article>
+      <article class="fit-card not-fit">
+        <h3>This is not for you if…</h3>
+        <ul>
+          <li>You need a large custom multi-page website, e-commerce store or custom software build.</li>
+          <li>You already have a website and booking/CRM system that work well for you.</li>
+          <li>You are looking for paid ads or guaranteed leads. This setup organizes the path — it does not promise traffic or bookings.</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -534,14 +581,16 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 
 <section class="brand-faq" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">Questions</div>
-    <h2 class="section-title">Where should I start?</h2>
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title">Simple answers before you start.</h2>
     <div class="faq">
-      <details><summary>What do I get with Landing Page + My Cleaning Hub?</summary><p>You get a professional one-page online presence for your cleaning business, connected to your Hub booking and quote links so the front end and back end work together.</p></details>
-      <details><summary>Do I need an existing website?</summary><p>No. This setup is designed especially for small cleaning businesses that do not have a website yet or need a simpler online presence.</p></details>
-      <details><summary>What happens when a client books?</summary><p>Your client books through your My Cleaning Hub page. The booking is saved in the Hub, the client receives a confirmation email, and the owner receives a new-booking notification.</p></details>
-      <details><summary>Can I still use your other services?</summary><p>Yes. Content, Automation, Audit and VA Support remain available separately when your business needs them.</p></details>
-      <details><summary>Is support available in Spanish?</summary><p>Yes. The website and client communication can be handled in English or Spanish.</p></details>
+      <details><summary>What exactly is included in the $39.99 setup?</summary><p>Your professional one-page landing page, the connection to your My Cleaning Hub booking and quote flow, setup of the core client path, and delivery within 4 business days. My Cleaning Hub is free for the first 2 months.</p></details>
+      <details><summary>Is this a full website?</summary><p>It is a focused one-page website built to help a cleaning client quickly understand your business and take the next step. It is not a large custom multi-page website.</p></details>
+      <details><summary>How do booking and quote requests work?</summary><p>Your landing page gives clients clear Book a Cleaning and Get a Free Quote buttons. Those actions connect to My Cleaning Hub so the request and client information stay organized behind the scenes.</p></details>
+      <details><summary>What happens after the 2 free Hub months?</summary><p>If you want to keep using My Cleaning Hub, it is $5.99/month. No card is required for the 2-month free period.</p></details>
+      <details><summary>What do you need from me?</summary><p>After checkout, you complete a short intake with your business details, services, service areas, contact information, photos and any reviews you want included.</p></details>
+      <details><summary>Will this bring me leads automatically?</summary><p>No. The setup gives your leads a clearer path to book or request a quote. Paid ads and guaranteed lead generation are not included.</p></details>
+      <details><summary>Can we do this in Spanish?</summary><p>Yes. Support is available in English and Spanish.</p></details>
     </div>
   </div>
 </section>
