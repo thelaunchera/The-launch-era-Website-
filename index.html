@@ -693,6 +693,22 @@ body{font-size:17px}
   .content-plan{min-height:135px}
 }
 
+
+/* 2026-09-26 audit explainer */
+.audit-explainer{border:1px solid var(--ink);background:var(--blue-soft);padding:28px;margin-bottom:1px}
+.audit-explainer-head{display:grid;grid-template-columns:1.2fr auto;gap:28px;align-items:end}
+.audit-explainer h3{font-size:34px;line-height:1.02;margin:0 0 8px}
+.audit-explainer p{margin:0;color:var(--muted);max-width:720px}
+.audit-price{font-size:28px;font-weight:800;white-space:nowrap}
+.audit-points{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:22px 0}
+.audit-points div{background:#fff;padding:16px;font-size:13px;line-height:1.45}
+.audit-points b{display:block;font-size:15px;margin-bottom:4px}
+.audit-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.audit-actions a{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.audit-actions .audit-buy{background:var(--ink);color:#fff;padding:12px 16px}
+@media(max-width:760px){.audit-explainer-head{grid-template-columns:1fr}.audit-points{grid-template-columns:1fr 1fr}.audit-price{font-size:24px}}
+@media(max-width:520px){.audit-points{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -835,7 +851,19 @@ body{font-size:17px}
     <h2 class="section-title">Need help with another part of the journey?</h2>
     <p class="section-intro">The Hub is the center. These services support the parts around it when you need them.</p>
     <div class="support-list">
-      <div class="support-row"><h3>Instagram Audit</h3><p>Find the clarity or trust gaps a new client sees first.</p><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Get Audit →</a></div>
+      <div class="audit-explainer">
+        <div class="audit-explainer-head">
+          <div><h3>Instagram Audit</h3><p>I review your profile like a potential cleaning client would — then show you what is clear, what creates friction and what to fix first.</p></div>
+          <div class="audit-price">$15 · one-time</div>
+        </div>
+        <div class="audit-points">
+          <div><b>Profile clarity</b>Can a new client quickly understand what you clean and where you work?</div>
+          <div><b>Trust</b>Do your bio, posts and highlights make the business feel credible?</div>
+          <div><b>Client path</b>Is it obvious how to request a quote or book?</div>
+          <div><b>Action plan</b>You get clear priorities on what to keep, change and fix first.</div>
+        </div>
+        <div class="audit-actions"><a class="audit-buy" href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Get Instagram Audit — $15 →</a><span class="secondary-note">Delivered in 3 business days.</span></div>
+      </div>
       <div class="support-content" id="pricing">
         <div class="support-content-head">
           <div><h3>Done-for-You Content</h3><p>Finished posts, Stories, captions and relevant hashtags — created for your cleaning business and ready for you to publish.</p></div>
