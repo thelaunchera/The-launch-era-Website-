@@ -5,6 +5,11 @@ import { requireBusiness } from "@/lib/business";
 import { createClient } from "@/lib/supabase/server";
 import { archiveLead, createLead, setLeadStatus } from "./actions";
 
+type LeadRow = {
+  id:string; name:string; email:string; phone:string|null; preferred_contact:string;
+  source:string|null; status:string; service_interest:string|null; address:string|null;
+};
+
 const statuses=["new","contacted","qualified","quoted","booked","lost"];
 
 export default async function Page(){
@@ -17,9 +22,10 @@ export default async function Page(){
   const {data:leads,error}=await supabase.from("leads").select("*")
     .eq("business_id",business.id).is("archived_at",null).order("created_at",{ascending:false});
   if(error) throw new Error(error.message);
+  const leadRows=(leads || []) as LeadRow[];
 
-  const newCount=leads?.filter((x)=>x.status==="new").length || 0;
-  const qualified=leads?.filter((x)=>x.status==="qualified").length || 0;
+  const newCount=leadRows.filter((x:LeadRow)=>x.status==="new").length;
+  const qualified=leadRows.filter((x:LeadRow)=>x.status==="qualified").length;
 
   return <SectionPage active="Leads" eyebrow="INQUIRIES → NEXT STEP" title="Keep every inquiry moving." description="New, contacted, qualified, quoted, booked or lost — without hunting through DMs.">
     <div className="grid">
@@ -42,10 +48,10 @@ export default async function Page(){
         </form>
       </section>
       <section className="card">
-        <div className="section-title"><h2>Pipeline</h2><span className="badge">{leads?.length || 0} active</span></div>
-        {!leads?.length ? <div className="empty">No leads yet.</div> :
+        <div className="section-title"><h2>Pipeline</h2><span className="badge">{leadRows.length} active</span></div>
+        {!leadRows.length ? <div className="empty">No leads yet.</div> :
           <div className="records">
-            {leads.map((lead)=>(
+            {leadRows.map((lead:LeadRow)=>(
               <article className="record vertical" key={lead.id}>
                 <div className="record-main">
                   <strong>{lead.name}</strong>
