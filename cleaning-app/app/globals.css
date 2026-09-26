@@ -57,3 +57,57 @@ h1{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.045em;margin:7p
   .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);z-index:20}
   .mobile-nav a{text-decoration:none;color:var(--ink);padding:12px 4px;text-align:center;font-size:11px;font-weight:800}
 }
+
+.sidebar{display:flex;flex-direction:column}
+.sidebar-bottom{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.text-button{border:0;background:transparent;padding:8px 0;font-weight:800;color:var(--muted);cursor:pointer}
+.auth-page{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;background:var(--ivory)}
+.auth-hero{padding:clamp(34px,7vw,90px);display:flex;flex-direction:column;justify-content:center}
+.auth-hero h1,.center-page h1{max-width:760px}
+.auth-card{background:var(--white);padding:clamp(26px,5vw,54px);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--line)}
+.auth-card.narrow,.onboarding-card{width:min(720px,calc(100% - 32px));border:1px solid var(--line);border-radius:24px}
+.center-page{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--ivory)}
+.auth-tabs,.auth-lang{display:flex;gap:8px;margin-bottom:18px}
+.auth-tabs button,.auth-lang button{border:1px solid var(--line);background:var(--ivory);border-radius:999px;padding:9px 12px;font-weight:800;cursor:pointer}
+.auth-tabs button.active,.auth-lang button.active{background:var(--ink);color:white;border-color:var(--ink)}
+.form-stack{display:grid;gap:14px;margin-top:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form-grid.compact{gap:11px}
+.form-grid label,.form-stack label{display:grid;gap:7px;font-size:13px;font-weight:800;color:var(--charcoal)}
+.form-grid input,.form-grid select,.form-grid textarea,.form-stack input,.record-actions select{
+  width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 13px;color:var(--ink);outline:none
+}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.form-stack input:focus,.record-actions select:focus{border-color:var(--ink)}
+.span-2{grid-column:span 2}
+.full{width:100%}
+.form-message{padding:12px;border-radius:12px;background:var(--blue);font-size:13px;line-height:1.45}
+.text-link{margin-top:18px;color:var(--ink);font-weight:800;font-size:13px}
+.two-column{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px}
+.section-gap{margin-top:16px}
+.records{display:grid}
+.record{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:15px 0;border-top:1px solid var(--line)}
+.record:first-child{border-top:0}
+.record.vertical{align-items:flex-start}
+.record strong,.record span,.record small{display:block}
+.record span{font-size:13px;color:var(--charcoal);margin-top:4px}
+.record small{font-size:12px;color:var(--muted);margin-top:4px}
+.record-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.record-actions form{display:flex;align-items:center;gap:7px;margin:0}
+.record-actions.wrap{align-items:flex-end}
+.mini-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--ivory);color:var(--ink);text-decoration:none;border-radius:999px;padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+.mini-btn.danger{color:#8d2d2d;background:#fff8f7}
+.empty{padding:28px 8px;color:var(--muted);font-size:14px}
+.setup-card{max-width:760px}
+.setup-card h2{font-size:28px;letter-spacing:-.03em;margin:9px 0 12px}
+@media(max-width:900px){
+  .auth-page{grid-template-columns:1fr}
+  .auth-hero{padding:36px 22px 22px}
+  .auth-card{border-left:0;border-top:1px solid var(--line)}
+  .two-column{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .form-grid{grid-template-columns:1fr}
+  .span-2{grid-column:span 1}
+  .record{align-items:flex-start;flex-direction:column}
+  .record-actions{justify-content:flex-start}
+}
