@@ -14,7 +14,7 @@ export default function ForgotPasswordPage() {
     const email = String(form.get("email") || "").trim();
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: appBaseUrl,
+      redirectTo: `${appBaseUrl}reset-password.html`,
     });
 
     setMessage(error ? error.message : "Check your email for the password reset link.");
