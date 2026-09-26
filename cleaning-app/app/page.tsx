@@ -4,6 +4,20 @@ import { hasSupabaseEnv } from "@/lib/env";
 import { requireBusiness } from "@/lib/business";
 import { createClient } from "@/lib/supabase/server";
 
+type TodayJob = {
+  id: string;
+  starts_at: string;
+  duration_minutes: number;
+  route_order: number | null;
+  status: string;
+  service_address: string;
+  client_name: string | null;
+  travel_buffer_before_minutes: number;
+  travel_buffer_after_minutes: number;
+};
+
+type InvoiceRow = { total: number | string | null; status: string };
+
 function formatTime(value:string, timeZone:string){
   return new Intl.DateTimeFormat("en-US",{
     hour:"numeric",
@@ -52,9 +66,10 @@ export default async function Home() {
   if(mileageResult.error) throw new Error(mileageResult.error.message);
   if(workMinutesResult.error) throw new Error(workMinutesResult.error.message);
 
-  const jobs=todayJobsResult.data || [];
-  const scheduledMinutes=jobs.reduce((sum,job)=>sum+(job.duration_minutes || 0),0);
-  const unpaidTotal=(unpaidInvoicesResult.data || []).reduce((sum,row)=>sum+Number(row.total || 0),0);
+  const jobs=(todayJobsResult.data || []) as TodayJob[];
+  const scheduledMinutes=jobs.reduce((sum:number,job:TodayJob)=>sum+(job.duration_minutes || 0),0);
+  const unpaidRows=(unpaidInvoicesResult.data || []) as InvoiceRow[];
+  const unpaidTotal=unpaidRows.reduce((sum:number,row:InvoiceRow)=>sum+Number(row.total || 0),0);
   const miles=Number(mileageResult.data || 0);
   const workMinutes=Number(workMinutesResult.data || 0);
 
@@ -76,12 +91,12 @@ export default async function Home() {
         <article className="card metric"><span className="eyebrow">Jobs today</span><b>{jobs.length}</b><span className="meta">{Math.round((scheduledMinutes/60)*10)/10} scheduled hours</span></article>
         <article className="card metric"><span className="eyebrow">New leads</span><b>{newLeadsResult.count || 0}</b><span className="meta">Need a reply</span></article>
         <article className="card metric"><span className="eyebrow">Open quotes</span><b>{quotesResult.count || 0}</b><span className="meta">Requested, draft or sent</span></article>
-        <article className="card metric"><span className="eyebrow">Unpaid</span><b>${unpaidTotal.toFixed(0)}</b><span className="meta">{unpaidInvoicesResult.data?.length || 0} invoices</span></article>
+        <article className="card metric"><span className="eyebrow">Unpaid</span><b>${unpaidTotal.toFixed(0)}</b><span className="meta">{unpaidRows.length} invoices</span></article>
 
         <article className="card route">
           <div className="section-title"><h2>Today&apos;s Route</h2><span className="badge">{miles.toFixed(1)} mi logged</span></div>
           {!jobs.length ? <div className="empty">No jobs scheduled today.</div> :
-            jobs.map((job,index)=>(
+            jobs.map((job:TodayJob,index:number)=>(
               <div className="stop" key={job.id}>
                 <div className="order">{job.route_order || index+1}</div>
                 <div>
