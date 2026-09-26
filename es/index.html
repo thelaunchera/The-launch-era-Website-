@@ -612,6 +612,22 @@ body{font-size:17px}
   .content-plan{min-height:135px}
 }
 
+
+/* 2026-09-26 audit explainer */
+.audit-explainer{border:1px solid var(--ink);background:var(--blue-soft);padding:28px;margin-bottom:1px}
+.audit-explainer-head{display:grid;grid-template-columns:1.2fr auto;gap:28px;align-items:end}
+.audit-explainer h3{font-size:34px;line-height:1.02;margin:0 0 8px}
+.audit-explainer p{margin:0;color:var(--muted);max-width:720px}
+.audit-price{font-size:28px;font-weight:800;white-space:nowrap}
+.audit-points{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:22px 0}
+.audit-points div{background:#fff;padding:16px;font-size:13px;line-height:1.45}
+.audit-points b{display:block;font-size:15px;margin-bottom:4px}
+.audit-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.audit-actions a{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.audit-actions .audit-buy{background:var(--ink);color:#fff;padding:12px 16px}
+@media(max-width:760px){.audit-explainer-head{grid-template-columns:1fr}.audit-points{grid-template-columns:1fr 1fr}.audit-price{font-size:24px}}
+@media(max-width:520px){.audit-points{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -754,7 +770,19 @@ body{font-size:17px}
     <h2 class="section-title">¿Necesitas ayuda con otra parte del recorrido?</h2>
     <p class="section-intro">El Hub es el centro. Estos servicios apoyan las partes alrededor cuando las necesitas.</p>
     <div class="support-list">
-      <div class="support-row"><h3>Auditoría de Instagram</h3><p>Encuentra las fallas de claridad o confianza que ve primero un cliente nuevo.</p><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Obtener Audit →</a></div>
+      <div class="audit-explainer">
+        <div class="audit-explainer-head">
+          <div><h3>Auditoría de Instagram</h3><p>Reviso tu perfil como lo haría un posible cliente de limpieza y te muestro qué está claro, qué crea fricción y qué deberías corregir primero.</p></div>
+          <div class="audit-price">$15 · pago único</div>
+        </div>
+        <div class="audit-points">
+          <div><b>Claridad del perfil</b>¿Un cliente nuevo entiende rápido qué limpias y dónde trabajas?</div>
+          <div><b>Confianza</b>¿Tu bio, posts y highlights hacen que el negocio se sienta profesional?</div>
+          <div><b>Camino del cliente</b>¿Está claro cómo pedir cotización o reservar?</div>
+          <div><b>Plan de acción</b>Recibes prioridades claras sobre qué mantener, cambiar y corregir primero.</div>
+        </div>
+        <div class="audit-actions"><a class="audit-buy" href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Obtener Audit — $15 →</a><span class="secondary-note">Entrega en 3 días hábiles.</span></div>
+      </div>
       <div class="support-content" id="pricing">
         <div class="support-content-head">
           <div><h3>Contenido hecho para ti</h3><p>Posts, Stories, captions y hashtags relevantes — creados para tu negocio de limpieza y listos para que tú los publiques.</p></div>
