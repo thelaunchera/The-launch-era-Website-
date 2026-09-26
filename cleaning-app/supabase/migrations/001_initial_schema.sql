@@ -272,7 +272,7 @@ begin
   loop
     execute format('alter table %I enable row level security', tbl);
     execute format(
-      'create policy %L on %I for all using (exists (select 1 from businesses b where b.id = %I.business_id and b.owner_user_id = auth.uid())) with check (exists (select 1 from businesses b where b.id = %I.business_id and b.owner_user_id = auth.uid()))',
+      'create policy %I on %I for all using (exists (select 1 from businesses b where b.id = %I.business_id and b.owner_user_id = auth.uid())) with check (exists (select 1 from businesses b where b.id = %I.business_id and b.owner_user_id = auth.uid()))',
       'owner tenant isolation', tbl, tbl, tbl
     );
   end loop;
