@@ -549,6 +549,126 @@ body{font-size:17px}
  .cvcard,.cvstep,.cvdemo>div,.cvfit article,.cvhero-img,.cvoffer,.cvhero .btn,.cvoffer .btn,.cvfinal .btn{transition:none!important;transform:none!important}
 }
 
+
+/* 2026-09-26 brand-system landing */
+.cvhero{padding:92px 0 72px}
+.cvhero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:54px;align-items:center;max-width:none}
+.cvhero h1{font-size:clamp(52px,6.5vw,88px);line-height:.93;letter-spacing:-.055em;margin:0 0 24px}
+.cvhero p{max-width:670px}
+.hero-secondary-link{display:inline-flex;align-items:center;padding:14px 2px;font-size:13px;font-weight:750;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--ink)}
+.hero-secondary-link:hover{opacity:.6}
+.system-stage{position:relative;min-height:590px;background:var(--blue-soft);border:1px solid var(--ink);padding:26px;overflow:hidden}
+.system-stage:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--butter);right:-70px;top:-70px;opacity:.78}
+.stage-label{position:relative;z-index:2;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.client-window{position:relative;z-index:2;background:var(--ivory);border:1px solid var(--ink);padding:24px;width:78%;box-shadow:10px 10px 0 rgba(25,25,25,.08)}
+.client-window .mini-brand{font-size:13px;font-weight:800;letter-spacing:.08em;margin-bottom:26px}
+.client-window h3{font-size:36px;line-height:.98;margin:0 0 12px;letter-spacing:-.045em}
+.client-window p{font-size:14px;line-height:1.45;margin-bottom:18px}
+.mini-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mini-actions span{border:1px solid var(--ink);padding:10px 12px;text-align:center;font-size:11px;font-weight:800;text-transform:uppercase}
+.mini-actions span:first-child{background:var(--ink);color:#fff}
+.owner-window{position:absolute;z-index:3;right:24px;bottom:24px;width:72%;background:#fff;border:1px solid var(--ink);padding:12px;box-shadow:-12px 12px 0 var(--butter)}
+.owner-window .stage-label{margin:2px 0 10px}
+.owner-window img{width:100%;display:block;border:1px solid var(--line)}
+.stage-flow{position:absolute;z-index:4;left:24px;bottom:32px;display:grid;gap:6px}
+.stage-flow span{display:inline-flex;width:max-content;background:var(--ink);color:#fff;padding:7px 10px;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.stage-flow span:nth-child(2){background:var(--butter);color:var(--ink)}
+.stage-flow span:nth-child(3){background:var(--blue);color:var(--ink)}
+
+.editorial-pain-grid{display:grid;grid-template-columns:1.05fr .95fr .95fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.editorial-pain{min-height:250px;padding:30px;background:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.editorial-pain:first-child{background:var(--ink);color:#fff}
+.editorial-pain:nth-child(2){background:#FFF6C8}
+.editorial-pain:nth-child(3){background:var(--blue-soft)}
+.editorial-pain .small{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.65}
+.editorial-pain h3{font-size:clamp(26px,3vw,38px);line-height:1.02;margin:42px 0 0;letter-spacing:-.04em;font-weight:600}
+.editorial-pain p{margin:12px 0 0;color:var(--muted);max-width:420px}
+.editorial-pain:first-child p{color:rgba(255,255,255,.72)}
+
+.brand-manifesto{background:var(--butter);border-block:1px solid var(--ink);padding:72px 0}
+.brand-manifesto .eyebrow{margin-bottom:20px}
+.brand-manifesto h2{font-size:clamp(48px,7vw,92px);line-height:.9;letter-spacing:-.06em;font-weight:600;margin:0;max-width:1050px}
+.brand-manifesto p{font-size:clamp(18px,2vw,24px);max-width:700px;margin:28px 0 0}
+
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:34px;border:1px solid var(--ink);background:#fff}
+.journey-step{position:relative;padding:24px 20px 26px;min-height:200px;border-right:1px solid var(--ink)}
+.journey-step:last-child{border-right:0;background:var(--ink);color:#fff}
+.journey-step:nth-child(2){background:#FFF6C8}
+.journey-step:nth-child(4){background:var(--blue-soft)}
+.journey-step .n{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.journey-step b{display:block;font-size:21px;line-height:1.05;margin-top:44px}
+.journey-step span{display:block;font-size:13px;line-height:1.45;margin-top:10px;color:var(--muted)}
+.journey-step:last-child span{color:rgba(255,255,255,.7)}
+
+.proof-split{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px;margin-top:34px}
+.proof-pane{border:1px solid var(--ink);padding:30px;background:#fff;min-height:460px}
+.proof-pane:first-child{background:var(--blue-soft)}
+.proof-pane .pane-label{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.proof-pane h3{font-size:clamp(30px,4vw,48px);line-height:1;margin:20px 0 12px;letter-spacing:-.045em}
+.proof-pane p{color:var(--muted)}
+.client-preview{margin-top:30px;background:var(--ivory);border:1px solid var(--ink);padding:24px}
+.client-preview strong{font-size:22px}
+.client-preview .preview-actions{display:grid;gap:8px;margin-top:18px}
+.client-preview .preview-actions span{padding:12px;border:1px solid var(--ink);font-size:12px;font-weight:800;text-transform:uppercase;text-align:center}
+.client-preview .preview-actions span:first-child{background:var(--ink);color:#fff}
+.proof-pane img{width:100%;display:block;margin-top:24px;border:1px solid var(--line)}
+
+.offer-v2{display:grid;grid-template-columns:.72fr 1.28fr;border:1px solid var(--ink);background:#fff}
+.offer-price{background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.offer-price strong{font-size:clamp(58px,7vw,92px);letter-spacing:-.06em;line-height:.9}
+.offer-price p{color:rgba(255,255,255,.7)}
+.offer-body{padding:42px}
+.offer-body .section-title{max-width:720px}
+.offer-points{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0}
+.offer-points div{background:var(--ivory);padding:20px}
+.offer-points b{display:block;margin-bottom:5px}
+.offer-points span{font-size:14px;color:var(--muted)}
+
+.fit-strip{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.fit-strip article{padding:28px;background:#fff}
+.fit-strip article:last-child{background:var(--blue-soft)}
+.fit-strip h3{font-size:24px;margin:0 0 12px}
+.fit-strip ul{margin:0;padding-left:18px;color:var(--muted)}
+
+.support-list{border-top:1px solid var(--ink);margin-top:28px}
+.support-row{display:grid;grid-template-columns:.7fr 1.6fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.support-row h3{font-size:24px;margin:0}
+.support-row p{margin:0;color:var(--muted)}
+.support-row a{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.support-row.highlight{background:#FFF6C8;padding-inline:18px;border-bottom:1px solid var(--ink)}
+
+.cvfaq{padding:86px 0}
+.cvfinal{padding:78px 0}
+.cvfinal-card{background:var(--ink);color:#fff;border:1px solid var(--ink)}
+.cvfinal-card p{color:rgba(255,255,255,.72)}
+.cvfinal-card .btn{background:var(--butter);color:var(--ink)}
+
+@media(max-width:900px){
+  .cvhero-grid,.proof-split,.offer-v2{grid-template-columns:1fr}
+  .system-stage{min-height:560px}
+  .editorial-pain-grid{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr}
+  .journey-step{border-right:0;border-bottom:1px solid var(--ink);min-height:145px}
+  .journey-step:last-child{border-bottom:0}
+  .journey-step b{margin-top:22px}
+  .support-row{grid-template-columns:1fr;gap:8px}
+}
+@media(max-width:560px){
+  .cvhero{padding:58px 0 48px}
+  .cvhero h1{font-size:49px}
+  .system-stage{min-height:510px;padding:16px}
+  .client-window{width:88%;padding:18px}
+  .client-window h3{font-size:29px}
+  .owner-window{width:78%;right:14px;bottom:16px}
+  .stage-flow{left:14px;bottom:18px}
+  .editorial-pain{min-height:210px;padding:24px}
+  .brand-manifesto{padding:54px 0}
+  .brand-manifesto h2{font-size:52px}
+  .proof-pane,.offer-body,.offer-price{padding:26px}
+  .offer-points,.fit-strip{grid-template-columns:1fr}
+  .support-row.highlight{padding-inline:12px}
+}
+
 </style>
 </head>
 <body>
@@ -573,25 +693,154 @@ body{font-size:17px}
   </div>
 </header>
 <main id="top">
-<section class="cvhero"><div class="wrap cvhero-grid"><div><div class="kicker"><span class="kicker-dot"></span>Built for residential cleaning businesses</div><h1>Still coordinating cleanings through messages?</h1><p>Give clients one clear, professional page where they can see your services, request a quote or book. My Cleaning Hub keeps everything organized after that.</p><div class="hero-actions"><a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing Page + Hub — $39.99</a><a class="btn btn-light" href="#how-it-works">See How It Works</a></div><div class="cvtrust"><span>$39.99 one-time</span><span>Production time: 2 business days</span><span>2 months of Hub included</span></div></div><div class="cvhero-img"><img src="assets/hero-cleaning-hub-20260925.webp" alt="Cleaning business owner managing her business" width="1200" height="800" fetchpriority="high"></div></div></section>
+<section class="cvhero">
+  <div class="wrap cvhero-grid">
+    <div>
+      <div class="kicker"><span class="kicker-dot"></span>Built for residential cleaning businesses</div>
+      <h1>Your cleaning business shouldn’t live in DMs.</h1>
+      <p>Give clients one clear place to see your services, book or request a quote — while My Cleaning Hub keeps what happens next organized.</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing + Hub — $39.99</a>
+        <a class="hero-secondary-link" href="#how-it-works">See the system →</a>
+      </div>
+      <div class="cvtrust"><span>$39.99 one-time</span><span>2 business days</span><span>2 months of Hub included</span></div>
+    </div>
+    <div class="system-stage" aria-label="Landing page to My Cleaning Hub workflow preview">
+      <div class="stage-label">What clients see</div>
+      <div class="client-window">
+        <div class="mini-brand">YOUR CLEANING BUSINESS</div>
+        <h3>A clear place to book.</h3>
+        <p>Services, trust, and the next step — without another DM thread.</p>
+        <div class="mini-actions"><span>Book a Cleaning</span><span>Get a Free Quote</span></div>
+      </div>
+      <div class="owner-window">
+        <div class="stage-label">What you see</div>
+        <img src="assets/my-cleaning-hub-preview.webp" alt="My Cleaning Hub dashboard showing an organized client workflow">
+      </div>
+      <div class="stage-flow"><span>Found you</span><span>Booked / Quote</span><span>Organized in Hub</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="cvpain" data-reveal><div class="wrap"><div class="eyebrow">The real problem</div><h2 class="section-title">Someone interested in your service should not have to figure out how to hire you.</h2><div class="cvgrid3"><article class="cvcard"><h3>Clients message you… then disappear.</h3><p>Too much back-and-forth creates more chances for an interested person to stop replying.</p></article><article class="cvcard"><h3>Booking lives everywhere.</h3><p>Instagram messages, texts, notes and separate links make simple inquiries harder to manage.</p></article><article class="cvcard"><h3>Your online presence should match your work.</h3><p>A professional cleaning business deserves a clear place where clients can understand the offer and take action.</p></article></div></div></section>
+<section class="cvpain" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">The friction</div>
+    <h2 class="section-title">Good cleaning can still feel hard to book.</h2>
+    <div class="editorial-pain-grid">
+      <article class="editorial-pain"><span class="small">01 · Attention</span><div><h3>They find you — but the next step is unclear.</h3><p>A good Instagram page means less if a ready-to-book client still has to ask what to do next.</p></div></article>
+      <article class="editorial-pain"><span class="small">02 · Booking</span><div><h3>Messages turn simple inquiries into back-and-forth.</h3><p>Service, date, address and quote details can end up scattered across separate conversations.</p></div></article>
+      <article class="editorial-pain"><span class="small">03 · Follow-through</span><div><h3>The admin starts after they say yes.</h3><p>Client details, calendar, quotes and invoices still need one visible place to live.</p></div></article>
+    </div>
+  </div>
+</section>
 
-<section class="cvsection" data-reveal id="how-it-works"><div class="wrap"><div class="eyebrow">A simpler client path</div><h2 class="section-title">From “I found you” to a clear next step.</h2><p class="section-intro">Your website shows what you do and how to hire you. My Cleaning Hub keeps what happens next organized.</p><div class="cvflow"><div class="cvstep"><b>Instagram, Google or referral</b><span>Your client finds your business.</span></div><div class="cvstep y"><b>Your website</b><span>A simple one-page site with your services, photos, reviews and buttons to book or request a quote.</span></div><div class="cvstep"><b>Book or request a quote</b><span>Your client chooses what they need without messaging you first.</span></div><div class="cvstep d"><b>My Cleaning Hub</b><span>The booking or quote request arrives organized in the Hub.</span></div><div class="cvstep"><b>You know what happens next</b><span>Client, date, job, quote and invoice stay in one place.</span></div></div><p style="font-weight:700;margin-top:18px">Less back-and-forth. A clear path from finding you to booking with you.</p></div></section>
+<section class="brand-manifesto" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">The Launch Era</div>
+    <h2>Marketing is more than posting.</h2>
+    <p>It’s what happens after someone finds you, too — the next step, the booking, the follow-up and the client experience.</p>
+  </div>
+</section>
 
-<section class="cvsection" data-reveal style="background:#fff;border-block:1px solid var(--line)"><div class="wrap"><div class="eyebrow">See the difference</div><h2 class="section-title">Simple for your client. Organized for you.</h2><div class="cvdemo"><div><h3>What your client sees</h3><p class="muted">One professional place to understand your business and choose the next step.</p><p><strong>See your services</strong></p><p><strong>Book a Cleaning</strong></p><p><strong>Get a Free Quote</strong></p></div><div><h3>What you see</h3><p class="muted">Bookings, quote requests and client details stay together.</p><img src="assets/my-cleaning-hub-preview.webp" alt="My Cleaning Hub dashboard preview" loading="lazy"></div></div></div></section>
+<section class="cvsection" data-reveal id="how-it-works">
+  <div class="wrap">
+    <div class="eyebrow">One clear client journey</div>
+    <h2 class="section-title">From “I found you” to “I’m booked.”</h2>
+    <p class="section-intro">The front stays simple for your client. The back stays visible for you.</p>
+    <div class="journey">
+      <div class="journey-step"><span class="n">01</span><b>They find you</b><span>Instagram, Google or a referral.</span></div>
+      <div class="journey-step"><span class="n">02</span><b>They see one clear page</b><span>Your services, photos, reviews and next step.</span></div>
+      <div class="journey-step"><span class="n">03</span><b>They book or request a quote</b><span>No account needed for your client.</span></div>
+      <div class="journey-step"><span class="n">04</span><b>The Hub organizes it</b><span>Booking or quote details arrive in one workflow.</span></div>
+      <div class="journey-step"><span class="n">05</span><b>You know what happens next</b><span>Clients, calendar, quotes and invoices stay visible.</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="cvsection" data-reveal id="website-hub"><div class="wrap cvoffer"><div class="cvprice"><div class="eyebrow" style="color:var(--butter)">Landing Page + Hub</div><strong>$39.99</strong><p>One-time setup</p><p style="margin-top:28px">Production time: 2 business days.</p></div><div class="cvdetails"><h2 class="section-title">Ready for more clients — without more chaos?</h2><p class="section-intro">Make the next step easy, keep new inquiries organized, and look professional from the first click.</p><div class="cvlist"><div><strong>One professional place to send people</strong><br><span class="muted">No more piecing together services, photos and details through messages.</span></div><div><strong>A clear next step</strong><br><span class="muted">Clients can book or request a quote without the back-and-forth.</span></div><div><strong>2 months of Hub included</strong><br><span class="muted">Stay organized as new inquiries come in. Then $5.99/month if you choose to continue.</span></div><div><strong>Simple to start</strong><br><span class="muted">One-time setup. No card needed during the included Hub period.</span></div></div><div class="hero-actions"><a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing Page + Hub — $39.99</a><a class="btn btn-light" href="cleaning-hub/">See My Cleaning Hub</a></div><p class="secondary-note">One-page website + connected client workflow. Paid ads and guaranteed leads are not included.</p></div></div></section>
+<section class="cvsection" data-reveal style="background:#fff;border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow">Show, don’t just tell</div>
+    <h2 class="section-title">The front looks simple. The back stays organized.</h2>
+    <div class="proof-split">
+      <div class="proof-pane">
+        <div class="pane-label">Your client</div>
+        <h3>One professional place to take action.</h3>
+        <p>No piecing together services, screenshots, pricing and availability through messages.</p>
+        <div class="client-preview">
+          <strong>Ready when they are.</strong>
+          <div class="preview-actions"><span>Book a Cleaning</span><span>Get a Free Quote</span></div>
+        </div>
+      </div>
+      <div class="proof-pane">
+        <div class="pane-label">You</div>
+        <h3>A clearer view of what happens next.</h3>
+        <p>Your Hub becomes the operational side behind the page.</p>
+        <img src="assets/my-cleaning-hub-preview.webp" alt="My Cleaning Hub dashboard preview" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="cvpain" data-reveal><div class="wrap"><div class="eyebrow">Before you buy</div><h2 class="section-title">Is Landing Page + Hub right for your cleaning business?</h2><div class="cvfit"><article><h3>This is for you if…</h3><ul><li>People find your business, but you still coordinate bookings manually.</li><li>You do not have a website, or your page does not make the next step obvious.</li><li>You want one simple place for services, quotes and bookings.</li></ul></article><article><h3>This is not for you if…</h3><ul><li>You need a large custom multi-page website or custom software.</li><li>You already have a website and booking system that work well.</li><li>You are looking for paid ads or guaranteed customers.</li></ul></article></div></div></section>
+<section class="cvsection" data-reveal id="website-hub">
+  <div class="wrap offer-v2">
+    <div class="offer-price">
+      <div><div class="eyebrow" style="color:var(--butter)">Landing Page + Hub</div><strong>$39.99</strong><p>One-time setup</p></div>
+      <p>Production time: 2 business days.</p>
+    </div>
+    <div class="offer-body">
+      <h2 class="section-title">One clear front door. One cleaner workflow behind it.</h2>
+      <p class="section-intro">Built for cleaning businesses that want a more professional path from interest to booking — without adding another complicated system.</p>
+      <div class="offer-points">
+        <div><b>Professional one-page website</b><span>Your services, photos, reviews and clear booking/quote buttons.</span></div>
+        <div><b>Connected client workflow</b><span>Your public booking and quote flow connects to My Cleaning Hub.</span></div>
+        <div><b>2 months of Hub included</b><span>No card required during the included period. Then $5.99/month if you continue.</span></div>
+        <div><b>Clear scope</b><span>No paid ads, guaranteed leads or large custom multi-page build.</span></div>
+      </div>
+      <div class="hero-actions"><a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing + Hub — $39.99</a><a class="hero-secondary-link" href="cleaning-hub/">See My Cleaning Hub →</a></div>
+      <div class="fit-strip">
+        <article><h3>Best fit if…</h3><ul><li>You still coordinate bookings manually.</li><li>You do not have a website, or yours makes the next step unclear.</li><li>You want a simple client path without a heavy tech stack.</li></ul></article>
+        <article><h3>Probably not for you if…</h3><ul><li>You need a large custom multi-page website.</li><li>Your existing website and booking system already work well.</li><li>You are looking for paid ads or guaranteed customers.</li></ul></article>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="cvfaq" data-reveal><div class="wrap"><div class="eyebrow">FAQ</div><h2 class="section-title">Simple answers before you start.</h2><div class="faq"><details><summary>Do I need a website already?</summary><p>No. This is designed for cleaning businesses without a website or with a page that needs a clearer client path.</p></details><details><summary>What exactly is included in the $39.99?</summary><p>A professional one-page website, connected to your My Cleaning Hub booking and quote flow, with production time of 2 business days. The Hub is included free for 2 months.</p></details><details><summary>What do you need from me?</summary><p>A short form with your business details, services, service areas, contact information, photos and reviews you want included.</p></details><details><summary>Can clients book without creating an account?</summary><p>Yes. Clients use your public booking or quote flow without needing a My Cleaning Hub account.</p></details><details><summary>What happens after the 2 free Hub months?</summary><p>If you want to continue, My Cleaning Hub is $5.99/month. No card is required during the included 2 months.</p></details><details><summary>Will this bring me customers automatically?</summary><p>No. It helps people who already find your business book or request a quote with fewer steps. Paid ads and guaranteed customers are not included.</p></details><details><summary>Can we do this in Spanish?</summary><p>Yes. Support is available in English and Spanish.</p></details></div></div></section>
+<section class="cvsection" data-reveal id="more">
+  <div class="wrap">
+    <div class="eyebrow">More support</div>
+    <h2 class="section-title">Need help with another part of the journey?</h2>
+    <p class="section-intro">The Hub is the center. These services support the parts around it when you need them.</p>
+    <div class="support-list">
+      <div class="support-row"><h3>Instagram Audit</h3><p>Find the clarity or trust gaps a new client sees first.</p><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Get Audit →</a></div>
+      <div class="support-row highlight" id="pricing"><h3>Done-for-You Content</h3><p>Finished posts, Stories, captions and hashtags — ready for you to publish. Plans from $20/month.</p><a href="https://buy.stripe.com/bJe8wOfPxbXH3y19be93y0A" target="_blank" rel="noopener">Start Content →</a></div>
+      <div class="support-row"><h3>Automation</h3><p>Reduce repetitive replies and build clearer follow-up around inquiries.</p><a href="automation/#choose">Explore Automation →</a></div>
+      <div class="support-row"><h3>VA Support</h3><p>Human help with leads, follow-ups, calendar, quotes and essential admin.</p><a href="virtual-assistant/">Explore VA Support →</a></div>
+    </div>
+  </div>
+</section>
 
-<section class="cvsection" data-reveal id="more"><div class="wrap"><div class="eyebrow">Need something else?</div><h2 class="section-title">Extra support when one part of the business needs help.</h2><div class="cvgrid4"><article class="cvcard cvmini"><h3>Instagram Audit</h3><p>Find what is helping or hurting conversions.</p><strong>$15 one-time</strong><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Get Audit →</a></article><article class="cvcard cvmini"><h3>Instagram Automation</h3><p>Reduce repetitive replies and guide inquiries forward.</p><strong>$50 one-time</strong><a href="automation/#choose">See Automation →</a></article><article class="cvcard cvmini"><h3>Website Automation</h3><p>Organize website inquiries and follow-up.</p><strong>$70 one-time</strong><a href="automation/#choose">See Automation →</a></article><article class="cvcard cvmini"><h3>VA Support</h3><p>Help with leads, follow-ups, calendar, quotes and clients.</p><strong>$89.99/month</strong><a href="virtual-assistant/">See VA Support →</a></article></div></div></section>
+<section class="cvfaq" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title">Simple answers before you start.</h2>
+    <div class="faq">
+      <details><summary>Do I need a website already?</summary><p>No. This is designed for cleaning businesses without a website or with a page that needs a clearer client path.</p></details>
+      <details><summary>What exactly is included in the $39.99?</summary><p>A professional one-page website connected to your My Cleaning Hub booking and quote flow, with production time of 2 business days. The Hub is included free for 2 months.</p></details>
+      <details><summary>What do you need from me?</summary><p>A short form with your business details, services, service areas, contact information, photos and reviews you want included.</p></details>
+      <details><summary>Can clients book without creating an account?</summary><p>Yes. Clients use your public booking or quote flow without needing a My Cleaning Hub account.</p></details>
+      <details><summary>What happens after the 2 included Hub months?</summary><p>If you want to continue, My Cleaning Hub is $5.99/month. No card is required during the included 2 months.</p></details>
+      <details><summary>Will this bring me customers automatically?</summary><p>No. It helps people who already find your business take a clearer next step. Paid ads and guaranteed customers are not included.</p></details>
+      <details><summary>Can we do this in Spanish?</summary><p>Yes. Support is available in English and Spanish.</p></details>
+    </div>
+  </div>
+</section>
 
-<section class="cvsection" data-reveal id="pricing" style="border-top:1px solid var(--line)"><div class="wrap"><div class="eyebrow">Monthly Done-for-You Content</div><h2 class="section-title">Need your Instagram content created for you?</h2><p class="section-intro">We plan and create the content for your cleaning business — finished post designs, Stories, captions and relevant hashtags, ready for you to publish.</p><div class="cvgrid3"><article class="cvcard"><h3>Starter</h3><p>4 feed posts + 2 Stories</p><strong>$20/mo</strong><br><a href="https://buy.stripe.com/bJe8wOfPxbXH3y19be93y0A" target="_blank" rel="noopener">Choose →</a></article><article class="cvcard"><h3>Growth</h3><p>8 feed posts + 4 Stories</p><strong>$30/mo</strong><br><a href="https://buy.stripe.com/3cI9AS7j17Hrc4x4UY93y0B" target="_blank" rel="noopener">Choose →</a></article><article class="cvcard"><h3>Pro</h3><p>12 feed posts + 6 Stories</p><strong>$40/mo</strong><br><a href="https://buy.stripe.com/3cI00i8n53rbgkN2MQ93y0C" target="_blank" rel="noopener">Choose →</a></article></div><p class="secondary-note">Content creation only. We do not manage your social media account, publish for you, reply to comments or DMs, or handle community management.</p></div></section>
-
-<section class="cvfinal" data-reveal><div class="wrap cvfinal-card"><div><h2>Ready to stop coordinating bookings through messages?</h2><p>Make it easier for clients to book or request a quote — without the back-and-forth.</p><div style="display:grid;gap:8px;margin-top:24px"><strong>$39.99 one-time</strong><strong>Production time: 2 business days</strong><strong>My Cleaning Hub included free for 2 months</strong></div></div><a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing Page + Hub — $39.99</a></div></section>
+<section class="cvfinal" data-reveal>
+  <div class="wrap cvfinal-card">
+    <div><h2>Make the next step easier to see.</h2><p>Your cleaning business can look professional before the first message — and stay more organized after the booking.</p><div style="display:grid;gap:8px;margin-top:24px"><strong>$39.99 one-time</strong><strong>2 business days</strong><strong>My Cleaning Hub included for 2 months</strong></div></div>
+    <a class="btn" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Get Landing + Hub — $39.99</a>
+  </div>
+</section>
 </main>
 <footer>
   <div class="wrap">
