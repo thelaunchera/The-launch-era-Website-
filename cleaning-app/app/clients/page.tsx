@@ -5,6 +5,11 @@ import { requireBusiness } from "@/lib/business";
 import { createClient as createSupabaseClient } from "@/lib/supabase/server";
 import { archiveClient, createClient } from "./actions";
 
+type ClientRow = {
+  id:string; name:string; email:string; phone:string|null; preferred_contact:string;
+  address_line1:string|null; city:string|null; state:string|null;
+};
+
 export default async function Page(){
   if (!hasSupabaseEnv) {
     return <SectionPage active="Clients" eyebrow="CLIENT HISTORY" title="Know who you clean for." description="Contact details, addresses, preferences, service notes and job history in one record."><BackendSetupNotice /></SectionPage>;
@@ -20,6 +25,7 @@ export default async function Page(){
     .order("name");
 
   if (error) throw new Error(error.message);
+  const clientRows=(clients || []) as ClientRow[];
 
   return (
     <SectionPage active="Clients" eyebrow="CLIENT HISTORY" title="Know who you clean for." description="Contact details, addresses, preferences, service notes and job history in one record.">
@@ -47,10 +53,10 @@ export default async function Page(){
         </section>
 
         <section className="card">
-          <div className="section-title"><h2>Clients</h2><span className="badge">{clients?.length || 0} active</span></div>
-          {!clients?.length ? <div className="empty">No clients yet. Add the first one when you are ready.</div> :
+          <div className="section-title"><h2>Clients</h2><span className="badge">{clientRows.length} active</span></div>
+          {!clientRows.length ? <div className="empty">No clients yet. Add the first one when you are ready.</div> :
             <div className="records">
-              {clients.map((client)=>(
+              {clientRows.map((client:ClientRow)=>(
                 <article className="record" key={client.id}>
                   <div>
                     <strong>{client.name}</strong>
