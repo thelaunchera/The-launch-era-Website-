@@ -1,0 +1,62 @@
+name: Publish Cleaning App to GitHub Pages Folder
+
+on:
+  push:
+    branches: [cleaning-app-build]
+    paths:
+      - "cleaning-app/**"
+      - ".github/workflows/cleaning-app-publish.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleaning-app-publish
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout app branch
+        uses: actions/checkout@v4
+        with:
+          ref: cleaning-app-build
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cleaning-app/package.json
+
+      - name: Build static app
+        working-directory: cleaning-app
+        run: |
+          npm install
+          npm run build
+
+      - name: Preserve build
+        run: |
+          rm -rf /tmp/cleaning-app-dist
+          mkdir -p /tmp/cleaning-app-dist
+          cp -a cleaning-app/dist/. /tmp/cleaning-app-dist/
+
+      - name: Publish only /cleaning-app to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout main
+          git pull --ff-only origin main
+          rm -rf cleaning-app
+          mkdir -p cleaning-app
+          cp -a /tmp/cleaning-app-dist/. cleaning-app/
+          git add cleaning-app
+          if git diff --cached --quiet; then
+            echo "No deployment changes."
+            exit 0
+          fi
+          git commit -m "Deploy The Launch Era Cleaning App"
+          git push origin main
