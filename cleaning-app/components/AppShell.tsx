@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { signOut } from "@/app/auth/actions";
 
 const items = [
   ["Today","/"],["Leads","/leads"],["Clients","/clients"],["Calendar","/calendar"],
@@ -16,10 +17,14 @@ export default function AppShell({active, children}:{active:string;children:Reac
             <a className={active===label ? "active" : ""} href={href} key={label}>{label}</a>
           ))}
         </nav>
+        <form action={signOut} className="sidebar-bottom">
+          <button className="text-button">Sign out</button>
+        </form>
       </aside>
       <main className="main">{children}</main>
       <nav className="mobile-nav">
-        {items.slice(0,5).map(([label,href])=><a href={href} key={label}>{label}</a>)}
+        {items.slice(0,4).map(([label,href])=><a href={href} key={label}>{label}</a>)}
+        <a href="/settings">More</a>
       </nav>
     </div>
   );
