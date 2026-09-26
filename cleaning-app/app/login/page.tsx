@@ -1,12 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const router = useRouter();
-  const params = useSearchParams();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [language, setLanguage] = useState<"en" | "es">("en");
   const [message, setMessage] = useState("");
@@ -53,7 +52,8 @@ export default function LoginPage() {
         setBusy(false);
         return;
       }
-      router.replace(params.get("next") || "/");
+      const next = new URLSearchParams(window.location.search).get("next") || "/";
+      router.replace(next);
       router.refresh();
       return;
     }
