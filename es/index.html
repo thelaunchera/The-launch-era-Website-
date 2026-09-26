@@ -630,7 +630,20 @@ body{font-size:17px}
 
 .content-plan small{display:block;margin-top:10px;font-size:12px;font-weight:700;color:var(--ink)}
 </style>
-</head>
+
+<style>
+.quick-help{padding:74px 0;border-bottom:1px solid var(--line)}
+.quick-help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.quick-help-card{background:#fff;border:1px solid var(--line);padding:28px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between}
+.quick-help-card h3{font-size:29px;line-height:1.05;margin:8px 0 12px;letter-spacing:-.035em}
+.quick-help-card p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+.quick-help-card a{margin-top:24px;font-weight:800}
+.service-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.service-mini{border:1px solid var(--line);background:var(--ivory);padding:18px}
+.service-mini b{display:block;font-size:18px;margin-bottom:6px}
+.service-mini span{display:block;color:var(--muted);font-size:14px;line-height:1.5}
+@media(max-width:760px){.quick-help-grid,.service-mini-grid{grid-template-columns:1fr}.quick-help-card{min-height:auto}}
+</style></head>
 <body>
 <header class="nav">
   <div class="wrap nav-inner">
@@ -658,38 +671,48 @@ body{font-size:17px}
     <div>
       <div class="kicker"><span class="kicker-dot"></span>Creado para negocios de limpieza residencial</div>
       <h1>Tu negocio de limpieza no debería vivir en los DMs.</h1>
-      <p>Dale a tus clientes un lugar claro para ver tus servicios, reservar o pedir una cotización — mientras My Cleaning Hub mantiene organizado lo que pasa después.</p>
+      <p>Si tus clientes todavía tienen que escribirte solo para entender tus servicios, pedir una cotización o saber cómo reservar, el proceso está haciendo demasiado trabajo por mensaje. Yo te ayudo a simplificarlo.</p>
       <div class="hero-actions">
-        <a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Quiero Landing + Hub — $39.99</a>
-        <a class="hero-secondary-link" href="#how-it-works">Ver el sistema →</a>
+        <a class="btn btn-dark" href="#start-here">Ver cómo puedo ayudarte</a>
+        <a class="hero-secondary-link" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Landing + Hub — $39.99 →</a>
       </div>
-      <div class="cvtrust"><span>$39.99 pago único</span><span>3 días hábiles</span><span>2 meses de Hub incluidos</span></div>
+      <div class="cvtrust"><span>Para cleaning businesses</span><span>Precios claros</span><span>Inglés + Español</span></div>
     </div>
     <div class="system-stage" aria-label="Vista del flujo Landing Page a My Cleaning Hub">
       <div class="stage-label">Lo que ve tu cliente</div>
       <div class="client-window">
         <div class="mini-brand">TU NEGOCIO DE LIMPIEZA</div>
-        <h3>Un lugar claro para reservar.</h3>
-        <p>Servicios, confianza y el próximo paso — sin otro hilo de mensajes.</p>
+        <h3>Un lugar claro para dar el próximo paso.</h3>
+        <p>Servicios, confianza, reservas y cotizaciones — sin otra conversación larga por DM.</p>
         <div class="mini-actions"><span>Reservar limpieza</span><span>Pedir cotización</span></div>
       </div>
       <div class="owner-window">
-        <div class="stage-label">Lo que tú ves</div>
-        <img src="../assets/my-cleaning-hub-preview.webp" alt="Panel de My Cleaning Hub mostrando un flujo de clientes organizado">
+        <div class="stage-label">Lo que ves tú</div>
+        <img src="../assets/my-cleaning-hub-preview.webp" alt="Panel de My Cleaning Hub mostrando un flujo organizado de clientes">
       </div>
-      <div class="stage-flow"><span>Te encuentran</span><span>Reservan / cotizan</span><span>Organizado en Hub</span></div>
+      <div class="stage-flow"><span>Te encontró</span><span>Reservó / Cotizó</span><span>Organizado</span></div>
     </div>
   </div>
 </section>
 
-<section class="cvpain" data-reveal>
+<section class="quick-help" id="start-here" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">La fricción</div>
-    <h2 class="section-title">Puedes limpiar excelente y aun así ser difícil de reservar.</h2>
-    <div class="editorial-pain-grid">
-      <article class="editorial-pain"><span class="small">01 · Atención</span><div><h3>Te encuentran — pero el próximo paso no está claro.</h3><p>Un buen Instagram ayuda menos si una persona lista para reservar todavía tiene que preguntarte qué hacer.</p></div></article>
-      <article class="editorial-pain"><span class="small">02 · Reserva</span><div><h3>Los mensajes convierten una consulta simple en ida y vuelta.</h3><p>Servicio, fecha, dirección y cotización terminan repartidos entre conversaciones.</p></div></article>
-      <article class="editorial-pain"><span class="small">03 · Seguimiento</span><div><h3>El trabajo administrativo empieza después del “sí”.</h3><p>Clientes, calendario, cotizaciones y facturas todavía necesitan un lugar visible.</p></div></article>
+    <div class="eyebrow">¿No sabes por dónde empezar?</div>
+    <h2 class="section-title">¿Con qué necesitas ayuda?</h2>
+    <p class="section-intro">No necesitas comprar todos los servicios. Empieza por la parte de tu negocio que hoy se siente más desorganizada.</p>
+    <div class="quick-help-grid">
+      <article class="quick-help-card">
+        <div><span class="small">PRESENCIA ONLINE</span><h3>Necesito verme más clara y profesional.</h3><p>Tu Instagram está activo, pero tu oferta, contenido o próximo paso todavía no se entienden tan rápido como deberían.</p></div>
+        <a href="#more">Instagram Audit + Contenido hecho para ti →</a>
+      </article>
+      <article class="quick-help-card">
+        <div><span class="small">RESERVAS</span><h3>Necesito una forma más fácil para que mis clientes reserven.</h3><p>Dales un lugar simple para ver tus servicios, reservar una limpieza o pedir una cotización.</p></div>
+        <a href="#website-hub">Landing Page + My Cleaning Hub →</a>
+      </article>
+      <article class="quick-help-card">
+        <div><span class="small">MENOS TRABAJO MANUAL</span><h3>Estoy repitiendo el mismo seguimiento una y otra vez.</h3><p>Si respuestas repetidas, confirmaciones o follow-ups te están quitando tiempo, podemos simplificar ese flujo.</p></div>
+        <a href="../automation/#choose">Automatización de Instagram + sitio web →</a>
+      </article>
     </div>
   </div>
 </section>
@@ -698,46 +721,7 @@ body{font-size:17px}
   <div class="wrap">
     <div class="eyebrow">The Launch Era</div>
     <h2>Marketing es más que publicar.</h2>
-    <p>También es lo que pasa después de que alguien te encuentra: el próximo paso, la reserva, el seguimiento y la experiencia del cliente.</p>
-  </div>
-</section>
-
-<section class="cvsection" data-reveal id="how-it-works">
-  <div class="wrap">
-    <div class="eyebrow">Un solo recorrido claro</div>
-    <h2 class="section-title">De “te encontré” a “ya reservé”.</h2>
-    <p class="section-intro">Por delante es simple para tu cliente. Por detrás es más visible para ti.</p>
-    <div class="journey">
-      <div class="journey-step"><span class="n">01</span><b>Te encuentran</b><span>Instagram, Google o recomendación.</span></div>
-      <div class="journey-step"><span class="n">02</span><b>Ven una página clara</b><span>Servicios, fotos, reseñas y próximo paso.</span></div>
-      <div class="journey-step"><span class="n">03</span><b>Reservan o piden cotización</b><span>Tu cliente no necesita crear cuenta.</span></div>
-      <div class="journey-step"><span class="n">04</span><b>El Hub lo organiza</b><span>La reserva o cotización entra a un solo flujo.</span></div>
-      <div class="journey-step"><span class="n">05</span><b>Sabes qué pasa después</b><span>Clientes, calendario, cotizaciones y facturas quedan visibles.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="cvsection" data-reveal style="background:#fff;border-block:1px solid var(--line)">
-  <div class="wrap">
-    <div class="eyebrow">Muéstralo, no solo lo expliques</div>
-    <h2 class="section-title">Por delante se ve simple. Por detrás se mantiene organizado.</h2>
-    <div class="proof-split">
-      <div class="proof-pane">
-        <div class="pane-label">Tu cliente</div>
-        <h3>Un lugar profesional para tomar acción.</h3>
-        <p>Sin mandar servicios, screenshots, precios y disponibilidad en mensajes separados.</p>
-        <div class="client-preview">
-          <strong>Listo cuando tu cliente esté listo.</strong>
-          <div class="preview-actions"><span>Reservar limpieza</span><span>Pedir cotización</span></div>
-        </div>
-      </div>
-      <div class="proof-pane">
-        <div class="pane-label">Tú</div>
-        <h3>Una vista más clara de lo que pasa después.</h3>
-        <p>Tu Hub se convierte en la parte operativa detrás de la página.</p>
-        <img src="../assets/my-cleaning-hub-preview.webp" alt="Vista del panel de My Cleaning Hub" loading="lazy">
-      </div>
-    </div>
+    <p>También es lo que pasa después de que alguien te encuentra: ¿puede entenderte, confiar en ti y dar el próximo paso sin perseguirte por mensajes?</p>
   </div>
 </section>
 
@@ -745,48 +729,38 @@ body{font-size:17px}
   <div class="wrap offer-v2">
     <div class="offer-price">
       <div><div class="eyebrow" style="color:var(--butter)">Landing Page + Hub</div><strong>$39.99</strong><p>Pago único</p></div>
-      <p>Tiempo de producción: 3 días hábiles.</p>
+      <p>Producción: 3 días hábiles.</p>
     </div>
     <div class="offer-body">
-      <h2 class="section-title">Una entrada clara. Un flujo más limpio detrás.</h2>
-      <p class="section-intro">Creado para negocios de limpieza que quieren un camino más profesional desde el interés hasta la reserva — sin añadir otro sistema complicado.</p>
+      <h2 class="section-title">Una entrada profesional para tu negocio de limpieza.</h2>
+      <p class="section-intro">Tus clientes tienen un lugar claro para ver tus servicios, reservar o pedir una cotización. Tú tienes My Cleaning Hub detrás para mantener organizado lo que pasa después.</p>
       <div class="offer-points">
-        <div><b>Página profesional de una sola página</b><span>Servicios, fotos, reseñas y botones claros de reserva/cotización.</span></div>
-        <div><b>Flujo de clientes conectado</b><span>Tu reserva pública y solicitud de cotización se conectan con My Cleaning Hub.</span></div>
-        <div><b>2 meses de Hub incluidos</b><span>No necesitas tarjeta durante el período incluido. Luego $5.99/mes si continúas.</span></div>
-        <div><b>Alcance claro</b><span>No incluye anuncios pagados, leads garantizados ni un sitio grande de múltiples páginas.</span></div>
+        <div><b>Página web profesional de una sola página</b><span>Tus servicios, fotos, reseñas y botones claros para reservar o pedir cotización.</span></div>
+        <div><b>Conectada a My Cleaning Hub</b><span>Reservas y solicitudes de cotización tienen un lugar más claro donde llegar en vez de perderse entre mensajes.</span></div>
+        <div><b>2 meses de Hub incluidos</b><span>No necesitas tarjeta durante el periodo incluido. Después son $5.99/mes si decides continuar.</span></div>
       </div>
       <div class="hero-actions"><a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Quiero Landing + Hub — $39.99</a><a class="hero-secondary-link" href="../cleaning-hub/">Ver My Cleaning Hub →</a></div>
-      <div class="fit-strip">
-        <article><h3>Te conviene si…</h3><ul><li>Todavía coordinas reservas manualmente.</li><li>No tienes sitio web, o el tuyo no deja claro el próximo paso.</li><li>Quieres un recorrido simple sin un sistema tecnológico pesado.</li></ul></article>
-        <article><h3>Probablemente no es para ti si…</h3><ul><li>Necesitas un sitio grande de muchas páginas.</li><li>Tu sitio y sistema de reservas actuales ya funcionan bien.</li><li>Buscas anuncios pagados o clientes garantizados.</li></ul></article>
-      </div>
     </div>
   </div>
 </section>
 
 <section class="cvsection" data-reveal id="more">
   <div class="wrap">
-    <div class="eyebrow">Más soporte</div>
-    <h2 class="section-title">¿Necesitas ayuda con otra parte del recorrido?</h2>
-    <p class="section-intro">El Hub es el centro. Estos servicios apoyan las partes alrededor cuando las necesitas.</p>
+    <div class="eyebrow">Más apoyo</div>
+    <h2 class="section-title">¿Necesitas ayuda con otra parte del negocio?</h2>
+    <p class="section-intro">Elige el problema que quieres resolver. No tienes que comprar un paquete grande para empezar.</p>
     <div class="support-list">
       <div class="audit-explainer">
         <div class="audit-explainer-head">
-          <div><h3>Auditoría de Instagram</h3><p>Reviso tu perfil como lo haría un posible cliente de limpieza y te muestro qué está claro, qué crea fricción y qué deberías corregir primero.</p></div>
+          <div><h3>Instagram Audit</h3><p>Reviso tu perfil como lo haría un posible cliente de limpieza y te digo qué está claro, qué crea fricción y qué debes arreglar primero.</p></div>
           <div class="audit-price">$15 · pago único</div>
         </div>
-        <div class="audit-points">
-          <div><b>Claridad del perfil</b>¿Un cliente nuevo entiende rápido qué limpias y dónde trabajas?</div>
-          <div><b>Confianza</b>¿Tu bio, posts y highlights hacen que el negocio se sienta profesional?</div>
-          <div><b>Camino del cliente</b>¿Está claro cómo pedir cotización o reservar?</div>
-          <div><b>Plan de acción</b>Recibes prioridades claras sobre qué mantener, cambiar y corregir primero.</div>
-        </div>
-        <div class="audit-actions"><a class="audit-buy" href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Obtener Audit — $15 →</a><span class="secondary-note">Entrega en 2 días hábiles.</span></div>
+        <div class="audit-actions"><a class="audit-buy" href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Obtener Audit — $15 →</a><span class="secondary-note">Entrega: 2 días hábiles.</span></div>
       </div>
+
       <div class="support-content" id="pricing">
         <div class="support-content-head">
-          <div><h3>Contenido hecho para ti</h3><p>Posts, Stories, captions y hashtags relevantes — creados para tu negocio de limpieza y listos para que tú los publiques.</p></div>
+          <div><h3>Contenido hecho para ti</h3><p>Creo los posts, Stories, captions y hashtags relevantes para tu cleaning business. Recibes todo listo para publicar — no administro tu cuenta.</p></div>
           <span>Elige tu plan mensual</span>
         </div>
         <div class="content-plan-grid">
@@ -794,10 +768,19 @@ body{font-size:17px}
           <a class="content-plan" href="https://buy.stripe.com/3cI9AS7j17Hrc4x4UY93y0B" target="_blank" rel="noopener"><b>Growth</b><span>8 publicaciones + 4 Stories</span><small>Entrega: 5 días hábiles</small><strong>$30/mes</strong><em>Elegir Growth →</em></a>
           <a class="content-plan" href="https://buy.stripe.com/3cI00i8n53rbgkN2MQ93y0C" target="_blank" rel="noopener"><b>Pro</b><span>12 publicaciones + 6 Stories</span><small>Entrega: 7 días hábiles</small><strong>$40/mes</strong><em>Elegir Pro →</em></a>
         </div>
-        <p class="secondary-note">Solo creación de contenido. No administramos tu cuenta, no publicamos por ti, no respondemos comentarios o DMs y no hacemos gestión de comunidad.</p>
       </div>
-      <div class="support-row"><h3>Automatización</h3><p>Reduce respuestas repetitivas y crea un seguimiento más claro alrededor de tus consultas.</p><a href="automation/#choose">Ver Automation →</a></div>
-      <div class="support-row"><h3>Soporte VA</h3><p>Ayuda humana con leads, seguimientos, calendario, cotizaciones y admin esencial.</p><a href="virtual-assistant/">Ver VA Support →</a></div>
+
+      <div class="support-row">
+        <h3>Automatización</h3>
+        <p>Para las partes repetitivas que ya estás cansada de manejar manualmente.</p>
+        <div class="service-mini-grid">
+          <div class="service-mini"><b>Instagram Automation — $50</b><span>Consultas repetidas, primeras respuestas y un paso más claro hacia reserva o cotización. Producción: 2 días hábiles.</span></div>
+          <div class="service-mini"><b>Website Automation — $70</b><span>Confirmaciones de leads, organización y un follow-up o próximo paso acordado. Producción: 4 días hábiles.</span></div>
+        </div>
+        <a href="../automation/#choose">Ver Automatización →</a>
+      </div>
+
+      <div class="support-row"><h3>VA Support</h3><p>Ayuda humana con leads, follow-ups aprobados, calendario, preparación de cotizaciones/facturas y tareas administrativas recurrentes.</p><a href="../virtual-assistant/">Ver VA Support →</a></div>
     </div>
   </div>
 </section>
@@ -805,22 +788,19 @@ body{font-size:17px}
 <section class="cvfaq" data-reveal>
   <div class="wrap">
     <div class="eyebrow">Preguntas frecuentes</div>
-    <h2 class="section-title">Respuestas simples antes de empezar.</h2>
+    <h2 class="section-title">Algunas cosas que debes saber antes de empezar.</h2>
     <div class="faq">
-      <details><summary>¿Necesito tener un sitio web?</summary><p>No. Está pensado para negocios de limpieza sin sitio web o con una página que necesita un recorrido más claro para el cliente.</p></details>
-      <details><summary>¿Qué incluye exactamente los $39.99?</summary><p>Una página web profesional de una sola página conectada con el flujo de reservas y cotizaciones de My Cleaning Hub, con tiempo de producción de 3 días hábiles. El Hub está incluido por 2 meses.</p></details>
-      <details><summary>¿Qué necesitas de mí?</summary><p>Un formulario corto con los datos de tu negocio, servicios, zonas, contacto, fotos y las reseñas que quieras incluir.</p></details>
-      <details><summary>¿Mis clientes tienen que crear una cuenta?</summary><p>No. Usan tu flujo público de reserva o cotización sin necesitar una cuenta de My Cleaning Hub.</p></details>
-      <details><summary>¿Qué pasa después de los 2 meses incluidos del Hub?</summary><p>Si quieres continuar, My Cleaning Hub cuesta $5.99/mes. No necesitas tarjeta durante los 2 meses incluidos.</p></details>
-      <details><summary>¿Esto me traerá clientes automáticamente?</summary><p>No. Ayuda a las personas que ya encuentran tu negocio a tomar un próximo paso más claro. No incluye anuncios pagados ni clientes garantizados.</p></details>
-      <details><summary>¿Podemos hacerlo en español?</summary><p>Sí. El soporte está disponible en inglés y español.</p></details>
+      <details><summary>¿Necesito tener un sitio web?</summary><p>No. Landing Page + Hub está pensado para cleaning businesses sin website o con una página que no da a sus clientes un próximo paso claro.</p></details>
+      <details><summary>¿Cuándo empieza el tiempo de producción?</summary><p>Después de completar la información requerida del formulario, los materiales y cualquier acceso necesario. Si falta información, la fecha de entrega puede moverse.</p></details>
+      <details><summary>¿Administras mis redes sociales?</summary><p>No. Contenido hecho para ti significa que creo el contenido y te lo entrego listo para publicar. Publicar, responder DMs/comentarios y community management no están incluidos.</p></details>
+      <details><summary>¿Podemos trabajar en español?</summary><p>Sí. El soporte y onboarding están disponibles en inglés y español.</p></details>
     </div>
   </div>
 </section>
 
 <section class="cvfinal" data-reveal>
   <div class="wrap cvfinal-card">
-    <div><h2>Haz que el próximo paso sea fácil de ver.</h2><p>Tu negocio puede verse profesional antes del primer mensaje — y mantenerse más organizado después de la reserva.</p><div style="display:grid;gap:8px;margin-top:24px"><strong>$39.99 pago único</strong><strong>3 días hábiles</strong><strong>My Cleaning Hub incluido por 2 meses</strong></div></div>
+    <div><h2>Haz que sea más fácil para tus clientes decir que sí.</h2><p>Si tu proceso de reserva todavía depende de mucho mensaje de ida y vuelta, Landing Page + Hub les da un próximo paso más claro y a ti un lugar más organizado para manejar lo que pasa después.</p><div style="display:grid;gap:8px;margin-top:24px"><strong>$39.99 pago único</strong><strong>3 días hábiles</strong><strong>My Cleaning Hub incluido por 2 meses</strong></div></div>
     <a class="btn" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Quiero Landing + Hub — $39.99</a>
   </div>
 </section>
