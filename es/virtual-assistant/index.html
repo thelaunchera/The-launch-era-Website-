@@ -99,6 +99,27 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
   #workflow .step:last-child{border-bottom:0}
 }
 
+
+/* 2026-09-26 compact VA page */
+.va-compact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.va-compact{background:#fff;padding:26px;min-height:210px}
+.va-compact:nth-child(2){background:var(--blue-soft)}
+.va-compact:nth-child(3){background:#FFF7C9}
+.va-compact:nth-child(4){background:var(--ivory)}
+.va-compact .num{margin:0 0 34px}
+.va-compact h3{font-size:26px;line-height:1.04;margin:0 0 10px}
+.va-compact p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.va-steps{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--ink);margin-top:28px}
+.va-steps>div{padding:26px;border-right:1px solid var(--line);min-height:190px}
+.va-steps>div:last-child{border-right:0}
+.va-steps>div:nth-child(2){background:var(--blue-soft)}
+.va-steps strong{font-size:10px;letter-spacing:.14em}
+.va-steps h3{font-size:25px;line-height:1.05;margin:34px 0 8px}
+.va-steps p{margin:0;color:var(--muted);font-size:14px}
+.va-faq details{max-width:860px}
+@media(max-width:900px){.va-compact-grid,.va-steps{grid-template-columns:1fr 1fr}.va-steps>div:nth-child(2){border-right:0}.va-steps>div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:560px){.va-compact-grid,.va-steps{grid-template-columns:1fr}.va-steps>div{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.va-steps>div:last-child{border-bottom:0}.va-compact{min-height:auto}}
+
 </style>
 </head>
 <body>
@@ -126,56 +147,41 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Soporte de asistente virtual · negocios de limpieza</div>
-      <h1>Mantén en movimiento el trabajo detrás de tu negocio de limpieza.</h1>
-      <p class="lead">Ayudo a dueños de negocios de limpieza a mantener organizadas las consultas, los seguimientos de clientes, el calendario y las tareas administrativas esenciales sin contratar a tiempo completo.</p>
-      <div class="actions"><a class="btn dark" href="#help">Ver exactamente qué manejo</a><a class="btn" href="#package">Ver paquete + precio</a></div>
+      <div class="eyebrow">Soporte VA · negocios de limpieza</div>
+      <h1>Saca el admin de tu lista mental.</h1>
+      <p class="lead">Ayuda enfocada con leads, seguimientos, clientes, calendario y preparación de cotizaciones/facturas — sin contratar a tiempo completo.</p>
+      <div class="actions"><a class="btn dark" href="#package">Ver paquete + precio</a><a class="btn" href="#help">Qué puedo manejar</a></div>
     </div>
     <aside class="hero-card">
-      <div class="eyebrow">VA Essential Support</div>
+      <div class="eyebrow">Soporte VA</div>
       <div class="big">8 horas</div>
-      <p>Hasta 8 horas de soporte enfocado cada mes para las tareas esenciales que protegen tus consultas, la comunicación con clientes y tu calendario.</p>
-      <div class="micro"><span class="chip">Consultas</span><span class="chip">Seguimientos</span><span class="chip">Clientes</span><span class="chip">Calendario</span><span class="chip">Reporte semanal</span></div>
+      <p>Soporte mensual enfocado para el admin recurrente que siempre termina quedando para después.</p>
+      <div class="micro"><span class="chip">Leads</span><span class="chip">Seguimientos</span><span class="chip">Calendario</span><span class="chip">Cotizaciones</span></div>
     </aside>
   </div>
 </section>
 
 <section class="alt" id="help">
   <div class="wrap">
-    <div class="eyebrow">En qué te ayudo realmente</div>
-    <h2 class="title">Las pequeñas tareas operativas que se siguen acumulando.</h2>
-    <p class="intro">Esto no es “ayuda de VA” sin límites claros. Acordamos prioridades y trabajo las tareas recurrentes que mantienen organizada la información de tu negocio y visibles tus próximas acciones.</p>
-    <div class="grid">
-      <article class="card"><div class="num">01 · CONSULTAS</div><h3>Organización de consultas + preparación de seguimiento</h3><p>Mantengo organizadas las nuevas consultas, actualizo estados, ordeno datos de contacto y preparo mensajes de seguimiento para que las oportunidades no se pierdan entre mensajes de Instagram o notas.</p></article>
-      <article class="card"><div class="num">02 · CLIENTES</div><h3>Registros de clientes + próximos pasos</h3><p>Mantengo organizados los datos del cliente, notas del servicio y próximas acciones en el sistema acordado para que encuentres rápidamente lo que necesitas.</p></article>
-      <article class="card"><div class="num">03 · CALENDARIO</div><h3>Calendario + actualizaciones de citas</h3><p>Agrego o actualizo citas acordadas, fechas límite y recordatorios para que sea más fácil dar seguimiento al trabajo importante de clientes.</p></article>
-      <article class="card"><div class="num">04 · SEGUIMIENTOS</div><h3>Seguimientos aprobados por correo</h3><p>Preparo y envío correos de seguimiento acordados usando mensajes aprobados, y registro la próxima acción para que las conversaciones no se pierdan.</p></article>
-      <article class="card"><div class="num">05 · COTIZACIONES + FACTURAS</div><h3>Preparación de información + organización</h3><p>Preparo y organizo la información del cliente necesaria para cotizaciones y facturas y mantengo fáciles de localizar los registros relacionados. No incluye contabilidad.</p></article>
-      <article class="card"><div class="num">06 · VISIBILIDAD SEMANAL</div><h3>Programación aprobada + resumen semanal</h3><p>Programo publicaciones sociales que ya estén aprobadas y preparo un resumen semanal simple del trabajo completado, pendientes y decisiones que necesitas tomar.</p></article>
+    <div class="eyebrow">Qué puedo manejar</div>
+    <h2 class="title">Las tareas recurrentes que te quitan tiempo.</h2>
+    <div class="va-compact-grid">
+      <article class="va-compact"><div class="num">01 · LEADS</div><h3>Organización de leads + clientes</h3><p>Mantengo datos, estado y próximos pasos fáciles de encontrar.</p></article>
+      <article class="va-compact"><div class="num">02 · SEGUIMIENTO</div><h3>Seguimientos aprobados</h3><p>Preparo y envío correos acordados y registro el próximo paso.</p></article>
+      <article class="va-compact"><div class="num">03 · CALENDARIO</div><h3>Actualizaciones de calendario</h3><p>Mantengo al día citas, recordatorios y fechas acordadas.</p></article>
+      <article class="va-compact"><div class="num">04 · ADMIN</div><h3>Preparación de cotizaciones + facturas</h3><p>Organizo la información necesaria para cotizaciones y facturas. No incluye contabilidad.</p></article>
     </div>
   </div>
 </section>
 
-<section>
+<section id="workflow">
   <div class="wrap">
-    <div class="eyebrow">Cómo puede verse esto en la práctica</div>
-    <h2 class="title">Tú mantienes el control. Yo mantengo avanzando las tareas acordadas.</h2>
-    <div class="week">
-      <div class="weekbox blue"><h3>Cuando llegan nuevas consultas</h3><p>Puedo actualizar su información, marcar en qué etapa están, preparar el próximo seguimiento y mantener el registro claro para que sepas quién todavía necesita atención.</p></div>
-      <div class="weekbox"><h3>Cuando la semana se complica</h3><ul><li>Actualizar información de clientes</li><li>Preparar correos de seguimiento aprobados</li><li>Registrar próximas acciones de consultas y clientes</li><li>Preparar información para cotizaciones/facturas</li><li>Actualizar elementos del calendario</li><li>Programar contenido aprobado</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="workflow">
-  <div class="wrap">
-    <div class="eyebrow">Ritmo de trabajo simple</div>
-    <h2 class="title">Sin un sistema complicado de VA que tengas que aprender.</h2>
-    <div class="process">
-      <div class="step"><strong>01 · PRIORIZA</strong><h3>Elige el trabajo que más importa.</h3><p>Definimos las tareas recurrentes y qué debe ir primero.</p></div>
-      <div class="step"><strong>02 · ORGANIZA</strong><h3>Usa las herramientas que ya tienes.</h3><p>Acordamos dónde deben vivir la información de clientes, las tareas y los archivos.</p></div>
-      <div class="step"><strong>03 · SOPORTE</strong><h3>Trabajo la lista aprobada.</h3><p>Manejo las tareas acordadas de consultas, seguimiento, calendario, cotizaciones/facturas y programación dentro de tus horas mensuales.</p></div>
-      <div class="step"><strong>04 · VISIBILIDAD</strong><h3>Puedes ver qué avanzó.</h3><p>Las actualizaciones se mantienen organizadas para que sepas qué está terminado y qué todavía necesita tu decisión.</p></div>
+    <div class="eyebrow">Ritmo simple</div>
+    <h2 class="title">Tú eliges prioridades. Yo avanzo el trabajo aprobado.</h2>
+    <div class="va-steps">
+      <div><strong>01 · PRIORIZAR</strong><h3>Elegimos lo más importante.</h3><p>Acordamos las tareas recurrentes y qué debe ir primero.</p></div>
+      <div><strong>02 · SOPORTE</strong><h3>Trabajo la lista aprobada.</h3><p>Manejo las tareas acordadas dentro de tus horas mensuales.</p></div>
+      <div><strong>03 · VISIBILIDAD</strong><h3>Ves qué avanzó.</h3><p>Lo completado y los próximos pasos se mantienen claros.</p></div>
     </div>
   </div>
 </section>
@@ -184,42 +190,40 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
   <div class="wrap package">
     <div>
       <div class="eyebrow" style="color:var(--yellow)">Soporte VA</div>
-      <h2>Soporte mensual simple para la parte administrativa de tu negocio de limpieza.</h2>
+      <h2>Soporte administrativo mensual enfocado.</h2>
       <div class="price">$89.99 <small>/ mes</small></div>
-      <p>Hasta 8 horas al mes para consultas, seguimientos, calendario, cotizaciones y organización de clientes.</p>
+      <p>Hasta 8 horas al mes para leads, seguimientos, calendario, preparación de cotizaciones/facturas y organización de clientes.</p>
       <div class="actions"><a class="btn yellow" href="https://buy.stripe.com/5kQ8wO6eX0eZb0t9be93y0J" target="_blank" rel="noopener noreferrer">Comenzar Soporte VA →</a></div>
     </div>
     <div class="include">
-      <h3>El soporte puede incluir:</h3>
+      <h3>Incluye</h3>
       <ul>
-        <li>Organización de consultas y clientes</li>
-        <li>Seguimientos</li>
+        <li>Organización de leads y clientes</li>
+        <li>Seguimientos aprobados</li>
         <li>Actualizaciones de calendario y citas</li>
         <li>Preparación de cotizaciones y facturas</li>
         <li>Tareas administrativas recurrentes aprobadas</li>
       </ul>
-      <div class="not"><strong>No incluido:</strong> diseño en Canva, limpieza general de archivos, contabilidad, llamadas en vivo, edición de video, servicio al cliente 24/7, trabajo técnico avanzado ni administración general sin límites.</div>
+      <div class="not"><strong>No incluye:</strong> contabilidad, llamadas en vivo, edición de video, servicio al cliente 24/7 ni administración general sin límites.</div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap faq">
+  <div class="wrap faq va-faq">
     <div class="eyebrow">Preguntas rápidas</div>
     <h2 class="title">Antes de comenzar.</h2>
-    <details><summary>¿Administras todo mi negocio?</summary><p>No. Manejo las tareas de soporte acordadas dentro del paquete. Las decisiones del negocio, aprobaciones y trabajo fuera del alcance definido siguen siendo tuyos.</p></details>
-    <details><summary>¿Puedes contestar llamadas para mi negocio de limpieza?</summary><p>No. El manejo de llamadas en vivo no está incluido.</p></details>
-    <details><summary>¿Puedes llevar la contabilidad?</summary><p>No. Puedo organizar información de cotizaciones y facturas, pero la contabilidad y el trabajo de impuestos no están incluidos.</p></details>
-    <details><summary>¿Creas todo mi contenido para redes sociales?</summary><p>La creación mensual completa de contenido y el diseño en Canva son servicios separados. El Soporte VA puede programar publicaciones que ya estén aprobadas y listas para publicar.</p></details>
-    <details><summary>¿Qué sucede primero?</summary><p>Identificamos las tareas que más tiempo consumen, acordamos prioridades y confirmamos dónde se manejará el trabajo antes de comenzar el soporte.</p></details>
+    <details><summary>¿Administras todo mi negocio?</summary><p>No. Manejo las tareas de soporte acordadas dentro del paquete mensual. Las decisiones y aprobaciones siguen siendo tuyas.</p></details>
+    <details><summary>¿Contestas llamadas o haces contabilidad?</summary><p>No. Las llamadas en vivo, contabilidad y trabajo de impuestos no están incluidos.</p></details>
+    <details><summary>¿Creas mi contenido para redes?</summary><p>La creación completa de contenido es un servicio separado. El Soporte VA puede ayudar con tareas administrativas recurrentes aprobadas.</p></details>
   </div>
 </section>
 
 <section>
   <div class="wrap final">
-    <h2>Pon en orden la operación interna sin contratar a tiempo completo.</h2>
-    <p>Empieza con las tareas recurrentes que más tiempo te están costando. Mantenemos el alcance claro y construimos desde ahí.</p>
-    <div class="actions"><a class="btn dark" href="https://buy.stripe.com/5kQ8wO6eX0eZb0t9be93y0J" target="_blank" rel="noopener noreferrer">Comenzar Soporte VA →</a><a class="btn" href="../">Volver a todos los servicios</a></div>
+    <h2>Menos admin en tu cabeza.</h2>
+    <p>Usa tus horas mensuales en las tareas recurrentes que siempre terminan quedando para después.</p>
+    <div class="actions"><a class="btn dark" href="https://buy.stripe.com/5kQ8wO6eX0eZb0t9be93y0J" target="_blank" rel="noopener noreferrer">Comenzar Soporte VA →</a><a class="btn" href="../">Volver a servicios</a></div>
   </div>
 </section>
 </main>
