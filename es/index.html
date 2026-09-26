@@ -402,6 +402,25 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 @media(max-width:650px){.offer-price{display:grid}.offer-price span{padding-left:0;border-left:0}}
 @media(max-width:760px){.frontback-grid{grid-template-columns:1fr}.frontback-card{min-height:auto;padding:30px 22px}.offer-flow{padding:24px 22px}}
 
+
+/* 2026-09-25 conversion clarity pass */
+.brand-home-copy .kicker{margin-bottom:14px}
+.brand-home-copy h1{max-width:780px}
+.brand-home-copy>p{max-width:700px}
+.offer-flow p{font-size:18px;line-height:1.6;margin:14px 0 0}
+.offer-flow .flow-outcome{display:block;margin-top:16px;font-weight:700;font-size:15px}
+.fit-section{padding:88px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fffdf9}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.fit-card{background:var(--ivory);padding:36px}
+.fit-card.not-fit{background:var(--blue-soft)}
+.fit-card h3{font-size:30px;line-height:1.05;margin:0 0 22px;letter-spacing:-.035em}
+.fit-card ul{list-style:none;padding:0;margin:0;display:grid;gap:15px}
+.fit-card li{position:relative;padding-left:25px;color:var(--muted);font-size:16px;line-height:1.5}
+.fit-card li:before{position:absolute;left:0;top:0;font-weight:800;color:var(--ink)}
+.fit-card.for-you li:before{content:"✓"}
+.fit-card.not-fit li:before{content:"—"}
+@media(max-width:700px){.fit-section{padding:64px 0}.fit-grid{grid-template-columns:1fr}.fit-card{padding:28px}.offer-flow p{font-size:16px}}
+
 </style>
 </head>
 <body>
@@ -429,17 +448,17 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 <section class="brand-home-hero">
   <div class="brand-home-grid">
     <div class="brand-home-copy">
-      <div class="kicker"><span class="kicker-dot"></span>Para negocios de limpieza residencial</div>
-      <h1>¿No tienes website? Yo me encargo — de la parte visible y de la parte de atrás.</h1>
-      <p>Obtén un landing page profesional que genere confianza y conéctalo directamente a My Cleaning Hub para reservas, solicitudes de cotización y la parte de clientes de tu negocio.</p>
+      <div class="kicker"><span class="kicker-dot"></span>Landing page + sistema de reservas para negocios de limpieza</div>
+      <h1>¿No tienes website? Dale a tus clientes un lugar claro para reservar.</h1>
+      <p>Creo un landing profesional para tu negocio de limpieza y lo conecto a My Cleaning Hub, para que nuevos leads puedan reservar o pedir cotización sin brincar entre DMs, textos y diferentes links.</p>
       <div class="hero-actions">
         <a class="btn btn-dark" href="#website-hub">Ver cómo funciona</a>
         <a class="btn btn-light" href="../cleaning-hub/" data-hub-cta="brand-hero">Ver My Cleaning Hub</a>
       </div>
       <div class="brand-trust">
-        <span>Landing profesional</span>
-        <span>Booking + cotizaciones conectados</span>
-        <span>Hub detrás del negocio</span>
+        <span>$39.99 pago único</span>
+        <span>Listo en 4 días hábiles</span>
+        <span>2 meses de Hub gratis</span>
       </div>
     </div>
     <div class="brand-home-visual">
@@ -472,11 +491,39 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
     </div>
     <div class="offer-flow">
       <strong>Cómo funciona</strong>
-      <p>Instagram / Google / referidos → tu landing page → Reservar o Pedir Cotización → My Cleaning Hub → confirmación automática + flujo de clientes organizado.</p>
+      <p>Un cliente listo para reservar te encuentra en Instagram, Google o por un referido. En vez de hacerlo buscar entre DMs, textos y distintos links, tu landing le da dos pasos claros: <strong>Reservar una Limpieza</strong> o <strong>Pedir una Cotización Gratis</strong>. Su solicitud entra a My Cleaning Hub, donde reservas, cotizaciones, datos del cliente, calendario, trabajos y facturas se mantienen organizados en un solo lugar.</p>
+      <span class="flow-outcome">Menos ida y vuelta. Un camino claro desde “me interesa” hasta el próximo paso.</span>
     </div>
     <div class="hero-actions">
       <a class="btn btn-dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H">Quiero Mi Landing + Hub</a>
       <a class="btn btn-light" href="../cleaning-hub/" data-hub-cta="brand-start">Ver My Cleaning Hub</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="fit-section" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">Antes de comprar</div>
+    <h2 class="section-title">¿Landing + Hub es para tu negocio de limpieza?</h2>
+    <p class="section-intro">Está creado para hacerle fácil el próximo paso a los clientes de negocios pequeños de limpieza residencial — no para darte más tecnología que manejar.</p>
+    <div class="fit-grid">
+      <article class="fit-card for-you">
+        <h3>Esto es para ti si…</h3>
+        <ul>
+          <li>Te llegan leads por Instagram, Google o referidos, pero todavía coordinas reservas manualmente por DM o texto.</li>
+          <li>No tienes website, o tu página actual no deja claro qué debe hacer el cliente después.</li>
+          <li>Quieres un lugar simple y profesional para mostrar servicios, recibir cotizaciones y reservas.</li>
+        </ul>
+      </article>
+      <article class="fit-card not-fit">
+        <h3>Esto no es para ti si…</h3>
+        <ul>
+          <li>Necesitas un website grande de muchas páginas, e-commerce o un desarrollo de software personalizado.</li>
+          <li>Ya tienes un website y un sistema de booking/CRM que te funcionan bien.</li>
+          <li>Buscas anuncios pagados o leads garantizados. Este setup organiza el camino del cliente; no promete tráfico ni reservas.</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -535,14 +582,16 @@ details{transition:background .2s ease,padding .2s ease}details[open]{background
 
 <section class="brand-faq" data-reveal>
   <div class="wrap">
-    <div class="eyebrow">Preguntas</div>
-    <h2 class="section-title">¿Por dónde debo empezar?</h2>
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title">Respuestas simples antes de empezar.</h2>
     <div class="faq">
-      <details><summary>¿Qué recibo con Landing Page + My Cleaning Hub?</summary><p>Recibes una presencia online profesional de una sola página para tu negocio de limpieza, conectada a los links de booking y cotización de tu Hub para que la parte visible y la parte de atrás trabajen juntas.</p></details>
-      <details><summary>¿Necesito tener un website?</summary><p>No. Este setup está pensado especialmente para negocios de limpieza pequeños que todavía no tienen website o necesitan una presencia online más simple.</p></details>
-      <details><summary>¿Qué pasa cuando un cliente reserva?</summary><p>El cliente reserva desde tu página de My Cleaning Hub. La reserva se guarda en el Hub, el cliente recibe su email de confirmación y el owner recibe la notificación de nueva reserva.</p></details>
-      <details><summary>¿Puedo usar los otros servicios también?</summary><p>Sí. Content, Automation, Audit y VA Support siguen disponibles por separado cuando tu negocio los necesite.</p></details>
-      <details><summary>¿Hay soporte en español?</summary><p>Sí. El sitio y la comunicación con clientes pueden manejarse en inglés o español.</p></details>
+      <details><summary>¿Qué incluye exactamente el setup de $39.99?</summary><p>Tu landing page profesional de una sola página, la conexión con el flujo de reservas y cotizaciones de My Cleaning Hub, el setup del camino principal del cliente y entrega en 4 días hábiles. My Cleaning Hub es gratis los primeros 2 meses.</p></details>
+      <details><summary>¿Esto es un website completo?</summary><p>Es una página enfocada en ayudar a un cliente de limpieza a entender tu negocio rápido y tomar el próximo paso. No es un website grande personalizado de muchas páginas.</p></details>
+      <details><summary>¿Cómo funcionan las reservas y cotizaciones?</summary><p>Tu landing tiene botones claros para Reservar una Limpieza y Pedir una Cotización Gratis. Esas acciones conectan con My Cleaning Hub para que la solicitud y los datos del cliente queden organizados detrás.</p></details>
+      <details><summary>¿Qué pasa después de los 2 meses gratis del Hub?</summary><p>Si quieres seguir usando My Cleaning Hub, cuesta $5.99 al mes. No necesitas tarjeta durante los 2 meses gratis.</p></details>
+      <details><summary>¿Qué necesitas de mí?</summary><p>Después del checkout completas un intake corto con los datos de tu negocio, servicios, áreas de servicio, contacto, fotos y las reviews que quieras incluir.</p></details>
+      <details><summary>¿Esto me traerá leads automáticamente?</summary><p>No. El setup le da a tus leads un camino más claro para reservar o pedir cotización. Anuncios pagados y generación de leads garantizada no están incluidos.</p></details>
+      <details><summary>¿Podemos hacerlo en español?</summary><p>Sí. El soporte está disponible en inglés y español.</p></details>
     </div>
   </div>
 </section>
