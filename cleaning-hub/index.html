@@ -25,6 +25,14 @@ section{padding:74px 0}.section-head{max-width:850px;margin-bottom:34px}.section
 .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:10px 0}.faq summary{font-weight:800;cursor:pointer}.faq p{color:var(--muted)}.final{background:var(--yellow);border-radius:30px;padding:44px;text-align:center}.final h2{font-size:clamp(38px,5.5vw,62px);line-height:1;margin:0 0 16px}.final p{color:#4d493d;max-width:690px;margin:0 auto}.final .actions{justify-content:center}footer{padding:44px 0;border-top:1px solid var(--line);margin-top:60px;color:var(--muted);font-size:13px}
 @media(max-width:920px){.hero-grid,.difference,.plan{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.flow-grid{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}.hero{padding-top:52px}.hero-photo-wrap{max-width:560px;width:100%;min-height:460px;margin:auto}.hero-photo-wrap img{min-height:460px}}
 @media(max-width:620px){.wrap{width:min(100% - 28px,var(--max))}.nav{min-height:68px}.brand{font-size:18px}.nav-cta{padding:10px 13px;font-size:13px}.hero{padding:44px 0 50px}.hero h1{font-size:clamp(39px,12vw,54px)}.hero p,.intro{font-size:17px}.actions{display:grid}.actions .btn{width:100%}.hero-photo-wrap{min-height:390px;border-radius:22px;box-shadow:8px 8px 0 rgba(242,216,91,.75)}.hero-photo-wrap img{min-height:390px}.phone{padding:17px;border-radius:19px}.feature-grid,.payments{grid-template-columns:1fr}.difference,.plan,.final{padding:28px 22px;border-radius:23px}.section-head .title{font-size:39px}section{padding:58px 0}.hero-proof{display:grid;gap:8px}}
+
+/* 2026-09-26 simplified hub copy */
+.simple-link{display:inline-flex;align-items:center;min-height:50px;padding:13px 2px;font-weight:800;border-bottom:1px solid var(--ink)}
+.simple-link:hover{opacity:.6}
+#features .feature-grid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:920px){#features .feature-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.actions .simple-link{width:auto;justify-self:start}.simple-link{min-height:auto;padding:8px 0}#features .feature-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -32,28 +40,24 @@ section{padding:74px 0}.section-head{max-width:850px;margin-bottom:34px}.section
 <main>
 <section class="hero"><div class="wrap hero-grid"><div>
 <div class="eyebrow">My Cleaning Hub</div>
-<h1>Let clients book your cleaning business while you stay organized.</h1>
-<p>Give customers your own branded booking link. They choose a service and an available time—then the booking, client and calendar appointment appear inside your Hub.</p>
-<div class="actions"><a class="btn dark" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Start free</a><a class="btn" href="#how">See how booking works</a></div>
-<div class="hero-proof"><span>30 days free</span><span>No card required</span><span>Then $5.99/month</span></div>
+<h1>Let clients book. Keep your business organized.</h1>
+<p>Share one booking link. Clients choose a service and time, and the Hub keeps the booking, client and calendar together.</p>
+<div class="actions"><a class="btn dark" href="https://my-cleaning-hub.thelaunchera.chatgpt.site" target="_blank" rel="noopener noreferrer">Start free</a><a class="simple-link" href="#how">See the workflow →</a></div>
+<div class="hero-proof"><span>30 days free</span><span>No card required</span><span>$5.99/month after</span></div>
 </div><figure class="hero-photo-wrap"><img src="../assets/hero-on-the-go-user.webp?v=20260924d" alt="Cleaning business owner managing bookings and client work from her phone while on the go" width="320" height="213" fetchpriority="high" decoding="async"></figure>
 </div></section>
 
-<section class="flow" id="how"><div class="wrap"><div class="section-head"><div class="eyebrow">A simpler booking path</div><h2 class="title">From your link to your calendar—without customer logins.</h2><p class="intro">Your booking page is built around your cleaning business, with a direct path for customers to request a quote or book.</p></div><div class="flow-grid">
-<article class="step"><strong>01 · Set it up</strong><h3>Create services and availability.</h3><p>Add prices, durations, optional extras, working hours and dates you are unavailable.</p></article>
-<article class="step"><strong>02 · Share your link</strong><h3>Send clients your own booking URL.</h3><p>Use it on Instagram, Google Business Profile, your website, Facebook or text messages.</p></article>
-<article class="step"><strong>03 · Receive the booking</strong><h3>See it inside your Hub.</h3><p>The booking connects to the correct client and appears in Bookings and Calendar automatically.</p></article>
+<section class="flow" id="how"><div class="wrap"><div class="section-head"><div class="eyebrow">How it works</div><h2 class="title">Booking without the back-and-forth.</h2><p class="intro">One link for your client. One place for you.</p></div><div class="flow-grid">
+<article class="step"><strong>01</strong><h3>Set your services.</h3><p>Add what you offer, your availability and any extras.</p></article>
+<article class="step"><strong>02</strong><h3>Share your link.</h3><p>Use it on Instagram, Google, your website or in messages.</p></article>
+<article class="step"><strong>03</strong><h3>The Hub organizes the booking.</h3><p>Client details and the calendar stay connected in one workflow.</p></article>
 </div></div></section>
 
-<section id="features"><div class="wrap"><div class="section-head"><div class="eyebrow">One working system</div><h2 class="title">A simpler booking path. The full client workflow stays connected.</h2></div><div class="feature-grid">
-<article class="card"><span class="icon">01</span><h3>Public Booking</h3><p>Your branded page for services, dates, times, address and customer details.</p></article>
-<article class="card"><span class="icon">02</span><h3>Services</h3><p>Create fixed, starting-at or request-a-quote services with optional add-ons.</p></article>
-<article class="card"><span class="icon">03</span><h3>Bookings</h3><p>Review upcoming, completed and cancelled bookings in one mobile-friendly view.</p></article>
-<article class="card"><span class="icon">04</span><h3>Calendar</h3><p>Confirmed bookings appear automatically and occupied times cannot be booked twice.</p></article>
-<article class="card"><span class="icon">05</span><h3>Leads + Clients</h3><p>Keep inquiries visible and match repeat customers without creating duplicate clients.</p></article>
-<article class="card"><span class="icon">06</span><h3>Quotes</h3><p>Create branded quotes, email them and track when the customer accepts.</p></article>
-<article class="card"><span class="icon">07</span><h3>Invoices</h3><p>Send invoices and let each customer choose the payment method available to them.</p></article>
-<article class="card"><span class="icon">08</span><h3>Dashboard</h3><p>See today’s cleanings, upcoming bookings and payment follow-up without extra clutter.</p></article>
+<section id="features"><div class="wrap"><div class="section-head"><div class="eyebrow">Inside the Hub</div><h2 class="title">The essentials stay connected.</h2></div><div class="feature-grid">
+<article class="card"><span class="icon">01</span><h3>Booking + Services</h3><p>Clients choose a service, date and available time from your public link.</p></article>
+<article class="card"><span class="icon">02</span><h3>Clients + Calendar</h3><p>Bookings create a clearer client record and show up in your schedule.</p></article>
+<article class="card"><span class="icon">03</span><h3>Quotes + Invoices</h3><p>Keep quotes, payment details and invoices in the same workflow.</p></article>
+<article class="card"><span class="icon">04</span><h3>Dashboard</h3><p>See what needs your attention without digging through messages.</p></article>
 </div></div></section>
 
 <section><div class="wrap difference"><div><div class="eyebrow" style="color:var(--yellow)">Built around your business</div><h2>Your customers see your company from the moment they open your booking link.</h2><p>Your logo, business name and color lead the booking experience. Customers never enter the private owner dashboard.</p></div><div class="checklist"><div class="check">One unique booking link for your business</div><div class="check">No customer account required</div><div class="check">A focused booking experience with your business front and center</div><div class="check">Business data stays separated by account</div></div></div></section>
