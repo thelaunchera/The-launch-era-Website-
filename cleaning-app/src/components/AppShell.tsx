@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { supabase } from "../lib/supabase";
 import { useBusiness } from "../context/BusinessContext";
 
@@ -16,9 +16,13 @@ const items = [
   ["Settings", "/settings"],
 ] as const;
 
+const mobilePrimary = items.slice(0, 4);
+const mobileMore = items.slice(4);
+
 export default function AppShell({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const { business } = useBusiness();
+  const [moreOpen, setMoreOpen] = useState(false);
 
   async function signOut() {
     await supabase.auth.signOut();
@@ -47,11 +51,40 @@ export default function AppShell({ children }: { children: ReactNode }) {
 
       <main className="main">{children}</main>
 
+      {moreOpen && (
+        <div className="mobile-more-backdrop" onClick={() => setMoreOpen(false)}>
+          <div className="mobile-more-sheet" onClick={(event) => event.stopPropagation()}>
+            <div className="mobile-more-head">
+              <div>
+                <span className="eyebrow">WORKSPACE</span>
+                <h2>More</h2>
+              </div>
+              <button className="mini-btn" onClick={() => setMoreOpen(false)}>Close</button>
+            </div>
+
+            <nav className="mobile-more-grid">
+              {mobileMore.map(([label, href]) => (
+                <NavLink
+                  to={href}
+                  key={label}
+                  onClick={() => setMoreOpen(false)}
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  {label}
+                </NavLink>
+              ))}
+            </nav>
+
+            <button className="btn full mobile-signout" onClick={signOut}>Sign out</button>
+          </div>
+        </div>
+      )}
+
       <nav className="mobile-nav">
-        {items.slice(0, 4).map(([label, href]) => (
+        {mobilePrimary.map(([label, href]) => (
           <NavLink end={href === "/"} to={href} key={label}>{label}</NavLink>
         ))}
-        <NavLink to="/settings">More</NavLink>
+        <button className={moreOpen ? "active" : ""} onClick={() => setMoreOpen(true)}>More</button>
       </nav>
     </div>
   );
