@@ -588,6 +588,30 @@ body{font-size:17px}
   .support-row.highlight{padding-inline:12px}
 }
 
+
+/* 2026-09-26 content package selector */
+.support-content{padding:28px 0;border-bottom:1px solid var(--ink)}
+.support-content-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:18px}
+.support-content-head h3{font-size:28px;line-height:1.05;margin:0 0 8px}
+.support-content-head p{margin:0;color:var(--muted);max-width:680px}
+.support-content-head>span{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.content-plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.content-plan{display:flex;flex-direction:column;min-height:170px;padding:20px;border:1px solid var(--ink);background:var(--ivory);transition:transform .18s ease,box-shadow .18s ease}
+.content-plan:nth-child(2){background:var(--blue-soft)}
+.content-plan:nth-child(3){background:#FFF6C8}
+.content-plan:hover{transform:translateY(-3px);box-shadow:5px 5px 0 rgba(25,25,25,.1)}
+.content-plan b{font-size:22px;margin-bottom:8px}
+.content-plan span{font-size:14px;color:var(--muted);line-height:1.4}
+.content-plan strong{margin-top:auto;padding-top:20px;font-size:19px}
+.content-plan em{font-style:normal;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-top:6px}
+.support-content .secondary-note{margin:14px 0 0}
+@media(max-width:700px){
+  .support-content-head{display:block}
+  .support-content-head>span{display:block;margin-top:12px}
+  .content-plan-grid{grid-template-columns:1fr}
+  .content-plan{min-height:135px}
+}
+
 </style>
 </head>
 <body>
@@ -731,7 +755,18 @@ body{font-size:17px}
     <p class="section-intro">El Hub es el centro. Estos servicios apoyan las partes alrededor cuando las necesitas.</p>
     <div class="support-list">
       <div class="support-row"><h3>Auditoría de Instagram</h3><p>Encuentra las fallas de claridad o confianza que ve primero un cliente nuevo.</p><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Obtener Audit →</a></div>
-      <div class="support-row highlight" id="pricing"><h3>Contenido hecho para ti</h3><p>Posts, Stories, captions y hashtags terminados — listos para publicar. Planes desde $20/mes.</p><a href="https://buy.stripe.com/bJe8wOfPxbXH3y19be93y0A">Empezar Content →</a></div>
+      <div class="support-content" id="pricing">
+        <div class="support-content-head">
+          <div><h3>Contenido hecho para ti</h3><p>Posts, Stories, captions y hashtags relevantes — creados para tu negocio de limpieza y listos para que tú los publiques.</p></div>
+          <span>Elige tu plan mensual</span>
+        </div>
+        <div class="content-plan-grid">
+          <a class="content-plan" href="https://buy.stripe.com/bJe8wOfPxbXH3y19be93y0A" target="_blank" rel="noopener"><b>Starter</b><span>4 publicaciones + 2 Stories</span><strong>$20/mes</strong><em>Elegir Starter →</em></a>
+          <a class="content-plan" href="https://buy.stripe.com/3cI9AS7j17Hrc4x4UY93y0B" target="_blank" rel="noopener"><b>Growth</b><span>8 publicaciones + 4 Stories</span><strong>$30/mes</strong><em>Elegir Growth →</em></a>
+          <a class="content-plan" href="https://buy.stripe.com/3cI00i8n53rbgkN2MQ93y0C" target="_blank" rel="noopener"><b>Pro</b><span>12 publicaciones + 6 Stories</span><strong>$40/mes</strong><em>Elegir Pro →</em></a>
+        </div>
+        <p class="secondary-note">Solo creación de contenido. No administramos tu cuenta, no publicamos por ti, no respondemos comentarios o DMs y no hacemos gestión de comunidad.</p>
+      </div>
       <div class="support-row"><h3>Automatización</h3><p>Reduce respuestas repetitivas y crea un seguimiento más claro alrededor de tus consultas.</p><a href="automation/#choose">Ver Automation →</a></div>
       <div class="support-row"><h3>Soporte VA</h3><p>Ayuda humana con leads, seguimientos, calendario, cotizaciones y admin esencial.</p><a href="virtual-assistant/">Ver VA Support →</a></div>
     </div>
