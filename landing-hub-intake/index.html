@@ -27,23 +27,23 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <main class="wrap">
 <section class="hero">
 <div class="kicker">Client Intake / Formulario del cliente</div>
-<h1>Let’s build the front end — and set up the back end.</h1>
-<p>Please complete this once after purchasing Landing Page + My Cleaning Hub. You can answer in English or Spanish.</p>
-<div class="note"><strong>What happens next:</strong> we use this information to build your landing page and configure the services, booking options and business details connected to My Cleaning Hub. <strong>Production time: 3 business days after we receive the complete intake and required assets.</strong></div>
+<h1>Let’s build your Landing Page — and connect the system behind it. / Vamos a crear tu Landing Page y conectar el sistema detrás.</h1>
+<p>Please complete this once after purchasing Landing Page + My Cleaning Hub. You can answer in English or Spanish. / Completa este formulario una sola vez después de tu compra. Puedes responder en inglés o español.</p>
+<div class="note"><strong>What happens next / Qué pasa después:</strong> your Landing Page is a simple one-page website where clients can see your services, book or request a quote. We use this information to build it and connect the details needed in My Cleaning Hub. / Tu Landing Page es una página web sencilla de una sola página donde tus clientes pueden ver tus servicios, reservar o pedir cotización. <strong>Production time / Tiempo de producción: 3 business days / 3 días hábiles after we receive the complete form and required assets / después de recibir el formulario completo y los materiales necesarios.</strong></div>
 </section>
 
 <form id="intakeForm">
 <input type="hidden" name="type" value="tle.landing_hub_intake">
 
 <section class="section">
-<h2>1. Business basics</h2><p>Información básica del negocio</p>
+<h2>1. Business basics / Información del negocio</h2><p>Tell us the essentials. / Cuéntanos lo esencial.</p>
 <div class="grid">
 <div><label>Preferred language / Idioma</label><select name="language" required><option value="english">English</option><option value="spanish">Español</option></select></div>
 <div><label>Your name / Tu nombre</label><input name="full_name" required></div>
 <div><label>Business name / Nombre del negocio</label><input name="business_name" required></div>
-<div><label>Email</label><input type="email" name="email" required></div>
+<div><label>Email / Correo electrónico</label><input type="email" name="email" required></div>
 <div><label>Phone / Teléfono</label><input name="phone" required></div>
-<div><label>Hub account email / Email de tu cuenta Hub</label><input type="email" name="hub_account_email" placeholder="If different / Si es diferente"></div>
+<div><label>Hub account email / Correo de tu cuenta Hub</label><input type="email" name="hub_account_email" placeholder="If different / Si es diferente"></div>
 <div class="full"><label>Service areas / Áreas de servicio</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
 <div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
 <div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
@@ -51,58 +51,56 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 </section>
 
 <section class="section">
-<h2>2. Landing page</h2><p>What your clients should see first / Lo que verán tus clientes</p>
+<h2>2. Landing Page / Página web</h2><p>What your clients should see first / Lo que verán tus clientes primero</p>
 <div class="grid">
-<div><label>Existing domain / Dominio actual</label><input name="existing_domain" placeholder="Leave blank if none"></div>
-<div><label>Brand colors / Colores</label><input name="brand_colors" placeholder="Names or hex codes"></div>
+<div><label>Existing domain / Dominio actual</label><input name="existing_domain" placeholder="Leave blank if none / Déjalo vacío si no tienes"></div>
+<div><label>Brand colors / Colores de marca</label><input name="brand_colors" placeholder="Names or hex codes / Nombres o códigos hex"></div>
 <div class="full"><label>Logo or brand files link / Link de logo y archivos</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
 <div class="full"><label>Photo folder link / Link de fotos</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
-<div class="full"><label>Short About / Sobre el negocio</label><textarea name="about_business" placeholder="What should a new client know about your business?"></textarea></div>
-<div class="full"><label>Reviews / Reseñas</label><textarea name="reviews" placeholder="Paste 2–4 reviews or add a link where we can find them."></textarea></div>
-<div class="full"><label>Main message or special offer / Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Optional"></textarea></div>
+<div class="full"><label>Short About / Sobre el negocio</label><textarea name="about_business" placeholder="What should a new client know? / ¿Qué debería saber un cliente nuevo?"></textarea></div>
+<div class="full"><label>Reviews / Reseñas</label><textarea name="reviews" placeholder="Paste 2–4 reviews or a link / Pega 2–4 reseñas o un enlace"></textarea></div>
+<div class="full"><label>Main message or special offer / Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Optional / Opcional"></textarea></div>
 </div>
 </section>
 
 <section class="section">
-<h2>3. Services + pricing</h2><p>This will guide both the landing and My Cleaning Hub.</p>
+<h2>3. Services + pricing / Servicios + precios</h2><p>This guides both your Landing Page and My Cleaning Hub. / Esto nos ayuda a configurar tu Landing Page y el Hub.</p>
 <div class="grid">
 <div class="full"><label>Cleaning services / Servicios</label><textarea name="services" required placeholder="Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — starting at $220 — 4 hours"></textarea></div>
-<div><label>Default pricing style / Tipo de precio</label><select name="pricing_style" required><option value="fixed">Fixed price</option><option value="starting_at">Starting at</option><option value="quote_only">Quote only</option><option value="mixed">Different by service</option></select></div>
+<div><label>Default pricing style / Tipo de precio</label><select name="pricing_style" required><option value="fixed">Fixed price / Precio fijo</option><option value="starting_at">Starting at / Desde</option><option value="quote_only">Quote only / Solo cotización</option><option value="mixed">Different by service / Depende del servicio</option></select></div>
 <div><label>Typical service duration / Duración</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
 <div class="full"><label>Add-ons / Extras</label><textarea name="add_ons" placeholder="Inside fridge, inside oven, laundry, pet hair, etc. Include price if applicable."></textarea></div>
 </div>
 </section>
 
 <section class="section">
-<h2>4. Booking + quote setup</h2><p>Choose what your clients should be able to do.</p>
+<h2>4. Booking + quote / Reservas + cotizaciones</h2><p>Choose what clients can do. / Elige qué podrán hacer tus clientes.</p>
 <div class="checks">
-<label class="check"><input type="checkbox" name="booking_enabled" checked><span><strong>Book a Cleaning</strong><br><span class="small">Show available dates and times.</span></span></label>
-<label class="check"><input type="checkbox" name="quote_enabled" checked><span><strong>Get a Free Quote</strong><br><span class="small">Send request into Quotes.</span></span></label>
+<label class="check"><input type="checkbox" name="booking_enabled" checked><span><strong>Book a Cleaning / Reservar una limpieza</strong><br><span class="small">Show available dates and times / Mostrar fechas y horas disponibles.</span></span></label>
+<label class="check"><input type="checkbox" name="quote_enabled" checked><span><strong>Get a Free Quote / Pedir cotización gratis</strong><br><span class="small">Send the request to Quotes / Enviar la solicitud a Cotizaciones.</span></span></label>
 </div>
 <div class="grid" style="margin-top:16px">
 <div class="full"><label>Booking availability / Disponibilidad</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
-<div><label>Preferred contact method / Contacto preferido</label><select name="preferred_contact"><option>Email</option><option>Text</option><option>WhatsApp</option></select></div>
-<div><label>Reply-to / Owner email</label><input type="email" name="owner_email" required></div>
+<div><label>Preferred contact method / Contacto preferido</label><select name="preferred_contact"><option>Email / Correo electrónico</option><option>Text / Mensaje de texto</option><option>WhatsApp</option></select></div>
+<div><label>Owner email / Correo del negocio</label><input type="email" name="owner_email" required></div>
 <div class="full"><label>Payment methods offered / Métodos de pago</label><div class="checks">
-<label class="check"><input type="checkbox" name="payment_cash"><span>Cash on Spot</span></label>
+<label class="check"><input type="checkbox" name="payment_cash"><span>Cash on Spot / Efectivo al terminar</span></label>
 <label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle</span></label>
-<label class="check"><input type="checkbox" name="payment_stripe"><span>Stripe</span></label>
-<label class="check"><input type="checkbox" name="payment_other"><span>Other / Otro</span></label>
 </div></div>
 </div>
 </section>
 
 <section class="section">
-<h2>5. Final notes</h2><p>Anything we should know before building?</p>
+<h2>5. Final notes / Notas finales</h2><p>Anything we should know before building? / ¿Hay algo que debamos saber antes de comenzar?</p>
 <div class="grid">
 <div><label>Target launch date / Fecha deseada</label><input type="date" name="target_launch_date"></div>
-<div><label>Do you need Hub setup? / ¿Necesitas configurar el Hub?</label><select name="hub_setup_needed"><option value="yes">Yes / Sí</option><option value="review">I already have it — review it</option></select></div>
+<div><label>Do you need Hub setup? / ¿Necesitas configurar el Hub?</label><select name="hub_setup_needed"><option value="yes">Yes / Sí</option><option value="review">I already have it — review it / Ya lo tengo — revísalo</option></select></div>
 <div class="full"><label>Anything else? / ¿Algo más?</label><textarea name="notes"></textarea></div>
 </div>
 </section>
 
 <div class="actions">
-<button class="btn" id="submitBtn" type="submit">Submit Intake / Enviar Formulario</button>
+<button class="btn" id="submitBtn" type="submit">Submit Form / Enviar formulario</button>
 <div class="status" id="status" aria-live="polite"></div>
 </div>
 </form>
@@ -117,7 +115,7 @@ form.addEventListener("submit",async(e)=>{
  const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
- ["booking_enabled","quote_enabled","payment_cash","payment_zelle","payment_stripe","payment_other"].forEach(k=>obj[k]=bool(fd,k));
+ ["booking_enabled","quote_enabled","payment_cash","payment_zelle"].forEach(k=>obj[k]=bool(fd,k));
  obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
  obj.submitted_at=new Date().toISOString();
  const payload={type:"tle.landing_hub_intake",data:{object:obj}};
@@ -125,10 +123,10 @@ form.addEventListener("submit",async(e)=>{
    const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
    if(!r.ok) throw new Error("Submission failed");
    form.reset();
-   statusEl.textContent="✓ Intake received. We’ll use this to build your Landing + Hub setup. / Formulario recibido.";
+   statusEl.textContent="✓ Form received. We’ll use this to build your Landing + Hub setup. / Formulario recibido. Usaremos esta información para preparar tu Landing + Hub.";
    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
  }catch(err){
-   statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com so we can help.";
+   statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com. / No pudimos enviar el formulario. Escríbenos a hello@thelaunchera.com.";
  }finally{btn.disabled=false;}
 });
 </script>
