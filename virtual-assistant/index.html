@@ -99,6 +99,27 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
   #workflow .step:last-child{border-bottom:0}
 }
 
+
+/* 2026-09-26 compact VA page */
+.va-compact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.va-compact{background:#fff;padding:26px;min-height:210px}
+.va-compact:nth-child(2){background:var(--blue-soft)}
+.va-compact:nth-child(3){background:#FFF7C9}
+.va-compact:nth-child(4){background:var(--ivory)}
+.va-compact .num{margin:0 0 34px}
+.va-compact h3{font-size:26px;line-height:1.04;margin:0 0 10px}
+.va-compact p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.va-steps{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--ink);margin-top:28px}
+.va-steps>div{padding:26px;border-right:1px solid var(--line);min-height:190px}
+.va-steps>div:last-child{border-right:0}
+.va-steps>div:nth-child(2){background:var(--blue-soft)}
+.va-steps strong{font-size:10px;letter-spacing:.14em}
+.va-steps h3{font-size:25px;line-height:1.05;margin:34px 0 8px}
+.va-steps p{margin:0;color:var(--muted);font-size:14px}
+.va-faq details{max-width:860px}
+@media(max-width:900px){.va-compact-grid,.va-steps{grid-template-columns:1fr 1fr}.va-steps>div:nth-child(2){border-right:0}.va-steps>div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:560px){.va-compact-grid,.va-steps{grid-template-columns:1fr}.va-steps>div{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.va-steps>div:last-child{border-bottom:0}.va-compact{min-height:auto}}
+
 </style>
 </head>
 <body>
@@ -126,56 +147,41 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Virtual assistant support · cleaning businesses</div>
-      <h1>Keep the work behind the cleaning business moving.</h1>
-      <p class="lead">I help cleaning-business owners keep leads, client follow-ups, calendar updates and essential administrative work moving without hiring full-time.</p>
-      <div class="actions"><a class="btn dark" href="#help">See exactly what I handle</a><a class="btn" href="#package">See package + pricing</a></div>
+      <div class="eyebrow">VA support · cleaning businesses</div>
+      <h1>Get the admin off your mental list.</h1>
+      <p class="lead">Focused help with leads, follow-ups, clients, calendar updates and quote/invoice prep — without hiring full-time.</p>
+      <div class="actions"><a class="btn dark" href="#package">See package + pricing</a><a class="btn" href="#help">What I can handle</a></div>
     </div>
     <aside class="hero-card">
-      <div class="eyebrow">VA Starter Support</div>
+      <div class="eyebrow">VA Support</div>
       <div class="big">8 hrs</div>
-      <p>Up to 8 hours of focused support each month for the essential tasks that protect leads, client communication and your schedule.</p>
-      <div class="micro"><span class="chip">Leads</span><span class="chip">Follow-ups</span><span class="chip">Clients</span><span class="chip">Calendar</span><span class="chip">Weekly report</span></div>
+      <p>Focused monthly support for the recurring admin that keeps getting pushed to later.</p>
+      <div class="micro"><span class="chip">Leads</span><span class="chip">Follow-ups</span><span class="chip">Calendar</span><span class="chip">Quotes</span></div>
     </aside>
   </div>
 </section>
 
 <section class="alt" id="help">
   <div class="wrap">
-    <div class="eyebrow">What I actually help with</div>
-    <h2 class="title">The small operational tasks that keep piling up.</h2>
-    <p class="intro">This is not vague “VA help.” We agree on priorities, then I work through the recurring tasks that keep your business information organized and your next actions visible.</p>
-    <div class="grid">
-      <article class="card"><div class="num">01 · LEADS</div><h3>Lead organization + follow-up prep</h3><p>Keep new inquiries organized, update status, clean up contact details and prepare follow-up messages so leads do not disappear into DMs or notes.</p></article>
-      <article class="card"><div class="num">02 · CLIENTS</div><h3>Client records + next steps</h3><p>Keep client details, service notes and next actions organized in the agreed system so you can find what you need quickly.</p></article>
-      <article class="card"><div class="num">03 · CALENDAR</div><h3>Calendar + appointment updates</h3><p>Add or update agreed appointments, due dates and reminders so important client work is easier to track.</p></article>
-      <article class="card"><div class="num">04 · FOLLOW-UPS</div><h3>Approved email follow-ups</h3><p>Prepare and send agreed follow-up emails using approved messaging, then record the next action so conversations do not get lost.</p></article>
-      <article class="card"><div class="num">05 · QUOTES + INVOICES</div><h3>Information prep + organization</h3><p>Prepare and organize the client information needed for quotes and invoices and keep the related records easy to locate. No bookkeeping or accounting.</p></article>
-      <article class="card"><div class="num">06 · WEEKLY VISIBILITY</div><h3>Approved scheduling + weekly summary</h3><p>Schedule social posts that are already approved and provide a simple weekly summary of completed work, pending items and owner decisions.</p></article>
+    <div class="eyebrow">What I can handle</div>
+    <h2 class="title">The recurring tasks that slow you down.</h2>
+    <div class="va-compact-grid">
+      <article class="va-compact"><div class="num">01 · LEADS</div><h3>Lead + client organization</h3><p>Keep contact details, status and next actions easy to find.</p></article>
+      <article class="va-compact"><div class="num">02 · FOLLOW-UP</div><h3>Approved follow-ups</h3><p>Prepare and send agreed follow-up emails and record the next step.</p></article>
+      <article class="va-compact"><div class="num">03 · CALENDAR</div><h3>Calendar updates</h3><p>Keep agreed appointments, reminders and due dates current.</p></article>
+      <article class="va-compact"><div class="num">04 · ADMIN</div><h3>Quote + invoice prep</h3><p>Organize the client information needed for quotes and invoices. No bookkeeping.</p></article>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow">What this can look like in practice</div>
-    <h2 class="title">You stay in control. I keep agreed tasks moving.</h2>
-    <div class="week">
-      <div class="weekbox blue"><h3>When leads come in</h3><p>I can help update their information, mark where they are in the process, prepare the next follow-up and keep the record clear so you know who still needs attention.</p></div>
-      <div class="weekbox"><h3>When the week gets busy</h3><ul><li>Update client information</li><li>Prepare approved follow-up emails</li><li>Record lead and client next actions</li><li>Prepare quote/invoice information</li><li>Update calendar items</li><li>Schedule approved content</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="workflow">
+<section id="workflow">
   <div class="wrap">
     <div class="eyebrow">Simple working rhythm</div>
-    <h2 class="title">No complicated VA system to learn.</h2>
-    <div class="process">
-      <div class="step"><strong>01 · PRIORITIZE</strong><h3>Choose the work that matters most.</h3><p>We define the recurring tasks and what should come first.</p></div>
-      <div class="step"><strong>02 · ORGANIZE</strong><h3>Use the tools you already have.</h3><p>We agree where client information, tasks and files should live.</p></div>
-      <div class="step"><strong>03 · SUPPORT</strong><h3>I work through the approved list.</h3><p>I handle the agreed lead, follow-up, calendar, quote/invoice and scheduling tasks within your monthly hours.</p></div>
-      <div class="step"><strong>04 · VISIBILITY</strong><h3>You can see what moved.</h3><p>Updates stay organized so you know what is done and what still needs your decision.</p></div>
+    <h2 class="title">You choose the priorities. I move the approved work.</h2>
+    <div class="va-steps">
+      <div><strong>01 · PRIORITIZE</strong><h3>Choose what matters most.</h3><p>We agree on the recurring tasks and what should come first.</p></div>
+      <div><strong>02 · SUPPORT</strong><h3>I work the approved list.</h3><p>I handle the agreed tasks within your monthly hours.</p></div>
+      <div><strong>03 · VISIBILITY</strong><h3>You see what moved.</h3><p>Completed items and next actions stay clear.</p></div>
     </div>
   </div>
 </section>
@@ -184,41 +190,39 @@ section{padding:94px 0}.title{font-size:clamp(42px,5.6vw,70px);font-weight:500;l
   <div class="wrap package">
     <div>
       <div class="eyebrow" style="color:var(--yellow)">VA Support</div>
-      <h2>Simple monthly support for the admin side of your cleaning business.</h2>
+      <h2>Focused monthly admin support.</h2>
       <div class="price">$89.99 <small>/ month</small></div>
-      <p>Up to 8 hours each month for leads, follow-ups, calendar updates, quotes and client organization.</p>
+      <p>Up to 8 hours each month for leads, follow-ups, calendar updates, quote/invoice prep and client organization.</p>
       <div class="actions"><a class="btn yellow" href="https://buy.stripe.com/5kQ8wO6eX0eZb0t9be93y0J" target="_blank" rel="noopener noreferrer">Start VA Support →</a></div>
     </div>
     <div class="include">
-      <h3>Support can include:</h3>
+      <h3>Included</h3>
       <ul>
         <li>Lead and client organization</li>
-        <li>Follow-ups</li>
+        <li>Approved follow-ups</li>
         <li>Calendar and appointment updates</li>
         <li>Quote and invoice preparation</li>
         <li>Approved recurring admin tasks</li>
       </ul>
-      <div class="not"><strong>Not included:</strong> Canva design, general file cleanup, bookkeeping/accounting, live phone calls, video editing, 24/7 customer service, advanced technical work or open-ended general administration.</div>
+      <div class="not"><strong>Not included:</strong> bookkeeping, live phone calls, video editing, 24/7 customer service or open-ended general administration.</div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap faq">
+  <div class="wrap faq va-faq">
     <div class="eyebrow">Quick questions</div>
     <h2 class="title">Before you start.</h2>
-    <details><summary>Do you manage my entire business?</summary><p>No. I handle the agreed support tasks within the package. Business decisions, approvals and work outside the defined scope stay with you.</p></details>
-    <details><summary>Can you answer phone calls for my cleaning business?</summary><p>No. Live phone-call handling is not included.</p></details>
-    <details><summary>Can you do bookkeeping or accounting?</summary><p>No. I can organize quote and invoice information, but bookkeeping, accounting and tax work are not included.</p></details>
-    <details><summary>Do you create all of my social media content?</summary><p>Full monthly content creation and Canva design are separate services. VA support can schedule social posts that are already approved and ready to publish.</p></details>
-    <details><summary>What happens first?</summary><p>We identify the tasks taking the most time, agree on priorities and confirm where the work will be managed before support begins.</p></details>
+    <details><summary>Do you manage my entire business?</summary><p>No. I handle the agreed support tasks within the monthly package. Decisions and approvals stay with you.</p></details>
+    <details><summary>Do you answer phone calls or do bookkeeping?</summary><p>No. Live phone calls, bookkeeping, accounting and tax work are not included.</p></details>
+    <details><summary>Do you create my social media content?</summary><p>Full content creation is a separate service. VA support can help with approved recurring admin tasks.</p></details>
   </div>
 </section>
 
 <section>
   <div class="wrap final">
-    <h2>Get the back end under control without hiring full-time.</h2>
-    <p>Start with the recurring tasks that are costing you the most time. We keep the scope clear and build from there.</p>
+    <h2>Less admin in your head.</h2>
+    <p>Use your monthly hours on the recurring tasks that keep slipping to later.</p>
     <div class="actions"><a class="btn dark" href="https://buy.stripe.com/5kQ8wO6eX0eZb0t9be93y0J" target="_blank" rel="noopener noreferrer">Start VA Support →</a><a class="btn" href="../">Back to all services</a></div>
   </div>
 </section>
