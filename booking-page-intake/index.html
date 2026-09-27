@@ -51,7 +51,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 </section>
 
 <section class="section">
-<h2>2. Booking Page / Página web</h2><p>What your clients should see first / Lo que verán tus clientes primero</p>
+<h2>2. Booking Page / Página de reservas</h2><p>What your clients should see first / Lo que verán tus clientes primero</p>
 <div class="grid">
 <div><label>Existing domain / Dominio actual</label><input name="existing_domain" placeholder="Leave blank if none / Déjalo vacío si no tienes"></div>
 <div><label>Brand colors / Colores de marca</label><input name="brand_colors" placeholder="Names or hex codes / Nombres o códigos hex"></div>
@@ -84,8 +84,10 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Preferred contact method / Contacto preferido</label><select name="preferred_contact"><option>Email / Correo electrónico</option><option>Text / Mensaje de texto</option><option>WhatsApp</option></select></div>
 <div><label>Owner email / Correo del negocio</label><input type="email" name="owner_email" required></div>
 <div class="full"><label>Payment methods offered / Métodos de pago</label><div class="checks">
-<label class="check"><input type="checkbox" name="payment_cash"><span>Cash on Spot / Efectivo al terminar</span></label>
-<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle</span></label>
+<label class="check"><input type="checkbox" name="payment_cash"><span>Cash / Efectivo</span></label>
+<label class="check"><input type="checkbox" name="payment_check"><span>Check / Cheque</span></label>
+<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(U.S.)</span></span></label>
+<label class="check"><input type="checkbox" name="payment_other"><span>Other / Otro</span></label>
 </div></div>
 </div>
 </section>
@@ -109,14 +111,24 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <script>
 const endpoint="https://hook.us2.make.com/71gescpt0jssc2102yon8qhubqbau1rj";
 const form=document.getElementById("intakeForm"), statusEl=document.getElementById("status"), btn=document.getElementById("submitBtn");
+const purchaseSession=new URLSearchParams(window.location.search).get("session_id")||"";
 function bool(fd,k){return fd.has(k);}
+if(!purchaseSession){
+  btn.disabled=true;
+  statusEl.textContent="Open this form from the link in your payment confirmation email. / Abre este formulario desde el enlace de tu correo de confirmación de pago.";
+}
 form.addEventListener("submit",async(e)=>{
  e.preventDefault(); btn.disabled=true; statusEl.textContent="Sending… / Enviando…";
  const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
- ["booking_enabled","quote_enabled","payment_cash","payment_zelle"].forEach(k=>obj[k]=bool(fd,k));
+ ["booking_enabled","quote_enabled","payment_cash","payment_check","payment_zelle","payment_other"].forEach(k=>obj[k]=bool(fd,k));
  obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
+ if(!obj.stripe_session_id){
+   statusEl.textContent="This form must be opened from your purchase confirmation link. / Este formulario debe abrirse desde el enlace de confirmación de tu compra.";
+   btn.disabled=false;
+   return;
+ }
  obj.submitted_at=new Date().toISOString();
  const payload={type:"tle.booking_app_intake",data:{object:obj}};
  try{
