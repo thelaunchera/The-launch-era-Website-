@@ -570,6 +570,7 @@ body{font-size:17px}
 .owner-window{position:absolute;z-index:3;right:24px;bottom:24px;width:72%;background:#fff;border:1px solid var(--ink);padding:12px;box-shadow:-12px 12px 0 var(--butter)}
 .owner-window .stage-label{margin:2px 0 10px}
 .owner-window img{width:100%;display:block;border:1px solid var(--line)}
+.owner-window .app-live-frame{display:block;width:100%;aspect-ratio:1365/900;border:1px solid var(--line);background:var(--ivory);pointer-events:none}
 .stage-flow{position:absolute;z-index:4;left:24px;bottom:32px;display:grid;gap:6px}
 .stage-flow span{display:inline-flex;width:max-content;background:var(--ink);color:#fff;padding:7px 10px;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .stage-flow span:nth-child(2){background:var(--butter);color:var(--ink)}
@@ -830,7 +831,7 @@ h1,.section-title,.cvfinal-card h2,.app-callout-copy h2{letter-spacing:-.03em!im
       </div>
       <div class="owner-window">
         <div class="stage-label">What you see</div>
-        <img src="assets/my-cleaning-hub-preview.webp" alt="The Launch Era Cleaning App dashboard showing an organized client workflow">
+        <iframe class="app-live-frame" src="https://thelaunchera.github.io/launch-Era-App-/demo.html?view=today" title="The Launch Era Cleaning App actual interface preview" loading="lazy" tabindex="-1"></iframe>
       </div>
       <div class="stage-flow"><span>Found you</span><span>Booked / Quote</span><span>Organized</span></div>
     </div>
