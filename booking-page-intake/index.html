@@ -43,7 +43,9 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Business name / Nombre del negocio</label><input name="business_name" required></div>
 <div><label>Email / Correo electrónico</label><input type="email" name="email" required></div>
 <div><label>Phone / Teléfono</label><input name="phone" required></div>
-<div><label>Cleaning App account email / Correo de tu cuenta de Cleaning App</label><input type="email" name="app_account_email" placeholder="If different / Si es diferente"></div>
+<div><label>Cleaning App account email / Correo de tu cuenta de Cleaning App</label><input type="email" name="app_account_email" required placeholder="Use the email you want for app access / Usa el correo que quieres usar para la app"></div>
+<div><label>Business time zone / Zona horaria</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
+<div><label>Customer pricing currency / Moneda para tus precios</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
 <div class="full"><label>Service areas / Áreas de servicio</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
 <div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
 <div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
@@ -60,16 +62,17 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div class="full"><label>Short About / Sobre el negocio</label><textarea name="about_business" placeholder="What should a new client know? / ¿Qué debería saber un cliente nuevo?"></textarea></div>
 <div class="full"><label>Reviews / Reseñas</label><textarea name="reviews" placeholder="Paste 2–4 reviews or a link / Pega 2–4 reseñas o un enlace"></textarea></div>
 <div class="full"><label>Main message or special offer / Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Optional / Opcional"></textarea></div>
+<div class="full"><label>Business hours to show on your page / Horario que quieres mostrar en tu página</label><textarea name="business_hours_display" required placeholder="Example: Mon–Fri 8 AM–5 PM; Sat 8 AM–12 PM"></textarea></div>
 </div>
 </section>
 
 <section class="section">
 <h2>3. Services + pricing / Servicios + precios</h2><p>This guides both your Booking Page and Cleaning App. / Esto nos ayuda a configurar tu Booking Page y la Cleaning App.</p>
 <div class="grid">
-<div class="full"><label>Cleaning services / Servicios</label><textarea name="services" required placeholder="Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — starting at $220 — 4 hours"></textarea></div>
+<div class="full"><label>Cleaning services / Servicios</label><textarea name="services" required placeholder="List one per line: Service — Price OR Quote Required — Approx. duration&#10;Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — Quote Required — 4 hours"></textarea></div>
 <div><label>Default pricing style / Tipo de precio</label><select name="pricing_style" required><option value="fixed">Fixed price / Precio fijo</option><option value="starting_at">Starting at / Desde</option><option value="quote_only">Quote only / Solo cotización</option><option value="mixed">Different by service / Depende del servicio</option></select></div>
 <div><label>Typical service duration / Duración</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
-<div class="full"><label>Add-ons / Extras</label><textarea name="add_ons" placeholder="Inside fridge, inside oven, laundry, pet hair, etc. Include price if applicable."></textarea></div>
+<div class="full"><label>Add-ons / Extras</label><textarea name="add_ons" placeholder="List each add-on with price and extra time. Example: Inside oven — +$35 — +30 min"></textarea></div>
 </div>
 </section>
 
@@ -80,15 +83,24 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <label class="check"><input type="checkbox" name="quote_enabled" checked><span><strong>Get a Free Quote / Pedir cotización gratis</strong><br><span class="small">Send the request to Quotes / Enviar la solicitud a Cotizaciones.</span></span></label>
 </div>
 <div class="grid" style="margin-top:16px">
-<div class="full"><label>Booking availability / Disponibilidad</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
-<div><label>Preferred contact method / Contacto preferido</label><select name="preferred_contact"><option>Email / Correo electrónico</option><option>Text / Mensaje de texto</option><option>WhatsApp</option></select></div>
-<div><label>Owner email / Correo del negocio</label><input type="email" name="owner_email" required></div>
+<div class="full"><label>Booking availability / Disponibilidad para reservar</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
+<div><label>Minimum booking notice / Aviso mínimo</label><input name="minimum_booking_notice" required placeholder="Example: 24 hours / 24 horas"></div>
+<div><label>Travel / buffer time between jobs / Tiempo entre trabajos</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
+<div><label>How far ahead can clients book? / ¿Con cuánta anticipación pueden reservar?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
+<div><label>Primary contact method / Contacto principal</label><select name="preferred_contact" required><option value="email">Email / Correo electrónico</option><option value="text">Text / Mensaje de texto</option><option value="whatsapp">WhatsApp</option></select></div>
+<div class="full"><label>Customer contact options to offer / Opciones de contacto para clientes</label><div class="checks">
+<label class="check"><input type="checkbox" name="contact_email" checked><span>Email / Correo</span></label>
+<label class="check"><input type="checkbox" name="contact_text"><span>Text / Mensaje</span></label>
+<label class="check"><input type="checkbox" name="contact_whatsapp"><span>WhatsApp</span></label>
+</div></div>
+<div><label>Customer-facing business email / Correo que verán tus clientes</label><input type="email" name="owner_email" required></div>
 <div class="full"><label>Payment methods offered / Métodos de pago</label><div class="checks">
 <label class="check"><input type="checkbox" name="payment_cash"><span>Cash / Efectivo</span></label>
 <label class="check"><input type="checkbox" name="payment_check"><span>Check / Cheque</span></label>
 <label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(U.S.)</span></span></label>
 <label class="check"><input type="checkbox" name="payment_other"><span>Other / Otro</span></label>
 </div></div>
+<div class="full" style="margin-top:16px"><label>Cancellation / rescheduling policy / Política de cancelación o cambios</label><textarea name="cancellation_policy" required placeholder="Example: Please give 24 hours notice to cancel or reschedule."></textarea></div>
 </div>
 </section>
 
@@ -96,7 +108,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <h2>5. Final notes / Notas finales</h2><p>Anything we should know before building? / ¿Hay algo que debamos saber antes de comenzar?</p>
 <div class="grid">
 <div><label>Target launch date / Fecha deseada</label><input type="date" name="target_launch_date"></div>
-<div><label>Do you need Cleaning App setup? / ¿Necesitas configurar la Cleaning App?</label><select name="app_setup_needed"><option value="yes">Yes / Sí</option><option value="review">I already have it — review it / Ya lo tengo — revísalo</option></select></div>
+<div><label>Cleaning App status / Estado de tu Cleaning App</label><select name="app_setup_needed" required><option value="new">New account — set it up for me / Cuenta nueva — configúrenla por mí</option><option value="review">I already created my account — configure it / Ya creé mi cuenta — configúrenla</option></select></div>
 <div class="full"><label>Anything else? / ¿Algo más?</label><textarea name="notes"></textarea></div>
 </div>
 </section>
@@ -122,7 +134,29 @@ form.addEventListener("submit",async(e)=>{
  const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
- ["booking_enabled","quote_enabled","payment_cash","payment_check","payment_zelle","payment_other"].forEach(k=>obj[k]=bool(fd,k));
+ ["booking_enabled","quote_enabled","payment_cash","payment_check","payment_zelle","payment_other","contact_email","contact_text","contact_whatsapp"].forEach(k=>obj[k]=bool(fd,k));
+ obj.cleaning_app_access_email=obj.app_account_email||obj.email;
+ obj.business_phone=obj.phone;
+ obj.business_time_zone=obj.time_zone;
+ obj.customer_price_currency=obj.currency_code;
+ obj.services_pricing_duration=obj.services;
+ obj.addons_pricing_extra_time=obj.add_ons;
+ obj.booking_availability=obj.availability;
+ obj.business_hours_to_display=obj.business_hours_display;
+ obj.travel_buffer_time=obj.buffer_time;
+ obj.how_far_ahead_clients_can_book=obj.booking_window;
+ obj.customer_contact_methods=[
+   obj.contact_email?"Email":"",
+   obj.contact_text?"Text":"",
+   obj.contact_whatsapp?"WhatsApp":""
+ ].filter(Boolean).join(", ");
+ obj.accepted_payment_methods=[
+   obj.payment_cash?"Cash":"",
+   obj.payment_check?"Check":"",
+   obj.payment_zelle?"Zelle":"",
+   obj.payment_other?"Other":""
+ ].filter(Boolean).join(", ");
+ obj.cancellation_rescheduling_policy=obj.cancellation_policy;
  obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
  if(!obj.stripe_session_id){
    statusEl.textContent="This form must be opened from your purchase confirmation link. / Este formulario debe abrirse desde el enlace de confirmación de tu compra.";
