@@ -740,7 +740,52 @@ body{font-size:17px}
 .service-mini b{display:block;font-size:18px;margin-bottom:6px}
 .service-mini span{display:block;color:var(--muted);font-size:14px;line-height:1.5}
 @media(max-width:760px){.quick-help-grid,.service-mini-grid{grid-template-columns:1fr}.quick-help-card{min-height:auto}}
-</style></head>
+</style>
+<style id="tle-mobile-type-fix">
+/* Responsive typography + spacing pass — 2026-09-26 */
+html{-webkit-text-size-adjust:100%}
+body{font-size:16px}
+h1,h2,h3,strong,.brand{font-kerning:normal;text-rendering:optimizeLegibility}
+h1,.section-title,.cvfinal-card h2,.app-callout-copy h2{letter-spacing:-.03em!important}
+.btn,.nav-cta{line-height:1.2;text-align:center;white-space:normal}
+.offer-price strong,.app-price-card strong{line-height:1!important;letter-spacing:-.03em!important}
+.offer-price p,.app-price-card p{line-height:1.5}
+.faq summary{line-height:1.3}
+@media(max-width:760px){
+  .cvsection,.quick-help,.brand-manifesto,.cvfaq{padding-top:54px!important;padding-bottom:54px!important}
+  .offer-v2,.app-callout{gap:14px}
+  .offer-price,.offer-body,.app-callout-copy,.app-price-card{padding:25px 21px!important}
+  .offer-price strong{font-size:48px!important;display:block;margin:8px 0 6px}
+  .offer-price p{margin:0;font-size:14px}
+  .app-price-card strong{font-size:36px!important;line-height:1.05!important;margin:9px 0 10px!important}
+}
+@media(max-width:560px){
+  .wrap{width:min(calc(100% - 30px),var(--max))}
+  .brand{font-size:15px!important;letter-spacing:.01em;white-space:nowrap}
+  h1{font-size:clamp(39px,11vw,51px)!important;line-height:1.01!important;letter-spacing:-.03em!important}
+  .section-title,.cvfinal-card h2,.app-callout-copy h2{font-size:clamp(31px,9vw,42px)!important;line-height:1.06!important;letter-spacing:-.025em!important}
+  .section-intro,.cvhero p,.app-callout-copy p,.quick-help-card p{font-size:15px!important;line-height:1.6!important}
+  .eyebrow,.small,.free-label{font-size:10px!important;letter-spacing:.09em!important;line-height:1.35}
+  .btn,.nav-cta{min-height:48px;padding:13px 15px;font-size:15px!important}
+  .hero-actions{gap:10px}
+  .hero-secondary-link{line-height:1.45}
+  .quick-help-card{padding:22px!important}
+  .quick-help-card h3{font-size:23px!important;line-height:1.14!important;letter-spacing:-.015em!important}
+  .offer-points>div,.service-mini{padding:16px!important}
+  .offer-points b,.service-mini b{font-size:16px!important;line-height:1.25}
+  .offer-points span,.service-mini span{font-size:14px!important;line-height:1.55}
+  .content-plan{padding:20px!important}
+  .content-plan b{font-size:20px!important}
+  .content-plan strong{font-size:18px!important}
+  .audit-explainer{padding:22px 18px!important}
+  .audit-explainer h3{font-size:27px!important;line-height:1.08!important}
+  .audit-price{font-size:22px!important;white-space:normal!important}
+  .faq summary{font-size:18px!important;line-height:1.3!important}
+  .faq p{font-size:15px!important;line-height:1.6!important}
+  .cvfinal-card{padding:28px 21px!important}
+}
+</style>
+</head>
 <body>
 <header class="nav">
   <div class="wrap nav-inner">
