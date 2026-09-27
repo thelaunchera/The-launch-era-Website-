@@ -2,10 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thelaunchera.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://thelaunchera.com/es/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelaunchera.com/cleaning-app/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelaunchera.com/help/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://thelaunchera.com/free-cleaning-lead-guide/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://thelaunchera.com/automation/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thelaunchera.com/es/automation/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://thelaunchera.com/cleaning-app/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>\n
   <url><loc>https://thelaunchera.com/virtual-assistant/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thelaunchera.com/es/virtual-assistant/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://thelaunchera.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
