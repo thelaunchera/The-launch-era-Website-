@@ -27,6 +27,7 @@ h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-we
 </main>
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-booking-page-checkout";
+let checkoutEventSent=false;
 const lang=new URLSearchParams(location.search).get("lang")||localStorage.getItem("tle_app_lang")||localStorage.getItem("tle_language")||"en";
 const es=lang==="es";
 const title=document.getElementById("title"),copy=document.getElementById("copy"),status=document.getElementById("status"),retry=document.getElementById("retry"),dots=document.getElementById("dots"),kicker=document.getElementById("kicker");
@@ -40,6 +41,10 @@ if(es){
 }
 async function openCheckout(){
  retry.hidden=true; dots.hidden=false;
+ if(!checkoutEventSent){
+  checkoutEventSent=true;
+  try{if(typeof gtag==="function")gtag("event","begin_checkout",{currency:"USD",value:39.99,items:[{item_name:"Booking Page + Cleaning App",price:39.99,quantity:1}]});}catch{}
+ }
  status.textContent=es?"Continuarás de forma segura con Stripe.":"You’ll continue securely with Stripe.";
  try{
   const res=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"});
