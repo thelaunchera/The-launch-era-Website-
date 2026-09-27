@@ -12,6 +12,8 @@
 .brand{font-size:12px;font-weight:800;letter-spacing:.09em}.kicker{display:inline-flex;margin:24px 0 10px;padding:7px 10px;border-radius:999px;background:#F0E7B6;font-size:11px;font-weight:700}
 h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-weight:650}p{color:var(--muted);line-height:1.6;margin:0 0 18px}.dots{display:flex;gap:6px;margin:20px 0}.dots span{width:8px;height:8px;border-radius:50%;background:var(--charcoal);animation:pulse 1s infinite ease-in-out}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}button{width:100%;border:0;border-radius:999px;background:var(--charcoal);color:#fff;padding:14px 18px;font-weight:700;font-size:15px;cursor:pointer}button[hidden]{display:none}.small{font-size:12px;color:var(--muted);margin-top:14px}@media(prefers-reduced-motion:reduce){.dots span{animation:none}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BHMC432Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-N5BHMC432Q');</script>
 </head>
 <body>
 <main class="card">
@@ -43,7 +45,8 @@ async function openCheckout(){
   const res=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"});
   const data=await res.json().catch(()=>({}));
   if(!res.ok||!data.url) throw new Error("checkout");
-  location.replace(data.url);
+  try{if(typeof gtag==="function")gtag("event","begin_checkout",{items:[{item_name:"Booking Page + Cleaning App"}],value:39.99,currency:"USD"});}catch{}
+  setTimeout(()=>location.replace(data.url),120);
  }catch{
   dots.hidden=true;
   title.textContent=es?"No pudimos abrir el pago.":"We couldn’t open checkout.";
