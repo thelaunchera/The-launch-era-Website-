@@ -25,7 +25,7 @@ h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-we
 </main>
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-booking-page-checkout";
-const lang=new URLSearchParams(location.search).get("lang")||localStorage.getItem("tle_language")||"en";
+const lang=new URLSearchParams(location.search).get("lang")||localStorage.getItem("tle_app_lang")||localStorage.getItem("tle_language")||"en";
 const es=lang==="es";
 const title=document.getElementById("title"),copy=document.getElementById("copy"),status=document.getElementById("status"),retry=document.getElementById("retry"),dots=document.getElementById("dots"),kicker=document.getElementById("kicker");
 if(es){
