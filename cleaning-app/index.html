@@ -3,406 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#FAF8F3">
-<meta id="metaDescription" name="description" content="A modern all-in-one app for cleaning business owners to manage bookings, quotes, clients, jobs, invoices, routes, mileage and team access.">
-<title>The Launch Era Cleaning App</title><link rel="canonical" href="https://thelaunchera.com/cleaning-app/"><link rel="alternate" hreflang="en" href="https://thelaunchera.com/cleaning-app/?lang=en"><link rel="alternate" hreflang="es" href="https://thelaunchera.com/cleaning-app/?lang=es"><link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/cleaning-app/?lang=en">
-
+<meta name="theme-color" content="#191919">
+<meta id="metaDescription" name="description" content="Cleaning App for cleaning business owners: bookings, quotes, clients, jobs and invoices in one simple workspace.">
+<title>The Launch Era Cleaning App</title>
+<link rel="canonical" href="https://thelaunchera.com/cleaning-app/">
+<link rel="alternate" hreflang="en" href="https://thelaunchera.com/cleaning-app/?lang=en">
+<link rel="alternate" hreflang="es" href="https://thelaunchera.com/cleaning-app/?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/cleaning-app/?lang=en">
 <link rel="icon" type="image/png" href="../the-launch-era-favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ivory:#FAF8F3;--paper:#fff;--ink:#191919;--charcoal:#343434;--yellow:#F2D85B;--blue:#DDEBFA;--blue2:#EEF6FF;--muted:#756F67;--line:#DDD7CE;--max:1180px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:var(--ivory);color:var(--ink);font-family:Futura,"Avenir Next",Arial,sans-serif;overflow-x:hidden;line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}img{max-width:100%;display:block}.wrap{width:min(var(--max),calc(100% - 38px));margin:auto}h1,h2,h3,.brand,.price{font-family:"Prompt",Arial,sans-serif;text-rendering:optimizeLegibility;font-kerning:normal}
-header{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(221,215,206,.8)}.nav{min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-size:18px;font-weight:800;letter-spacing:-.02em}.nav-right{display:flex;align-items:center;gap:10px}.lang{border:1.5px solid var(--ink);border-radius:999px;background:transparent;min-width:48px;height:42px;font-weight:900;font-size:11px;letter-spacing:.08em;cursor:pointer}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 19px;border:1.5px solid var(--ink);border-radius:999px;font-weight:900;line-height:1.15;text-align:center;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}.btn:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink);color:#fff}.btn.yellow{background:var(--yellow)}.btn.light{background:var(--paper)}
-.eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;display:flex;align-items:center;gap:8px}.eyebrow:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink);flex:0 0 auto}
-.hero{padding:30px 0 50px}.hero-stage{position:relative;min-height:720px;border:1px solid var(--ink);overflow:hidden;background:var(--ink);display:grid;grid-template-columns:1.05fr .95fr}.hero-copy{position:relative;z-index:4;color:#fff;padding:72px 58px;display:flex;flex-direction:column;justify-content:center}.hero-copy .eyebrow{color:#fff}.hero-copy h1{font-size:clamp(54px,6.8vw,92px);line-height:.91;letter-spacing:-.065em;margin:18px 0 22px;max-width:760px}.hero-copy p{font-size:19px;line-height:1.55;color:rgba(255,255,255,.72);max-width:650px;margin:0}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.hero-actions .btn.light{color:var(--ink)}.hero-proof{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:12px;font-weight:900;color:rgba(255,255,255,.82)}.hero-proof span:before{content:"✓";color:var(--yellow);margin-right:6px}
-.hero-photo{position:relative;min-height:720px;background:#ddd;overflow:hidden}.hero-photo>img{width:100%;height:100%;object-fit:cover;object-position:center 28%}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,25,25,.12),transparent 46%),linear-gradient(0deg,rgba(25,25,25,.08),transparent 54%);pointer-events:none}
-.float-card{position:absolute;z-index:6;border:1px solid var(--ink);background:var(--paper);box-shadow:12px 12px 0 var(--yellow);animation:floaty 5.5s ease-in-out infinite}.float-card.top{right:6%;bottom:7%;top:auto;width:min(560px,86%)}.float-card.bottom{display:none}.float-card iframe{width:100%;aspect-ratio:1365/900;border:0;display:block;pointer-events:none;background:var(--ivory)}.float-meta{display:none}@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.scroll-tag{display:none}
-.marquee{background:var(--ink);color:#fff;overflow:hidden;border-block:1px solid var(--ink)}.marquee-track{display:flex;width:max-content;animation:marquee 24s linear infinite}.marquee-group{display:flex;flex:0 0 auto}.marquee span{display:inline-flex;align-items:center;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;padding:13px 0}.marquee span:after{content:"✦";color:var(--yellow);margin:0 27px}@keyframes marquee{to{transform:translateX(-50%)}}
-section{padding:78px 0}.section-head{max-width:820px;margin-bottom:34px}.section-head h2{font-size:clamp(40px,5.5vw,68px);line-height:.98;letter-spacing:-.05em;margin:10px 0 14px}.section-head p{font-size:18px;color:var(--muted);max-width:720px;margin:0}
-.statement{padding:90px 0}.statement-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;align-items:end}.statement h2{font-size:clamp(46px,7vw,88px);line-height:.94;letter-spacing:-.06em;margin:0}.statement-side{display:grid;gap:14px}.statement-card{border-top:1.5px solid var(--ink);padding:19px 0;display:grid;grid-template-columns:120px 1fr;gap:20px}.statement-card b{font-size:11px;letter-spacing:.12em;text-transform:uppercase}.statement-card p{margin:0;color:var(--muted);font-size:16px}
-.product-section{background:#fff;border-block:1px solid var(--line)}.product-shell{display:grid;grid-template-columns:260px 1fr;gap:18px}.product-tabs{display:grid;gap:8px;align-content:start}.product-tab{border:1px solid var(--line);background:var(--ivory);padding:18px;text-align:left;cursor:pointer;transition:.2s}.product-tab strong{display:block;font-family:Prompt;font-size:18px;margin-bottom:5px}.product-tab span{font-size:13px;color:var(--muted)}.product-tab.active{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateX(8px)}.product-tab.active span{color:rgba(255,255,255,.65)}
-.product-visual{position:relative;background:var(--blue);border:1px solid var(--ink);padding:18px;box-shadow:12px 12px 0 var(--yellow)}.product-visual iframe{display:block;width:100%;aspect-ratio:1365/900;border:1px solid rgba(25,25,25,.2);background:var(--ivory);pointer-events:none}.product-badge{position:absolute;left:30px;bottom:30px;background:var(--paper);border:1px solid var(--ink);border-radius:999px;padding:8px 12px;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
-.feature-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink)}.feature-item{background:var(--ivory);padding:28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}.feature-item:nth-child(2){background:var(--blue)}.feature-item:nth-child(3){background:var(--yellow)}.feature-item:nth-child(4){background:#fff}.feature-item small{font-size:10px;font-weight:900;letter-spacing:.12em}.feature-item h3{font-size:25px;line-height:1.08;letter-spacing:-.03em;margin:34px 0 8px}.feature-item p{font-size:14px;color:var(--muted);margin:0}
-.photo-break{position:relative;min-height:540px;overflow:hidden;border-block:1px solid var(--ink);background:var(--ink)}.photo-break img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center}.photo-break:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,25,25,.85) 0%,rgba(25,25,25,.4) 48%,rgba(25,25,25,.06) 80%)}.photo-copy{position:relative;z-index:2;color:#fff;max-width:720px;padding:90px 0}.photo-copy h2{font-size:clamp(43px,6vw,76px);line-height:.96;letter-spacing:-.055em;margin:10px 0 16px}.photo-copy p{font-size:18px;color:rgba(255,255,255,.75);max-width:580px}.photo-copy .eyebrow:before{background:var(--yellow)}
-.pricing{background:var(--blue2)}.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.price-card{border:1px solid var(--ink);padding:34px;display:flex;flex-direction:column;min-height:420px;background:#fff;position:relative;overflow:hidden}.price-card.primary{background:var(--ink);color:#fff}.price-card.primary:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:var(--yellow);right:-80px;top:-80px}.price-card .eyebrow{position:relative}.price-card h3{font-size:36px;line-height:1.02;letter-spacing:-.045em;margin:25px 0 8px;position:relative}.price{font-size:64px;line-height:1;letter-spacing:-.055em;margin:12px 0;position:relative}.price small{font:700 14px Futura,Arial,sans-serif;display:block;margin-top:8px;letter-spacing:0}.price-card p{color:var(--muted);max-width:560px;position:relative}.price-card.primary p{color:rgba(255,255,255,.68)}.price-list{display:grid;gap:9px;margin:20px 0 28px;font-size:14px;font-weight:800;position:relative}.price-list span:before{content:"✓";margin-right:8px}.price-card .btn{margin-top:auto;align-self:flex-start;position:relative}.price-card.primary .btn{background:var(--yellow);color:var(--ink)}
-.faq details{border-bottom:1px solid var(--line);padding:21px 0}.faq summary{font-size:18px;font-weight:900;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"＋";float:right}.faq details[open] summary:after{content:"—"}.faq p{color:var(--muted);max-width:780px;line-height:1.65}
-.final{padding:45px 0 80px}.final-card{background:var(--yellow);border:1px solid var(--ink);padding:48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}.final-card h2{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.055em;margin:0 0 12px}.final-card p{margin:0;max-width:620px;color:#514B32}.final-card .btn{background:var(--ink);color:#fff}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.show{opacity:1;transform:none}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.mobile-cta{display:none}
-@media(max-width:1050px){.hero-stage{grid-template-columns:1fr;min-height:auto}.hero-copy{padding:58px 36px}.hero-photo{min-height:640px}.hero-photo>img{object-position:center 20%}.float-card.top{right:5%;bottom:5%;top:auto;width:82%}.statement-grid,.product-shell{grid-template-columns:1fr}.product-tabs{grid-template-columns:1fr 1fr}.product-tab.active{transform:none}.feature-strip{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr}.final-card{grid-template-columns:1fr}.final-card .btn{justify-self:start}}
-@media(max-width:600px){.wrap{width:min(calc(100% - 28px),var(--max))}.nav{min-height:64px}.brand{font-size:15px}.nav-right .btn{display:none}.hero{padding:14px 0 34px}.hero-copy{padding:42px 22px}.hero-copy h1{font-size:clamp(43px,13vw,60px);line-height:.95;letter-spacing:-.05em}.hero-copy p{font-size:16px}.hero-actions{display:grid}.hero-actions .btn{width:100%}.hero-proof{display:grid;gap:7px}.hero-photo{min-height:520px}.hero-photo>img{object-position:center 18%}.float-card.top{right:4%;bottom:5%;top:auto;width:92%;box-shadow:7px 7px 0 var(--yellow)}.float-card.bottom{display:none}.scroll-tag{display:none}.marquee span{font-size:10px}.marquee span:after{margin:0 20px}.marquee-track{animation-duration:18s}section{padding:56px 0}.section-head h2,.statement h2,.photo-copy h2,.final-card h2{font-size:clamp(36px,10.5vw,50px);line-height:1}.section-head p,.photo-copy p{font-size:16px}.statement{padding:62px 0}.statement-grid{gap:28px}.statement-card{grid-template-columns:82px 1fr}.statement-card p{font-size:14px}.product-tabs{grid-template-columns:1fr 1fr;gap:6px}.product-tab{padding:14px}.product-tab strong{font-size:15px}.product-tab span{display:none}.product-visual{padding:9px;box-shadow:7px 7px 0 var(--yellow)}.product-badge{left:18px;bottom:18px}.feature-strip{grid-template-columns:1fr}.feature-item{min-height:170px;padding:22px}.feature-item h3{margin-top:24px}.photo-break{min-height:470px}.photo-copy{padding:64px 0}.price-card{padding:26px 22px;min-height:390px}.price-card h3{font-size:30px}.price{font-size:54px}.final-card{padding:30px 22px}.mobile-cta{display:block;position:fixed;left:14px;right:14px;bottom:max(12px,env(safe-area-inset-bottom));z-index:55}.mobile-cta .btn{width:100%;box-shadow:0 8px 30px rgba(25,25,25,.2)}footer{padding-bottom:100px}}
-
-/* 2026-09-27 — Visual system shared with the live app */
-.app-brand-hero{border-radius:30px;box-shadow:0 24px 78px rgba(25,25,25,.12)}
-.app-brand-hero .hero-copy{position:relative;overflow:hidden}
-.app-brand-hero .hero-copy:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-120px;top:-100px;background:rgba(221,235,250,.12);animation:appLandingOrb 10s ease-in-out infinite}
-.app-brand-hero .hero-copy>*{position:relative;z-index:1}
-.app-photo-hero{isolation:isolate}
-.app-photo-hero>img{transform:scale(1.025);filter:saturate(.94) contrast(1.05);animation:appLandingBreath 14s ease-in-out infinite alternate}
-.app-photo-hero:after{background:radial-gradient(circle at 72% 18%,rgba(242,216,91,.22),transparent 34%),linear-gradient(0deg,rgba(25,25,25,.28),transparent 55%)}
-.app-hero-identity{position:absolute;z-index:5;left:7%;bottom:8%;width:min(420px,78%);padding:21px 22px;border:1px solid var(--ink);border-radius:22px;background:rgba(250,248,243,.95);backdrop-filter:blur(16px);box-shadow:12px 12px 0 var(--yellow);color:var(--ink)}
-.app-hero-identity span{display:block;font-size:9px;line-height:1.3;font-weight:900;letter-spacing:.14em;margin-bottom:12px}
-.app-hero-identity strong{display:block;font-family:Prompt,Arial,sans-serif;font-size:clamp(25px,3vw,37px);line-height:1.02;letter-spacing:-.045em}
-.app-hero-chip{position:absolute;z-index:6;right:6%;border:1px solid var(--ink);border-radius:999px;padding:10px 14px;background:#fff;color:var(--ink);font-size:10px;font-weight:900;box-shadow:0 10px 28px rgba(25,25,25,.11)}
-.app-hero-chip.chip-a{top:9%;background:var(--yellow);animation:appChipA 7s ease-in-out infinite}
-.app-hero-chip.chip-b{top:18%;background:var(--blue);animation:appChipB 8.5s ease-in-out infinite}
-.app-hero-chip.chip-c{top:27%;background:var(--paper);animation:appChipA 9s ease-in-out -2s infinite}
-.statement-card,.product-tab,.product-visual,.feature-item,.price-card,.final-card{border-radius:20px}
-.product-visual{overflow:hidden;transition:transform .28s ease,box-shadow .28s ease}
-.product-visual:hover{transform:translateY(-4px);box-shadow:16px 16px 0 var(--yellow)}
-.price-card{transition:transform .25s ease,box-shadow .25s ease}
-.price-card:hover{transform:translateY(-5px);box-shadow:0 16px 42px rgba(25,25,25,.08)}
-@keyframes appLandingBreath{from{transform:scale(1.025)}to{transform:scale(1.075)}}
-@keyframes appLandingOrb{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-22px,18px,0)}}
-@keyframes appChipA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes appChipB{0%,100%{transform:translate(0,0)}50%{transform:translate(-5px,7px)}}
-@media(max-width:1050px){
-  .app-brand-hero{border-radius:24px}
-}
-@media(max-width:600px){
-  .app-brand-hero{border-radius:20px}
-  .app-photo-hero{min-height:560px}
-  .app-hero-identity{left:16px;bottom:18px;width:calc(100% - 32px);padding:18px;box-shadow:8px 8px 0 var(--yellow)}
-  .app-hero-chip{right:12px;font-size:9px;padding:8px 10px}
-  .app-hero-chip.chip-a{top:14px}
-  .app-hero-chip.chip-b{top:58px}
-  .app-hero-chip.chip-c{top:102px}
-}
-@media(prefers-reduced-motion:reduce){
-  .app-photo-hero>img,.app-brand-hero .hero-copy:before,.app-hero-chip{animation:none!important}
-  .reveal{opacity:1;transform:none}
-}
-
-/* 2026-09-27 — Calm, trust-first landing refinement */
-body{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;line-height:1.65}
-h1,h2,h3,.brand,.price{font-family:"Prompt","Avenir Next",Arial,sans-serif;font-weight:600;letter-spacing:-.025em}
-.brand{font-weight:700}
-.lang,.btn,.eyebrow,.hero-proof,.feature-item small,.product-badge,.price-list,.faq summary{font-weight:600}
-.hero-copy h1{font-size:clamp(48px,5.7vw,76px);line-height:1.04;letter-spacing:-.035em;margin:20px 0 24px}
-.hero-copy p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.78);max-width:620px}
-.hero-proof{font-size:12px;gap:16px;color:rgba(255,255,255,.78)}
-.hero-proof span:before{color:#D8D2C8}
-.eyebrow{font-size:10px;letter-spacing:.10em}
-.eyebrow:before{background:#D8D2C8;border-color:#BDB6AB}
-.section-head{max-width:760px;margin-bottom:42px}
-.section-head h2{font-size:clamp(36px,4.6vw,58px);line-height:1.08;letter-spacing:-.03em;margin:12px 0 16px;font-weight:600}
-.section-head p{font-size:17px;line-height:1.72;max-width:680px}
-.statement{padding:96px 0}
-.statement-grid{gap:54px}
-.statement h2{font-size:clamp(40px,5.8vw,68px);line-height:1.06;letter-spacing:-.032em;font-weight:600}
-.statement-card{padding:24px 0;gap:26px;border-top:1px solid var(--line)}
-.statement-card b{font-weight:600;letter-spacing:.08em}
-.product-tab{transition:none;background:#F7F5F0}
-.product-tab strong{font-weight:600}
-.product-tab.active{background:#2B2B2B;color:#fff;transform:none}
-.product-visual{background:#F3F1EC;border-color:#D8D2C8;box-shadow:0 14px 36px rgba(25,25,25,.07);transition:none}
-.product-visual:hover{transform:none;box-shadow:0 14px 36px rgba(25,25,25,.07)}
-.feature-strip{gap:12px;background:transparent;border:0}
-.feature-item,.feature-item:nth-child(2),.feature-item:nth-child(3),.feature-item:nth-child(4){background:#F7F5F0;border:1px solid var(--line)}
-.feature-item h3{font-weight:600;line-height:1.18}
-.pricing{background:#F3F1EC}
-.price-card{border-color:#D8D2C8;transition:none}
-.price-card:hover{transform:none;box-shadow:none}
-.price-card.primary{background:#2B2B2B}
-.price-card.primary:before{display:none}
-.price-card.primary .btn{background:#F4F1EA;color:#191919}
-.final-card{background:#F1EEE8;border-color:#D8D2C8}
-.final-card h2{font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
-.final-card p{color:#6B655D}
-.btn{font-weight:700;transition:none}
-.btn:hover{transform:none}
-.btn.yellow{background:#F4F1EA;border-color:#CFC8BD}
-.marquee{background:#2B2B2B}
-.marquee-track{animation:none;transform:none}
-.marquee span{font-weight:600;letter-spacing:.08em}
-.marquee span:after{color:#D8D2C8}
-.float-card{box-shadow:0 16px 40px rgba(25,25,25,.10);animation:none;border-color:#D8D2C8}
-.app-brand-hero{box-shadow:0 20px 58px rgba(25,25,25,.08)}
-.app-brand-hero .hero-copy:before{display:none}
-.app-photo-hero>img{transform:none;filter:saturate(.82) contrast(1.01);animation:none}
-.app-photo-hero:after{background:linear-gradient(0deg,rgba(25,25,25,.22),transparent 58%)}
-.app-hero-identity{background:rgba(250,248,243,.97);border-color:#D8D2C8;box-shadow:0 14px 34px rgba(25,25,25,.10)}
-.app-hero-identity span{font-weight:600;letter-spacing:.09em;color:#6D675F}
-.app-hero-identity strong{font-weight:600;line-height:1.08;letter-spacing:-.025em}
-.app-hero-chip,.app-hero-chip.chip-a,.app-hero-chip.chip-b,.app-hero-chip.chip-c{background:#F7F5F0;border-color:#D8D2C8;box-shadow:0 8px 20px rgba(25,25,25,.07);font-weight:600;animation:none}
-.reveal,.reveal.show{opacity:1;transform:none;transition:none}
-.photo-copy h2{font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
-.photo-copy .eyebrow:before{background:#D8D2C8}
-.price-card h3{font-weight:600;letter-spacing:-.025em}
-.price{font-weight:600;letter-spacing:-.035em}
-.faq summary{font-weight:600}
-@media(max-width:600px){
-  .hero-copy{padding:46px 24px}
-  .hero-copy h1{font-size:clamp(40px,11vw,52px);line-height:1.06;letter-spacing:-.028em}
-  .section-head h2,.statement h2,.photo-copy h2,.final-card h2{font-size:clamp(34px,9.5vw,46px);line-height:1.08}
-  .product-visual,.float-card.top,.app-hero-identity{box-shadow:0 10px 26px rgba(25,25,25,.08)}
-}
-
-
-/* 2026-09-27 — Calm neutral trust pass */
-:root{
-  --ivory:#F7F5F0;
-  --paper:#FFFFFF;
-  --ink:#242321;
-  --charcoal:#3F3D39;
-  --yellow:#E9E5DD;
-  --blue:#F0EEE9;
-  --blue2:#F5F3EF;
-  --muted:#716D66;
-  --line:#D9D4CB;
-}
-html{scroll-behavior:auto}
-body{background:var(--ivory);line-height:1.65}
-h1,h2,h3,.brand,.price{font-family:"Prompt",Arial,sans-serif;font-weight:600;letter-spacing:-.025em}
-header{background:rgba(247,245,240,.97);backdrop-filter:none}
-.brand{font-weight:600;letter-spacing:.01em}
-.lang{font-weight:600;border-color:var(--line);background:var(--paper)}
-.btn{font-weight:600;border:1px solid var(--ink);transition:none;box-shadow:none!important}
-.btn:hover{transform:none}
-.btn.yellow,.price-card.primary .btn{background:var(--ink);color:#fff}
-.btn.light{background:transparent;color:var(--ink)}
-.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:none;font-weight:600;color:var(--muted)}
-.eyebrow:before{display:none}
-
-.hero{padding:38px 0 76px}
-.hero-stage{min-height:650px;border:1px solid var(--line);background:#F1EEE8;grid-template-columns:1fr .9fr}
-.hero-copy{color:var(--ink);padding:82px 64px}
-.hero-copy .eyebrow{color:var(--muted)}
-.hero-copy h1{font-size:clamp(48px,5.4vw,74px);line-height:1.04;letter-spacing:-.035em;margin:20px 0 24px;max-width:680px;font-weight:600}
-.hero-copy p{font-size:18px;line-height:1.7;color:var(--muted);max-width:590px}
-.hero-proof{margin-top:28px;font-size:12px;font-weight:600;color:var(--muted);gap:22px}
-.hero-proof span:before{color:var(--ink)}
-.hero-photo{min-height:650px;background:#ECE9E3}
-.hero-photo>img{filter:none!important;transform:none!important;animation:none!important}
-.hero-photo:after{display:none}
-.app-brand-hero{border-radius:18px;box-shadow:none}
-.app-brand-hero .hero-copy:before{display:none}
-.app-hero-chip{display:none}
-.app-hero-identity{left:7%;bottom:7%;width:min(390px,80%);padding:20px 22px;border:1px solid rgba(36,35,33,.18);border-radius:14px;background:rgba(255,255,255,.94);backdrop-filter:none;box-shadow:none;color:var(--ink)}
-.app-hero-identity span{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
-.app-hero-identity strong{font-size:clamp(24px,2.6vw,34px);line-height:1.12;letter-spacing:-.025em;font-weight:600}
-
-.marquee{background:#EEEAE3;color:var(--charcoal);border-block:1px solid var(--line);overflow:visible}
-.marquee-track{width:100%;animation:none!important;display:flex;justify-content:center;flex-wrap:wrap}
-.marquee-group{display:flex;flex-wrap:wrap;justify-content:center}
-.marquee-group:nth-child(2){display:none}
-.marquee span{font-size:11px;font-weight:600;text-transform:none;letter-spacing:.03em;padding:15px 0}
-.marquee span:after{content:"·";color:#9A958D;margin:0 18px}
-
-section{padding:96px 0}
-.section-head{max-width:760px;margin-bottom:46px}
-.section-head h2{font-size:clamp(38px,4.8vw,58px);line-height:1.08;letter-spacing:-.03em;margin:12px 0 18px;font-weight:600}
-.section-head p{font-size:17px;line-height:1.75;color:var(--muted)}
-
-.statement{padding:112px 0}
-.statement-grid{grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
-.statement h2{font-size:clamp(42px,5.6vw,66px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
-.statement-side{gap:8px}
-.statement-card{border-top:1px solid var(--line);padding:24px 0;grid-template-columns:110px 1fr;gap:28px;border-radius:0}
-.statement-card b{font-size:12px;letter-spacing:.04em;text-transform:none;font-weight:600}
-.statement-card p{font-size:16px;line-height:1.7}
-
-.product-section{background:#FCFBF9;border-block:1px solid var(--line)}
-.product-shell{grid-template-columns:230px 1fr;gap:28px}
-.product-tab{border:1px solid var(--line);background:#F7F5F0;padding:18px;border-radius:12px;transition:none}
-.product-tab strong{font-size:17px;font-weight:600}
-.product-tab.active{background:#EAE7E1;color:var(--ink);border-color:#CFC9BF;transform:none}
-.product-tab.active span{color:var(--muted)}
-.product-visual{background:#F2F0EC;border:1px solid var(--line);padding:14px;box-shadow:none;border-radius:16px}
-.product-visual:hover{transform:none;box-shadow:none}
-.product-visual iframe{border:1px solid var(--line)}
-.product-badge{display:none}
-
-.feature-strip{grid-template-columns:repeat(4,1fr);gap:14px;background:transparent;border:0}
-.feature-item,.feature-item:nth-child(2),.feature-item:nth-child(3),.feature-item:nth-child(4){background:#FBFAF8;border:1px solid var(--line);border-radius:14px;padding:28px;min-height:230px}
-.feature-item small{font-size:10px;font-weight:600;letter-spacing:.08em;color:#9A958D}
-.feature-item h3{font-size:24px;line-height:1.2;letter-spacing:-.02em;margin:42px 0 10px;font-weight:600}
-.feature-item p{line-height:1.7}
-
-.photo-break{min-height:500px;border-block:1px solid var(--line);background:#EDE9E2}
-.photo-break:after{background:linear-gradient(90deg,rgba(36,35,33,.68) 0%,rgba(36,35,33,.30) 50%,rgba(36,35,33,.05) 82%)}
-.photo-copy{padding:104px 0}
-.photo-copy h2{font-size:clamp(40px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
-.photo-copy p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.84)}
-
-.pricing{background:#F2F0EB}
-.pricing-grid{gap:20px}
-.price-card,.price-card.primary{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:38px;min-height:430px;box-shadow:none;transition:none}
-.price-card:hover{transform:none;box-shadow:none}
-.price-card.primary:before{display:none}
-.price-card.primary p{color:var(--muted)}
-.price-card h3{font-size:32px;line-height:1.14;letter-spacing:-.025em;font-weight:600}
-.price{font-size:56px;letter-spacing:-.035em;font-weight:600}
-.price-list{font-size:14px;font-weight:600;gap:11px}
-.price-card.primary .btn{background:var(--ink);color:#fff}
-
-.faq details{padding:24px 0}
-.faq summary{font-size:18px;font-weight:600}
-.faq p{line-height:1.75}
-
-.final{padding:60px 0 96px}
-.final-card{background:#EDE9E2;border:1px solid var(--line);border-radius:14px;padding:52px;box-shadow:none}
-.final-card h2{font-size:clamp(40px,5vw,58px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
-.final-card p{color:var(--muted);line-height:1.7}
-
-.reveal,.reveal.show{opacity:1!important;transform:none!important;transition:none!important}
-.float-card,.marquee-track,.app-photo-hero>img,.app-brand-hero .hero-copy:before,.app-hero-chip{animation:none!important}
-.mobile-cta .btn{box-shadow:none!important}
-
-@media(max-width:1050px){
-  .hero-stage{grid-template-columns:1fr}
-  .hero-copy{padding:64px 44px}
-  .hero-photo{min-height:600px}
-  .statement-grid{gap:44px}
-}
-@media(max-width:600px){
-  .hero{padding:16px 0 48px}
-  .hero-copy{padding:46px 24px 50px}
-  .hero-copy h1{font-size:clamp(38px,11vw,50px);line-height:1.08;letter-spacing:-.03em}
-  .hero-copy p{font-size:16px;line-height:1.7}
-  .hero-photo{min-height:480px}
-  .app-brand-hero{border-radius:14px}
-  .app-hero-identity{left:14px;bottom:14px;width:calc(100% - 28px);padding:18px;border-radius:12px}
-  section{padding:72px 0}
-  .section-head{margin-bottom:34px}
-  .section-head h2,.statement h2,.photo-copy h2,.final-card h2{font-size:clamp(34px,9.5vw,44px);line-height:1.1}
-  .statement{padding:78px 0}
-  .statement-grid{gap:40px}
-  .statement-card{grid-template-columns:1fr;gap:8px;padding:20px 0}
-  .product-tabs{grid-template-columns:1fr 1fr}
-  .product-tab{padding:14px}
-  .product-visual{padding:8px}
-  .feature-strip{grid-template-columns:1fr}
-  .feature-item{min-height:180px;padding:24px}
-  .photo-copy{padding:76px 0}
-  .price-card,.price-card.primary{padding:30px 24px;min-height:390px}
-  .price{font-size:50px}
-  .final-card{padding:34px 24px}
-}
-
+:root{--ivory:#FAF8F3;--paper:#fff;--ink:#191919;--charcoal:#343434;--yellow:#F2D85B;--blue:#DDEBFA;--blue2:#EEF6FF;--line:#D7D1C8;--muted:#6F6961;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:linear-gradient(180deg,#FAF8F3 0%,#F4F8FD 54%,#FAF8F3 100%);color:var(--ink);font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}.wrap{width:min(var(--max),calc(100% - 30px));margin:auto}h1,h2,h3,.brand,.metric strong{font-family:Prompt,Arial,sans-serif}
+header{position:sticky;top:0;z-index:60;background:rgba(250,248,243,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(215,209,200,.7)}.nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:800;font-size:16px;letter-spacing:-.02em}.nav-right{display:flex;align-items:center;gap:8px}.nav-link{font-size:12px;font-weight:800}.pill{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 13px;border:1px solid var(--ink);border-radius:999px;background:#fff;font-size:11px;font-weight:800}.pill.dark{background:var(--ink);color:#fff}.pill.yellow{background:var(--yellow)}button.pill{cursor:pointer}
+.hero{padding:22px 0 24px}.app-stage{position:relative;overflow:hidden;border:1px solid rgba(25,25,25,.88);border-radius:34px;background:var(--ink);color:#fff;box-shadow:0 30px 90px rgba(25,25,25,.16);display:grid;grid-template-columns:.88fr 1.12fr;min-height:650px}.app-stage:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:var(--yellow);filter:blur(2px);opacity:.96;right:-210px;top:-210px;animation:orb 12s ease-in-out infinite}.copy{position:relative;z-index:3;padding:64px 46px;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow)}.copy h1{font-size:clamp(50px,6.7vw,82px);line-height:.92;letter-spacing:-.055em;margin:18px 0}.copy p{font-size:18px;line-height:1.65;color:rgba(255,255,255,.72);max-width:560px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}.actions .pill{min-height:48px;padding:12px 18px}.hero-trust{display:flex;gap:15px;flex-wrap:wrap;margin-top:24px;font-size:11px;color:rgba(255,255,255,.75);font-weight:700}.hero-trust span:before{content:"✓";color:var(--yellow);margin-right:6px}
+.mini-app{position:relative;z-index:3;padding:28px 28px 28px 0;display:flex;align-items:center}.device{width:100%;background:#F7F8FA;border:1px solid rgba(255,255,255,.24);border-radius:28px;box-shadow:0 24px 70px rgba(0,0,0,.28);overflow:hidden;transform:rotate(.8deg);animation:deviceFloat 7s ease-in-out infinite}.device-top{height:48px;padding:0 16px;background:#fff;border-bottom:1px solid #E5E5E5;display:flex;align-items:center;justify-content:space-between;color:#191919}.device-dots{display:flex;gap:5px}.device-dots i{display:block;width:7px;height:7px;border-radius:50%;background:#D8D8D8}.device-dots i:first-child{background:var(--yellow)}.device-title{font-size:10px;font-weight:900;letter-spacing:.1em}.device-live{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:800}.device-live:before{content:"";width:7px;height:7px;border-radius:50%;background:#41B86C;box-shadow:0 0 0 5px rgba(65,184,108,.11);animation:pulse 2s infinite}.preview-tabs{display:flex;gap:7px;padding:10px 12px;background:#F4F4F2}.preview-tabs button{border:1px solid #D9D9D5;background:#fff;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;cursor:pointer}.preview-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.preview-frame{position:relative;background:#EAF2FD;padding:8px}.preview-frame iframe{display:block;width:100%;aspect-ratio:1365/900;border:0;border-radius:14px;background:var(--ivory)}.activity{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px 12px 14px;background:#fff;color:#191919}.metric{border:1px solid #E4E0D9;border-radius:14px;padding:10px;background:#FAF8F3}.metric:nth-child(2){background:#EEF6FF}.metric:nth-child(3){background:#FFF8CF}.metric small{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#6D675F}.metric strong{display:block;margin-top:4px;font-size:18px}.float-note{position:absolute;z-index:8;border:1px solid var(--ink);border-radius:17px;background:#fff;color:var(--ink);padding:12px 14px;font-size:10px;font-weight:800;box-shadow:0 14px 35px rgba(0,0,0,.14)}.float-note.one{right:3%;top:15%;background:var(--yellow);animation:floatA 6s ease-in-out infinite}.float-note.two{left:49%;bottom:9%;background:var(--blue);animation:floatB 7s ease-in-out infinite}.float-note.three{right:8%;bottom:5%;animation:floatA 8s ease-in-out -2s infinite}
+.ticker{overflow:hidden;background:var(--yellow);border-block:1px solid var(--ink)}.ticker-track{display:flex;width:max-content;animation:ticker 22s linear infinite}.ticker-group{display:flex;flex:0 0 auto}.ticker span{padding:11px 0;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.ticker span:after{content:"✦";margin:0 26px}
+.quick{padding:54px 0 28px}.quick-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:22px}.quick-head h2{font-size:clamp(38px,5vw,58px);line-height:1;letter-spacing:-.04em;margin:8px 0 0}.quick-head p{max-width:500px;color:var(--muted);line-height:1.6}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.flow-card{min-height:190px;border:1px solid var(--line);border-radius:22px;padding:22px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.flow-card:hover{transform:translateY(-5px);border-color:var(--ink);box-shadow:8px 8px 0 var(--blue)}.flow-card:nth-child(2){background:#F7FCFF}.flow-card:nth-child(3){background:#FFFBEA}.flow-card:nth-child(4){background:#F4F1EC}.flow-card small{font-size:9px;font-weight:900;letter-spacing:.1em}.flow-card h3{font-size:22px;line-height:1.05;margin:28px 0 8px}.flow-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+.pricing{padding:30px 0 68px}.pricing-shell{display:grid;grid-template-columns:1.05fr .95fr;gap:12px}.price-card{position:relative;overflow:hidden;border:1px solid var(--ink);border-radius:28px;padding:34px;min-height:360px;display:flex;flex-direction:column;background:#fff}.price-card.primary{background:var(--ink);color:#fff}.price-card.primary:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--yellow);right:-90px;top:-100px}.price-card>*{position:relative;z-index:2}.price-card h2{font-size:34px;line-height:1;margin:18px 0 8px}.price{font-family:Prompt;font-size:58px;line-height:1;letter-spacing:-.05em}.price small{font:700 13px "Avenir Next",Arial,sans-serif;display:block;margin-top:8px;letter-spacing:0}.price-card p{color:var(--muted);max-width:540px;line-height:1.6}.price-card.primary p{color:rgba(255,255,255,.68)}.price-list{display:grid;gap:8px;font-size:13px;font-weight:700;margin:18px 0 24px}.price-list span:before{content:"✓";margin-right:7px}.price-card .pill{margin-top:auto;align-self:flex-start;min-height:48px}.price-card.primary .pill{background:var(--yellow);color:var(--ink)}
+.final{padding:0 0 62px}.final-card{border:1px solid var(--ink);border-radius:26px;background:var(--blue);padding:36px;display:flex;justify-content:space-between;gap:24px;align-items:center}.final-card h2{font-size:clamp(34px,4vw,48px);line-height:1;letter-spacing:-.04em;margin:0 0 8px}.final-card p{margin:0;color:#4D5965}
+footer{border-top:1px solid var(--line);padding:28px 0 100px;font-size:12px}.footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer a{text-decoration:underline;text-underline-offset:4px}.mobile-cta{display:none}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}.reveal.show{opacity:1;transform:none}
+@keyframes orb{0%,100%{transform:translate(0,0)}50%{transform:translate(-24px,24px)}}@keyframes deviceFloat{0%,100%{transform:rotate(.8deg) translateY(0)}50%{transform:rotate(-.3deg) translateY(-7px)}}@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,7px)}}@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(65,184,108,0)}}@keyframes ticker{to{transform:translateX(-50%)}}
+@media(max-width:900px){.app-stage{grid-template-columns:1fr}.copy{padding:46px 30px}.mini-app{padding:0 22px 38px}.float-note.one{top:auto;bottom:35%;right:5%}.float-note.two{left:4%;bottom:8%}.flow{grid-template-columns:1fr 1fr}.pricing-shell{grid-template-columns:1fr}.quick-head{align-items:start;flex-direction:column}}
+@media(max-width:600px){.nav-link{display:none}.nav .pill.dark{display:none}.hero{padding-top:12px}.app-stage{border-radius:24px;min-height:auto}.copy{padding:38px 22px 24px}.copy h1{font-size:clamp(45px,13vw,60px)}.copy p{font-size:16px}.actions{display:grid}.actions .pill{width:100%}.hero-trust{display:grid;gap:6px}.mini-app{padding:0 12px 28px}.device{border-radius:20px;transform:none;animation:none}.preview-frame{padding:5px}.activity{grid-template-columns:1fr 1fr 1fr;padding:8px}.metric{padding:8px}.metric strong{font-size:14px}.float-note{display:none}.ticker-track{animation-duration:17s}.ticker span:after{margin:0 18px}.quick{padding-top:42px}.quick-head h2{font-size:39px}.flow{grid-template-columns:1fr 1fr}.flow-card{min-height:170px;padding:18px}.flow-card h3{font-size:19px}.price-card{padding:26px 22px;min-height:330px}.price{font-size:50px}.final-card{align-items:flex-start;flex-direction:column;padding:28px 22px}.final-card .pill{width:100%}.mobile-cta{display:block;position:fixed;left:14px;right:14px;bottom:max(12px,env(safe-area-inset-bottom));z-index:70}.mobile-cta .pill{width:100%;min-height:50px;box-shadow:0 10px 30px rgba(25,25,25,.18)}footer{padding-bottom:92px}}
+@media(prefers-reduced-motion:reduce){.app-stage:before,.device,.float-note,.ticker-track{animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BHMC432Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-N5BHMC432Q');</script></head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BHMC432Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-N5BHMC432Q');</script>
+</head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="../">THE LAUNCH ERA</a><div class="nav-right"><button id="langToggle" class="lang" type="button">ES</button><a class="btn dark" href="https://app.thelaunchera.com/" data-i18n="openApp">Open App</a></div></div></header>
-
+<header><div class="wrap nav"><a class="brand" href="../">THE LAUNCH ERA · CLEANING APP</a><div class="nav-right"><a class="nav-link" href="../help/" data-i18n="help">Help</a><a class="nav-link" href="mailto:hello@thelaunchera.com" data-i18n="contact">Contact</a><button class="pill yellow" id="langToggle" type="button">ES</button><a class="pill dark" href="https://app.thelaunchera.com/" data-i18n="openApp">Open App</a></div></div></header>
 <main>
-<section class="hero">
-  <div class="wrap hero-stage app-brand-hero">
-    <div class="hero-copy">
-      <div class="eyebrow" data-i18n="heroEyebrow">Built for cleaning business owners</div>
-      <h1 data-i18n="heroTitle">The cleanest way to run your cleaning business.</h1>
-      <p data-i18n="heroCopy">Bookings, quotes, clients, jobs, invoices, routes, mileage and worker access — connected in one simple workspace.</p>
-      <div class="hero-actions"><a class="btn yellow" href="https://app.thelaunchera.com/" data-i18n="startFree">Start 30 days free</a><a class="btn light" href="#real-app" data-i18n="seeApp">See the real app</a></div>
-      <div class="hero-proof"><span data-i18n="noCard">No card required</span><span data-i18n="fullAccess">Full access during trial</span><span data-i18n="afterPrice">$5.99/month after</span></div>
-    </div>
-    <div class="hero-photo app-photo-hero">
-      <img src="../assets/cleaning-professional-hero.webp" alt="Cleaning business owner at work" fetchpriority="high" decoding="async">
-      <div class="app-hero-identity">
-        <span data-i18n="heroVisualKicker">YOUR BUSINESS. ONE CLEAN SYSTEM.</span>
-        <strong data-i18n="heroVisualTitle">Less chasing.<br>More running the business.</strong>
-      </div>
-      <div class="app-hero-chip chip-a" data-i18n="heroChip1">Bookings organized</div>
-      <div class="app-hero-chip chip-b" data-i18n="heroChip2">Quotes in one place</div>
-      <div class="app-hero-chip chip-c" data-i18n="heroChip3">30 days free</div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee"><div class="marquee-track"><div class="marquee-group">
-<span data-i18n="bookings">Bookings</span><span data-i18n="quotes">Quotes</span><span data-i18n="clients">Clients</span><span data-i18n="calendar">Calendar</span><span data-i18n="invoices">Invoices</span><span data-i18n="routes">Routes</span><span data-i18n="mileage">Mileage</span><span data-i18n="team">Team</span></div><div class="marquee-group" aria-hidden="true">
-<span data-i18n="bookings">Bookings</span><span data-i18n="quotes">Quotes</span><span data-i18n="clients">Clients</span><span data-i18n="calendar">Calendar</span><span data-i18n="invoices">Invoices</span><span data-i18n="routes">Routes</span><span data-i18n="mileage">Mileage</span><span data-i18n="team">Team</span></div></div></div>
-
-<section class="statement reveal">
-<div class="wrap statement-grid">
-  <div><div class="eyebrow" data-i18n="lessChaos">Less chaos</div><h2 data-i18n="statementTitle">Your business shouldn't live in five different places.</h2></div>
-  <div class="statement-side">
-    <div class="statement-card"><b data-i18n="clientsLabel">Clients</b><p data-i18n="clientsCopy">Keep client details, jobs, quotes and invoices connected instead of searching old texts.</p></div>
-    <div class="statement-card"><b data-i18n="scheduleLabel">Schedule</b><p data-i18n="scheduleCopy">See what is booked, what is open and what needs attention without guessing.</p></div>
-    <div class="statement-card"><b data-i18n="teamLabel">Team</b><p data-i18n="teamCopy">Give workers the information they need without exposing the rest of your business.</p></div>
-  </div>
-</div>
-</section>
-
-<section class="product-section reveal" id="real-app">
-<div class="wrap">
-  <div class="section-head"><div class="eyebrow" data-i18n="insideApp">Inside the app</div><h2 data-i18n="realTitle">Explore the product before you start.</h2><p data-i18n="realCopy">Switch between the dashboard and booking experience to see how the workspace is organized.</p></div>
-  <div class="product-shell">
-    <div class="product-tabs">
-      <button class="product-tab active" data-view="today"><strong data-i18n="tabToday">Today</strong><span data-i18n="tabTodayCopy">Daily jobs, activity and quick actions.</span></button>
-      <button class="product-tab" data-view="booking"><strong data-i18n="tabBooking">Booking</strong><span data-i18n="tabBookingCopy">Public links and real availability.</span></button>
-      <button class="product-tab" data-view="today"><strong data-i18n="tabOperations">Operations</strong><span data-i18n="tabOperationsCopy">Routes, mileage and time in one flow.</span></button>
-      <button class="product-tab" data-view="booking"><strong data-i18n="tabRequests">Requests</strong><span data-i18n="tabRequestsCopy">Bookings and quote requests stay organized.</span></button>
-    </div>
-    <div class="product-visual"><iframe id="appPreview" src="https://app.thelaunchera.com/demo.html?view=today&lang=en" title="Interactive preview of The Launch Era Cleaning App"></iframe></div>
-  </div>
-</div>
-</section>
-
-<section class="reveal">
-<div class="wrap">
-  <div class="section-head"><div class="eyebrow" data-i18n="builtAround">Built around the work</div><h2 data-i18n="featureTitle">Everything moves with the customer — not around them.</h2></div>
-  <div class="feature-strip">
-    <article class="feature-item"><small>01</small><div><h3 data-i18n="f1">Booking + Quotes</h3><p data-i18n="f1c">Share public links so customers can book or request a quote without creating an account.</p></div></article>
-    <article class="feature-item"><small>02</small><div><h3 data-i18n="f2">Clients + Jobs</h3><p data-i18n="f2c">Keep addresses, job history and scheduled work attached to the right client.</p></div></article>
-    <article class="feature-item"><small>03</small><div><h3 data-i18n="f3">Routes + Mileage</h3><p data-i18n="f3c">Keep the operational details you need for the day visible and connected.</p></div></article>
-    <article class="feature-item"><small>04</small><div><h3 data-i18n="f4">Invoices + Team</h3><p data-i18n="f4c">Track payments and give workers limited access to the work they need.</p></div></article>
-  </div>
-</div>
-</section>
-
-<section class="photo-break reveal">
-  <img src="../assets/hero-cleaning-hub-20260925.webp" alt="Cleaning business owner managing work on the go">
-  <div class="wrap photo-copy"><div class="eyebrow" data-i18n="onTheGo">Made for real workdays</div><h2 data-i18n="photoTitle">Your office is wherever the next job is.</h2><p data-i18n="photoCopy">The app is designed to help you keep the business moving without carrying the whole operation in your head.</p></div>
-</section>
-
-<section class="pricing reveal" id="pricing">
-<div class="wrap">
-  <div class="section-head"><div class="eyebrow" data-i18n="choosePath">Choose your path</div><h2 data-i18n="pricingTitle">Start with the app. Or give your clients a better front door too.</h2></div>
-  <div class="pricing-grid">
-    <article class="price-card primary">
-      <div class="eyebrow" data-i18n="appOnly">Cleaning App</div><h3 data-i18n="appOnlyTitle">Try the full product before you pay.</h3><div class="price">$0 <small data-i18n="for30">for 30 days</small></div><p data-i18n-html="appOnlyCopy">No card required. Continue for <strong>$5.99/month</strong> after the trial.</p>
-      <div class="price-list"><span data-i18n="pl1">Full app access</span><span data-i18n="pl2">Booking + quote links</span><span data-i18n="pl3">Clients, jobs, invoices and operations</span></div>
-      <a class="btn" href="https://app.thelaunchera.com/" data-i18n="startNow">Start free</a>
-    </article>
-    <article class="price-card">
-      <div class="eyebrow" data-i18n="needSite">Need a booking page too?</div><h3 data-i18n="bundleTitle">Booking Page + Cleaning App</h3><div class="price">$39.99 <small data-i18n="oneTime">one-time setup</small></div><p data-i18n="bundleCopy">A professional booking page connected to booking and quote requests, plus 60 days of app access.</p>
-      <div class="price-list"><span data-i18n="bl1">Professional booking page</span><span data-i18n="bl2">Booking + quote CTAs connected</span><span data-i18n="bl3">60 days of Cleaning App included</span></div>
-      <a class="btn dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H" data-i18n="getBundle">Get Booking Page + App</a>
-    </article>
-  </div>
-</div>
-</section>
-
-<section class="faq reveal">
-<div class="wrap">
-  <div class="section-head"><div class="eyebrow" data-i18n="quickAnswers">Quick answers</div><h2 data-i18n="faqTitle">Start without making it complicated.</h2></div>
-  <details><summary data-i18n="q1">Do my customers need an account?</summary><p data-i18n="a1">No. Customers use your public booking or quote link. Your business workspace stays private.</p></details>
-  <details><summary data-i18n="q2">Can my workers use the app?</summary><p data-i18n="a2">Yes. Worker access is limited so they can see the work they need without seeing your full business account.</p></details>
-  <details><summary data-i18n="q3">How do I track customer payments?</summary><p data-i18n="a3">You can mark Cash, Check or Zelle payments when you receive them.</p></details>
-  <details><summary data-i18n="q4">What happens after the free trial?</summary><p data-i18n="a4">Access pauses unless you continue for $5.99/month. Your saved business data is kept for 3 months.</p></details>
-</div>
-</section>
-
-<section class="final reveal"><div class="wrap final-card"><div><h2 data-i18n="finalTitle">Make the business easier to run — and easier to book.</h2><p data-i18n="finalCopy">Start with 30 days free. No card required.</p></div><a class="btn" href="https://app.thelaunchera.com/" data-i18n="openCleaningApp">Open the Cleaning App</a></div></section>
+<section class="hero"><div class="wrap app-stage">
+<div class="copy"><div class="eyebrow" data-i18n="eyebrow">Built for cleaning business owners</div><h1 data-i18n="heroTitle">Run the day from one clean screen.</h1><p data-i18n="heroCopy">Bookings, quote requests, clients, jobs and invoices stay connected so the business feels easier to run.</p><div class="actions"><a class="pill yellow" href="https://app.thelaunchera.com/" data-i18n="startFree">Start 30 days free</a><a class="pill" href="#inside" data-i18n="seeInside">See inside the app</a></div><div class="hero-trust"><span data-i18n="noCard">No card required</span><span data-i18n="fullTrial">Full access during trial</span><span data-i18n="afterPrice">$5.99/month after</span></div></div>
+<div class="mini-app" id="inside"><div class="device"><div class="device-top"><div class="device-dots"><i></i><i></i><i></i></div><div class="device-title">CLEANING APP</div><div class="device-live" data-i18n="live">LIVE PREVIEW</div></div><div class="preview-tabs"><button class="active" data-view="today" data-i18n="today">Today</button><button data-view="booking" data-i18n="booking">Booking</button></div><div class="preview-frame"><iframe id="appPreview" src="https://app.thelaunchera.com/demo.html?view=today&lang=en" title="Cleaning App preview"></iframe></div><div class="activity"><div class="metric"><small data-i18n="m1">Today</small><strong>4 jobs</strong></div><div class="metric"><small data-i18n="m2">Quotes</small><strong>2 open</strong></div><div class="metric"><small data-i18n="m3">Follow-up</small><strong>1 due</strong></div></div></div></div>
+<div class="float-note one" data-i18n="n1">✓ Booking confirmed</div><div class="float-note two" data-i18n="n2">Quote ready to send</div><div class="float-note three" data-i18n="n3">Invoice marked paid</div>
+</div></section>
+<div class="ticker"><div class="ticker-track"><div class="ticker-group"><span>BOOKINGS</span><span>QUOTES</span><span>CLIENTS</span><span>JOBS</span><span>CALENDAR</span><span>INVOICES</span><span>TEAM</span></div><div class="ticker-group" aria-hidden="true"><span>BOOKINGS</span><span>QUOTES</span><span>CLIENTS</span><span>JOBS</span><span>CALENDAR</span><span>INVOICES</span><span>TEAM</span></div></div></div>
+<section class="quick reveal"><div class="wrap"><div class="quick-head"><div><div class="eyebrow" data-i18n="flowEyebrow">One client journey</div><h2 data-i18n="flowTitle">From inquiry to paid — without the scattered tabs.</h2></div><p data-i18n="flowCopy">The app follows what already happens in your business and keeps the next step visible.</p></div><div class="flow">
+<article class="flow-card"><small>01</small><div><h3 data-i18n="f1">Booking + quote links</h3><p data-i18n="f1c">Clients can book or request a quote without creating an account.</p></div></article>
+<article class="flow-card"><small>02</small><div><h3 data-i18n="f2">Client + job details</h3><p data-i18n="f2c">Addresses, notes and scheduled work stay with the right client.</p></div></article>
+<article class="flow-card"><small>03</small><div><h3 data-i18n="f3">Calendar + team</h3><p data-i18n="f3c">See the workday and share only the information workers need.</p></div></article>
+<article class="flow-card"><small>04</small><div><h3 data-i18n="f4">Invoices + payment status</h3><p data-i18n="f4c">Keep the job and the money side connected in the same flow.</p></div></article>
+</div></div></section>
+<section class="pricing reveal"><div class="wrap pricing-shell">
+<article class="price-card primary"><div class="eyebrow" data-i18n="appOnly">Cleaning App</div><h2 data-i18n="appTitle">Try the whole app before you pay.</h2><div class="price">$0 <small data-i18n="days">for 30 days</small></div><p data-i18n="appCopy">No card required. Continue for $5.99/month after the trial.</p><div class="price-list"><span data-i18n="pl1">Full Cleaning App access</span><span data-i18n="pl2">Public booking + quote links</span><span data-i18n="pl3">Business workspace + worker access</span></div><a class="pill" href="https://app.thelaunchera.com/" data-i18n="startNow">Start free</a></article>
+<article class="price-card"><div class="eyebrow" data-i18n="bundleEyebrow">Need a professional front door too?</div><h2 data-i18n="bundleTitle">Booking Page + Cleaning App</h2><div class="price">$39.99 <small data-i18n="oneTime">one-time</small></div><p data-i18n="bundleCopy">A professional booking page connected to bookings and quote requests, plus 60 days of Cleaning App access.</p><div class="price-list"><span data-i18n="bl1">Professional Booking Page</span><span data-i18n="bl2">Booking + quote CTAs connected</span><span data-i18n="bl3">60 days of app access included</span></div><a class="pill dark" href="https://book.stripe.com/cNi14mdHp6Dnd8Bcnq93y0H" data-i18n="getBundle">Get Booking Page + App</a></article>
+</div></section>
+<section class="final reveal"><div class="wrap final-card"><div><h2 data-i18n="finalTitle">Your business has enough moving parts.</h2><p data-i18n="finalCopy">Your system should make them easier to see.</p></div><a class="pill dark" href="https://app.thelaunchera.com/" data-i18n="openCleaningApp">Open Cleaning App</a></div></section>
 </main>
-
-<div class="mobile-cta"><a class="btn yellow" href="https://app.thelaunchera.com/" data-i18n="mobileStart">Start 30 Days Free</a></div>
-<footer><div class="wrap footer-row"><span>© 2026 The Launch Era</span><span data-i18n="footer">Built for cleaning business owners in the U.S. · English + Spanish</span></div></footer>
-
+<div class="mobile-cta"><a class="pill yellow" href="https://app.thelaunchera.com/" data-i18n="mobileStart">Start 30 Days Free</a></div>
+<footer><div class="wrap footer"><span>© 2026 The Launch Era</span><div class="footer-links"><a href="mailto:hello@thelaunchera.com" data-i18n="contact">Contact</a><a href="../help/" data-i18n="helpCenter">Help Center</a><a href="https://www.instagram.com/marketingforcleanerss/" target="_blank" rel="noopener">Instagram · @marketingforcleanerss</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div></div></footer>
 <script>
 const T={
-en:{openApp:"Open App",heroEyebrow:"Built for cleaning business owners",heroTitle:"The cleanest way to run your cleaning business.",heroCopy:"Bookings, quotes, clients, jobs, invoices, routes, mileage and worker access — connected in one simple workspace.",heroVisualKicker:"YOUR BUSINESS. ONE CLEAN SYSTEM.",heroVisualTitle:"Less chasing. More running the business.",heroChip1:"Bookings organized",heroChip2:"Quotes in one place",heroChip3:"30 days free",startFree:"Start 30 days free",seeApp:"See the real app",noCard:"No card required",fullAccess:"Full access during trial",afterPrice:"$5.99/month after",todayDash:"Today dashboard",bookingCenter:"Booking Center",realUISample:"Real UI · sample data",madeForCleaners:"Made for cleaners",bookings:"Bookings",quotes:"Quotes",clients:"Clients",calendar:"Calendar",invoices:"Invoices",routes:"Routes",mileage:"Mileage",team:"Team",lessChaos:"Less chaos",statementTitle:"Your business shouldn't live in five different places.",clientsLabel:"Clients",clientsCopy:"Keep client details, jobs, quotes and invoices connected instead of searching old texts.",scheduleLabel:"Schedule",scheduleCopy:"See what is booked, what is open and what needs attention without guessing.",teamLabel:"Team",teamCopy:"Give workers the information they need without exposing the rest of your business.",insideApp:"Inside the app",realTitle:"Don't imagine it. Tap through the real product.",realCopy:"Switch between actual app screens below. The interface is real; the business data shown is sample data.",tabToday:"Today",tabTodayCopy:"Daily jobs, activity and quick actions.",tabBooking:"Booking",tabBookingCopy:"Public links and real availability.",tabOperations:"Operations",tabOperationsCopy:"Routes, mileage and time in one flow.",tabRequests:"Requests",tabRequestsCopy:"Bookings and quote requests stay organized.",actualInterface:"Actual app interface",builtAround:"Built around the work",featureTitle:"Everything moves with the customer — not around them.",f1:"Booking + Quotes",f1c:"Share public links so customers can book or request a quote without creating an account.",f2:"Clients + Jobs",f2c:"Keep addresses, job history and scheduled work attached to the right client.",f3:"Routes + Mileage",f3c:"Keep the operational details you need for the day visible and connected.",f4:"Invoices + Team",f4c:"Track payments and give workers limited access to the work they need.",onTheGo:"Made for real workdays",photoTitle:"Your office is wherever the next job is.",photoCopy:"The app is designed to help you keep the business moving without carrying the whole operation in your head.",choosePath:"Choose your path",pricingTitle:"Start with the app. Or give your clients a better front door too.",appOnly:"Cleaning App",appOnlyTitle:"Try the full product before you pay.",for30:"for 30 days",appOnlyCopy:"No card required. Continue for <strong>$5.99/month</strong> after the trial.",pl1:"Full app access",pl2:"Booking + quote links",pl3:"Clients, jobs, invoices and operations",startNow:"Start free",needSite:"Need a booking page too?",bundleTitle:"Booking Page + Cleaning App",oneTime:"one-time setup",bundleCopy:"A professional booking page connected to booking and quote requests, plus 60 days of app access.",bl1:"Professional booking page",bl2:"Booking + quote CTAs connected",bl3:"60 days of Cleaning App included",getBundle:"Get Booking Page + App",quickAnswers:"Quick answers",faqTitle:"Start without making it complicated.",q1:"Do my customers need an account?",a1:"No. Customers use your public booking or quote link. Your business workspace stays private.",q2:"Can my workers use the app?",a2:"Yes. Worker access is limited so they can see the work they need without seeing your full business account.",q3:"How do I track customer payments?",a3:"You can mark Cash, Check or Zelle payments when you receive them.",q4:"What happens after the free trial?",a4:"Access pauses unless you continue for $5.99/month. Your saved business data is kept for 3 months.",finalTitle:"Make the business easier to run — and easier to book.",finalCopy:"Start with 30 days free. No card required.",openCleaningApp:"Open the Cleaning App",mobileStart:"Start 30 Days Free",footer:"Built for cleaning business owners in the U.S. · English + Spanish"},
-es:{openApp:"Abrir App",heroEyebrow:"Hecha para dueños de negocios de limpieza",heroTitle:"La forma más limpia de manejar tu negocio de limpieza.",heroCopy:"Reservas, cotizaciones, clientes, trabajos, facturas, rutas, millas y acceso del equipo — todo conectado en un solo espacio de trabajo.",heroVisualKicker:"TU NEGOCIO. UN SOLO SISTEMA.",heroVisualTitle:"Menos perseguir. Más manejar el negocio.",heroChip1:"Reservas organizadas",heroChip2:"Cotizaciones en un solo lugar",heroChip3:"30 días gratis",startFree:"Empieza 30 días gratis",seeApp:"Ver la app",noCard:"Sin tarjeta",fullAccess:"Acceso completo durante la prueba",afterPrice:"Después $5.99/mes",todayDash:"Panel de hoy",bookingCenter:"Centro de reservas",realUISample:"UI real · datos de ejemplo",madeForCleaners:"Hecha para negocios de limpieza",bookings:"Reservas",quotes:"Cotizaciones",clients:"Clientes",calendar:"Calendario",invoices:"Facturas",routes:"Rutas",mileage:"Millas",team:"Equipo",lessChaos:"Menos caos",statementTitle:"Tu negocio no debería vivir en cinco lugares distintos.",clientsLabel:"Clientes",clientsCopy:"Mantén datos, trabajos, cotizaciones y facturas conectados en vez de buscar mensajes viejos.",scheduleLabel:"Agenda",scheduleCopy:"Mira qué está reservado, qué está libre y qué necesita atención sin adivinar.",teamLabel:"Equipo",teamCopy:"Dales a tus trabajadores la información que necesitan sin enseñarles todo tu negocio.",insideApp:"Dentro de la app",realTitle:"Explora el producto antes de empezar.",realCopy:"Cambia entre el panel principal y las reservas para ver cómo se organiza el espacio de trabajo.",tabToday:"Hoy",tabTodayCopy:"Trabajos del día, actividad y acciones rápidas.",tabBooking:"Reservas",tabBookingCopy:"Enlaces públicos y disponibilidad.",tabOperations:"Operaciones",tabOperationsCopy:"Rutas, millas y tiempo en un solo flujo.",tabRequests:"Solicitudes",tabRequestsCopy:"Reservas y cotizaciones permanecen organizadas.",actualInterface:"Interfaz real de la app",builtAround:"Pensada para el trabajo real",featureTitle:"Todo se mueve con el cliente — no alrededor de él.",f1:"Reservas + Cotizaciones",f1c:"Comparte enlaces públicos para que tus clientes reserven o pidan cotización sin crear cuenta.",f2:"Clientes + Trabajos",f2c:"Mantén direcciones, historial y trabajos programados con el cliente correcto.",f3:"Rutas + Millas",f3c:"Mantén visibles y conectados los detalles operativos que necesitas durante el día.",f4:"Facturas + Equipo",f4c:"Controla pagos y da acceso limitado a tus trabajadores solo a lo que necesitan.",onTheGo:"Hecha para días de trabajo reales",photoTitle:"Tu oficina está donde esté el próximo trabajo.",photoCopy:"La app está diseñada para mantener el negocio moviéndose sin que tengas que cargar toda la operación en tu cabeza.",choosePath:"Elige tu camino",pricingTitle:"Empieza con la app. O dale también a tus clientes una mejor entrada a tu negocio.",appOnly:"Cleaning App",appOnlyTitle:"Prueba el producto completo antes de pagar.",for30:"por 30 días",appOnlyCopy:"Sin tarjeta. Después de la prueba continúa por <strong>$5.99/mes</strong>.",pl1:"Acceso completo a la app",pl2:"Enlaces de reserva + cotización",pl3:"Clientes, trabajos, facturas y operaciones",startNow:"Empezar gratis",needSite:"¿También necesitas una página de reservas?",bundleTitle:"Booking Page + Cleaning App",oneTime:"configuración de pago único",bundleCopy:"Una página profesional de reservas conectada a reservas y cotizaciones, más 60 días de acceso a la app.",bl1:"Booking Page profesional",bl2:"Botones de reserva + cotización conectados",bl3:"60 días de Cleaning App incluidos",getBundle:"Quiero Booking Page + App",quickAnswers:"Respuestas rápidas",faqTitle:"Empieza sin complicarlo.",q1:"¿Mis clientes necesitan una cuenta?",a1:"No. Tus clientes usan tu enlace público de reserva o cotización. El espacio de trabajo de tu negocio permanece privado.",q2:"¿Mis trabajadores pueden usar la app?",a2:"Sí. Su acceso es limitado para que vean solo el trabajo que necesitan sin ver toda tu cuenta.",q3:"¿Cómo controlo los pagos de mis clientes?",a3:"Puedes marcar pagos en efectivo, cheque o Zelle cuando los recibas.",q4:"¿Qué pasa cuando termina la prueba?",a4:"El acceso se pausa si no continúas por $5.99/mes. Los datos guardados se mantienen durante 3 meses.",finalTitle:"Haz que el negocio sea más fácil de manejar — y más fácil de reservar.",finalCopy:"Empieza con 30 días gratis. Sin tarjeta.",openCleaningApp:"Abrir Cleaning App",mobileStart:"Empieza 30 Días Gratis",footer:"Hecha para dueños de negocios de limpieza en EE.UU. · Inglés + Español"}
+en:{help:"Help",contact:"Contact",openApp:"Open App",eyebrow:"Built for cleaning business owners",heroTitle:"Run the day from one clean screen.",heroCopy:"Bookings, quote requests, clients, jobs and invoices stay connected so the business feels easier to run.",startFree:"Start 30 days free",seeInside:"See inside the app",noCard:"No card required",fullTrial:"Full access during trial",afterPrice:"$5.99/month after",live:"LIVE PREVIEW",today:"Today",booking:"Booking",m1:"Today",m2:"Quotes",m3:"Follow-up",n1:"✓ Booking confirmed",n2:"Quote ready to send",n3:"Invoice marked paid",flowEyebrow:"One client journey",flowTitle:"From inquiry to paid — without the scattered tabs.",flowCopy:"The app follows what already happens in your business and keeps the next step visible.",f1:"Booking + quote links",f1c:"Clients can book or request a quote without creating an account.",f2:"Client + job details",f2c:"Addresses, notes and scheduled work stay with the right client.",f3:"Calendar + team",f3c:"See the workday and share only the information workers need.",f4:"Invoices + payment status",f4c:"Keep the job and the money side connected in the same flow.",appOnly:"Cleaning App",appTitle:"Try the whole app before you pay.",days:"for 30 days",appCopy:"No card required. Continue for $5.99/month after the trial.",pl1:"Full Cleaning App access",pl2:"Public booking + quote links",pl3:"Business workspace + worker access",startNow:"Start free",bundleEyebrow:"Need a professional front door too?",bundleTitle:"Booking Page + Cleaning App",oneTime:"one-time",bundleCopy:"A professional booking page connected to bookings and quote requests, plus 60 days of Cleaning App access.",bl1:"Professional Booking Page",bl2:"Booking + quote CTAs connected",bl3:"60 days of app access included",getBundle:"Get Booking Page + App",finalTitle:"Your business has enough moving parts.",finalCopy:"Your system should make them easier to see.",openCleaningApp:"Open Cleaning App",mobileStart:"Start 30 Days Free",helpCenter:"Help Center"},
+es:{help:"Ayuda",contact:"Contacto",openApp:"Abrir App",eyebrow:"Hecha para dueños de negocios de limpieza",heroTitle:"Maneja el día desde una sola pantalla.",heroCopy:"Reservas, solicitudes de cotización, clientes, trabajos y facturas permanecen conectados para que el negocio sea más fácil de manejar.",startFree:"Empieza 30 días gratis",seeInside:"Ver dentro de la app",noCard:"Sin tarjeta",fullTrial:"Acceso completo durante la prueba",afterPrice:"Después $5.99/mes",live:"PREVIEW EN VIVO",today:"Hoy",booking:"Reservas",m1:"Hoy",m2:"Cotizaciones",m3:"Seguimiento",n1:"✓ Reserva confirmada",n2:"Cotización lista para enviar",n3:"Factura marcada pagada",flowEyebrow:"Un solo recorrido del cliente",flowTitle:"De la consulta al pago — sin pestañas por todas partes.",flowCopy:"La app sigue lo que ya pasa en tu negocio y mantiene visible el próximo paso.",f1:"Links de reserva + cotización",f1c:"Tus clientes pueden reservar o pedir cotización sin crear una cuenta.",f2:"Cliente + trabajo",f2c:"Direcciones, notas y trabajos programados se quedan con el cliente correcto.",f3:"Calendario + equipo",f3c:"Mira el día de trabajo y comparte solo lo que cada trabajador necesita.",f4:"Facturas + estado de pago",f4c:"Mantén el trabajo y el pago conectados dentro del mismo flujo.",appOnly:"Cleaning App",appTitle:"Prueba la app completa antes de pagar.",days:"por 30 días",appCopy:"Sin tarjeta. Después de la prueba continúa por $5.99/mes.",pl1:"Acceso completo a Cleaning App",pl2:"Links públicos de reserva + cotización",pl3:"Espacio del negocio + acceso de trabajadores",startNow:"Empezar gratis",bundleEyebrow:"¿También necesitas una entrada profesional?",bundleTitle:"Booking Page + Cleaning App",oneTime:"pago único",bundleCopy:"Una Booking Page profesional conectada a reservas y solicitudes de cotización, más 60 días de acceso a Cleaning App.",bl1:"Booking Page profesional",bl2:"Botones de reserva + cotización conectados",bl3:"60 días de acceso incluidos",getBundle:"Quiero Booking Page + App",finalTitle:"Tu negocio ya tiene suficientes piezas moviéndose.",finalCopy:"Tu sistema debería hacerlas más fáciles de ver.",openCleaningApp:"Abrir Cleaning App",mobileStart:"Empieza 30 Días Gratis",helpCenter:"Centro de Ayuda"}
 };
-function setLang(lang){lang=lang==="es"?"es":"en";const t=T[lang];document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k]!=null)el.textContent=t[k]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const k=el.dataset.i18nHtml;if(t[k]!=null)el.innerHTML=t[k]});document.getElementById("metaDescription").content=lang==="es"?"Una app moderna para dueños de cleaning businesses con reservas, cotizaciones, clientes, trabajos, facturas, rutas y equipo.":"A modern all-in-one app for cleaning business owners to manage bookings, quotes, clients, jobs, invoices, routes, mileage and team access.";document.getElementById("langToggle").textContent=lang==="en"?"ES":"EN";localStorage.setItem("tle_app_lang",lang);document.querySelectorAll("iframe[src*='demo.html']").forEach(frame=>{try{const u=new URL(frame.src);u.searchParams.set("lang",lang);frame.src=u.toString()}catch{}})}
-const saved=localStorage.getItem("tle_app_lang");const query=new URLSearchParams(location.search).get("lang");setLang(query==="es"?"es":query==="en"?"en":saved||((navigator.language||"").toLowerCase().startsWith("es")?"es":"en"));document.getElementById("langToggle").onclick=()=>setLang(document.documentElement.lang==="en"?"es":"en");
-document.querySelectorAll(".product-tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".product-tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");document.getElementById("appPreview").src="https://app.thelaunchera.com/demo.html?view="+btn.dataset.view+"&lang="+document.documentElement.lang;}));
-document.querySelectorAll(".reveal").forEach(el=>el.classList.add("show"));
+function setLang(lang){lang=lang==="es"?"es":"en";document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(T[lang][k]!=null)el.textContent=T[lang][k]});document.getElementById("metaDescription").content=lang==="es"?"Cleaning App para negocios de limpieza: reservas, cotizaciones, clientes, trabajos y facturas en un espacio simple.":"Cleaning App for cleaning business owners: bookings, quotes, clients, jobs and invoices in one simple workspace.";document.getElementById("langToggle").textContent=lang==="en"?"ES":"EN";localStorage.setItem("tle_app_lang",lang);const f=document.getElementById("appPreview");if(f){const u=new URL(f.src);u.searchParams.set("lang",lang);f.src=u.toString()}}
+const q=new URLSearchParams(location.search).get("lang");const saved=localStorage.getItem("tle_app_lang");setLang(q==="es"?"es":q==="en"?"en":saved||((navigator.language||"").toLowerCase().startsWith("es")?"es":"en"));document.getElementById("langToggle").onclick=()=>setLang(document.documentElement.lang==="en"?"es":"en");
+document.querySelectorAll("[data-view]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-view]").forEach(b=>b.classList.remove("active"));btn.classList.add("active");const u=new URL(document.getElementById("appPreview").src);u.searchParams.set("view",btn.dataset.view);u.searchParams.set("lang",document.documentElement.lang);document.getElementById("appPreview").src=u.toString()}));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
