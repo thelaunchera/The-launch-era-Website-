@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FAF8F3">
-<meta name="description" content="Professional Booking Pages for residential cleaning businesses, with 2 months of The Launch Era Cleaning App included."><title>The Launch Era — Booking Pages + Cleaning App for Cleaning Businesses</title>
+<meta name="description" content="Booking Page + Cleaning App for cleaning businesses. Give clients one clear place to book or request a quote, then keep clients, jobs, calendar and invoices connected."><title>Booking Page + Cleaning App for Cleaning Businesses | The Launch Era</title>
 <link rel="canonical" href="https://thelaunchera.com/"><link rel="alternate" hreflang="en" href="https://thelaunchera.com/"><link rel="alternate" hreflang="es" href="https://thelaunchera.com/es/"><link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/">
 <link rel="icon" type="image/png" href="the-launch-era-favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -129,24 +129,89 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
   .gallery-swipe{display:block}
 }
 
+
+/* 2026-09-28 — conversion story + stronger TLE identity */
+:root{--ink:#191919;--charcoal:#45423D;--yellow:#F2D85B;--blue:#DDEBFA;--blue2:#EEF6FF;--muted:#6C675F}
+body{background:var(--ivory)}
+header{background:rgba(250,248,243,.96)}
+.btn{transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:4px 4px 0 rgba(25,25,25,.16)}
+.btn.dark{background:var(--charcoal);border-color:var(--charcoal)}
+.btn.yellow{background:var(--yellow);border-color:var(--ink)}
+.hero{padding-top:28px}
+.hero-grid{border:1px solid var(--ink);background:#fff;min-height:690px}
+.hero-copy{padding-left:48px;padding-right:54px}
+.hero-copy h1{font-size:clamp(54px,6.2vw,86px);line-height:.98;letter-spacing:-.045em;max-width:760px}
+.hero-copy p{font-size:18px;max-width:680px}
+.product-preview{position:relative;background:var(--blue2);padding:34px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.product-preview:before{content:"";position:absolute;width:150px;height:150px;background:var(--yellow);right:-44px;top:38px;border:1px solid var(--ink);transform:rotate(8deg)}
+.real-screen{position:relative;z-index:2;background:#fff;border:1px solid var(--ink);padding:10px;box-shadow:14px 14px 0 var(--yellow)}
+.real-screen img{width:100%;height:auto}
+.real-screen-label{position:relative;z-index:2;display:flex;justify-content:space-between;padding:16px 3px 0;font-size:10px;font-weight:800;letter-spacing:.08em}
+.hero-route{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:var(--ink);color:#fff;margin:-20px auto 0;padding:11px 14px;border:1px solid var(--ink);font-size:9px;font-weight:800;letter-spacing:.08em}
+.hero-route b{color:var(--yellow)}
+.signal{background:var(--yellow);border-color:var(--ink)}
+.signal-item{border-color:rgba(25,25,25,.24)}
+.signal-item small{color:#5A5120}
+.signal-item strong{font-size:19px}
+#system{background:#fff}
+.system-line{border-color:var(--ink)}
+.system-step:nth-child(1){background:var(--ivory)}
+.system-step:nth-child(2){background:var(--blue2)}
+.system-step:nth-child(3){background:#fff}
+.system-step:nth-child(4){background:#FFF9D8}
+.contrast-story{padding:28px 0 96px;background:#fff}
+.contrast-shell{border-top:1px solid var(--ink);padding-top:22px}
+.contrast-label{font-size:10px;font-weight:800;letter-spacing:.12em;margin-bottom:18px}
+.contrast-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.contrast-card{border:1px solid var(--ink);padding:38px;min-height:360px;display:flex;flex-direction:column}
+.contrast-card.before{background:var(--ivory)}
+.contrast-card.after{background:var(--blue)}
+.contrast-card small{font-size:9px;font-weight:800;letter-spacing:.11em}
+.contrast-card h2{font-size:clamp(36px,4.4vw,58px);line-height:1;letter-spacing:-.035em;margin:28px 0 40px}
+.contrast-list{display:grid;gap:8px;margin-top:auto}
+.contrast-list span{display:flex;align-items:center;gap:9px;padding:10px 0;border-top:1px solid rgba(25,25,25,.2);font-size:13px;font-weight:700}
+.contrast-card.before .contrast-list span:before{content:"×";font-size:18px}
+.contrast-card.after .contrast-list span:before{content:"✓";font-size:14px}
+.contrast-arrow{align-self:center;font-family:Prompt;font-size:42px;font-weight:600}
+.app-gallery{background:var(--ivory)}
+.gallery-head h2{max-width:760px}
+.product-card{border:1px solid var(--ink)!important;background:#fff!important}
+.product-card:nth-child(2n){background:var(--blue2)!important}
+.featured{background:var(--charcoal)}
+.featured h2{max-width:700px}
+.offer-price{display:flex;align-items:flex-end;gap:10px;margin:18px 0 8px}
+.offer-price strong{font-family:Prompt;font-size:64px;line-height:.9;letter-spacing:-.05em}
+.offer-price span{font-size:12px;font-weight:800;margin-bottom:6px}
+.offer-visual{background:var(--blue);box-shadow:14px 14px 0 var(--yellow);border-color:#fff}
+.content .section-head h2,#services .section-head h2{font-size:clamp(38px,4.3vw,56px)}
+.content{background:#fff}
+.authority-copy h2{max-width:770px}
+.final-card{background:var(--yellow)}
+.final-card .eyebrow{margin-bottom:14px}
+@media(max-width:950px){.hero-copy{padding-left:34px}.product-preview{padding:28px}.contrast-grid{grid-template-columns:1fr}.contrast-arrow{transform:rotate(90deg);justify-self:center}.contrast-card{min-height:300px}}
+@media(max-width:620px){.hero-grid{border-left:0;border-right:0}.hero-copy{padding-left:0;padding-right:0}.product-preview{padding:18px 12px 28px}.real-screen{box-shadow:8px 8px 0 var(--yellow)}.hero-route{margin-top:-10px;font-size:8px}.contrast-story{padding-bottom:64px}.contrast-card{padding:26px 22px;min-height:270px}.contrast-card h2{font-size:38px;margin:20px 0 30px}.contrast-arrow{font-size:32px}.offer-price strong{font-size:52px}}
+
 </style>
 <script src="assets/analytics.js"></script>
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="#top">THE LAUNCH ERA</a><div class="nav-links"><a href="#system">How it works</a><a href="#content">Content</a><a href="#services">Services</a><a href="help/">Help</a><a class="lang" href="es/">ES</a><a class="btn dark nav-cta" href="booking-checkout/">Get Booking Page + App</a></div></div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid product-hero"><div class="hero-copy"><div class="eyebrow">The Launch Era Cleaning App + Booking Page</div><h1>Run your cleaning business without holding it all in your head.</h1><p>Give clients one clear place to book. Keep clients, jobs, quotes, invoices, routes and everyday operations connected in the <strong>Cleaning App</strong>.</p><div class="hero-actions"><a class="btn dark" href="https://app.thelaunchera.com/">Start 30 days free</a><a class="btn light" href="booking-checkout/">Get Booking Page + App</a></div><div class="proof"><span>No card required</span><span>$5.99/month after trial</span><span>Booking Page $39.99 one-time</span><span>English + Spanish</span></div></div><div class="product-preview"><div class="real-screen"><img src="assets/cleaning-app-gallery-1.webp?v=20260928hd2" alt="The Launch Era Cleaning App Today dashboard displayed on a laptop" fetchpriority="high" decoding="sync"></div><div class="real-screen-label"><span>CLEANING APP</span><span>Desktop view</span></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid product-hero"><div class="hero-copy"><div class="eyebrow">Booking Page + Cleaning App for cleaning businesses</div><h1>A professional place to book. A simpler way to run what comes next.</h1><p>Your <strong>Booking Page</strong> gives clients one clear next step. The <strong>Cleaning App</strong> keeps bookings, quotes, clients, jobs, calendar and invoices connected behind it.</p><div class="hero-actions"><a class="btn yellow" href="booking-checkout/">Get Booking Page + App — $39.99</a><a class="btn light" href="https://app.thelaunchera.com/">Try the App Free for 30 Days</a></div><div class="proof"><span>Built in 3 business days</span><span>2 months of app included</span><span>English + Spanish</span><span>No card for app trial</span></div></div><div class="product-preview hero-product-story"><div class="real-screen"><img src="assets/cleaning-app-gallery-1.webp?v=20260928hd2" alt="The Launch Era Cleaning App Today dashboard displayed on a laptop" fetchpriority="high" decoding="sync"></div><div class="hero-route"><span>CLIENT BOOKS</span><b>→</b><span>JOB APPEARS</span><b>→</b><span>INVOICE CONNECTS</span></div><div class="real-screen-label"><span>CLEANING APP</span><span>Desktop view</span></div></div></div></section>
 
-<div class="signal"><div class="wrap signal-grid"><div class="signal-item"><small>Front door</small><strong>Booking Page</strong><p>A clear place to understand, book or request a quote.</p></div><div class="signal-item"><small>Operations</small><strong>Cleaning App</strong><p>Keep clients, jobs, calendar and invoices connected.</p></div><div class="signal-item"><small>Visibility</small><strong>Done-for-You Content</strong><p>Ready-to-post content for your cleaning business.</p></div><div class="signal-item"><small>Follow-up</small><strong>Automation + VA</strong><p>Less repeated admin and a clearer next step.</p></div></div></div>
+<div class="signal"><div class="wrap signal-grid"><div class="signal-item"><small>Client experience</small><strong>One clear next step</strong><p>Book a service or request a quote without chasing DMs.</p></div><div class="signal-item"><small>Request arrives</small><strong>Client + job stay together</strong><p>Details do not disappear between messages and notes.</p></div><div class="signal-item"><small>Workday</small><strong>Calendar + route visible</strong><p>See what is happening today and what comes next.</p></div><div class="signal-item"><small>Money</small><strong>Invoice stays connected</strong><p>Keep the job and payment status in the same flow.</p></div></div></div>
 
-<section class="block reveal" id="system"><div class="wrap"><div class="section-head"><h2>A better front door. A calmer back end.</h2><p>The client should know what to do next. You should know where the work went after they did it.</p></div><div class="system-line"><div class="system-step"><small>01</small><strong>Get found</strong><p>Content and a clear profile make the business easier to trust.</p></div><div class="system-step"><small>02</small><strong>Get the request</strong><p>Your Booking Page gives clients a clear place to book or ask for a quote.</p></div><div class="system-step"><small>03</small><strong>Run the work</strong><p>The Cleaning App keeps the client, job, schedule and invoice connected.</p></div><div class="system-step"><small>04</small><strong>Follow through</strong><p>Automation or human support can help with the repeated admin that is still left.</p></div></div></div></section>
+<section class="block reveal" id="system"><div class="wrap"><div class="section-head"><h2>From “How much?” to paid — one clear client journey.</h2><p>The front end should feel easy for the client. The back end should make the next step obvious for you.</p></div><div class="system-line"><div class="system-step"><small>01</small><strong>They understand the offer</strong><p>Your Booking Page shows services and gives the client a clear choice: book or request a quote.</p></div><div class="system-step"><small>02</small><strong>The request lands cleanly</strong><p>Client information, address, notes and service details arrive in the right place.</p></div><div class="system-step"><small>03</small><strong>The workday stays visible</strong><p>Jobs, calendar, routes and team details stay connected instead of living in separate tabs.</p></div><div class="system-step"><small>04</small><strong>The job reaches the money</strong><p>Invoice and payment status stay tied to the same client journey.</p></div></div></div></section>
 
 
+
+<section class="contrast-story reveal"><div class="wrap contrast-shell"><div class="contrast-label">THE DIFFERENCE</div><div class="contrast-grid"><article class="contrast-card before"><small>WITHOUT A SYSTEM</small><h2>Too much of the business lives in your head.</h2><div class="contrast-list"><span>DMs for prices</span><span>Quote requests in messages</span><span>Job details in notes</span><span>Invoices somewhere else</span></div></article><div class="contrast-arrow" aria-hidden="true">→</div><article class="contrast-card after"><small>WITH THE LAUNCH ERA</small><h2>One clear front door. One connected next step.</h2><div class="contrast-list"><span>Booking or quote request</span><span>Client record</span><span>Calendar + job</span><span>Invoice + payment status</span></div></article></div></div></section>
 
 <section class="app-gallery reveal" id="app-gallery"><div class="wrap">
   <div class="gallery-head">
-    <div><div class="eyebrow">Inside the Cleaning App</div><h2>A quick look inside.</h2></div>
-    <div><p>Real app screens shown at desktop size. Swipe through the parts you use to run the day.</p><div class="gallery-controls"><button type="button" id="galleryPrev" aria-label="Previous app preview">←</button><button type="button" id="galleryNext" aria-label="Next app preview">→</button></div></div>
+    <div><div class="eyebrow">See the business move</div><h2>Not a feature list. A workday you can actually follow.</h2></div>
+    <div><p>These are real Cleaning App screens. Swipe through the flow from today’s priorities to clients, schedule, services and supplies.</p><div class="gallery-controls"><button type="button" id="galleryPrev" aria-label="Previous app preview">←</button><button type="button" id="galleryNext" aria-label="Next app preview">→</button></div></div>
   </div>
   <div class="gallery-track" id="appGallery" tabindex="0" aria-label="Cleaning App feature previews">
     <article class="product-card"><div class="product-card-media"><img src="assets/cleaning-app-gallery-1.webp?v=20260928hd2" alt="Cleaning App Today dashboard on laptop" loading="lazy"></div><div class="product-card-copy"><small>Today</small><h3>Your day at a glance.</h3></div></article>
@@ -157,7 +222,7 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
   </div>
   <div class="gallery-swipe">Swipe to see more →</div>
 </div></section>
-<section class="featured reveal" id="featured"><div class="wrap featured-shell"><div><div class="eyebrow">Booking Page + Cleaning App</div><h2>The Booking Page gets the client in. The Cleaning App keeps the day moving.</h2><p>From booking or quote request to client details, job, calendar and invoice, the goal is fewer loose pieces to remember — while clients get a more professional next step.</p><div class="offer-meta"><span>$39.99 one-time</span><span>3 business days</span><span>2 months of Cleaning App free</span></div><div class="hero-actions"><a class="btn yellow" href="booking-checkout/">Get Booking Page + App</a><a class="btn light" href="cleaning-app/">See Cleaning App</a></div></div><div class="offer-visual"><img src="assets/cleaning-app-gallery-2.webp?v=20260928hd2" alt="Cleaning App Calendar and Mileage desktop preview"><div class="offer-caption"><span>Cleaning App desktop view</span><span>Schedule + mileage</span></div></div></div></section>
+<section class="featured reveal" id="featured"><div class="wrap featured-shell"><div><div class="eyebrow">The main offer</div><h2>Your front door + your back end. Built to work together.</h2><p>We build the Booking Page for your cleaning business, connect its booking and quote actions, and include your first 2 months of the Cleaning App.</p><div class="offer-price"><strong>$39.99</strong><span>one-time</span></div><div class="offer-meta"><span>3 business days</span><span>2 months of Cleaning App included</span><span>English + Spanish</span></div><div class="hero-actions"><a class="btn yellow" href="booking-checkout/">Get Booking Page + App</a><a class="btn light" href="cleaning-app/">See the App First</a></div></div><div class="offer-visual"><img src="assets/cleaning-app-gallery-2.webp?v=20260928hd2" alt="Cleaning App Calendar and Mileage desktop preview"><div class="offer-caption"><span>AFTER THE CLIENT BOOKS</span><span>Schedule + mileage stay connected</span></div></div></div></section>
 
 
 
@@ -175,11 +240,11 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
 <article class="service"><small>Human support</small><h3>VA Essential Support</h3><p>Help with approved follow-up, calendar, quote/invoice preparation and recurring admin tasks.</p><div class="service-bottom"><strong>$89.99/month</strong><a href="virtual-assistant/">See VA support →</a></div></article>
 </div></div></section>
 
-<section class="authority reveal"><img src="assets/hero-cleaning-hub-20260925.webp?v=20260928fix1" alt="Cleaning business owner using the Cleaning App on the go" loading="eager" decoding="async"><div class="wrap authority-copy"><div class="eyebrow">Marketing is more than posting</div><h2>The client needs a clear next step. You need a system behind it.</h2><p>The strongest customer experience does not stop when someone finds you. It continues when they can understand, trust, book and move forward without chasing you through messages.</p></div></section>
+<section class="authority reveal"><img src="assets/hero-cleaning-hub-20260925.webp?v=20260928fix1" alt="Cleaning business owner using the Cleaning App on the go" loading="eager" decoding="async"><div class="wrap authority-copy"><div class="eyebrow">Built around the real workday</div><h2>Your business should still feel organized when you are away from the desk.</h2><p>The goal is not more software. It is fewer loose pieces: a client can take action, and you can see what happened next.</p></div></section>
 
 <section class="faq reveal"><div class="wrap faq-grid"><div><div class="eyebrow">Before you start</div><h2>Clear answers. No hidden package maze.</h2></div><div><details><summary>Do I need a website already?</summary><p>No. Booking Page + Cleaning App is especially useful for cleaning businesses without a website or with a page that does not give clients a clear next step.</p></details><details><summary>Do you manage my social media?</summary><p>No. Done-for-You Content means the finished content is created and delivered ready to post. Posting, DMs, comments and community management are not included.</p></details><details><summary>Can we work in Spanish?</summary><p>Yes. Onboarding and support are available in English and Spanish.</p></details></div></div></section>
 
-<section class="final reveal"><div class="wrap final-card"><div><h2>Start with a better booking experience.</h2><p>Your Booking Page is built for you, and your first 2 months of the Cleaning App are included.</p></div><a class="btn dark" href="booking-checkout/">Get Booking Page + App — $39.99</a></div></section>
+<section class="final reveal"><div class="wrap final-card"><div><div class="eyebrow">Ready when you are</div><h2>Give clients a better next step — and yourself a cleaner back end.</h2><p>Booking Page + 2 months of the Cleaning App included. $39.99 one-time.</p></div><a class="btn dark" href="booking-checkout/">Get Booking Page + App</a></div></section>
 </main>
 <footer><div class="wrap footer-grid"><div><div class="footer-title">THE LAUNCH ERA</div><p>Marketing + systems for residential cleaning businesses in the U.S. — from the first impression to what happens after the booking.</p></div><div class="footer-links"><span>Start</span><a href="#featured">Booking Page + Cleaning App</a><a href="cleaning-app/">Cleaning App</a><a href="#content">Content</a></div><div class="footer-links"><span>Support</span><a href="automation/">Automation</a><a href="virtual-assistant/">VA Support</a><a href="help/">Help Center</a></div><div class="footer-links"><span>Contact</span><a href="mailto:hello@thelaunchera.com">hello@thelaunchera.com</a><a href="https://www.instagram.com/marketingforcleanerss/" target="_blank" rel="noopener">Instagram · @marketingforcleanerss</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><div style="color:var(--muted);margin-top:8px">Mon–Fri · 9 AM–5 PM ET<br>Sat · 8 AM–12 PM ET</div></div></div></footer>
 <script>
