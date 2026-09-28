@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#FAF8F3">
-<meta name="description" content="Booking Pages profesionales para cleaning businesses residenciales, con 2 meses de The Launch Era Cleaning App incluidos."><title>The Launch Era — Booking Pages + Cleaning App para Cleaning Businesses</title>
+<meta name="description" content="Booking Page profesional para cleaning businesses: servicios, reservas online y solicitudes de cotización en una página clara y pensada para móvil."><title>Booking Page para Cleaning Businesses | The Launch Era</title>
 <link rel="canonical" href="https://thelaunchera.com/es/"><link rel="alternate" hreflang="en" href="https://thelaunchera.com/"><link rel="alternate" hreflang="es" href="https://thelaunchera.com/es/"><link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/">
 <link rel="icon" type="image/png" href="../the-launch-era-favicon.png"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -63,45 +63,277 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
  .featured{padding:58px 0}
 }
 
+/* 2026-09-28 — Booking Page only landing */
+.bp-hero{padding:28px 0 72px}
+.bp-hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;border:1px solid var(--ink);background:#fff;min-height:700px}
+.bp-copy{padding:72px 54px;display:flex;flex-direction:column;justify-content:center}
+.bp-copy h1{font-family:Prompt;font-size:clamp(54px,6.5vw,88px);line-height:.97;letter-spacing:-.045em;margin:22px 0}
+.bp-copy p{font-size:18px;line-height:1.65;color:var(--muted);max-width:660px}
+.bp-visual{position:relative;min-height:640px;background:var(--blue);overflow:hidden}
+.bp-visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.02)}
+.bp-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,25,25,.03),rgba(25,25,25,.22))}
+.bp-phone{position:absolute;z-index:3;right:7%;bottom:7%;width:min(390px,78%);background:#fff;border:2px solid var(--ink);box-shadow:12px 12px 0 var(--yellow)}
+.bp-phone-top{padding:13px 15px;border-bottom:1px solid var(--line);font-size:9px;font-weight:800;letter-spacing:.09em;display:flex;align-items:center;justify-content:space-between}
+.bp-phone-top i{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink)}
+.bp-phone-body{padding:26px}
+.bp-phone-body small{font-size:8px;font-weight:800;letter-spacing:.1em}
+.bp-phone-body h3{font-family:Prompt;font-size:34px;line-height:1.02;margin:12px 0 8px}
+.bp-phone-body p{font-size:12px;line-height:1.55;color:var(--muted);margin:0 0 18px}
+.bp-phone-body>a{display:block;text-align:center;padding:12px;border:1px solid var(--ink);background:var(--yellow);font-size:12px;font-weight:800;margin-top:8px}
+.bp-phone-body>a.quote{background:#fff}
+.bp-mini-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.bp-mini-row span{font-size:8px;font-weight:800;border:1px solid var(--line);padding:6px 7px}
+.bp-strip{background:var(--yellow);border-block:1px solid var(--ink)}
+.bp-strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.bp-strip-grid>div{padding:23px 24px;border-right:1px solid rgba(25,25,25,.25)}
+.bp-strip-grid>div:last-child{border-right:0}
+.bp-strip small{display:block;font-size:8px;font-weight:800;letter-spacing:.1em;margin-bottom:6px}
+.bp-strip strong{font-family:Prompt;font-size:17px;line-height:1.15}
+.bp-section,.bp-included,.bp-client-view{padding:92px 0}
+.bp-section{background:#fff}
+.bp-included{background:var(--ivory)}
+.bp-section-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start;margin-bottom:42px}
+.bp-section-head h2,.bp-client-copy h2{font-family:Prompt;font-size:clamp(44px,5.3vw,70px);line-height:.98;letter-spacing:-.04em;margin:14px 0 0}
+.bp-section-head p,.bp-client-copy p{font-size:17px;line-height:1.7;color:var(--muted);max-width:670px}
+.bp-steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:var(--ink);gap:1px}
+.bp-steps article{background:#fff;padding:28px;min-height:270px;display:flex;flex-direction:column}
+.bp-steps article:nth-child(2){background:var(--blue2)}
+.bp-steps article:nth-child(3){background:#FFF9D8}
+.bp-steps article:nth-child(4){background:var(--ivory)}
+.bp-steps span,.bp-feature-grid small{font-size:9px;font-weight:800;letter-spacing:.1em}
+.bp-steps h3,.bp-feature-grid h3{font-family:Prompt;font-size:27px;line-height:1.05;margin:45px 0 10px}
+.bp-steps p,.bp-feature-grid p{font-size:13px;line-height:1.55;color:var(--muted);margin:auto 0 0}
+.bp-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.bp-feature-grid article{padding:30px;min-height:250px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.bp-feature-grid article:nth-child(3n){border-right:0}
+.bp-feature-grid article:nth-last-child(-n+3){border-bottom:0}
+.bp-feature-grid article:nth-child(2),.bp-feature-grid article:nth-child(5){background:var(--blue2)}
+.bp-feature-grid article:nth-child(3),.bp-feature-grid article:nth-child(6){background:#FFF9D8}
+.bp-client-view{background:var(--charcoal);color:#fff}
+.bp-client-shell{display:grid;grid-template-columns:.78fr 1.22fr;gap:60px;align-items:center}
+.bp-client-copy .eyebrow:before{background:#fff}
+.bp-client-copy p{color:rgba(255,255,255,.7)}
+.bp-demo{background:#fff;color:var(--ink);border:1px solid #fff;box-shadow:14px 14px 0 var(--yellow)}
+.bp-demo-head{padding:13px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:.08em}
+.bp-demo-hero{padding:42px 34px;background:var(--blue2)}
+.bp-demo-hero small{font-size:9px;font-weight:800;letter-spacing:.08em}
+.bp-demo-hero h3{font-family:Prompt;font-size:44px;line-height:1;margin:12px 0}
+.bp-demo-hero p{color:var(--muted);margin:0}
+.bp-demo-actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.bp-demo-actions>div{background:var(--yellow);padding:22px}
+.bp-demo-actions>div:nth-child(2){background:#fff}
+.bp-demo-actions b{display:block;font-family:Prompt;font-size:20px}
+.bp-demo-actions span{font-size:10px;color:var(--muted)}
+.bp-demo-services{padding:20px;display:flex;gap:8px;flex-wrap:wrap}
+.bp-demo-services span{font-size:10px;font-weight:700;border:1px solid var(--line);padding:7px 9px}
+.bp-offer{padding:86px 0;background:#fff}
+.bp-offer-shell{border:1px solid var(--ink);background:var(--yellow);padding:48px;display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:end}
+.bp-offer h2{font-family:Prompt;font-size:clamp(44px,5vw,66px);line-height:.98;letter-spacing:-.04em;margin:14px 0}
+.bp-offer p{color:#544C25;font-size:16px}
+.bp-offer-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.bp-offer-pills span{background:#fff;border:1px solid var(--ink);padding:7px 9px;font-size:10px;font-weight:800}
+.bp-price{text-align:right}
+.bp-price strong{display:block;font-family:Prompt;font-size:82px;line-height:.85;letter-spacing:-.05em}
+.bp-price small{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;margin:12px 0 20px}
+.bp-price .btn{width:100%}
+.bp-app-bonus{padding:90px 0;background:var(--blue2)}
+.bp-app-shell{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.bp-app-copy h2{font-family:Prompt;font-size:clamp(42px,5vw,64px);line-height:1;letter-spacing:-.04em;margin:14px 0}
+.bp-app-copy>p{font-size:16px;color:var(--muted);line-height:1.7}
+.bp-app-note{background:#fff;border:1px solid var(--ink);padding:20px;margin:24px 0}
+.bp-app-note strong{display:block;font-family:Prompt;font-size:20px;line-height:1.15}
+.bp-app-note span{display:block;font-size:12px;color:var(--muted);line-height:1.55;margin-top:8px}
+.bp-app-flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.bp-app-flow>div{background:#fff;border:1px solid var(--ink);padding:26px;min-height:220px;display:flex;flex-direction:column}
+.bp-app-flow>div:last-child{background:var(--yellow)}
+.bp-app-flow small{font-size:9px;font-weight:800;letter-spacing:.1em}
+.bp-app-flow strong{font-family:Prompt;font-size:28px;margin:45px 0 8px}
+.bp-app-flow span{font-size:12px;color:var(--muted);margin-top:auto}
+.bp-app-flow>b{font-size:28px}
+@media(max-width:950px){
+  .bp-hero-grid,.bp-section-head,.bp-client-shell,.bp-offer-shell,.bp-app-shell{grid-template-columns:1fr}
+  .bp-copy{padding:58px 38px}.bp-visual{min-height:620px}
+  .bp-steps{grid-template-columns:1fr 1fr}.bp-feature-grid{grid-template-columns:1fr 1fr}
+  .bp-feature-grid article{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .bp-feature-grid article:nth-child(even){border-right:0!important}
+  .bp-feature-grid article:nth-last-child(-n+2){border-bottom:0!important}
+  .bp-price{text-align:left}.bp-price .btn{width:auto}
+}
+@media(max-width:620px){
+  .bp-hero{padding-top:14px}.bp-hero-grid{border-left:0;border-right:0;min-height:auto}
+  .bp-copy{padding:42px 0 34px}.bp-copy h1{font-size:clamp(48px,13.5vw,62px)}
+  .bp-copy p{font-size:16px}.bp-visual{min-height:520px}
+  .bp-phone{right:14px;left:14px;bottom:14px;width:auto;box-shadow:8px 8px 0 var(--yellow)}
+  .bp-phone-body{padding:22px}.bp-phone-body h3{font-size:30px}
+  .bp-strip-grid{grid-template-columns:1fr}.bp-strip-grid>div{border-right:0;border-bottom:1px solid rgba(25,25,25,.25)}
+  .bp-strip-grid>div:last-child{border-bottom:0}
+  .bp-section,.bp-included,.bp-client-view,.bp-offer,.bp-app-bonus{padding:64px 0}
+  .bp-section-head{gap:18px}.bp-section-head h2,.bp-client-copy h2{font-size:40px}
+  .bp-steps,.bp-feature-grid{grid-template-columns:1fr}
+  .bp-steps article{min-height:220px}.bp-feature-grid article{border-right:0!important;border-bottom:1px solid var(--line)!important;min-height:210px}
+  .bp-feature-grid article:last-child{border-bottom:0!important}
+  .bp-demo{box-shadow:8px 8px 0 var(--yellow)}
+  .bp-demo-hero{padding:30px 22px}.bp-demo-hero h3{font-size:36px}
+  .bp-demo-actions{grid-template-columns:1fr}
+  .bp-offer-shell{padding:30px 22px}.bp-price strong{font-size:64px}.bp-price .btn{width:100%}
+  .bp-app-flow{grid-template-columns:1fr}.bp-app-flow>b{transform:rotate(90deg);justify-self:center}.bp-app-flow>div{min-height:180px}
+}
+
+
 </style>
 <script src="../assets/analytics.js"></script>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#top">THE LAUNCH ERA</a><div class="nav-links"><a href="#system">Cómo funciona</a><a href="#content">Contenido</a><a href="#services">Servicios</a><a href="../help/?lang=es">Ayuda</a><a class="lang" href="../">EN</a><a class="btn dark nav-cta" href="../booking-checkout/?lang=es">Comprar Booking Page + App</a></div></div></header>
+<header><div class="wrap nav"><a class="brand" href="#top">THE LAUNCH ERA</a><div class="nav-links"><a href="#how">Cómo funciona</a><a href="#included">Qué incluye</a><a href="#app-bonus">Cleaning App</a><a href="../help/?lang=es">Ayuda</a><a class="lang" href="../">EN</a><a class="btn dark nav-cta" href="../booking-checkout/?lang=es">Comprar Booking Page</a></div></div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Booking Pages + sistemas para cleaning businesses residenciales</div><h1>Dale a tus clientes una mejor forma de reservar.</h1><p>Recibe una Booking Page profesional para tu cleaning business, conectada a reservas y solicitudes de cotización — con <strong>2 meses de Cleaning App incluidos gratis.</strong></p><div class="hero-actions"><a class="btn dark" href="../booking-checkout/?lang=es">Comprar Booking Page + App</a><a class="btn light" href="../cleaning-app/?lang=es">Ver Cleaning App</a></div><div class="proof"><span>$39.99 pago único</span><span>3 días laborables</span><span>2 meses de Cleaning App gratis</span><span>English + Español</span></div></div><div class="hero-visual"><img src="../assets/cleaning-professional-hero.webp" alt="Dueña de negocio de limpieza trabajando"><div class="hero-panel"><div><strong>Tu Booking Page es la puerta de entrada.</strong><p>Tus clientes reservan o piden cotización ahí. Tu Cleaning App mantiene organizado lo que pasa después.</p></div><div class="mark">TLE</div></div></div></div></section>
+<section class="bp-hero">
+  <div class="wrap bp-hero-grid">
+    <div class="bp-copy">
+      <div class="eyebrow">Booking Page profesional para cleaning businesses</div>
+      <h1>Dales a tus clientes un lugar claro para reservar tu servicio de limpieza.</h1>
+      <p>Una Booking Page pensada para móvil y construida para tu negocio — servicios, reservas y solicitudes de cotización en una experiencia clara. No necesitas un website completo.</p>
+      <div class="hero-actions">
+        <a class="btn yellow" href="../booking-checkout/?lang=es">Comprar Booking Page — $39.99</a>
+        <a class="btn light" href="#how">Ver cómo funciona</a>
+      </div>
+      <div class="proof">
+        <span>$39.99 pago único</span>
+        <span>Entrega en 4 días laborables</span>
+        <span>Pensada para móvil</span>
+        <span>Soporte en inglés + español</span>
+      </div>
+    </div>
+    <div class="bp-visual" aria-label="Ejemplo de experiencia de reserva para clientes">
+      <img src="../assets/cleaning-professional-hero.webp" alt="Profesional de limpieza en una casa luminosa" fetchpriority="high" decoding="async">
+      <div class="bp-phone">
+        <div class="bp-phone-top"><span>TU CLEANING BUSINESS</span><i></i></div>
+        <div class="bp-phone-body">
+          <small>LISTA CUANDO TU CLIENTE LO ESTÉ</small>
+          <h3>Reserva tu próxima limpieza.</h3>
+          <p>Elige un servicio, pide una cotización o selecciona el próximo paso que mejor encaje.</p>
+          <a href="../booking-checkout/?lang=es" tabindex="-1">Reservar una limpieza</a>
+          <a class="quote" href="../booking-checkout/?lang=es" tabindex="-1">Pedir cotización</a>
+          <div class="bp-mini-row"><span>Residencial</span><span>Comercial</span><span>Mobile friendly</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="signal"><div class="wrap signal-grid"><div class="signal-item"><small>Entrada</small><strong>Booking Page</strong><p>Un lugar claro para entender, reservar o pedir cotización.</p></div><div class="signal-item"><small>Operaciones</small><strong>Cleaning App</strong><p>Mantén clientes, trabajos, calendario y facturas conectados.</p></div><div class="signal-item"><small>Visibilidad</small><strong>Contenido Done-for-You</strong><p>Contenido listo para publicar para tu cleaning business.</p></div><div class="signal-item"><small>Seguimiento</small><strong>Automatización + VA</strong><p>Menos trabajo repetido y un próximo paso más claro.</p></div></div></div>
+<div class="bp-strip">
+  <div class="wrap bp-strip-grid">
+    <div><small>¿SIN WEBSITE?</small><strong>Aun así puedes tener un lugar profesional donde enviar a tus clientes.</strong></div>
+    <div><small>UN SOLO LINK</small><strong>Reservas, cotizaciones y tus servicios juntos.</strong></div>
+    <div><small>MENOS IDA Y VUELTA POR DM</small><strong>El cliente ve el próximo paso antes de escribirte.</strong></div>
+  </div>
+</div>
 
-<section class="block reveal" id="system"><div class="wrap"><div class="section-head"><h2>Un negocio. Un solo recorrido del cliente.</h2><p>En vez de añadir herramientas al azar, arregla el punto exacto donde se están trabando tus clientes o tus operaciones. Los servicios de The Launch Era pueden conectarse, pero cada uno funciona también por sí solo.</p></div><div class="journey">
-<article class="journey-card"><small>01 · Que te encuentren</small><div><h3>Contenido + Auditoría</h3><p>Haz que tu oferta sea más fácil de entender y tu negocio más fácil de confiar.</p></div><a href="#content">Ver contenido →</a></article>
-<article class="journey-card"><small>02 · Que actúen</small><div><h3>Booking Page</h3><p>Dales un próximo paso profesional en vez de mandarlos por mensajes.</p></div><a href="#featured">Ver el paquete →</a></article>
-<article class="journey-card"><small>03 · Manejar el trabajo</small><div><h3>Cleaning App</h3><p>Mantén cliente, trabajo, cotización, calendario y factura dentro de un flujo conectado.</p></div><a href="../cleaning-app/?lang=es">Explorar la app →</a></article>
-<article class="journey-card"><small>04 · Reducir admin</small><div><h3>Automatización + VA</h3><p>Maneja pasos repetidos con sistemas y soporte humano donde realmente ayuda.</p></div><a href="#services">Ver soporte →</a></article>
-</div></div></section>
+<section class="bp-section reveal" id="how">
+  <div class="wrap">
+    <div class="bp-section-head">
+      <div><div class="eyebrow">Cómo funciona</div><h2>De tu bio o Google profile a una ruta real de reserva.</h2></div>
+      <p>Tu Booking Page funciona como la puerta de entrada de tu cleaning business. El cliente no tiene que buscar entre posts, mensajes o un website complicado para saber qué hacer.</p>
+    </div>
+    <div class="bp-steps">
+      <article><span>01</span><h3>Tocan tu link.</h3><p>Úsalo en Instagram, Facebook, Google Business Profile, mensajes de texto o donde envíes leads.</p></article>
+      <article><span>02</span><h3>Ven tus servicios.</h3><p>El cliente entiende qué ofreces antes de empezar una reserva o solicitud de cotización.</p></article>
+      <article><span>03</span><h3>Eligen el próximo paso correcto.</h3><p>¿Servicio con precio definido? Lo reservan. ¿Necesitas más datos? Piden cotización.</p></article>
+      <article><span>04</span><h3>Recibes una solicitud más clara.</h3><p>Menos confusión, menos DMs repetitivos y más información útil desde el principio.</p></article>
+    </div>
+  </div>
+</section>
 
-<section class="featured reveal" id="featured"><div class="wrap featured-shell"><div><div class="eyebrow">Booking Page + Cleaning App</div><h2>Tu Booking Page incluye 2 meses de Cleaning App gratis.</h2><p>Creamos una página profesional para tu cleaning business donde tus clientes pueden entender tus servicios, reservar o pedir cotización — y después tienes 2 meses dentro de Cleaning App para manejar lo que sigue.</p><div class="offer-meta"><span>$39.99 pago único</span><span>3 días laborables</span><span>2 meses de Cleaning App gratis</span></div><div class="hero-actions"><a class="btn yellow" href="../booking-checkout/?lang=es">Comprar Booking Page + App</a><a class="btn light" href="../cleaning-app/?lang=es">Ver Cleaning App</a></div></div><div class="offer-visual"><iframe id="mainAppPreview" src="https://app.thelaunchera.com/demo.html?view=today&lang=es" title="Interfaz de Cleaning App"></iframe><div class="offer-caption"><span>Preview real del producto</span><span>Reserva → Trabajo → Factura</span></div></div></div></section>
+<section class="bp-included reveal" id="included">
+  <div class="wrap">
+    <div class="bp-section-head">
+      <div><div class="eyebrow">Qué incluye</div><h2>Tu Booking Page debe responder las preguntas que un cliente tiene antes de reservar.</h2></div>
+      <p>Construimos la página alrededor de tu cleaning business, no con un template genérico lleno de texto innecesario.</p>
+    </div>
+    <div class="bp-feature-grid">
+      <article><small>01</small><h3>Tu negocio + identidad</h3><p>Nombre del negocio, identidad visual y una primera impresión clara.</p></article>
+      <article><small>02</small><h3>Servicios + precios</h3><p>Muestra los servicios que quieres que tus clientes entiendan y reserven.</p></article>
+      <article><small>03</small><h3>Reservar una limpieza</h3><p>Una ruta directa para servicios que ya pueden reservarse.</p></article>
+      <article><small>04</small><h3>Pedir cotización</h3><p>Una ruta separada para trabajos que necesitan más información antes del precio.</p></article>
+      <article><small>05</small><h3>Datos del cliente</h3><p>Recoge la información que de verdad necesitas sin empezar desde cero en los DMs.</p></article>
+      <article><small>06</small><h3>Experiencia para teléfono</h3><p>Diseñada para entenderse en la pantalla que la mayoría de tus clientes ya usa.</p></article>
+    </div>
+  </div>
+</section>
 
-<section class="block content reveal" id="content"><div class="wrap"><div class="section-head"><h2>Contenido que llega listo para publicar.</h2><p>No manejo tus redes. Creo las publicaciones, Stories, captions y hashtags relevantes para tu cleaning business; tú recibes el contenido terminado y listo para publicar.</p></div><div class="plans">
-<article class="plan"><h3>Starter</h3><p>4 publicaciones + 2 Stories</p><div class="price">$20<small>/mes</small></div><div class="meta">Entrega: 3 días laborables</div><a class="btn dark" href="https://buy.stripe.com/bJe8wOfPxbXH3y19be93y0A">Elegir Starter</a></article>
-<article class="plan"><h3>Growth</h3><p>8 publicaciones + 4 Stories</p><div class="price">$30<small>/mes</small></div><div class="meta">Entrega: 5 días laborables</div><a class="btn dark" href="https://buy.stripe.com/3cI9AS7j17Hrc4x4UY93y0B">Elegir Growth</a></article>
-<article class="plan"><h3>Pro</h3><p>12 publicaciones + 6 Stories</p><div class="price">$40<small>/mes</small></div><div class="meta">Entrega: 7 días laborables</div><a class="btn dark" href="https://buy.stripe.com/3cI00i8n53rbgkN2MQ93y0C">Elegir Pro</a></article>
-</div></div></section>
+<section class="bp-client-view reveal">
+  <div class="wrap bp-client-shell">
+    <div class="bp-client-copy">
+      <div class="eyebrow">Lo que ve tu cliente</div>
+      <h2>Lo suficientemente claro para entenderlo en pocos segundos.</h2>
+      <p>La Booking Page no intenta ser un website gigante. Su trabajo es hacer que la próxima acción sea obvia.</p>
+    </div>
+    <div class="bp-demo">
+      <div class="bp-demo-head"><span>TU NEGOCIO</span><span>BOOKING PAGE</span></div>
+      <div class="bp-demo-hero"><small>Limpieza profesional</small><h3>¿Cómo podemos ayudarte hoy?</h3><p>Elige un servicio o cuéntanos lo que necesitas.</p></div>
+      <div class="bp-demo-actions"><div><b>Reservar una limpieza</b><span>Para servicios reservables</span></div><div><b>Pedir cotización</b><span>Para trabajos personalizados</span></div></div>
+      <div class="bp-demo-services"><span>Standard Cleaning</span><span>Deep Cleaning</span><span>Move-In / Move-Out</span><span>Commercial</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="block reveal" id="services"><div class="wrap"><div class="section-head"><h2>Soporte para la pieza exacta que está frenando tu negocio.</h2><p>No necesitas un paquete gigante de agencia. Estos servicios resuelven puntos de fricción específicos dentro de un cleaning business.</p></div><div class="services">
-<article class="service"><small>Claridad</small><h3>Auditoría de Instagram</h3><p>Una revisión práctica de lo que ve un cliente potencial, dónde hay fricción y qué arreglar primero.</p><div class="service-bottom"><strong>$15 · pago único</strong><a href="https://buy.stripe.com/bJefZgfPx6Dn7Ohcnq93y0K">Comprar auditoría →</a></div></article>
-<article class="service"><small>Instagram</small><h3>Automatización de Instagram</h3><p>Estructura respuestas iniciales repetidas y dirige a las personas hacia el próximo paso correcto.</p><div class="service-bottom"><strong>$50 · pago único</strong><a href="../automation/">Ver automatización →</a></div></article>
-<article class="service"><small>Flujo web</small><h3>Automatización del sitio web</h3><p>Organiza un flujo acordado de lead o cotización con confirmación y pasos de seguimiento.</p><div class="service-bottom"><strong>$70 · pago único</strong><a href="../automation/">Ver automatización web →</a></div></article>
-<article class="service"><small>Soporte humano</small><h3>VA Essential Support</h3><p>Ayuda con seguimiento aprobado, calendario, preparación de cotizaciones/facturas y tareas administrativas recurrentes.</p><div class="service-bottom"><strong>$89.99/mes</strong><a href="../virtual-assistant/">Ver soporte VA →</a></div></article>
-</div></div></section>
+<section class="bp-offer reveal">
+  <div class="wrap bp-offer-shell">
+    <div>
+      <div class="eyebrow">Booking Page</div>
+      <h2>Una puerta de entrada profesional por $39.99 pago único.</h2>
+      <p>Construida alrededor de tu cleaning business y entregada en 4 días laborables.</p>
+      <div class="bp-offer-pills"><span>Mobile-first</span><span>Reserva + cotización</span><span>Tus servicios</span><span>Soporte inglés + español</span></div>
+    </div>
+    <div class="bp-price">
+      <strong>$39.99</strong><small>PAGO ÚNICO</small>
+      <a class="btn yellow" href="../booking-checkout/?lang=es">Comprar Booking Page</a>
+    </div>
+  </div>
+</section>
 
-<section class="authority reveal"><img src="../assets/cleaning-app-on-the-go.webp?v=20260928b?v=20260928b" alt="Dueña de cleaning business usando Cleaning App"><div class="wrap authority-copy"><div class="eyebrow">Marketing es más que publicar</div><h2>El cliente necesita un próximo paso claro. Tú necesitas un sistema detrás.</h2><p>La mejor experiencia no termina cuando alguien te encuentra. Continúa cuando puede entender, confiar, reservar y avanzar sin perseguirte por mensajes.</p></div></section>
+<section class="bp-app-bonus reveal" id="app-bonus">
+  <div class="wrap bp-app-shell">
+    <div class="bp-app-copy">
+      <div class="eyebrow">Después de la Booking Page</div>
+      <h2>Si también quieres el back end, la Cleaning App tiene su propio workspace.</h2>
+      <p>La Booking Page es la puerta de entrada para el cliente. La Cleaning App es donde puedes organizar reservas, cotizaciones, clientes, trabajos, calendario y facturas después de que entren.</p>
+      <div class="bp-app-note">
+        <strong>Tu Booking Page incluye 2 meses de acceso a Cleaning App.</strong>
+        <span>Si primero ya usaste la prueba gratis de 30 días, esos 2 meses se añaden después — hasta 3 meses totales antes de comenzar el precio regular de $5.99/mes.</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn dark" href="../cleaning-app/?lang=es">Ver la Cleaning App</a>
+        <a class="btn light" href="https://app.thelaunchera.com/?lang=es">Probar la app gratis</a>
+      </div>
+    </div>
+    <div class="bp-app-flow">
+      <div><small>PUERTA DE ENTRADA</small><strong>Booking Page</strong><span>El cliente reserva o solicita una cotización.</span></div>
+      <b>→</b>
+      <div><small>BACK END</small><strong>Cleaning App</strong><span>Tú organizas lo que pasa después.</span></div>
+    </div>
+  </div>
+</section>
 
-<section class="faq reveal"><div class="wrap faq-grid"><div><div class="eyebrow">Antes de empezar</div><h2>Respuestas claras. Sin laberinto de paquetes.</h2></div><div><details><summary>¿Necesito tener un sitio web?</summary><p>No. Booking Page + Cleaning App es especialmente útil para cleaning businesses sin website o con una página que no ofrece un próximo paso claro.</p></details><details><summary>¿Manejas mis redes sociales?</summary><p>No. Done-for-You Content significa que creo y entrego el contenido terminado y listo para publicar. Publicar, DMs, comentarios y community management no están incluidos.</p></details><details><summary>¿Podemos trabajar en español?</summary><p>Sí. El onboarding y el soporte están disponibles en inglés y español.</p></details></div></div></section>
+<section class="faq reveal">
+  <div class="wrap faq-grid">
+    <div><div class="eyebrow">Antes de ordenar</div><h2>Respuestas claras sobre la Booking Page.</h2></div>
+    <div>
+      <details><summary>¿Necesito tener un website?</summary><p>No. La Booking Page es especialmente útil si todavía no tienes un website completo o si tu página actual no ofrece una ruta clara para reservar.</p></details>
+      <details><summary>¿Los clientes pueden pedir cotización en vez de reservar?</summary><p>Sí. Los servicios reservables y las solicitudes de cotización tienen pasos separados para que los trabajos personalizados no se fuercen dentro de un precio fijo.</p></details>
+      <details><summary>¿La Booking Page reemplaza la Cleaning App?</summary><p>No. La Booking Page es la parte que ve el cliente. La Cleaning App es un workspace separado para la parte operativa de tu negocio. Tu Booking Page incluye 2 meses de acceso a la app.</p></details>
+      <details><summary>¿Podemos trabajar en español?</summary><p>Sí. El onboarding y el soporte están disponibles en inglés y español.</p></details>
+    </div>
+  </div>
+</section>
 
-<section class="final reveal"><div class="wrap final-card"><div><h2>Empieza con una mejor experiencia de reserva.</h2><p>Tu Booking Page se crea para tu negocio y tus primeros 2 meses de Cleaning App están incluidos.</p></div><a class="btn dark" href="../booking-checkout/?lang=es">Comprar Booking Page + App — $39.99</a></div></section>
+<section class="final reveal">
+  <div class="wrap final-card">
+    <div><div class="eyebrow">Un solo link claro</div><h2>Dale a tu próximo lead un lugar mejor que tus DMs.</h2><p>Tu Booking Page profesional cuesta $39.99 pago único.</p></div>
+    <a class="btn dark" href="../booking-checkout/?lang=es">Comprar Booking Page</a>
+  </div>
+</section>
 </main>
-<footer><div class="wrap footer-grid"><div><div class="footer-title">THE LAUNCH ERA</div><p>Marketing + sistemas para cleaning businesses residenciales en EE.UU. — desde la primera impresión hasta lo que pasa después de la reserva.</p></div><div class="footer-links"><span>Empieza</span><a href="#featured">Booking Page + Cleaning App</a><a href="../cleaning-app/?lang=es">Cleaning App</a><a href="#content">Contenido</a></div><div class="footer-links"><span>Soporte</span><a href="../automation/">Automatización</a><a href="../virtual-assistant/">Soporte VA</a><a href="../help/?lang=es">Centro de Ayuda</a></div><div class="footer-links"><span>Contacto</span><a href="mailto:hello@thelaunchera.com">hello@thelaunchera.com</a><a href="https://www.instagram.com/marketingforcleanerss/" target="_blank" rel="noopener">Instagram · @marketingforcleanerss</a><a href="../es/privacy.html">Privacidad</a><a href="../es/terms.html">Términos</a><div style="color:var(--muted);margin-top:8px">Lun–Vie · 9 AM–5 PM ET<br>Sáb · 8 AM–12 PM ET</div></div></div></footer>
+<footer><div class="wrap footer-grid"><div><div class="footer-title">THE LAUNCH ERA</div><p>Marketing simple y sistemas para clientes, creados para cleaning businesses.</p></div><div class="footer-links"><span>Booking Page</span><a href="#how">Cómo funciona</a><a href="#included">Qué incluye</a><a href="../booking-checkout/?lang=es">Comprar Booking Page</a></div><div class="footer-links"><span>Cleaning App</span><a href="../cleaning-app/?lang=es">Landing de la app</a><a href="https://app.thelaunchera.com/?lang=es">Prueba gratis</a><a href="../help/?lang=es">Centro de Ayuda</a></div><div class="footer-links"><span>Contacto</span><a href="mailto:hello@thelaunchera.com">hello@thelaunchera.com</a><a href="https://www.instagram.com/marketingforcleanerss/" target="_blank" rel="noopener">Instagram · @marketingforcleanerss</a><a href="../es/privacy.html">Privacidad</a><a href="../es/terms.html">Términos</a></div></div></footer>
 <script>
 document.querySelectorAll("[data-app-view]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-app-view]").forEach(b=>b.classList.remove("active"));btn.classList.add("active");const frame=document.getElementById("mainAppPreview");if(frame){frame.src="https://app.thelaunchera.com/demo.html?view="+btn.dataset.appView+"&lang="+document.documentElement.lang}}));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
