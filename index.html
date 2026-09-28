@@ -87,7 +87,47 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
 .story-screen.dual{display:grid;grid-template-columns:1fr 1fr;gap:12px}.story-screen.dual iframe{aspect-ratio:1/1}
 .featured .offer-visual{background:#F5F2EC;box-shadow:none;border-color:var(--line);border-radius:22px}.featured .offer-visual iframe{border-radius:14px}
 @media(max-width:950px){.product-hero,.story-row,.story-row.reverse{grid-template-columns:1fr}.product-preview{padding:26px;border-left:0;border-top:1px solid var(--line)}.story-row,.story-row.reverse{gap:26px;padding:62px 0}.story-row.reverse .story-copy,.story-row.reverse .story-screen{order:initial}.system-line{grid-template-columns:1fr 1fr}.system-step:nth-child(2){border-right:0}.system-step:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media(max-width:620px){.product-hero .hero-copy{padding-right:0}.product-preview{padding:16px}.real-screen{border-radius:18px}.real-screen iframe{aspect-ratio:1/1}.system-line{grid-template-columns:1fr}.system-step{border-right:0;border-bottom:1px solid var(--line)}.system-step:last-child{border-bottom:0}.story-row,.story-row.reverse{padding:52px 0}.story-copy h2{font-size:36px}.story-copy p{font-size:15px}.story-screen{padding:7px;border-radius:18px}.story-screen iframe{aspect-ratio:1/1}.story-screen.dual{grid-template-columns:1fr}.story-screen.dual iframe{aspect-ratio:1.08/1}}
+@media(max-width:620px){.product-hero .hero-copy{padding-right:0}.product-preview{padding:16px}.real-screen{border-radius:18px}.real-screen iframe{aspect-ratio:16/10}.system-line{grid-template-columns:1fr}.system-step{border-right:0;border-bottom:1px solid var(--line)}.system-step:last-child{border-bottom:0}.story-row,.story-row.reverse{padding:52px 0}.story-copy h2{font-size:36px}.story-copy p{font-size:15px}.story-screen{padding:7px;border-radius:18px}.story-screen iframe{aspect-ratio:1/1}.story-screen.dual{grid-template-columns:1fr}.story-screen.dual iframe{aspect-ratio:1.08/1}}
+
+
+/* 2026-09-28 — compact swipeable real-product gallery */
+.product-preview{padding:26px 0 26px 26px}
+.real-screen iframe{aspect-ratio:16/10}
+.app-gallery{background:#fff;border-block:1px solid var(--line);padding:68px 0 72px;overflow:hidden}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:24px}
+.gallery-head h2{font-family:Prompt;font-size:clamp(38px,4.5vw,58px);line-height:1.03;letter-spacing:-.035em;font-weight:600;margin:8px 0 0}
+.gallery-head p{max-width:520px;color:var(--muted);margin:0;font-size:15px}
+.gallery-controls{display:flex;gap:8px;flex:0 0 auto}
+.gallery-controls button{width:42px;height:42px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:20px;display:grid;place-items:center;cursor:pointer}
+.gallery-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,360px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 14px;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gallery-track::-webkit-scrollbar{display:none}
+.product-card{scroll-snap-align:start;border:1px solid var(--line);border-radius:22px;background:#F7F4EE;overflow:hidden;min-width:0}
+.product-card-media{background:#fff;border-bottom:1px solid var(--line);padding:8px}
+.product-card-media iframe{display:block;width:100%;aspect-ratio:16/10;border:0;border-radius:14px;background:#FAF8F3;pointer-events:none}
+.product-card-copy{padding:18px 18px 20px}
+.product-card-copy small{display:block;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.product-card-copy h3{font-size:22px;line-height:1.08;letter-spacing:-.025em;margin:0 0 8px;font-weight:600}
+.product-card-copy p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+.gallery-swipe{display:none;margin-top:8px;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+@media(max-width:950px){.product-preview{padding:20px;border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:620px){
+  .product-preview{padding:12px 0 0;background:#F4F1EB}
+  .real-screen{border-radius:16px}
+  .real-screen iframe{aspect-ratio:16/10;max-height:260px}
+  .real-screen-label{padding:0 2px 8px;font-size:9px}
+  .app-gallery{padding:48px 0 50px}
+  .gallery-head{align-items:flex-start;display:block;margin-bottom:18px}
+  .gallery-head h2{font-size:34px}
+  .gallery-head p{font-size:14px;margin-top:9px}
+  .gallery-controls{display:none}
+  .gallery-track{grid-auto-columns:min(84vw,315px);gap:12px;margin-right:-14px;padding-right:14px}
+  .product-card{border-radius:18px}
+  .product-card-media{padding:6px}
+  .product-card-media iframe{border-radius:12px}
+  .product-card-copy{padding:15px 15px 17px}
+  .product-card-copy h3{font-size:20px}
+  .gallery-swipe{display:block}
+}
 
 </style>
 <script src="assets/analytics.js"></script>
@@ -95,32 +135,30 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
 <body>
 <header><div class="wrap nav"><a class="brand" href="#top">THE LAUNCH ERA</a><div class="nav-links"><a href="#system">How it works</a><a href="#content">Content</a><a href="#services">Services</a><a href="help/">Help</a><a class="lang" href="es/">ES</a><a class="btn dark nav-cta" href="booking-checkout/">Get Booking Page + App</a></div></div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid product-hero"><div class="hero-copy"><div class="eyebrow">The Launch Era Cleaning App + Booking Page</div><h1>Run your cleaning business without holding it all in your head.</h1><p>Give clients one clear place to book. Keep clients, jobs, quotes, invoices, routes and everyday operations connected in the <strong>Cleaning App</strong>.</p><div class="hero-actions"><a class="btn dark" href="https://app.thelaunchera.com/">Start 30 days free</a><a class="btn light" href="booking-checkout/">Get Booking Page + App</a></div><div class="proof"><span>No card required</span><span>$5.99/month after trial</span><span>Booking Page $39.99 one-time</span><span>English + Spanish</span></div></div><div class="product-preview"><div class="real-screen"><iframe src="https://app.thelaunchera.com/demo.html?view=today&lang=en&neutral=1&neutral=1" title="Real Cleaning App dashboard preview"></iframe></div><div class="real-screen-label"><span>REAL CLEANING APP PREVIEW</span><span>Demo data</span></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid product-hero"><div class="hero-copy"><div class="eyebrow">The Launch Era Cleaning App + Booking Page</div><h1>Run your cleaning business without holding it all in your head.</h1><p>Give clients one clear place to book. Keep clients, jobs, quotes, invoices, routes and everyday operations connected in the <strong>Cleaning App</strong>.</p><div class="hero-actions"><a class="btn dark" href="https://app.thelaunchera.com/">Start 30 days free</a><a class="btn light" href="booking-checkout/">Get Booking Page + App</a></div><div class="proof"><span>No card required</span><span>$5.99/month after trial</span><span>Booking Page $39.99 one-time</span><span>English + Spanish</span></div></div><div class="product-preview"><div class="real-screen"><iframe src="https://app.thelaunchera.com/demo.html?view=today&lang=en&neutral=1" title="Real Cleaning App dashboard preview"></iframe></div><div class="real-screen-label"><span>REAL CLEANING APP PREVIEW</span><span>Demo data</span></div></div></div></section>
 
 <div class="signal"><div class="wrap signal-grid"><div class="signal-item"><small>Front door</small><strong>Booking Page</strong><p>A clear place to understand, book or request a quote.</p></div><div class="signal-item"><small>Operations</small><strong>Cleaning App</strong><p>Keep clients, jobs, calendar and invoices connected.</p></div><div class="signal-item"><small>Visibility</small><strong>Done-for-You Content</strong><p>Ready-to-post content for your cleaning business.</p></div><div class="signal-item"><small>Follow-up</small><strong>Automation + VA</strong><p>Less repeated admin and a clearer next step.</p></div></div></div>
 
 <section class="block reveal" id="system"><div class="wrap"><div class="section-head"><h2>A better front door. A calmer back end.</h2><p>The client should know what to do next. You should know where the work went after they did it.</p></div><div class="system-line"><div class="system-step"><small>01</small><strong>Get found</strong><p>Content and a clear profile make the business easier to trust.</p></div><div class="system-step"><small>02</small><strong>Get the request</strong><p>Your Booking Page gives clients a clear place to book or ask for a quote.</p></div><div class="system-step"><small>03</small><strong>Run the work</strong><p>The Cleaning App keeps the client, job, schedule and invoice connected.</p></div><div class="system-step"><small>04</small><strong>Follow through</strong><p>Automation or human support can help with the repeated admin that is still left.</p></div></div></div></section>
 
 
-<section class="product-stories reveal"><div class="wrap">
-  <div class="story-row">
-    <div class="story-copy"><div class="eyebrow">Calendar + route</div><h2>See the day before it gets busy.</h2><p>Jobs, recurring work and travel time stay close enough to plan the day without bouncing between a calendar, notes and a mileage log.</p><div class="story-note">Built for the real rhythm of a cleaning business — jobs, drive time and what is next.</div></div>
-    <div class="story-screen dual"><iframe src="https://app.thelaunchera.com/demo.html?view=calendar&lang=en&neutral=1" title="Cleaning App calendar preview"></iframe><iframe src="https://app.thelaunchera.com/demo.html?view=mileage&lang=en&neutral=1" title="Cleaning App mileage preview"></iframe></div>
-  </div>
-  <div class="story-row reverse">
-    <div class="story-copy"><div class="eyebrow">Clients</div><h2>Every client, without the scattered notes.</h2><p>Keep the client record and the next useful action in one visible place, so a name does not turn into another search through texts, screenshots and old notes.</p></div>
-    <div class="story-screen"><iframe src="https://app.thelaunchera.com/demo.html?view=clients&lang=en&neutral=1" title="Cleaning App clients preview"></iframe></div>
-  </div>
-  <div class="story-row">
-    <div class="story-copy"><div class="eyebrow">Services + operations</div><h2>Set the work up once. Run it from there.</h2><p>Keep services, add-ons and lightweight supply tracking closer to the jobs they support — without turning the app into a giant accounting system.</p></div>
-    <div class="story-screen"><iframe src="https://app.thelaunchera.com/demo.html?view=services&lang=en&neutral=1" title="Cleaning App services and supplies preview"></iframe></div>
-  </div>
-  <div class="story-row reverse">
-    <div class="story-copy"><div class="eyebrow">Owner controls</div><h2>Your team gets access. Your private controls stay yours.</h2><p>Owners, admins and workers can have different levels of access, while sensitive business controls stay with the owner.</p><div class="story-note">The app stays useful for the team without giving everyone the keys to everything.</div></div>
-    <div class="story-screen"><iframe src="https://app.thelaunchera.com/demo.html?view=owner&lang=en&neutral=1" title="Cleaning App owner permissions preview"></iframe></div>
-  </div>
-</div></section>
 
+<section class="app-gallery reveal" id="app-gallery"><div class="wrap">
+  <div class="gallery-head">
+    <div><div class="eyebrow">Inside the Cleaning App</div><h2>See the parts of the business you can stop carrying in your head.</h2></div>
+    <div><p>Real product views with demo data. Swipe through the app instead of scrolling through a wall of screenshots.</p><div class="gallery-controls"><button type="button" id="galleryPrev" aria-label="Previous app preview">←</button><button type="button" id="galleryNext" aria-label="Next app preview">→</button></div></div>
+  </div>
+  <div class="gallery-track" id="appGallery" tabindex="0" aria-label="Cleaning App feature previews">
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=today&lang=en&neutral=1" title="Today dashboard preview"></iframe></div><div class="product-card-copy"><small>Today</small><h3>Know what needs attention first.</h3><p>Jobs, clients, quotes, invoices and booking requests are visible when you open the app.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=calendar&lang=en&neutral=1" title="Calendar and jobs preview"></iframe></div><div class="product-card-copy"><small>Calendar + Jobs</small><h3>See the day before it gets busy.</h3><p>Keep upcoming and recurring work easier to read without rebuilding the schedule from memory.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=clients&lang=en&neutral=1" title="Clients preview"></iframe></div><div class="product-card-copy"><small>Clients</small><h3>Keep every client easier to find.</h3><p>Contact details and the next useful action stay together instead of scattered through texts and notes.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=invoices&lang=en&neutral=1" title="Invoices preview"></iframe></div><div class="product-card-copy"><small>Invoices</small><h3>Know what is paid and what needs follow-up.</h3><p>See invoice totals, status and customer payment method without digging for the record.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=mileage&lang=en&neutral=1" title="Mileage preview"></iframe></div><div class="product-card-copy"><small>Mileage</small><h3>Keep business miles with the work.</h3><p>Track business distance so it does not live in a separate note you have to remember later.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=services&lang=en&neutral=1" title="Services and supplies preview"></iframe></div><div class="product-card-copy"><small>Services + Supplies</small><h3>Set up the work once.</h3><p>Keep services, add-ons and basic supply tracking closer to the jobs they support.</p></div></article>
+    <article class="product-card"><div class="product-card-media"><iframe src="https://app.thelaunchera.com/demo.html?view=owner&lang=en&neutral=1" title="Owner controls preview"></iframe></div><div class="product-card-copy"><small>Owner Controls</small><h3>Give access without giving away everything.</h3><p>Owners, admins and workers can have different access while sensitive controls stay private.</p></div></article>
+  </div>
+  <div class="gallery-swipe">Swipe to see more →</div>
+</div></section>
 <section class="featured reveal" id="featured"><div class="wrap featured-shell"><div><div class="eyebrow">Booking Page + Cleaning App</div><h2>The Booking Page gets the client in. The Cleaning App keeps the day moving.</h2><p>From booking or quote request to client details, job, calendar and invoice, the goal is fewer loose pieces to remember — while clients get a more professional next step.</p><div class="offer-meta"><span>$39.99 one-time</span><span>3 business days</span><span>2 months of Cleaning App free</span></div><div class="hero-actions"><a class="btn yellow" href="booking-checkout/">Get Booking Page + App</a><a class="btn light" href="cleaning-app/">See Cleaning App</a></div></div><div class="offer-visual"><iframe id="mainAppPreview" src="https://app.thelaunchera.com/demo.html?view=today&lang=en" title="Cleaning App interface"></iframe><div class="offer-caption"><span>Real product preview</span><span>Booking → Work → Invoice</span></div></div></div></section>
 
 
@@ -149,5 +187,16 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
 <script>
 document.querySelectorAll("[data-app-view]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-app-view]").forEach(b=>b.classList.remove("active"));btn.classList.add("active");const frame=document.getElementById("mainAppPreview");if(frame){frame.src="https://app.thelaunchera.com/demo.html?view="+btn.dataset.appView+"&lang="+document.documentElement.lang}}));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+const appGallery=document.getElementById("appGallery");
+const galleryPrev=document.getElementById("galleryPrev");
+const galleryNext=document.getElementById("galleryNext");
+function galleryStep(dir){
+  if(!appGallery) return;
+  const card=appGallery.querySelector(".product-card");
+  const step=(card?card.getBoundingClientRect().width:340)+14;
+  appGallery.scrollBy({left:dir*step,behavior:"smooth"});
+}
+if(galleryPrev) galleryPrev.addEventListener("click",()=>galleryStep(-1));
+if(galleryNext) galleryNext.addEventListener("click",()=>galleryStep(1));
 </script>
 </body></html>
