@@ -180,6 +180,38 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
 }
 
 
+
+/* 2026-09-28 — responsive hero density + sharper image rendering */
+.bp-hero{padding:12px 0 52px}
+.bp-hero-grid{grid-template-columns:1fr;min-height:auto}
+.bp-copy{padding:44px 52px 18px;justify-content:flex-start}
+.bp-copy h1{font-size:clamp(52px,6vw,78px);line-height:1;max-width:980px;margin:14px 0}
+.bp-copy p{max-width:800px;margin:0}
+.bp-copy .hero-actions{margin-top:22px}
+.bp-copy .proof{margin-top:22px;padding-top:18px}
+.bp-visual{min-height:500px;border-top:1px solid var(--line);background:#fff}
+.bp-visual>img{object-position:center 32%;filter:saturate(1.02) contrast(1.07) brightness(1.025);image-rendering:auto;-webkit-transform:translateZ(0);transform:translateZ(0)}
+.bp-visual:after{background:linear-gradient(180deg,rgba(25,25,25,0),rgba(25,25,25,.08))}
+@media(min-width:621px) and (max-width:950px){
+  .bp-hero{padding-top:10px}
+  .bp-copy{padding:34px 30px 16px}
+  .bp-copy h1{font-size:clamp(48px,7.6vw,66px);max-width:900px}
+  .bp-copy p{font-size:17px;max-width:760px}
+  .bp-visual{min-height:430px}
+}
+@media(max-width:620px){
+  .bp-hero{padding:6px 0 34px}
+  .bp-hero-grid{border-left:0;border-right:0}
+  .bp-copy{padding:26px 0 14px}
+  .bp-copy h1{font-size:clamp(40px,11.5vw,52px);line-height:1.03;margin:12px 0}
+  .bp-copy p{font-size:16px;line-height:1.55}
+  .bp-copy .hero-actions{margin-top:18px;display:grid;gap:9px}
+  .bp-copy .hero-actions .btn{width:100%}
+  .bp-copy .proof{margin-top:16px;padding-top:14px;display:grid;gap:7px}
+  .bp-visual{min-height:330px}
+  .bp-visual>img{object-position:center 28%;filter:saturate(1.03) contrast(1.08) brightness(1.03)}
+}
+
 </style>
 <script src="../assets/analytics.js"></script>
 </head>
@@ -203,7 +235,7 @@ h1,h2,h3,.brand,.price{font-weight:600;letter-spacing:-.025em}
         <span>Soporte en inglés + español</span>
       </div>
     </div>
-    <div class="bp-visual" aria-label="Visual profesional para cleaning business"><img src="../assets/cleaning-professional-hero.webp" alt="Profesional de limpieza en una casa luminosa" fetchpriority="high" decoding="async"></div></div></section>
+    <div class="bp-visual" aria-label="Visual profesional para cleaning business"><img src="../assets/cleaning-professional-hero.webp?v=20260928sharp3" alt="Profesional de limpieza en una casa luminosa" width="1600" height="1000" fetchpriority="high" loading="eager" decoding="async"></div></div></section>
 
 <div class="bp-strip">
   <div class="wrap bp-strip-grid">
