@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Formulario para clientes de Booking Page + Cleaning App de The Launch Era.">
+<title>Formulario de Booking Page + Cleaning App — The Launch Era</title>
+<link rel="icon" type="image/png" href="../../the-launch-era-favicon.png">
+<style>
+:root{--ivory:#FAF8F3;--ink:#191919;--butter:#F2D85B;--blue:#B9D7FF;--soft:#EAF3FF;--line:#D9D5CD;--muted:#69645E;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--ivory);color:var(--ink);font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;line-height:1.5}
+.wrap{width:min(860px,calc(100% - 32px));margin:auto}.top{padding:26px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.04em}
+.hero{padding:56px 0 34px}.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,64px);line-height:.98;letter-spacing:-.045em;margin:14px 0}.hero p{font-size:18px;color:var(--muted);max-width:720px}
+.note{background:var(--blue);border:1px solid var(--ink);padding:20px;margin-top:24px}
+form{padding:10px 0 70px}.section{background:var(--white);border:1px solid var(--line);padding:28px;margin-top:14px}.section h2{font-size:25px;margin:0 0 4px}.section>p{margin:0 0 22px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:800;letter-spacing:.03em;margin-bottom:7px}
+input,select,textarea{width:100%;border:1px solid #aaa;background:#fff;padding:13px 12px;font:inherit;color:var(--ink);border-radius:0}
+textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);padding:12px}.check input{width:auto;margin-top:4px}
+.actions{margin-top:18px}.btn{width:100%;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:16px 20px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}.btn:disabled{opacity:.45}
+.status{margin-top:14px;font-weight:700}.small{font-size:12px;color:var(--muted)}.lang{float:right;font-size:12px;font-weight:800}
+@media(max-width:650px){.grid,.checks{grid-template-columns:1fr}.section{padding:22px}.hero{padding-top:42px}}
+</style>
+<script src="../../assets/analytics.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="brand">THE LAUNCH ERA</span><span class="lang">Booking Page + Cleaning App</span></div></header>
+<main class="wrap">
+<section class="hero">
+<div class="kicker">Formulario del cliente</div>
+<h1>Vamos a crear tu Booking Page y conectar el sistema detrás.</h1>
+<p>Completa este formulario una sola vez después de comprar Booking Page + Cleaning App. Este formulario es para clientes que seleccionaron Español al pagar.</p>
+<div class="note"><strong>Qué pasa después:</strong> configuramos tu Cleaning App, creamos tus enlaces de Reserva y Cotización, conectamos ambos a tu Booking Page profesional, probamos el flujo y te entregamos <strong>un solo enlace final</strong> para compartir con tus clientes. <strong>Tiempo de producción: 4 días hábiles después de recibir el formulario completo y los materiales necesarios.</strong></div>
+</section>
+
+<form id="intakeForm">
+<input type="hidden" name="type" value="tle.booking_app_intake">
+
+<section class="section">
+<h2>1. Información del negocio</h2><p>Cuéntanos lo esencial.</p>
+<div class="grid">
+<input type="hidden" name="language" value="spanish">
+<div><label>Tu nombre</label><input name="full_name" required></div>
+<div><label>Nombre del negocio</label><input name="business_name" required></div>
+<div><label>Correo electrónico</label><input type="email" name="email" required></div>
+<div><label>Teléfono</label><input name="phone" required></div>
+<div><label>Correo de tu cuenta de Cleaning App</label><input type="email" name="app_account_email" required placeholder="Usa el correo que quieres usar para la app"></div>
+<div><label>Zona horaria del negocio</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
+<div><label>Moneda para tus precios</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
+<div class="full"><label>Áreas de servicio</label><input name="service_areas" required placeholder="Ciudades, códigos postales, condados..."></div>
+<div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
+<div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
+</div>
+</section>
+
+<section class="section">
+<h2>2. Booking Page</h2><p>Lo que verán tus clientes primero.</p>
+<div class="grid">
+<div><label>Dominio actual</label><input name="existing_domain" placeholder="Déjalo vacío si no tienes"></div>
+<div><label>Colores de marca</label><input name="brand_colors" placeholder="Nombres o códigos hex"></div>
+<div class="full"><label>Link de logo y archivos de marca</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
+<div class="full"><label>Link de carpeta de fotos</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
+<div class="full"><label>Sobre el negocio</label><textarea name="about_business" placeholder="¿Qué debería saber un cliente nuevo?"></textarea></div>
+<div class="full"><label>Reseñas</label><textarea name="reviews" placeholder="Pega 2–4 reseñas o un enlace"></textarea></div>
+<div class="full"><label>Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Opcional"></textarea></div>
+<div class="full"><label>Horario que quieres mostrar en tu página</label><textarea name="business_hours_display" required placeholder="Example: Mon–Fri 8 AM–5 PM; Sat 8 AM–12 PM"></textarea></div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. Servicios + precios</h2><p>Esto nos ayuda a configurar tu Booking Page y la Cleaning App.</p>
+<div class="grid">
+<div class="full"><label>Servicios de limpieza</label><textarea name="services" required placeholder="Uno por línea: Servicio — Precio O Cotización — Duración aproximada&#10;Ejemplo: Limpieza estándar — $120 — 2 horas&#10;Limpieza profunda — Requiere cotización — 4 horas"></textarea></div>
+<div><label>Tipo de precio</label><select name="pricing_style" required><option value="fixed">Precio fijo</option><option value="starting_at">Desde</option><option value="quote_only">Solo cotización</option><option value="mixed">Depende del servicio</option></select></div>
+<div><label>Duración típica del servicio</label><input name="service_duration" placeholder="Ejemplo: 2–3 horas"></div>
+<div class="full"><label>Extras</label><textarea name="add_ons" placeholder="Incluye precio y tiempo adicional. Ejemplo: Interior del horno — +$35 — +30 min"></textarea></div>
+</div>
+</section>
+
+<section class="section">
+<h2>4. Reservas + cotizaciones</h2><p>Conectamos las dos opciones por ti: <strong>Reservar una limpieza</strong> y <strong>Pedir una cotización</strong>.</p>
+<input type="hidden" name="booking_enabled" value="true">
+<input type="hidden" name="quote_enabled" value="true">
+<div class="grid" style="margin-top:16px">
+<div class="full"><label>Disponibilidad para reservar</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
+<div><label>Aviso mínimo para reservar</label><input name="minimum_booking_notice" required placeholder="Ejemplo: 24 horas"></div>
+<div><label>Tiempo entre trabajos</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
+<div><label>¿Con cuánta anticipación pueden reservar?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
+<div><label>Método de contacto principal</label><select name="preferred_contact" required><option value="email">Correo electrónico</option><option value="text">Mensaje de texto</option><option value="whatsapp">WhatsApp</option></select></div>
+<div class="full"><label>Opciones de contacto para clientes</label><div class="checks">
+<label class="check"><input type="checkbox" name="contact_email" checked><span>Correo electrónico</span></label>
+<label class="check"><input type="checkbox" name="contact_text"><span>Mensaje de texto</span></label>
+<label class="check"><input type="checkbox" name="contact_whatsapp"><span>WhatsApp</span></label>
+</div></div>
+<div><label>Correo del negocio que verán tus clientes</label><input type="email" name="owner_email" required></div>
+<div class="full"><label>Métodos de pago</label><div class="checks">
+<label class="check"><input type="checkbox" name="payment_cash"><span>Efectivo</span></label>
+<label class="check"><input type="checkbox" name="payment_check"><span>Cheque</span></label>
+<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(U.S.)</span></span></label>
+<label class="check"><input type="checkbox" name="payment_other"><span>Otro</span></label>
+</div></div>
+<div class="full" style="margin-top:16px"><label>Política de cancelación o cambios</label><textarea name="cancellation_policy" required placeholder="Ejemplo: Avísanos con 24 horas para cancelar o cambiar la cita."></textarea></div>
+</div>
+</section>
+
+<section class="section">
+<h2>5. Notas finales</h2><p>¿Hay algo que debamos saber antes de comenzar?</p>
+<div class="grid">
+<div><label>Fecha deseada de lanzamiento</label><input type="date" name="target_launch_date"></div>
+<div><label>Estado de tu Cleaning App</label><select name="app_setup_needed" required><option value="new">Cuenta nueva — configúrenla por mí</option><option value="review">Ya creé mi cuenta — configúrenla</option></select></div>
+<div class="full"><label>¿Algo más?</label><textarea name="notes"></textarea></div>
+</div>
+</section>
+
+<div class="actions">
+<button class="btn" id="submitBtn" type="submit">Enviar formulario</button>
+<div class="status" id="status" aria-live="polite"></div>
+</div>
+</form>
+</main>
+
+<script>
+const endpoint="https://hook.us2.make.com/71gescpt0jssc2102yon8qhubqbau1rj";
+const form=document.getElementById("intakeForm"), statusEl=document.getElementById("status"), btn=document.getElementById("submitBtn");
+const purchaseSession=new URLSearchParams(window.location.search).get("session_id")||"";
+const purchaseVerifyEndpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/verify-booking-page-purchase";
+function bool(fd,k){return fd.has(k);}
+async function verifyAndTrackPurchase(){
+  if(!purchaseSession) return;
+  try{
+    const response=await fetch(purchaseVerifyEndpoint,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({session_id:purchaseSession})
+    });
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.verified||!data.transaction_id) return;
+    const dedupeKey="tle_ga_purchase_"+data.transaction_id;
+    if(localStorage.getItem(dedupeKey)==="1") return;
+    window.tleTrackEvent?.("purchase",{
+      transaction_id:data.transaction_id,
+      value:Number(data.value||39.99),
+      currency:String(data.currency||"USD"),
+      items:[{
+        item_id:"booking_page_cleaning_app",
+        item_name:"Booking Page + Cleaning App",
+        price:Number(data.value||39.99),
+        quantity:1
+      }]
+    });
+    localStorage.setItem(dedupeKey,"1");
+  }catch{}
+}
+verifyAndTrackPurchase();
+if(!purchaseSession){
+  btn.disabled=true;
+  statusEl.textContent="Abre este formulario desde el enlace de tu correo de confirmación de pago.";
+}
+form.addEventListener("submit",async(e)=>{
+ e.preventDefault(); btn.disabled=true; statusEl.textContent="Enviando…";
+ const fd=new FormData(form);
+ const obj={};
+ for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
+ ["payment_cash","payment_check","payment_zelle","payment_other","contact_email","contact_text","contact_whatsapp"].forEach(k=>obj[k]=bool(fd,k));
+ obj.booking_enabled=true;
+ obj.quote_enabled=true;
+ obj.cleaning_app_access_email=obj.app_account_email||obj.email;
+ obj.business_phone=obj.phone;
+ obj.business_time_zone=obj.time_zone;
+ obj.customer_price_currency=obj.currency_code;
+ obj.services_pricing_duration=obj.services;
+ obj.addons_pricing_extra_time=obj.add_ons;
+ obj.booking_availability=obj.availability;
+ obj.business_hours_to_display=obj.business_hours_display;
+ obj.travel_buffer_time=obj.buffer_time;
+ obj.how_far_ahead_clients_can_book=obj.booking_window;
+ obj.customer_contact_methods=[
+   obj.contact_email?"Email":"",
+   obj.contact_text?"Text":"",
+   obj.contact_whatsapp?"WhatsApp":""
+ ].filter(Boolean).join(", ");
+ obj.accepted_payment_methods=[
+   obj.payment_cash?"Cash":"",
+   obj.payment_check?"Check":"",
+   obj.payment_zelle?"Zelle":"",
+   obj.payment_other?"Other":""
+ ].filter(Boolean).join(", ");
+ obj.cancellation_rescheduling_policy=obj.cancellation_policy;
+ if(!obj.customer_contact_methods){
+   statusEl.textContent="Elige al menos una opción de contacto para clientes.";
+   btn.disabled=false;
+   return;
+ }
+ if(!obj.accepted_payment_methods){
+   statusEl.textContent="Elige al menos un método de pago.";
+   btn.disabled=false;
+   return;
+ }
+ obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
+ if(!obj.stripe_session_id){
+   statusEl.textContent="Este formulario debe abrirse desde el enlace de confirmación de tu compra.";
+   btn.disabled=false;
+   return;
+ }
+ obj.submitted_at=new Date().toISOString();
+ const payload={type:"tle.booking_app_intake",data:{object:obj}};
+ try{
+   const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   if(!r.ok) throw new Error("Submission failed");
+   try{window.tleTrackEvent?.("intake_complete",{product:"Booking Page + Cleaning App"});}catch{}
+   form.reset();
+   statusEl.textContent="✓ Formulario recibido. Usaremos esta información para preparar tu Booking Page + Cleaning App.";
+   window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+ }catch(err){
+   statusEl.textContent="No pudimos enviar el formulario. Escríbenos a hello@thelaunchera.com.";
+ }finally{btn.disabled=false;}
+});
+</script>
+</body>
+</html>
