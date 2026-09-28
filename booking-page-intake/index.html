@@ -27,93 +27,93 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <header class="top"><div class="wrap"><span class="brand">THE LAUNCH ERA</span><span class="lang">Booking Page + Cleaning App</span></div></header>
 <main class="wrap">
 <section class="hero">
-<div class="kicker">Client Intake / Formulario del cliente</div>
-<h1>Let’s build your Booking Page — and connect the system behind it. / Vamos a crear tu Booking Page y conectar el sistema detrás.</h1>
-<p>Please complete this once after purchasing Booking Page + Cleaning App. You can answer in English, Spanish, Portuguese or French. / Completa este formulario una sola vez después de tu compra. Puedes responder en inglés, español, portugués o francés.</p>
-<div class="note"><strong>What happens next / Qué pasa después:</strong> we configure your Cleaning App, create your Booking and Quote links, connect both to your professional Booking Page, test the flow, and deliver <strong>one final page link</strong> for you to share with customers. / Configuramos tu Cleaning App, creamos tus enlaces de Reserva y Cotización, conectamos ambos a tu Booking Page, probamos el flujo y te entregamos <strong>un solo enlace final</strong> para compartir con tus clientes. <strong>Production time / Tiempo de producción: 4 business days / 4 días hábiles after we receive the complete form and required assets / después de recibir el formulario completo y los materiales necesarios.</strong></div>
+<div class="kicker">Client Intake</div>
+<h1>Let’s build your Booking Page — and connect the system behind it.</h1>
+<p>Please complete this once after purchasing Booking Page + Cleaning App. This form is for clients who selected English at checkout.</p>
+<div class="note"><strong>What happens next:</strong> we configure your Cleaning App, create your Booking and Quote links, connect both to your professional Booking Page, test the flow, and deliver <strong>one final page link</strong> for you to share with customers. <strong>Production time: 4 business days after we receive the complete form and required assets.</strong></div>
 </section>
 
 <form id="intakeForm">
 <input type="hidden" name="type" value="tle.booking_app_intake">
 
 <section class="section">
-<h2>1. Business basics / Información del negocio</h2><p>Tell us the essentials. / Cuéntanos lo esencial.</p>
+<h2>1. Business basics</h2><p>Tell us the essentials.</p>
 <div class="grid">
-<div><label>Preferred language / Idioma</label><select name="language" required><option value="english">English</option><option value="spanish">Español</option><option value="portuguese">Português</option><option value="french">Français</option></select></div>
-<div><label>Your name / Tu nombre</label><input name="full_name" required></div>
-<div><label>Business name / Nombre del negocio</label><input name="business_name" required></div>
-<div><label>Email / Correo electrónico</label><input type="email" name="email" required></div>
-<div><label>Phone / Teléfono</label><input name="phone" required></div>
-<div><label>Cleaning App account email / Correo de tu cuenta de Cleaning App</label><input type="email" name="app_account_email" required placeholder="Use the email you want for app access / Usa el correo que quieres usar para la app"></div>
-<div><label>Business time zone / Zona horaria</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
-<div><label>Customer pricing currency / Moneda para tus precios</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
-<div class="full"><label>Service areas / Áreas de servicio</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
+<input type="hidden" name="language" value="english">
+<div><label>Your name</label><input name="full_name" required></div>
+<div><label>Business name</label><input name="business_name" required></div>
+<div><label>Email</label><input type="email" name="email" required></div>
+<div><label>Phone</label><input name="phone" required></div>
+<div><label>Cleaning App account email</label><input type="email" name="app_account_email" required placeholder="Use the email you want for app access"></div>
+<div><label>Business time zone</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
+<div><label>Customer pricing currency</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
+<div class="full"><label>Service areas</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
 <div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
 <div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
 </div>
 </section>
 
 <section class="section">
-<h2>2. Booking Page / Página de reservas</h2><p>What your clients should see first / Lo que verán tus clientes primero</p>
+<h2>2. Booking Page</h2><p>What your clients should see first.</p>
 <div class="grid">
-<div><label>Existing domain / Dominio actual</label><input name="existing_domain" placeholder="Leave blank if none / Déjalo vacío si no tienes"></div>
-<div><label>Brand colors / Colores de marca</label><input name="brand_colors" placeholder="Names or hex codes / Nombres o códigos hex"></div>
-<div class="full"><label>Logo or brand files link / Link de logo y archivos</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
-<div class="full"><label>Photo folder link / Link de fotos</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
-<div class="full"><label>Short About / Sobre el negocio</label><textarea name="about_business" placeholder="What should a new client know? / ¿Qué debería saber un cliente nuevo?"></textarea></div>
-<div class="full"><label>Reviews / Reseñas</label><textarea name="reviews" placeholder="Paste 2–4 reviews or a link / Pega 2–4 reseñas o un enlace"></textarea></div>
-<div class="full"><label>Main message or special offer / Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Optional / Opcional"></textarea></div>
-<div class="full"><label>Business hours to show on your page / Horario que quieres mostrar en tu página</label><textarea name="business_hours_display" required placeholder="Example: Mon–Fri 8 AM–5 PM; Sat 8 AM–12 PM"></textarea></div>
+<div><label>Existing domain</label><input name="existing_domain" placeholder="Leave blank if none"></div>
+<div><label>Brand colors</label><input name="brand_colors" placeholder="Names or hex codes"></div>
+<div class="full"><label>Logo or brand files link</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
+<div class="full"><label>Photo folder link</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
+<div class="full"><label>Short About</label><textarea name="about_business" placeholder="What should a new client know?"></textarea></div>
+<div class="full"><label>Reviews</label><textarea name="reviews" placeholder="Paste 2–4 reviews or a link"></textarea></div>
+<div class="full"><label>Main message or special offer</label><textarea name="main_offer" placeholder="Optional"></textarea></div>
+<div class="full"><label>Business hours to show on your page</label><textarea name="business_hours_display" required placeholder="Example: Mon–Fri 8 AM–5 PM; Sat 8 AM–12 PM"></textarea></div>
 </div>
 </section>
 
 <section class="section">
-<h2>3. Services + pricing / Servicios + precios</h2><p>This guides both your Booking Page and Cleaning App. / Esto nos ayuda a configurar tu Booking Page y la Cleaning App.</p>
+<h2>3. Services + pricing</h2><p>This guides both your Booking Page and Cleaning App.</p>
 <div class="grid">
-<div class="full"><label>Cleaning services / Servicios</label><textarea name="services" required placeholder="List one per line: Service — Price OR Quote Required — Approx. duration&#10;Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — Quote Required — 4 hours"></textarea></div>
-<div><label>Default pricing style / Tipo de precio</label><select name="pricing_style" required><option value="fixed">Fixed price / Precio fijo</option><option value="starting_at">Starting at / Desde</option><option value="quote_only">Quote only / Solo cotización</option><option value="mixed">Different by service / Depende del servicio</option></select></div>
-<div><label>Typical service duration / Duración</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
-<div class="full"><label>Add-ons / Extras</label><textarea name="add_ons" placeholder="List each add-on with price and extra time. Example: Inside oven — +$35 — +30 min"></textarea></div>
+<div class="full"><label>Cleaning services</label><textarea name="services" required placeholder="List one per line: Service — Price OR Quote Required — Approx. duration&#10;Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — Quote Required — 4 hours"></textarea></div>
+<div><label>Default pricing style</label><select name="pricing_style" required><option value="fixed">Fixed price</option><option value="starting_at">Starting at</option><option value="quote_only">Quote only</option><option value="mixed">Different by service</option></select></div>
+<div><label>Typical service duration</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
+<div class="full"><label>Add-ons</label><textarea name="add_ons" placeholder="List each add-on with price and extra time. Example: Inside oven — +$35 — +30 min"></textarea></div>
 </div>
 </section>
 
 <section class="section">
-<h2>4. Booking + quote / Reservas + cotizaciones</h2><p>We connect both paths for you: <strong>Book a Cleaning</strong> and <strong>Request a Quote</strong>. / Conectamos las dos opciones por ti: <strong>Reservar una limpieza</strong> y <strong>Pedir una cotización</strong>.</p>
+<h2>4. Booking + quote</h2><p>We connect both paths for you: <strong>Book a Cleaning</strong> and <strong>Request a Quote</strong>.</p>
 <input type="hidden" name="booking_enabled" value="true">
 <input type="hidden" name="quote_enabled" value="true">
 <div class="grid" style="margin-top:16px">
-<div class="full"><label>Booking availability / Disponibilidad para reservar</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
-<div><label>Minimum booking notice / Aviso mínimo</label><input name="minimum_booking_notice" required placeholder="Example: 24 hours / 24 horas"></div>
-<div><label>Travel / buffer time between jobs / Tiempo entre trabajos</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
-<div><label>How far ahead can clients book? / ¿Con cuánta anticipación pueden reservar?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
-<div><label>Primary contact method / Contacto principal</label><select name="preferred_contact" required><option value="email">Email / Correo electrónico</option><option value="text">Text / Mensaje de texto</option><option value="whatsapp">WhatsApp</option></select></div>
-<div class="full"><label>Customer contact options to offer / Opciones de contacto para clientes</label><div class="checks">
-<label class="check"><input type="checkbox" name="contact_email" checked><span>Email / Correo</span></label>
-<label class="check"><input type="checkbox" name="contact_text"><span>Text / Mensaje</span></label>
+<div class="full"><label>Booking availability</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
+<div><label>Minimum booking notice</label><input name="minimum_booking_notice" required placeholder="Example: 24 hours"></div>
+<div><label>Travel / buffer time between jobs</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
+<div><label>How far ahead can clients book?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
+<div><label>Primary contact method</label><select name="preferred_contact" required><option value="email">Email</option><option value="text">Text</option><option value="whatsapp">WhatsApp</option></select></div>
+<div class="full"><label>Customer contact options to offer</label><div class="checks">
+<label class="check"><input type="checkbox" name="contact_email" checked><span>Email</span></label>
+<label class="check"><input type="checkbox" name="contact_text"><span>Text</span></label>
 <label class="check"><input type="checkbox" name="contact_whatsapp"><span>WhatsApp</span></label>
 </div></div>
-<div><label>Customer-facing business email / Correo que verán tus clientes</label><input type="email" name="owner_email" required></div>
-<div class="full"><label>Payment methods offered / Métodos de pago</label><div class="checks">
-<label class="check"><input type="checkbox" name="payment_cash"><span>Cash / Efectivo</span></label>
-<label class="check"><input type="checkbox" name="payment_check"><span>Check / Cheque</span></label>
+<div><label>Customer-facing business email</label><input type="email" name="owner_email" required></div>
+<div class="full"><label>Payment methods offered</label><div class="checks">
+<label class="check"><input type="checkbox" name="payment_cash"><span>Cash</span></label>
+<label class="check"><input type="checkbox" name="payment_check"><span>Check</span></label>
 <label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(U.S.)</span></span></label>
-<label class="check"><input type="checkbox" name="payment_other"><span>Other / Otro</span></label>
+<label class="check"><input type="checkbox" name="payment_other"><span>Other</span></label>
 </div></div>
-<div class="full" style="margin-top:16px"><label>Cancellation / rescheduling policy / Política de cancelación o cambios</label><textarea name="cancellation_policy" required placeholder="Example: Please give 24 hours notice to cancel or reschedule."></textarea></div>
+<div class="full" style="margin-top:16px"><label>Cancellation / rescheduling policy</label><textarea name="cancellation_policy" required placeholder="Example: Please give 24 hours notice to cancel or reschedule."></textarea></div>
 </div>
 </section>
 
 <section class="section">
-<h2>5. Final notes / Notas finales</h2><p>Anything we should know before building? / ¿Hay algo que debamos saber antes de comenzar?</p>
+<h2>5. Final notes</h2><p>Anything we should know before building?</p>
 <div class="grid">
-<div><label>Target launch date / Fecha deseada</label><input type="date" name="target_launch_date"></div>
-<div><label>Cleaning App status / Estado de tu Cleaning App</label><select name="app_setup_needed" required><option value="new">New account — set it up for me / Cuenta nueva — configúrenla por mí</option><option value="review">I already created my account — configure it / Ya creé mi cuenta — configúrenla</option></select></div>
-<div class="full"><label>Anything else? / ¿Algo más?</label><textarea name="notes"></textarea></div>
+<div><label>Target launch date</label><input type="date" name="target_launch_date"></div>
+<div><label>Cleaning App status</label><select name="app_setup_needed" required><option value="new">New account — set it up for me</option><option value="review">I already created my account — configure it</option></select></div>
+<div class="full"><label>Anything else?</label><textarea name="notes"></textarea></div>
 </div>
 </section>
 
 <div class="actions">
-<button class="btn" id="submitBtn" type="submit">Submit Form / Enviar formulario</button>
+<button class="btn" id="submitBtn" type="submit">Submit Form</button>
 <div class="status" id="status" aria-live="polite"></div>
 </div>
 </form>
@@ -154,10 +154,10 @@ async function verifyAndTrackPurchase(){
 verifyAndTrackPurchase();
 if(!purchaseSession){
   btn.disabled=true;
-  statusEl.textContent="Open this form from the link in your payment confirmation email. / Abre este formulario desde el enlace de tu correo de confirmación de pago.";
+  statusEl.textContent="Open this form from the link in your payment confirmation email.";
 }
 form.addEventListener("submit",async(e)=>{
- e.preventDefault(); btn.disabled=true; statusEl.textContent="Sending… / Enviando…";
+ e.preventDefault(); btn.disabled=true; statusEl.textContent="Sending…";
  const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
@@ -187,18 +187,18 @@ form.addEventListener("submit",async(e)=>{
  ].filter(Boolean).join(", ");
  obj.cancellation_rescheduling_policy=obj.cancellation_policy;
  if(!obj.customer_contact_methods){
-   statusEl.textContent="Choose at least one customer contact option. / Elige al menos una opción de contacto para clientes.";
+   statusEl.textContent="Choose at least one customer contact option.";
    btn.disabled=false;
    return;
  }
  if(!obj.accepted_payment_methods){
-   statusEl.textContent="Choose at least one payment method. / Elige al menos un método de pago.";
+   statusEl.textContent="Choose at least one payment method.";
    btn.disabled=false;
    return;
  }
  obj.stripe_session_id=new URLSearchParams(window.location.search).get("session_id")||"";
  if(!obj.stripe_session_id){
-   statusEl.textContent="This form must be opened from your purchase confirmation link. / Este formulario debe abrirse desde el enlace de confirmación de tu compra.";
+   statusEl.textContent="This form must be opened from your purchase confirmation link.";
    btn.disabled=false;
    return;
  }
@@ -209,10 +209,10 @@ form.addEventListener("submit",async(e)=>{
    if(!r.ok) throw new Error("Submission failed");
    try{window.tleTrackEvent?.("intake_complete",{product:"Booking Page + Cleaning App"});}catch{}
    form.reset();
-   statusEl.textContent="✓ Form received. We’ll use this to build your Booking Page + Cleaning App setup. / Formulario recibido. Usaremos esta información para preparar tu Booking Page + Cleaning App.";
+   statusEl.textContent="✓ Form received. We’ll use this to build your Booking Page + Cleaning App setup.";
    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
  }catch(err){
-   statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com. / No pudimos enviar el formulario. Escríbenos a hello@thelaunchera.com.";
+   statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com.";
  }finally{btn.disabled=false;}
 });
 </script>
