@@ -152,6 +152,36 @@ header{background:rgba(250,248,243,.96)}
 
 </style>
 <script src="../assets/analytics.js"></script>
+<style>
+/* 2026-09-28 — Retina/live-demo image clarity + device-specific layout */
+.hero-app-photo{background:#FAF8F3}
+@media(min-width:1100px){
+  .app-stage{grid-template-columns:.82fr 1.18fr;min-height:610px}
+  .copy{padding:52px 42px}
+  .mini-app{padding:24px 24px 24px 0}
+  .hero-app-photo iframe{min-height:430px}
+  .desktop-gallery-track{grid-auto-columns:minmax(360px,430px)}
+}
+@media(min-width:601px) and (max-width:1099px){
+  .app-stage{grid-template-columns:1fr;min-height:auto}
+  .copy{padding:42px 34px 22px}
+  .mini-app{padding:0 26px 30px}
+  .hero-app-photo iframe{aspect-ratio:1365/860}
+  .desktop-gallery-track{grid-auto-columns:minmax(340px,390px)}
+}
+@media(max-width:600px){
+  .hero{padding-top:8px}
+  .copy{padding:28px 20px 18px}
+  .copy h1{font-size:clamp(40px,11vw,50px);line-height:1.03}
+  .copy p{margin-bottom:0}
+  .mini-app{padding:0 10px 20px}
+  .hero-app-photo{padding:5px;box-shadow:5px 5px 0 var(--yellow)}
+  .hero-app-photo iframe{border-radius:14px;aspect-ratio:1365/930}
+  .desktop-gallery{padding:46px 0}
+  .desktop-gallery-track{grid-auto-columns:min(88vw,350px)}
+  .desktop-shot iframe{aspect-ratio:1365/930}
+}
+</style>
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="../">THE LAUNCH ERA · CLEANING APP</a><div class="nav-right"><a class="nav-link" href="../help/" data-i18n="help">Help</a><a class="nav-link" href="mailto:hello@thelaunchera.com" data-i18n="contact">Contact</a><button class="pill yellow" id="langToggle" type="button">ES</button><a class="pill dark" href="https://app.thelaunchera.com/" data-i18n="openApp">Open App</a></div></div></header>
@@ -206,33 +236,3 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.tar
 </script>
 </body>
 </html>
-<style>
-/* 2026-09-28 — Retina/live-demo image clarity + device-specific layout */
-.hero-app-photo{background:#FAF8F3}
-@media(min-width:1100px){
-  .app-stage{grid-template-columns:.82fr 1.18fr;min-height:610px}
-  .copy{padding:52px 42px}
-  .mini-app{padding:24px 24px 24px 0}
-  .hero-app-photo iframe{min-height:430px}
-  .desktop-gallery-track{grid-auto-columns:minmax(360px,430px)}
-}
-@media(min-width:601px) and (max-width:1099px){
-  .app-stage{grid-template-columns:1fr;min-height:auto}
-  .copy{padding:42px 34px 22px}
-  .mini-app{padding:0 26px 30px}
-  .hero-app-photo iframe{aspect-ratio:1365/860}
-  .desktop-gallery-track{grid-auto-columns:minmax(340px,390px)}
-}
-@media(max-width:600px){
-  .hero{padding-top:8px}
-  .copy{padding:28px 20px 18px}
-  .copy h1{font-size:clamp(40px,11vw,50px);line-height:1.03}
-  .copy p{margin-bottom:0}
-  .mini-app{padding:0 10px 20px}
-  .hero-app-photo{padding:5px;box-shadow:5px 5px 0 var(--yellow)}
-  .hero-app-photo iframe{border-radius:14px;aspect-ratio:1365/930}
-  .desktop-gallery{padding:46px 0}
-  .desktop-gallery-track{grid-auto-columns:min(88vw,350px)}
-  .desktop-shot iframe{aspect-ratio:1365/930}
-}
-</style>
