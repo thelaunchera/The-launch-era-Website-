@@ -68,6 +68,27 @@ footer{border-top:1px solid var(--line);padding:28px 0 100px;font-size:12px}.foo
 .app-stage:before,.float-note{display:none!important}
 .app-stage{background:#F2EFE9}
 .offer-visual,.device{box-shadow:none}
+
+/* 2026-09-28 — real desktop app gallery */
+.desktop-gallery{padding:54px 0 22px;background:#fff;border-block:1px solid var(--line);overflow:hidden}
+.desktop-gallery-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:20px}
+.desktop-gallery-head h2{font-family:Prompt,Arial,sans-serif;font-size:clamp(36px,4.5vw,54px);line-height:1.04;letter-spacing:-.03em;margin:8px 0 0;font-weight:600}
+.desktop-gallery-head p{max-width:500px;color:var(--muted);line-height:1.6;margin:0}
+.desktop-gallery-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,400px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.desktop-gallery-track::-webkit-scrollbar{display:none}
+.desktop-shot{scroll-snap-align:start;border:1px solid var(--line);border-radius:20px;background:#F7F4EE;overflow:hidden}
+.desktop-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.desktop-shot div{padding:14px 16px 16px}
+.desktop-shot small{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.desktop-shot h3{font-size:20px;line-height:1.1;margin:6px 0 0;font-weight:600}
+@media(max-width:600px){
+ .desktop-gallery{padding:42px 0 18px}
+ .desktop-gallery-head{display:block}
+ .desktop-gallery-head h2{font-size:32px}
+ .desktop-gallery-head p{font-size:14px;margin-top:8px}
+ .desktop-gallery-track{grid-auto-columns:min(86vw,330px);margin-right:-14px;padding-right:14px}
+}
+
 </style>
 <script src="../assets/analytics.js"></script>
 </head>
@@ -80,6 +101,20 @@ footer{border-top:1px solid var(--line);padding:28px 0 100px;font-size:12px}.foo
 <div class="float-note one" data-i18n="n1">✓ Booking confirmed</div><div class="float-note two" data-i18n="n2">Quote ready to send</div><div class="float-note three" data-i18n="n3">Invoice marked paid</div>
 </div></section>
 <div class="ticker"><div class="ticker-track"><div class="ticker-group"><span>BOOKINGS</span><span>QUOTES</span><span>CLIENTS</span><span>JOBS</span><span>CALENDAR</span><span>INVOICES</span><span>TEAM</span></div><div class="ticker-group" aria-hidden="true"><span>BOOKINGS</span><span>QUOTES</span><span>CLIENTS</span><span>JOBS</span><span>CALENDAR</span><span>INVOICES</span><span>TEAM</span></div></div></div>
+
+<section class="desktop-gallery reveal" id="desktop-views"><div class="wrap">
+  <div class="desktop-gallery-head">
+    <div><div class="eyebrow">Real Cleaning App screens</div><h2>See the desktop view before you start.</h2></div>
+    <p>Real product views with demo data. Swipe through the parts you use to run the day.</p>
+  </div>
+  <div class="desktop-gallery-track" aria-label="Cleaning App desktop views">
+    <article class="desktop-shot"><img src="../assets/cleaning-app-gallery-1.webp" alt="Cleaning App Today dashboard desktop view" loading="lazy"><div><small>Today</small><h3>Your day at a glance.</h3></div></article>
+    <article class="desktop-shot"><img src="../assets/cleaning-app-gallery-2.webp" alt="Cleaning App calendar jobs and mileage desktop view" loading="lazy"><div><small>Calendar + Mileage</small><h3>Schedule and travel together.</h3></div></article>
+    <article class="desktop-shot"><img src="../assets/cleaning-app-gallery-3.webp" alt="Cleaning App clients and invoices desktop view" loading="lazy"><div><small>Clients + Invoices</small><h3>Clients and payments in one view.</h3></div></article>
+    <article class="desktop-shot"><img src="../assets/cleaning-app-gallery-4.webp" alt="Cleaning App services desktop view" loading="lazy"><div><small>Services</small><h3>Pricing and add-ons organized.</h3></div></article>
+    <article class="desktop-shot"><img src="../assets/cleaning-app-gallery-5.webp" alt="Cleaning App supplies inventory desktop view" loading="lazy"><div><small>Supplies</small><h3>Know what is running low.</h3></div></article>
+  </div>
+</div></section>
 <section class="quick reveal"><div class="wrap"><div class="quick-head"><div><div class="eyebrow" data-i18n="flowEyebrow">One client journey</div><h2 data-i18n="flowTitle">From inquiry to paid — without the scattered tabs.</h2></div><p data-i18n="flowCopy">The app follows what already happens in your business and keeps the next step visible.</p></div><div class="flow">
 <article class="flow-card"><small>01</small><div><h3 data-i18n="f1">Booking + quote links</h3><p data-i18n="f1c">Clients can book or request a quote without creating an account.</p></div></article>
 <article class="flow-card"><small>02</small><div><h3 data-i18n="f2">Client + job details</h3><p data-i18n="f2c">Addresses, notes and scheduled work stay with the right client.</p></div></article>
