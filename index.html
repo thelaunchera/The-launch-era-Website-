@@ -447,6 +447,13 @@ header{background:rgba(251,250,246,.95);border-color:var(--studio-line)}
  .home-final{padding-block:82px}
 }
 </style>
+<style>
+/* 2026-09-29 — make service discovery targets obvious and tappable */
+.service-expand{scroll-margin-top:96px;position:relative}
+.service-expand:target{outline:3px solid var(--tle-purple);outline-offset:8px;background:var(--tle-purple-pale)}
+#content-details:target{background:var(--tle-yellow-soft)}
+@media(max-width:620px){.service-expand{scroll-margin-top:76px}.service-expand:target{outline-offset:4px}}
+</style>
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="#top">THE LAUNCH ERA</a><div class="nav-links"><a href="#how">How it works</a><a href="#included">What's included</a><a href="#app-bonus">Cleaning App</a><a href="help/">Help</a><a class="lang" href="es/">ES</a><a class="btn dark nav-cta" href="booking-checkout/">Get Booking Page</a></div></div></header>
@@ -481,16 +488,16 @@ header{background:rgba(251,250,246,.95);border-color:var(--studio-line)}
 <section class="offer-path"><div class="wrap">
  <div class="story-head compact"><span>03 / START WITH THE LEAK</span><h2>You don’t need every service. You need the right next move.</h2></div>
  <div class="offer-row">
-  <article id="audit-details"><div class="offer-num">A</div><div><small>IF PEOPLE SEE YOU BUT DON’T TRUST YET</small><h3>Instagram Audit</h3><p>Find what is making your profile harder to understand, trust or act on.</p><strong>$20</strong></div><a href="#audit-details">See the Audit →</a></article>
-  <article><div class="offer-num">B</div><div><small>IF YOUR MARKETING IS INCONSISTENT</small><h3>Monthly Content System</h3><p>Strategic content built to make your offer clearer and keep your business visible.</p></div><a href="#content">See content options →</a></article>
+  <article id="audit-details" class="service-expand"><div class="offer-num">A</div><div><small>IF PEOPLE SEE YOU BUT DON’T TRUST YET</small><h3>Instagram Audit</h3><p>Find what is making your profile harder to understand, trust or act on.</p><strong>$20</strong></div><a href="#audit-details">See the Audit →</a></article>
+  <article id="content-details" class="service-expand"><div class="offer-num">B</div><div><small>IF YOUR MARKETING IS INCONSISTENT</small><h3>Monthly Content System</h3><p>Strategic content built to make your offer clearer and keep your business visible.</p></div><a href="#content-details">See content options →</a></article>
   <article class="featured-row"><div class="offer-num">C</div><div><small>IF INQUIRIES GET MESSY AFTER THEY ARRIVE</small><h3>Cleaning App</h3><p>Keep quotes, bookings, clients, jobs and invoices moving in one organized workspace.</p><strong>30 days free · then $5.99/month</strong></div><a href="cleaning-app/">See the real app →</a></article>
   <article><div class="offer-num">D</div><div><small>IF FOLLOW-UP OR ADMIN IS THE BOTTLENECK</small><h3>Automation + Support</h3><p>Reduce repetitive manual work after you know exactly where the process is breaking.</p></div><a href="automation/">Explore automation →</a></article>
  </div>
 </div></section>
 
-<section class="content-editorial" id="content"><div id="content-details"></div><div class="wrap content-grid">
+<section class="content-editorial" id="content"><div class="wrap content-grid">
  <div><span>04 / CONTENT</span><h2>Content should do more than keep your feed active.</h2></div>
- <div><p>It should help the right cleaning client understand what you do, trust the business and know what to do next. That is the job of the Monthly Content System.</p><a class="studio-btn secondary" href="#content-details">Explore Monthly Content</a></div>
+ <div><p>It should help the right cleaning client understand what you do, trust the business and know what to do next. That is the job of the Monthly Content System.</p><a class="studio-btn secondary" href="#content-details">See Content Options</a></div>
 </div></section>
 
 <section class="founder-section"><div class="wrap founder-grid">
