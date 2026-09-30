@@ -33,24 +33,49 @@
     if (!steps.length) return;
     const bar=form.querySelector("[data-quiz-bar]");
     const label=form.querySelector("[data-quiz-step-label]");
+    const thankYou=form.querySelector("[data-quiz-thankyou]");
     let current=0;
+    let autoTimer=null;
     const lang=form.dataset.lang==="es"?"es":"en";
 
-    function show(index) {
+    function show(index, smooth=true) {
       current=Math.max(0,Math.min(index,steps.length-1));
-      steps.forEach((step,i)=>{ step.hidden=i!==current; step.classList.toggle("is-active",i===current); });
-      if (bar) bar.style.width=((current+1)/steps.length*100)+"%";
-      if (label) label.textContent=lang==="es" ? `Paso ${current+1} de ${steps.length}` : `Step ${current+1} of ${steps.length}`;
-      form.scrollIntoView({behavior:"smooth",block:"center"});
+      steps.forEach((step,i)=>{
+        step.hidden=i!==current;
+        step.classList.toggle("is-active",i===current);
+      });
+      if(bar) bar.style.width=((current+1)/steps.length*100)+"%";
+      if(label) label.textContent=lang==="es"
+        ? `Pregunta ${current+1} de ${steps.length}`
+        : `Question ${current+1} of ${steps.length}`;
+      if(smooth) form.scrollIntoView({behavior:"smooth",block:"center"});
     }
-    form.querySelectorAll("[data-quiz-next]").forEach((btn)=>btn.addEventListener("click",()=>{
-      const required=[...steps[current].querySelectorAll("[required]")];
-      const invalid=required.find(el=>!el.checkValidity());
-      if (invalid) { invalid.reportValidity(); return; }
-      show(current+1);
+
+    form.querySelectorAll("[data-quiz-auto] input[type='radio']").forEach((radio)=>{
+      radio.addEventListener("change",()=>{
+        if(autoTimer) clearTimeout(autoTimer);
+        autoTimer=setTimeout(()=>show(current+1),260);
+      });
+    });
+
+    form.querySelectorAll("[data-quiz-back]").forEach((btn)=>btn.addEventListener("click",()=>{
+      if(autoTimer) clearTimeout(autoTimer);
+      show(current-1);
     }));
-    form.querySelectorAll("[data-quiz-back]").forEach((btn)=>btn.addEventListener("click",()=>show(current-1)));
-    show(0);
+
+    form._showQuizThankYou=(name,emailSent)=>{
+      form.querySelectorAll("[data-quiz-step],[data-quiz-progress]").forEach(el=>el.hidden=true);
+      if(!thankYou) return;
+      const firstName=String(name||"").trim().split(/\s+/)[0];
+      const nameEl=thankYou.querySelector("[data-thankyou-name]");
+      if(nameEl && firstName) nameEl.textContent=firstName;
+      const emailNote=thankYou.querySelector("[data-thankyou-email]");
+      if(emailNote && !emailSent) emailNote.hidden=true;
+      thankYou.hidden=false;
+      thankYou.scrollIntoView({behavior:"smooth",block:"center"});
+    };
+
+    show(0,false);
   }
 
   function init(form) {
@@ -65,14 +90,20 @@
       const fd=new FormData(form);
       const service=String(fd.get("service_interest")||"").trim();
       const help=[...fd.getAll("help_needed").map(String).filter(Boolean)];
-      if (service) help.push(service);
-      const source=form.dataset.source || (form.closest("#contact-dialog") ? (lang==="es"?"contact_modal_es":"contact_modal") : (lang==="es"?"main_website_es":"main_website"));
+      const goal=String(fd.get("desired_outcome")||"").trim();
+      if(goal) help.push("Goal: "+goal);
+      if(service) help.push(service);
+
+      const source=form.dataset.source || (form.closest("#contact-dialog")
+        ? (lang==="es"?"contact_modal_es":"contact_modal")
+        : (lang==="es"?"main_website_es":"main_website"));
+
       const payload={
         name:fd.get("name"),
         business_name:fd.get("business_name"),
         email:fd.get("email"),
         phone:fd.get("phone"),
-        cleaning_type:fd.get("cleaning_type")||"",
+        cleaning_type:"",
         help_needed:[...new Set(help)],
         booking_method:fd.get("booking_method")||"",
         message:fd.get("message"),
@@ -83,24 +114,42 @@
         started_at:started
       };
 
-      if(status){status.textContent=lang==="es"?"Enviando…":"Sending…";status.className="contact-form-status is-working";}
+      if(status){
+        status.textContent=lang==="es"?"Enviando…":"Sending…";
+        status.className="contact-form-status is-working";
+      }
       if(submit) submit.disabled=true;
+
       try{
-        const response=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+        const response=await fetch(ENDPOINT,{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(payload)
+        });
         const data=await response.json().catch(()=>({}));
         if(!response.ok) throw new Error(data.error||(lang==="es"?"No se pudo enviar.":"Could not send."));
+
+        const submittedName=String(fd.get("name")||"");
         form.reset();
         started=Date.now();
-        if(status){
-          status.textContent=form.classList.contains("tle-lead-quiz")
-            ? (lang==="es"?"Listo. Recibimos tus respuestas.":"Got it. We received your answers.")
-            : (lang==="es"?"Gracias. Recibimos tu mensaje.":"Thanks. We received your message.");
+
+        if(form.classList.contains("tle-lead-quiz") && typeof form._showQuizThankYou==="function"){
+          form._showQuizThankYou(submittedName,Boolean(data.email_sent));
+          if(status){status.textContent="";status.className="contact-form-status";}
+        }else if(status){
+          status.textContent=lang==="es"?"Gracias. Recibimos tu mensaje.":"Thanks. We received your message.";
           status.className="contact-form-status is-success";
         }
       }catch(error){
-        if(status){status.textContent=error?.message||(lang==="es"?"Inténtalo de nuevo.":"Please try again.");status.className="contact-form-status is-error";}
-      }finally{if(submit) submit.disabled=false;}
+        if(status){
+          status.textContent=error?.message||(lang==="es"?"Inténtalo de nuevo.":"Please try again.");
+          status.className="contact-form-status is-error";
+        }
+      }finally{
+        if(submit) submit.disabled=false;
+      }
     });
   }
+
   document.querySelectorAll(".tle-contact-form").forEach(init);
 })();
