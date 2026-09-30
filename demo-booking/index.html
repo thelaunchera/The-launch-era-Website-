@@ -71,13 +71,39 @@
     #bookServices[hidden],#quoteServices[hidden],#bookServiceLabel[hidden],#quoteServiceLabel[hidden],#bookTimes[hidden],#quoteTimes[hidden],#quoteDateNote[hidden],#residentialCounters[hidden],#residentialPropertyField[hidden],#commercialDetails[hidden],#commercialCounters[hidden],#residentialExtras[hidden],#commercialExtras[hidden]{display:none!important}
 
   
-    .main-site-cta{width:min(1180px,calc(100% - 32px));margin:-34px auto 58px;padding:28px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#355d54);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 18px 42px rgba(41,70,64,.18)}
+    .main-site-cta{width:min(1180px,calc(100% - 32px));margin:0 auto 58px;padding:30px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#355d54);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 18px 42px rgba(41,70,64,.18);border:1px solid rgba(255,255,255,.08)}
     .main-site-cta-copy{max-width:720px}
     .main-site-cta .kicker{display:block;margin-bottom:7px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
     .main-site-cta h3{margin:0 0 7px;font-family:Prompt,Arial,sans-serif;font-size:clamp(26px,4vw,38px);line-height:1.04;letter-spacing:-.04em}
     .main-site-cta p{margin:0;color:rgba(255,255,255,.76);font-size:13px;line-height:1.5}
     .main-site-cta a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;background:var(--butter);color:var(--ink);text-decoration:none;font-size:13px;font-weight:900;white-space:nowrap}
     @media(max-width:700px){.main-site-cta{width:min(100% - 22px,1180px);margin:-20px auto 42px;padding:22px;display:grid}.main-site-cta a{width:100%}}
+
+  
+    .mobile-main-site-cta{display:none}
+    @media(max-width:700px){
+      .mobile-main-site-cta{
+        position:fixed;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        z-index:70;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:48px;
+        padding:0 16px;
+        border-radius:999px;
+        background:var(--butter);
+        color:var(--ink);
+        text-decoration:none;
+        font-size:13px;
+        font-weight:900;
+        box-shadow:0 12px 30px rgba(25,25,25,.18);
+        border:1px solid rgba(25,25,25,.08)
+      }
+      body{padding-bottom:74px}
+    }
 
   </style>
 </head>
@@ -239,6 +265,8 @@
   </main>
 
   <footer><div class="wrap"><strong>Demo Booking + Quote Page by The Launch Era</strong><br>Sample business, pricing, customer information and addresses. Photography sourced from Pexels.</div></footer>
+
+  <a class="mobile-main-site-cta" href="/" aria-label="See The Launch Era website">See The Launch Era →</a>
 
   <div class="success" id="success" role="dialog" aria-modal="true">
     <div class="success-card"><div class="success-check">✓</div><h3 id="successTitle">Request received.</h3><p id="successCopy">In a real Booking Page, this request can flow into the cleaning business system so the owner can review, schedule, follow up, and keep the job organized.</p><button id="closeSuccess">Back to demo</button></div>
