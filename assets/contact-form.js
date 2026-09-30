@@ -62,6 +62,31 @@
       });
     });
 
+    form.querySelectorAll("[data-quiz-multi]").forEach((group)=>{
+      const boxes=[...group.querySelectorAll('input[type="checkbox"]')];
+      const max=Number(group.dataset.max||3);
+      const step=group.closest("[data-quiz-step]");
+      const countEl=step?.querySelector("[data-quiz-multi-count]");
+      const nextBtn=step?.querySelector("[data-quiz-multi-next]");
+
+      function updateMulti(){
+        const selected=boxes.filter(box=>box.checked);
+        boxes.forEach(box=>{ box.disabled=!box.checked && selected.length>=max; });
+        if(countEl) countEl.textContent=lang==="es"
+          ? `${selected.length} de ${max} marcadas`
+          : `${selected.length} of ${max} selected`;
+        if(nextBtn) nextBtn.disabled=selected.length===0;
+      }
+
+      boxes.forEach(box=>box.addEventListener("change",updateMulti));
+      if(nextBtn) nextBtn.addEventListener("click",()=>{
+        const selected=boxes.filter(box=>box.checked);
+        if(!selected.length) return;
+        show(current+1);
+      });
+      updateMulti();
+    });
+
     form.querySelectorAll("[data-quiz-back]").forEach((btn)=>btn.addEventListener("click",()=>{
       if(autoTimer) clearTimeout(autoTimer);
       show(current-1);
