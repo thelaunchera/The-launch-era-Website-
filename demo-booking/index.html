@@ -61,6 +61,15 @@
     body.quote-mode .submit{background:var(--eucalyptus);color:var(--deep)}
     @media(max-width:620px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions button{width:100%}.request-mode-switch{margin-bottom:20px}.request-mode-btn{font-size:12px}}
 
+  
+    .service-path-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+    .service-path-label strong{font-size:13px;color:var(--ink)}
+    .service-path-label span{font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--deep);background:var(--eucalyptus2);border:1px solid #D9E9E4;border-radius:999px;padding:6px 9px}
+    .cleaning-type-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+    .cleaning-type-btn{min-height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;font-weight:850;color:var(--muted)}
+    .cleaning-type-btn.selected{background:var(--deep);border-color:var(--deep);color:#fff}
+    #commercialDetails[hidden],#residentialCounters[hidden]{display:none!important}
+
   </style>
 </head>
 <body>
@@ -99,13 +108,15 @@
           <div class="stepper"><div class="step active"></div><div class="step active"></div><div class="step active"></div><div class="step"></div></div>
 
           <section class="section">
-            <div class="section-label">01 · Service</div><h2>What can we help you with?</h2><p class="section-intro">Pick the service that best matches what your home needs today.</p>
+            <div class="section-label">01 · Service</div><h2 id="serviceTitle">Choose a bookable service.</h2><p class="section-intro" id="serviceIntro">These services can be booked directly with a visible sample price.</p>
+            <div class="service-path-label" id="bookServiceLabel"><strong>Book a Cleaning services</strong><span>Direct booking</span></div>
             <div class="services" id="bookServices">
               <button class="service-card selected" data-service="Standard Cleaning" data-price="129"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129 · sample price</span></button>
               <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219 · sample price</span></button>
               <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249 · sample price</span></button>
               <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119 · sample price</span></button>
             </div>
+            <div class="service-path-label" id="quoteServiceLabel" hidden><strong>Get a Quote services</strong><span>Custom pricing</span></div>
             <div class="services" id="quoteServices" hidden>
               <button class="service-card selected" data-service="Post-Construction Cleaning" data-price="0"><span class="check">✓</span><strong>Post-Construction Cleaning</strong><p>For dust, residue, and detailed cleanup after renovation or construction.</p><span class="price">Custom quote</span></button>
               <button class="service-card" data-service="Commercial Cleaning" data-price="0"><span class="check">✓</span><strong>Commercial Cleaning</strong><p>Tell us about your office, storefront, or commercial space.</p><span class="price">Custom quote</span></button>
@@ -115,14 +126,23 @@
           </section>
 
           <section class="section">
-            <div class="section-label">02 · Home details</div><h2>Tell us about your space.</h2><p class="section-intro">A few quick details help us prepare the right amount of time.</p>
-            <div class="counter-grid">
+            <div class="section-label">02 · Property details</div><h2>Tell us about the space.</h2><p class="section-intro">Start with the cleaning type, then add the details that fit the property.</p>
+
+            <label>Cleaning type</label>
+            <div class="cleaning-type-switch" id="cleaningType">
+              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential">Residential</button>
+              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial">Commercial</button>
+            </div>
+
+            <div class="counter-grid" id="residentialCounters">
               <div class="counter"><div class="counter-label"><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button class="round" data-counter="beds" data-dir="-1">−</button><span id="beds" class="count">3</span><button class="round" data-counter="beds" data-dir="1">+</button></div></div>
               <div class="counter"><div class="counter-label"><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button class="round" data-counter="baths" data-dir="-1">−</button><span id="baths" class="count">2</span><button class="round" data-counter="baths" data-dir="1">+</button></div></div>
             </div>
+
             <div class="field-grid">
               <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option>Under 1,000 sq ft</option><option selected>1,000–1,999 sq ft</option><option>2,000–2,999 sq ft</option><option>3,000+ sq ft</option></select></div>
-              <div class="field"><label for="homeType">Home type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
+              <div class="field" id="residentialPropertyField"><label for="homeType">Property type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
+              <div class="field" id="commercialDetails" hidden><label for="commercialType">Commercial space</label><select id="commercialType"><option selected>Office</option><option>Storefront / Retail</option><option>Restaurant</option><option>Salon / Studio</option><option>Other commercial space</option></select></div>
               <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected">One time</button><button class="pill">Weekly</button><button class="pill">Biweekly</button><button class="pill">Monthly</button></div></div>
             </div>
           </section>
@@ -196,7 +216,7 @@
   </div>
 
   <script>
-    const state={mode:'book',service:'Standard Cleaning',base:129,beds:3,baths:2,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
+    const state={mode:'book',service:'Standard Cleaning',base:129,cleaningType:'Residential',beds:3,baths:2,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
     const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
 
     function syncSelectedService(){
@@ -217,6 +237,10 @@
       const quote=state.mode==='quote';
       $('bookServices').hidden=quote;
       $('quoteServices').hidden=!quote;
+      $('bookServiceLabel').hidden=quote;
+      $('quoteServiceLabel').hidden=!quote;
+      $('serviceTitle').textContent=quote?'Choose a quote-only service.':'Choose a bookable service.';
+      $('serviceIntro').textContent=quote?'These services need custom pricing before the job is confirmed.':'These services can be booked directly with a visible sample price.';
       $('bookTimes').hidden=quote;
       $('quoteTimes').hidden=!quote;
       $('quoteDateNote').hidden=!quote;
@@ -244,7 +268,9 @@
 
     function render(){
       $('sumService').textContent=state.service;
-      $('sumHome').textContent=state.beds+' bed · '+state.baths+' bath';
+      $('sumHome').textContent=state.cleaningType==='Commercial'
+        ? 'Commercial · '+($('commercialType')?.value||'Commercial space')
+        : 'Residential · '+state.beds+' bed · '+state.baths+' bath';
       $('sumFrequency').textContent=state.frequency;
       $('sumDate').textContent=state.date;
       $('sumTime').textContent=state.time;
@@ -269,6 +295,19 @@
       state.base=Number(btn.dataset.price||0);
       render();
     }));
+
+    document.querySelectorAll('[data-cleaning-type]').forEach(btn=>btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-cleaning-type]').forEach(x=>x.classList.remove('selected'));
+      btn.classList.add('selected');
+      state.cleaningType=btn.dataset.cleaningType;
+      const commercial=state.cleaningType==='Commercial';
+      $('residentialCounters').hidden=commercial;
+      $('residentialPropertyField').hidden=commercial;
+      $('commercialDetails').hidden=!commercial;
+      render();
+    }));
+
+    $('commercialType')?.addEventListener('change',render);
 
     document.querySelectorAll('[data-counter]').forEach(btn=>btn.addEventListener('click',()=>{
       const k=btn.dataset.counter;
