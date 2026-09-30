@@ -143,3 +143,55 @@
   .home-system-grid,.home-app-grid{gap:30px}.home-support{min-height:180px}.home-final{padding:62px 0}.home-final-inner{text-align:left}.home-final-inner .actions{justify-content:flex-start}
 }
 @media(prefers-reduced-motion:reduce){.home-reveal{opacity:1!important;transform:none!important;transition:none!important}.home-solution,.home-support{transition:none!important}}
+
+
+/* WEBSITE HOME — Rocket-inspired refinement 2026-09-30 */
+.home-header .brand{font-size:22px;letter-spacing:-.035em;text-transform:none}
+.home-hero{padding:66px 0 74px;background:var(--paper)}
+.home-hero:before{width:520px;height:520px;right:-260px;top:-290px;background:radial-gradient(circle,rgba(233,215,138,.32),rgba(233,215,138,0) 70%)}
+.home-hero:after{width:460px;height:460px;left:-280px;bottom:-300px;background:radial-gradient(circle,rgba(230,239,247,.72),rgba(230,239,247,0) 70%)}
+.home-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:58px;align-items:center}
+.home-hero-copy{text-align:left}
+.home-hero-copy h1{max-width:720px;margin:0;font-size:clamp(54px,5.7vw,82px);line-height:1.01;letter-spacing:-.06em}
+.home-hero-copy h1 em{display:inline;font-style:normal;background:linear-gradient(transparent 66%,rgba(233,215,138,.58) 66%)}
+.home-hero-copy .lead{max-width:650px;margin:24px 0 0;color:#625f59;font-size:18px}
+.home-hero-copy .actions{justify-content:flex-start}
+.home-outline{background:transparent;color:var(--ink)}
+.home-outline:hover{box-shadow:4px 4px 0 var(--blue)}
+.home-kicker{position:relative;padding-left:34px;max-width:620px;color:#5f5b54}
+.home-kicker:before{content:"";position:absolute;left:0;top:.72em;width:20px;height:1px;background:#8f8a80}
+.home-proofline{justify-content:flex-start;color:#5f5b54;margin-top:24px}
+.home-owner-rocket{position:relative;min-height:590px;overflow:visible;border:0;background:transparent;box-shadow:none}
+.home-owner-rocket img{width:100%;height:590px;min-height:590px;object-fit:cover;object-position:center;border-radius:28px;box-shadow:0 28px 64px rgba(25,25,25,.12)}
+.home-notification,.home-stat{position:absolute;z-index:3;background:rgba(255,255,255,.97);border:1px solid rgba(25,25,25,.08);box-shadow:0 18px 44px rgba(25,25,25,.14);backdrop-filter:blur(10px)}
+.home-notification{top:26px;left:-24px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:18px}
+.home-notification-icon{width:34px;height:34px;display:grid;place-items:center;flex:none;border-radius:50%;background:var(--yellow);font-weight:900}
+.home-notification strong,.home-stat strong{display:block;font-family:Prompt,Arial,sans-serif;line-height:1.15}
+.home-notification small{display:block;margin-top:3px;color:var(--muted);font-size:11px}
+.home-stat{right:-22px;bottom:26px;max-width:230px;padding:16px 18px;border-radius:18px}
+.home-stat small{display:block;font-size:9px;letter-spacing:.12em;color:var(--muted)}
+.home-stat strong{margin-top:5px;font-size:19px}
+.home-stat span{display:block;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.4}
+@media(max-width:1050px){
+  .home-hero-grid{gap:34px}
+  .home-owner-rocket,.home-owner-rocket img{min-height:500px;height:500px}
+  .home-notification{left:-10px}.home-stat{right:-10px}
+}
+@media(max-width:760px){
+  .home-header .brand{font-size:19px}
+  .home-hero{padding:42px 0 50px}
+  .home-hero-grid{grid-template-columns:1fr;gap:34px}
+  .home-hero-copy h1{font-size:clamp(43px,12vw,58px);line-height:1.04}
+  .home-hero-copy .lead{font-size:16px;line-height:1.62}
+  .home-hero-copy .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+  .home-hero-copy .actions .button{width:100%;padding-inline:12px;font-size:13px}
+  .home-proofline{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;font-size:11px}
+  .home-proofline span:last-child{grid-column:1/-1}
+  .home-owner-rocket{min-height:390px;margin-top:4px}
+  .home-owner-rocket img{height:390px;min-height:390px;border-radius:22px}
+  .home-notification{top:-16px;left:-2px;right:auto;padding:11px 13px;border-radius:16px}
+  .home-notification-icon{width:30px;height:30px}
+  .home-notification strong{font-size:12px}.home-notification small{font-size:9px}
+  .home-stat{right:-2px;bottom:-14px;max-width:200px;padding:13px 14px;border-radius:16px}
+  .home-stat strong{font-size:16px}.home-stat span{font-size:9px}
+}
