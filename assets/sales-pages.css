@@ -219,3 +219,18 @@
   .booking-compact .compact-included .step{display:block;padding:20px}
   .booking-compact .compact-included .step h3{margin:14px 0 8px}
 }
+
+
+/* MOBILE HERO POLISH — 2026-09-30 */
+@media(max-width:760px){
+  .home-hero-copy h1{font-size:clamp(38px,10.2vw,43px);line-height:1.01;letter-spacing:-.052em}
+  .home-hero-copy .lead{font-size:15px;line-height:1.55;max-width:100%;margin-top:18px}
+  .home-kicker{font-size:9px;line-height:1.5;padding-left:28px;margin-bottom:14px}
+  .home-kicker:before{width:17px}
+  .home-hero-copy .actions{margin-top:20px}
+  .home-hero-copy .actions .button{min-height:50px;font-size:12px}
+  .home-proofline{margin-top:18px}
+  .home-owner-rocket{min-height:340px;margin-top:0}
+  .home-owner-rocket img{height:340px;min-height:340px;object-position:center 46%;border-radius:20px}
+  .home-notification{top:-12px;left:0;max-width:270px}
+}
