@@ -1437,3 +1437,33 @@ html,body{max-width:100%;overflow-x:hidden}
     font-size:10px;
   }
 }
+
+
+/* Questionnaire checkout branch */
+.quiz-ready-checkout{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid #c6d8e3;
+  border-radius:14px;
+  background:#fff;
+  text-align:center;
+  animation:quizReveal .22s ease both;
+}
+.quiz-ready-checkout span{
+  display:block;
+  margin-bottom:12px;
+  color:#7b3f60;
+  font-family:Allura,cursive;
+  font-size:26px;
+  line-height:1;
+}
+.quiz-ready-checkout .button{
+  width:100%;
+}
+.quiz-ready-checkout small{
+  display:block;
+  margin-top:10px;
+  color:#6b7d89;
+  font-size:10px;
+  font-weight:700;
+}
