@@ -78,6 +78,23 @@
     show(0,false);
   }
 
+  function resolveSource(form,lang) {
+    if(form.dataset.source) return form.dataset.source;
+    const requested=String(new URLSearchParams(location.search).get("source")||"").toLowerCase();
+    const path=(()=>{try{return new URL(document.referrer).pathname.toLowerCase();}catch{return "";}})();
+    const suffix=lang==="es"?"_es":"";
+    if(requested==="app" || path.includes("/cleaning-app/") && document.referrer.includes("app.thelaunchera.com")) return "app_contact"+suffix;
+    if(requested==="booking-page" || path.includes("/booking-page/")) return "booking_page_contact"+suffix;
+    if(requested==="cleaning-app" || path.includes("/cleaning-app/")) return "cleaning_app_landing_contact"+suffix;
+    if(requested==="audit" || path.includes("/audit/")) return "audit_contact";
+    if(requested==="content" || path.includes("/content/")) return "content_contact";
+    if(requested==="automation" || path.includes("/automation/")) return "automation_contact";
+    if(requested==="virtual-assistant" || path.includes("/virtual-assistant/")) return "virtual_assistant_contact";
+    return form.closest("#contact-dialog")
+      ? (lang==="es"?"contact_modal_es":"contact_modal")
+      : (lang==="es"?"main_website_es":"main_website");
+  }
+
   function init(form) {
     initQuiz(form);
     const status=form.querySelector("[data-form-status]");
@@ -94,9 +111,7 @@
       if(goal) help.push("Goal: "+goal);
       if(service) help.push(service);
 
-      const source=form.dataset.source || (form.closest("#contact-dialog")
-        ? (lang==="es"?"contact_modal_es":"contact_modal")
-        : (lang==="es"?"main_website_es":"main_website"));
+      const source=resolveSource(form,lang);
 
       const payload={
         name:fd.get("name"),
