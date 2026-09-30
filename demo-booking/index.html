@@ -68,7 +68,7 @@
     .cleaning-type-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
     .cleaning-type-btn{min-height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;font-weight:850;color:var(--muted)}
     .cleaning-type-btn.selected{background:var(--deep);border-color:var(--deep);color:#fff}
-    #bookServices[hidden],#quoteServices[hidden],#bookServiceLabel[hidden],#quoteServiceLabel[hidden],#bookTimes[hidden],#quoteTimes[hidden],#quoteDateNote[hidden],#residentialCounters[hidden],#residentialPropertyField[hidden],#commercialDetails[hidden],#commercialCounters[hidden]{display:none!important}
+    #bookServices[hidden],#quoteServices[hidden],#bookServiceLabel[hidden],#quoteServiceLabel[hidden],#bookTimes[hidden],#quoteTimes[hidden],#quoteDateNote[hidden],#residentialCounters[hidden],#residentialPropertyField[hidden],#commercialDetails[hidden],#commercialCounters[hidden],#residentialExtras[hidden],#commercialExtras[hidden]{display:none!important}
 
   </style>
 </head>
@@ -167,11 +167,17 @@
 
           <section class="section">
             <div class="section-label">04 · Details</div><h2 id="extrasTitle">Want anything extra?</h2><p class="section-intro" id="extrasIntro">Add only what you need. You can see everything in your booking summary.</p>
-            <div class="extras">
-              <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25"><span><strong>Inside oven</strong><small data-book-copy="+$25 sample">+$25 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Inside refrigerator" data-price="30"><span><strong>Inside refrigerator</strong><small data-book-copy="+$30 sample">+$30 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Interior windows" data-price="35"><span><strong>Interior windows</strong><small data-book-copy="+$35 sample">+$35 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Baseboards" data-price="20"><span><strong>Baseboards</strong><small data-book-copy="+$20 sample">+$20 sample</small></span></label>
+            <div class="extras" id="residentialExtras">
+              <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25" data-extra-group="residential"><span><strong>Inside oven</strong><small data-book-copy="+$25 sample">+$25 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Inside refrigerator" data-price="30" data-extra-group="residential"><span><strong>Inside refrigerator</strong><small data-book-copy="+$30 sample">+$30 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Interior windows" data-price="35" data-extra-group="residential"><span><strong>Interior windows</strong><small data-book-copy="+$35 sample">+$35 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Baseboards" data-price="20" data-extra-group="residential"><span><strong>Baseboards</strong><small data-book-copy="+$20 sample">+$20 sample</small></span></label>
+            </div>
+            <div class="extras" id="commercialExtras" hidden>
+              <label class="extra"><input type="checkbox" data-extra="High-touch disinfection" data-price="40" data-extra-group="commercial"><span><strong>High-touch disinfection</strong><small data-book-copy="+$40 sample">+$40 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Interior glass" data-price="45" data-extra-group="commercial"><span><strong>Interior glass</strong><small data-book-copy="+$45 sample">+$45 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Breakroom / kitchenette" data-price="35" data-extra-group="commercial"><span><strong>Breakroom / kitchenette</strong><small data-book-copy="+$35 sample">+$35 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Trash & liner service" data-price="30" data-extra-group="commercial"><span><strong>Trash & liner service</strong><small data-book-copy="+$30 sample">+$30 sample</small></span></label>
             </div>
           </section>
 
@@ -234,6 +240,22 @@
       state.base=Number(selected.dataset.price||0);
     }
 
+    function updateDetailsCopy(){
+      const quote=state.mode==='quote';
+      const commercial=state.cleaningType==='Commercial';
+      if(commercial){
+        $('extrasTitle').textContent=quote?'What should the commercial quote include?':'Add services for this commercial space.';
+        $('extrasIntro').textContent=quote
+          ? 'Select the commercial details the business should price into the quote.'
+          : 'Choose any additional commercial services needed for this visit.';
+      }else{
+        $('extrasTitle').textContent=quote?'Anything the business should include?':'Want anything extra?';
+        $('extrasIntro').textContent=quote
+          ? 'Add the residential details that matter so the quote can be prepared more accurately.'
+          : 'Add only what you need. You can see everything in your booking summary.';
+      }
+    }
+
     function setRequestMode(mode){
       state.mode=mode==='quote'?'quote':'book';
       document.body.classList.toggle('quote-mode',state.mode==='quote');
@@ -252,8 +274,7 @@
 
       $('dateTitle').textContent=quote?'When would you prefer the cleaning?':'Choose what works for you.';
       $('dateIntro').textContent=quote?'Choose a preferred date and time window. The business will confirm availability with your quote.':'Only sample available times are shown in this demo.';
-      $('extrasTitle').textContent=quote?'Anything the business should include?':'Want anything extra?';
-      $('extrasIntro').textContent=quote?'Add the details that matter so the quote can be prepared more accurately.':'Add only what you need. You can see everything in your booking summary.';
+      updateDetailsCopy();
       document.querySelectorAll('.extra small[data-book-copy]').forEach(el=>{el.textContent=quote?'Include in quote':el.dataset.bookCopy});
 
       if(quote){
@@ -310,6 +331,13 @@
       $('residentialPropertyField').hidden=commercial;
       $('commercialCounters').hidden=!commercial;
       $('commercialDetails').hidden=!commercial;
+      $('residentialExtras').hidden=commercial;
+      $('commercialExtras').hidden=!commercial;
+
+      // Never carry residential add-ons into a commercial request or vice versa.
+      document.querySelectorAll('[data-extra]').forEach(box=>{ box.checked=false; });
+      state.extras=[];
+      updateDetailsCopy();
       render();
     }));
 
@@ -346,7 +374,10 @@
     }));
 
     document.querySelectorAll('[data-extra]').forEach(box=>box.addEventListener('change',()=>{
-      state.extras=Array.from(document.querySelectorAll('[data-extra]:checked')).map(x=>({name:x.dataset.extra,price:state.mode==='quote'?0:Number(x.dataset.price)}));
+      const activeGroup=state.cleaningType==='Commercial'?'commercial':'residential';
+      state.extras=Array.from(document.querySelectorAll('[data-extra]:checked'))
+        .filter(x=>x.dataset.extraGroup===activeGroup)
+        .map(x=>({name:x.dataset.extra,price:state.mode==='quote'?0:Number(x.dataset.price)}));
       render();
     }));
 
@@ -361,6 +392,8 @@
     $('closeSuccess').addEventListener('click',()=>$('success').classList.remove('open'));
     $('success').addEventListener('click',e=>{if(e.target.id==='success')$('success').classList.remove('open')});
 
+    $('residentialExtras').hidden=false;
+    $('commercialExtras').hidden=true;
     setRequestMode('book');
   </script>
 </body>
