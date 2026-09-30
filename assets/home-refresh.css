@@ -1329,3 +1329,111 @@ html,body{max-width:100%;overflow-x:hidden}
     font-size:56px;
   }
 }
+
+
+/* Questionnaire clarity v8 */
+.quiz-map{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-bottom:14px;
+}
+.quiz-map span{
+  display:flex;
+  min-height:42px;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:8px 7px;
+  border:1px solid #c8d9e3;
+  border-radius:10px;
+  background:#fff;
+  color:#71838f;
+  font-size:9px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  transition:.18s ease;
+}
+.quiz-map span b{
+  display:grid;
+  width:21px;
+  height:21px;
+  place-items:center;
+  border-radius:50%;
+  background:#e7f0f5;
+  color:#526b7b;
+  font-size:8px;
+}
+.quiz-map span.is-current{
+  border-color:#7b3f60;
+  background:#f7edf2;
+  color:#7b3f60;
+}
+.quiz-map span.is-current b{
+  background:#7b3f60;
+  color:#fff;
+}
+.quiz-map span.is-done{
+  border-color:#bfd2dd;
+  background:#eef5fa;
+  color:#526b7b;
+}
+.quiz-map span.is-done b{
+  background:#d7aec1;
+  color:#17364b;
+}
+.quiz-next-choice{
+  grid-template-columns:1fr!important;
+  gap:8px!important;
+}
+.quiz-next-choice label span{
+  min-height:50px;
+  justify-content:flex-start;
+  padding:12px 14px;
+  border-radius:12px;
+  font-size:11px;
+}
+.quiz-contact-reveal{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #c9d9e3;
+  animation:quizReveal .22s ease both;
+}
+.quiz-contact-intro{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  margin-bottom:14px;
+}
+.quiz-contact-intro strong{
+  color:#7b3f60;
+  font-family:Allura,cursive;
+  font-size:25px;
+  font-weight:400;
+}
+.quiz-contact-intro span{
+  color:#17364b;
+  font-size:13px;
+  font-weight:800;
+}
+@keyframes quizReveal{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:760px){
+  .quiz-map span{
+    min-height:38px;
+    padding:7px 4px;
+    font-size:8px;
+  }
+  .quiz-map span b{
+    width:18px;
+    height:18px;
+    font-size:7px;
+  }
+  .quiz-next-choice label span{
+    min-height:48px;
+    font-size:10px;
+  }
+}
