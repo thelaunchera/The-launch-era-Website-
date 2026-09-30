@@ -195,3 +195,27 @@
   .home-stat{right:-2px;bottom:-14px;max-width:200px;padding:13px 14px;border-radius:16px}
   .home-stat strong{font-size:16px}.home-stat span{font-size:9px}
 }
+
+
+/* COMPACT BOOKING DETAIL PAGE — avoids repeating the main website */
+.booking-compact .site-header .brand{font-size:20px;letter-spacing:-.035em;text-transform:none}
+.booking-compact .compact-booking-hero{padding:58px 0 46px}
+.booking-compact .compact-booking-hero .booking-hero-copy{max-width:900px}
+.booking-compact .compact-booking-hero h1{font-size:clamp(44px,5.2vw,70px)}
+.booking-compact .compact-booking-hero .lead{max-width:700px}
+.booking-compact .compact-included{padding-top:66px;padding-bottom:66px}
+.booking-compact .compact-included .section-head{margin-bottom:28px}
+.booking-compact .compact-included .steps{gap:18px}
+.booking-compact .compact-included .step{padding:24px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.booking-compact .compact-included .step h3{margin:16px 0 9px}
+.booking-compact .compact-included .connection{margin-top:22px}
+.booking-compact .compact-checkout{padding:66px 0}
+.booking-compact .compact-faq{padding:62px 0}
+.booking-compact .compact-faq .faq{align-items:start}
+@media(max-width:760px){
+  .booking-compact .compact-booking-hero{padding:38px 0 34px}
+  .booking-compact .compact-booking-hero h1{font-size:clamp(38px,10.9vw,52px)}
+  .booking-compact .compact-included,.booking-compact .compact-checkout,.booking-compact .compact-faq{padding:50px 0}
+  .booking-compact .compact-included .step{display:block;padding:20px}
+  .booking-compact .compact-included .step h3{margin:14px 0 8px}
+}
