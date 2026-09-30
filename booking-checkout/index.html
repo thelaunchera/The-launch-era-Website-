@@ -19,7 +19,7 @@ h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-we
 <div class="brand">THE LAUNCH ERA</div>
 <div class="kicker" id="kicker">BOOKING PAGE + CLEANING APP</div>
 <h1 id="title">Opening your secure checkout…</h1>
-<p id="copy">$39.99 one-time · Professional Booking Page + 2 months of Cleaning App access.</p>
+<p id="copy">$39.99 one-time · Professional Booking Page + 60 days of Cleaning App access. Then $5.99/month.</p>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" type="button" hidden>Try again</button>
 <div class="small" id="status">You’ll continue to secure checkout.</div>
@@ -27,15 +27,17 @@ h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-we
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-booking-page-checkout";
 let checkoutEventSent=false;
-const lang=new URLSearchParams(location.search).get("lang")||localStorage.getItem("tle_app_lang")||localStorage.getItem("tle_language")||"en";
+let savedLanguage="en";
+try{savedLanguage=localStorage.getItem("tle_app_lang")||localStorage.getItem("tle_language")||"en";}catch{}
+const lang=new URLSearchParams(location.search).get("lang")||savedLanguage;
 const es=lang==="es";
 const title=document.getElementById("title"),copy=document.getElementById("copy"),status=document.getElementById("status"),retry=document.getElementById("retry"),dots=document.getElementById("dots"),kicker=document.getElementById("kicker");
 if(es){
  document.documentElement.lang="es";
- kicker.textContent="BOOKING PAGE + CLEANING APP";
+ kicker.textContent="PÁGINA DE RESERVAS + APLICACIÓN";
  title.textContent="Abriendo tu pago seguro…";
- copy.textContent="$39.99 pago único · Booking Page profesional + 2 meses de Cleaning App.";
- status.textContent="Continuarás al checkout seguro.";
+ copy.textContent="$39.99 pago único · Página de reservas profesional + 60 días de aplicación. Después $5.99/mes.";
+ status.textContent="Continuarás al pago seguro.";
  retry.textContent="Intentar otra vez";
 }
 async function openCheckout(){
@@ -44,9 +46,9 @@ async function openCheckout(){
   checkoutEventSent=true;
   try{window.tleTrackEvent?.("begin_checkout",{currency:"USD",value:39.99,items:[{item_id:"booking_page_cleaning_app",item_name:"Booking Page + Cleaning App",price:39.99,quantity:1}]});}catch{}
  }
- status.textContent=es?"Continuarás al checkout seguro.":"You’ll continue to secure checkout.";
+ status.textContent=es?"Continuarás al pago seguro.":"You’ll continue to secure checkout.";
  try{
-  const res=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"});
+  const res=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({language:es?"es":"en"})});
   const data=await res.json().catch(()=>({}));
   if(!res.ok||!data.url) throw new Error("checkout");
   setTimeout(()=>location.replace(data.url),120);
