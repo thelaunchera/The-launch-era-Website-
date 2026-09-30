@@ -234,3 +234,32 @@
   .home-owner-rocket img{height:340px;min-height:340px;object-position:center 46%;border-radius:20px}
   .home-notification{top:-12px;left:0;max-width:270px}
 }
+
+
+/* APP LANDING MOBILE POLISH — 2026-09-30 */
+.app .site-header .brand{font-size:22px;letter-spacing:-.035em;text-transform:none}
+.app .app-hero-copy h1 em{background:none}
+.app .app-hero-copy .lead{max-width:680px}
+@media(max-width:760px){
+  .app .site-header .brand{font-size:19px}
+  .app .app-hero{padding:38px 0 50px}
+  .app .app-hero-copy{text-align:left}
+  .app .app-hero-copy h1{font-size:clamp(39px,10.6vw,46px);line-height:1.02;letter-spacing:-.052em;max-width:100%}
+  .app .app-hero-copy h1 br{display:none}
+  .app .app-hero-copy .eyebrow{font-size:9px;line-height:1.5;letter-spacing:.13em;margin-bottom:14px}
+  .app .app-hero-copy .lead{font-size:15px;line-height:1.55;margin:18px 0 0;color:#d8d4cc}
+  .app .app-hero-copy .actions{display:grid;grid-template-columns:1fr;gap:12px;justify-content:stretch;margin-top:22px}
+  .app .app-hero-copy .actions .button{width:100%;min-height:52px;font-size:13px;padding:13px 16px}
+  .app .app-hero-copy .actions .text-link{justify-self:start;min-height:44px;display:inline-flex;align-items:center;margin:0}
+  .app .app-hero-copy .hero-facts{justify-content:flex-start;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:16px;text-align:left;font-size:10px}
+  .app .app-hero-copy .hero-facts span:last-child{grid-column:1/-1}
+  .app-product-stage{margin-top:28px}
+  .app-window{border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.34)}
+  .app-window-top{height:40px;padding:0 10px;font-size:8px}
+  .app-window-status{font-size:7px;padding:4px 6px}
+  .app-float{min-width:136px;padding:8px 9px;border-radius:10px}
+  .app-float span{font-size:7px}
+  .app-float strong{font-size:9px}
+  .app-float-booking{left:-2px;top:12%}
+  .app-float-job{right:-2px;top:48%}
+}
