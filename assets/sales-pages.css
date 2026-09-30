@@ -263,3 +263,29 @@
   .app-float-booking{left:-2px;top:12%}
   .app-float-job{right:-2px;top:48%}
 }
+
+
+/* HOME NOTIFICATION CHECK ALIGNMENT — 2026-09-30 */
+.home-notification-icon{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:34px!important;
+  height:34px!important;
+  padding:0!important;
+  line-height:1!important;
+  text-align:center!important;
+}
+.home-notification-icon::before{
+  content:"✓";
+  display:block;
+  font-family:Arial,sans-serif;
+  font-size:18px;
+  font-weight:700;
+  line-height:1;
+  transform:translateY(-1px);
+}
+@media(max-width:760px){
+  .home-notification-icon{width:30px!important;height:30px!important}
+  .home-notification-icon::before{font-size:16px}
+}
