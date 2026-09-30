@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#FAF8F3">
+  <title>Your Cleaning Business — Booking Demo</title>
+  <meta name="description" content="Interactive booking page demo for a growing residential cleaning business. Sample information only.">
+  <style>
+    :root{--ivory:#FAF8F3;--paper:#FFFDF9;--ink:#191919;--muted:#6E726F;--eucalyptus:#CFE2DD;--eucalyptus2:#EAF2EF;--deep:#294640;--butter:#F2D85B;--line:#E8E4DC;--shadow:0 18px 45px rgba(37,48,45,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Futura,"Trebuchet MS",Arial,sans-serif;background:radial-gradient(circle at 8% 4%,rgba(207,226,221,.58),transparent 28%),linear-gradient(180deg,var(--ivory) 0%,#fff 42%,var(--ivory) 100%);color:var(--ink);-webkit-font-smoothing:antialiased}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    .demo-strip{background:var(--deep);color:#fff;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    header{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.97);border-bottom:1px solid rgba(25,25,25,.06);backdrop-filter:blur(10px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}.brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand-mark{width:42px;height:42px;border-radius:14px;background:var(--deep);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;box-shadow:0 8px 18px rgba(41,70,64,.18)}
+    .brand-copy{line-height:1.05;min-width:0}.brand-copy strong{display:block;font-size:15px;letter-spacing:.03em;white-space:nowrap}.brand-copy span{display:block;color:var(--muted);font-size:11px;margin-top:5px}
+    .nav-actions{display:flex;align-items:center;gap:10px}.lang{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 12px;color:var(--ink)}.ghost{border:0;background:transparent;color:var(--deep);font-weight:700;padding:10px 8px}
+    .hero{padding:42px 0 28px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--eucalyptus2);border:1px solid #D9E9E4;border-radius:999px;padding:9px 13px;color:var(--deep);font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+    .eyebrow-dot{width:8px;height:8px;background:var(--butter);border-radius:50%;box-shadow:0 0 0 4px rgba(242,216,91,.18)}
+    h1{font-family:Prompt,"Arial Rounded MT Bold",Arial,sans-serif;font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-.055em;margin:18px 0;max-width:760px}
+    .hero p{font-size:18px;line-height:1.6;color:#515653;max-width:630px;margin:0 0 26px}.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.hero-points span{padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:700}
+    .start-btn{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:16px 22px;font-weight:800;box-shadow:0 10px 22px rgba(25,25,25,.16);transition:.2s transform}.start-btn:hover{transform:translateY(-2px)}
+    .hero-photo{position:relative;border-radius:34px;overflow:hidden;min-height:520px;box-shadow:var(--shadow);background:#dfe9e6}.hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+    .photo-overlay{position:absolute;left:22px;right:22px;bottom:22px;background:#fff;border-radius:20px;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 14px 35px rgba(20,34,30,.15)}
+    .photo-overlay strong{font-size:15px}.photo-overlay small{display:block;color:var(--muted);margin-top:5px}.available{background:var(--eucalyptus2);color:var(--deep);padding:10px 12px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap}
+    .booking-shell{padding:28px 0 78px}.booking-grid{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:28px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.flow{padding:28px}
+    .stepper{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}.step{height:6px;border-radius:999px;background:#E9E7E1}.step.active{background:var(--eucalyptus)}.step.active:first-child{background:var(--deep)}
+    .section{padding:8px 0 30px;border-bottom:1px solid var(--line);margin-bottom:28px}.section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.section-label{font-size:12px;color:var(--deep);text-transform:uppercase;letter-spacing:.09em;font-weight:900;margin-bottom:8px}
+    h2{font-family:Prompt,"Arial Rounded MT Bold",Arial,sans-serif;font-size:clamp(28px,4vw,40px);line-height:1.08;letter-spacing:-.04em;margin:0 0 8px}.section-intro{color:var(--muted);line-height:1.55;margin:0 0 20px}
+    .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.service-card{text-align:left;border:1px solid var(--line);border-radius:18px;background:#fff;padding:18px;transition:.2s;min-height:138px;position:relative}.service-card:hover{transform:translateY(-2px);border-color:#B9D4CC}.service-card.selected{border:2px solid var(--deep);background:var(--eucalyptus2);padding:17px}
+    .service-card .check{position:absolute;right:14px;top:14px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:12px;background:#fff}.service-card.selected .check{background:var(--deep);color:#fff;border-color:var(--deep)}
+    .service-card strong{display:block;font-size:18px;margin:5px 34px 8px 0}.service-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.price{display:block;color:var(--deep);font-weight:900;margin-top:12px;font-size:14px}
+    .counter-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.counter{border:1px solid var(--line);border-radius:18px;background:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}.counter-label strong{display:block;font-size:15px}.counter-label small{color:var(--muted)}
+    .counter-controls{display:flex;align-items:center;gap:10px}.round{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--ivory);font-size:18px}.count{min-width:18px;text-align:center;font-weight:900}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:800;color:#4F5552}
+    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;color:var(--ink);outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:#9EBFB6;box-shadow:0 0 0 4px rgba(207,226,221,.45)}
+    .pills{display:flex;flex-wrap:wrap;gap:9px}.pill{border:1px solid var(--line);background:#fff;padding:11px 14px;border-radius:999px;font-weight:700;font-size:13px}.pill.selected{background:var(--deep);color:#fff;border-color:var(--deep)}
+    .date-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.date-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 8px;text-align:center}.date-card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.date-card strong{display:block;font-size:22px;margin:5px 0 1px}.date-card.selected{background:var(--eucalyptus2);border:2px solid var(--deep);padding:13px 7px}
+    .times{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.time{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 13px;font-weight:700}.time.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .extras{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.extra{border:1px solid var(--line);border-radius:15px;background:#fff;padding:14px;display:flex;gap:10px;align-items:flex-start}.extra input{width:18px;height:18px;margin-top:1px;accent-color:var(--deep)}.extra strong{font-size:14px}.extra small{display:block;color:var(--muted);margin-top:3px}
+    .summary{position:sticky;top:112px;padding:22px;background:var(--deep);color:#fff;border-radius:28px;box-shadow:0 24px 55px rgba(41,70,64,.21)}.summary-top{display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:18px}.summary h3{font-family:Prompt,Arial,sans-serif;font-size:24px;letter-spacing:-.03em;margin:2px 0}.demo-tag{font-size:10px;text-transform:uppercase;letter-spacing:.09em;background:rgba(255,255,255,.12);padding:8px 9px;border-radius:999px}
+    .summary-photo{height:148px;border-radius:18px;overflow:hidden;margin-bottom:18px;background:#d7e7e2}.summary-photo img{width:100%;height:100%;object-fit:cover}.summary-row{display:flex;justify-content:space-between;gap:15px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px}.summary-row span:first-child{color:rgba(255,255,255,.68)}.summary-row strong{text-align:right}
+    .total{display:flex;justify-content:space-between;align-items:end;padding:17px 0 4px}.total span{color:rgba(255,255,255,.7);font-size:12px}.total strong{font-size:28px}.submit{width:100%;border:0;background:var(--butter);color:var(--ink);border-radius:15px;padding:15px 16px;font-weight:900;margin-top:14px}.micro{font-size:10px;line-height:1.45;color:rgba(255,255,255,.62);text-align:center;margin:10px 4px 0}
+    .story{margin:0 auto 72px;width:min(1180px,calc(100% - 32px));display:grid;grid-template-columns:.9fr 1.1fr;border-radius:30px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}.story img{width:100%;height:100%;min-height:420px;object-fit:cover}.story-copy{padding:42px;align-self:center}.story-copy .kicker{font-size:12px;color:var(--deep);font-weight:900;letter-spacing:.1em;text-transform:uppercase}.story-copy h3{font-family:Prompt,Arial,sans-serif;font-size:42px;line-height:1.02;letter-spacing:-.045em;margin:12px 0 16px}.story-copy p{color:var(--muted);line-height:1.65;font-size:16px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.benefit{padding:14px;border-radius:14px;background:var(--eucalyptus2);font-size:12px;font-weight:800;color:var(--deep)}
+    footer{padding:34px 0 48px;text-align:center;color:var(--muted);font-size:12px}footer strong{color:var(--ink)}
+    .success{display:none;position:fixed;inset:0;background:rgba(25,25,25,.45);z-index:80;padding:22px;align-items:center;justify-content:center}.success.open{display:flex}.success-card{width:min(520px,100%);background:var(--paper);border-radius:28px;padding:30px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.2)}.success-check{width:72px;height:72px;border-radius:50%;background:var(--eucalyptus);display:grid;place-items:center;margin:0 auto 18px;font-size:30px;color:var(--deep);font-weight:900}.success-card h3{font-family:Prompt,Arial,sans-serif;font-size:34px;letter-spacing:-.04em;margin:0 0 10px}.success-card p{color:var(--muted);line-height:1.6}.success-card button{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:13px 18px;font-weight:800}
+    @media(max-width:900px){.hero-grid,.booking-grid,.story{grid-template-columns:1fr}.hero-photo{min-height:430px}.summary{position:relative;top:auto}.story img{min-height:320px}.story-copy{padding:30px}}
+    @media(max-width:620px){.wrap{width:min(100% - 22px,1180px)}.demo-strip{font-size:10px}.nav{padding:12px 0}.brand-copy strong{font-size:13px}.brand-copy span{font-size:10px}.ghost{display:none}.hero{padding-top:26px}h1{font-size:47px}.hero p{font-size:16px}.hero-photo{min-height:380px;border-radius:26px}.photo-overlay{left:14px;right:14px;bottom:14px;padding:14px}.booking-shell{padding-top:12px}.flow{padding:20px}.services,.field-grid,.extras,.counter-grid{grid-template-columns:1fr}.date-row{grid-template-columns:repeat(4,1fr);gap:6px}.date-card{padding:11px 4px}.date-card.selected{padding:10px 3px}.date-card strong{font-size:19px}.story{width:min(100% - 22px,1180px);margin-bottom:46px}.story-copy h3{font-size:34px}.benefits{grid-template-columns:1fr}.summary{border-radius:24px}}
+  </style>
+</head>
+<body>
+  <div class="demo-strip">Interactive demo · Sample business, pricing & customer information only</div>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="brand-mark">YC</div><div class="brand-copy"><strong>YOUR CLEANING BUSINESS</strong><span>Booking Page Demo</span></div></div>
+      <div class="nav-actions"><button class="ghost" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book a cleaning</button><select class="lang" aria-label="Language"><option>EN</option><option>ES</option><option>FR</option><option>Kreyòl</option></select></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Real booking experience</div>
+          <h1>A clean home starts with an easier booking.</h1>
+          <p>Choose your service, tell us about your home, and pick an available time — all in a few simple steps.</p>
+          <div class="hero-points"><span>✓ Clear service options</span><span>✓ Live-style availability</span><span>✓ Mobile friendly</span></div>
+          <button class="start-btn" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Start your booking →</button>
+        </div>
+        <div class="hero-photo">
+          <img src="https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cleaner mopping a bright modern home">
+          <div class="photo-overlay"><div><strong>Simple for your customers.</strong><small>Organized for your business.</small></div><span class="available">● Accepting bookings</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking-shell">
+      <div class="wrap booking-grid">
+        <div class="panel flow">
+          <div class="stepper"><div class="step active"></div><div class="step active"></div><div class="step active"></div><div class="step"></div></div>
+
+          <section class="section">
+            <div class="section-label">01 · Service</div><h2>What can we help you with?</h2><p class="section-intro">Pick the service that best matches what your home needs today.</p>
+            <div class="services">
+              <button class="service-card selected" data-service="Standard Cleaning" data-price="129"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129 · sample price</span></button>
+              <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219 · sample price</span></button>
+              <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249 · sample price</span></button>
+              <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119 · sample price</span></button>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-label">02 · Home details</div><h2>Tell us about your space.</h2><p class="section-intro">A few quick details help us prepare the right amount of time.</p>
+            <div class="counter-grid">
+              <div class="counter"><div class="counter-label"><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button class="round" data-counter="beds" data-dir="-1">−</button><span id="beds" class="count">3</span><button class="round" data-counter="beds" data-dir="1">+</button></div></div>
+              <div class="counter"><div class="counter-label"><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button class="round" data-counter="baths" data-dir="-1">−</button><span id="baths" class="count">2</span><button class="round" data-counter="baths" data-dir="1">+</button></div></div>
+            </div>
+            <div class="field-grid">
+              <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option>Under 1,000 sq ft</option><option selected>1,000–1,999 sq ft</option><option>2,000–2,999 sq ft</option><option>3,000+ sq ft</option></select></div>
+              <div class="field"><label for="homeType">Home type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
+              <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected">One time</button><button class="pill">Weekly</button><button class="pill">Biweekly</button><button class="pill">Monthly</button></div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-label">03 · Date & time</div><h2>Choose what works for you.</h2><p class="section-intro">Only sample available times are shown in this demo.</p>
+            <div class="date-row" id="dates">
+              <button class="date-card selected" data-date="Mon, Oct 5"><small>Mon</small><strong>5</strong><span>Oct</span></button>
+              <button class="date-card" data-date="Tue, Oct 6"><small>Tue</small><strong>6</strong><span>Oct</span></button>
+              <button class="date-card" data-date="Wed, Oct 7"><small>Wed</small><strong>7</strong><span>Oct</span></button>
+              <button class="date-card" data-date="Thu, Oct 8"><small>Thu</small><strong>8</strong><span>Oct</span></button>
+            </div>
+            <div class="times" id="times"><button class="time">8:00 AM</button><button class="time selected">10:30 AM</button><button class="time">1:00 PM</button><button class="time">3:30 PM</button></div>
+          </section>
+
+          <section class="section">
+            <div class="section-label">04 · Extras</div><h2>Want anything extra?</h2><p class="section-intro">Add only what you need. You can see everything in your booking summary.</p>
+            <div class="extras">
+              <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25"><span><strong>Inside oven</strong><small>+$25 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Inside refrigerator" data-price="30"><span><strong>Inside refrigerator</strong><small>+$30 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Interior windows" data-price="35"><span><strong>Interior windows</strong><small>+$35 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Baseboards" data-price="20"><span><strong>Baseboards</strong><small>+$20 sample</small></span></label>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-label">05 · Your details</div><h2>Where should we send the confirmation?</h2><p class="section-intro">Everything below is sample information for this demo.</p>
+            <div class="field-grid">
+              <div class="field"><label for="name">Name</label><input id="name" value="Jordan Lee"></div>
+              <div class="field"><label for="phone">Phone</label><input id="phone" value="(202) 555-0148"></div>
+              <div class="field full"><label for="email">Email</label><input id="email" value="jordan@example.com"></div>
+              <div class="field full"><label for="address">Service address</label><input id="address" value="123 Example Street, Demo City"></div>
+              <div class="field full"><label for="notes">Anything we should know?</label><textarea id="notes" rows="3">Friendly dog at home. Please focus on the kitchen and main bathroom.</textarea></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="summary">
+          <div class="summary-top"><div><small>Your booking</small><h3>Almost done.</h3></div><span class="demo-tag">Demo</span></div>
+          <div class="summary-photo"><img src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
+          <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
+          <div class="summary-row"><span>Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
+          <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
+          <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
+          <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
+          <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
+          <div class="total"><span>Sample estimated total</span><strong id="sumTotal">$129</strong></div>
+          <button class="submit" id="submitBtn">Request cleaning →</button>
+          <p class="micro">No payment is collected. This page is an interactive demonstration using sample information.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="story">
+      <img src="https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bright clean modern living room">
+      <div class="story-copy">
+        <span class="kicker">Built for growing cleaning businesses</span>
+        <h3>Your customers see simple. You get organized.</h3>
+        <p>A polished Booking Page can collect the details you actually need before a job — instead of sending customers through a long back-and-forth in messages.</p>
+        <div class="benefits"><div class="benefit">Booking details in one place</div><div class="benefit">Clear service + timing choices</div><div class="benefit">Ready to flow into your system</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><strong>Demo Booking Page by The Launch Era</strong><br>Sample business, pricing, customer information and addresses. Photography sourced from Pexels.</div></footer>
+
+  <div class="success" id="success" role="dialog" aria-modal="true">
+    <div class="success-card"><div class="success-check">✓</div><h3>Request received.</h3><p>In a real Booking Page, this request can flow into the cleaning business system so the owner can review, schedule, follow up, and keep the job organized.</p><button id="closeSuccess">Back to demo</button></div>
+  </div>
+
+  <script>
+    const state={service:'Standard Cleaning',base:129,beds:3,baths:2,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
+    const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
+    function render(){
+      $('sumService').textContent=state.service;$('sumHome').textContent=state.beds+' bed · '+state.baths+' bath';$('sumFrequency').textContent=state.frequency;$('sumDate').textContent=state.date;$('sumTime').textContent=state.time;
+      $('sumExtras').textContent=state.extras.length?state.extras.map(x=>x.name).join(', '):'None';$('sumTotal').textContent=money(state.base+state.extras.reduce((s,x)=>s+x.price,0));$('beds').textContent=state.beds;$('baths').textContent=state.baths;
+    }
+    document.querySelectorAll('.service-card').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.service-card').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');state.service=btn.dataset.service;state.base=Number(btn.dataset.price);render()}));
+    document.querySelectorAll('[data-counter]').forEach(btn=>btn.addEventListener('click',()=>{const k=btn.dataset.counter;state[k]=Math.max(0,Math.min(10,state[k]+Number(btn.dataset.dir)));render()}));
+    document.querySelectorAll('#frequency .pill').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('#frequency .pill').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');state.frequency=btn.textContent.trim();render()}));
+    document.querySelectorAll('.date-card').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.date-card').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');state.date=btn.dataset.date;render()}));
+    document.querySelectorAll('.time').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.time').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');state.time=btn.textContent.trim();render()}));
+    document.querySelectorAll('[data-extra]').forEach(box=>box.addEventListener('change',()=>{state.extras=Array.from(document.querySelectorAll('[data-extra]:checked')).map(x=>({name:x.dataset.extra,price:Number(x.dataset.price)}));render()}));
+    $('submitBtn').addEventListener('click',()=>$('success').classList.add('open'));$('closeSuccess').addEventListener('click',()=>$('success').classList.remove('open'));$('success').addEventListener('click',e=>{if(e.target.id==='success')$('success').classList.remove('open')});render();
+  </script>
+</body>
+</html>
