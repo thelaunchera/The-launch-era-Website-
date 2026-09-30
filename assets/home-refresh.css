@@ -636,3 +636,172 @@ body.home.home-editorial{--paper:#eef5fa;--white:#fff;--ink:#17364b;--muted:#637
   .pain-story h3{font-size:24px}
   .pain-turn{margin-top:20px;padding:18px}
 }
+
+
+/* Booking Page is the primary homepage offer */
+.booking-first-hero .booking-hero-browser{
+  overflow:hidden;
+  border:1px solid rgba(23,54,75,.16);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 32px 78px rgba(23,54,75,.16);
+  transform:rotate(1deg);
+}
+.booking-hero-preview{
+  position:relative;
+  height:520px;
+  overflow:hidden;
+  background:#fff;
+}
+.booking-hero-preview iframe{
+  width:1440px;
+  height:920px;
+  border:0;
+  transform:scale(.47);
+  transform-origin:top left;
+  pointer-events:none;
+}
+.booking-benefit-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);
+  gap:24px;
+  max-width:1080px;
+  margin:0 auto;
+  align-items:stretch;
+}
+.booking-benefit-main,
+.booking-app-bonus{
+  border:1px solid #c6d8e3;
+  border-radius:22px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(23,54,75,.08);
+}
+.booking-benefit-screen{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.booking-benefit-screen>div{
+  padding:28px 22px;
+  border-right:1px solid #d1dfe7;
+}
+.booking-benefit-screen>div:last-child{border-right:0}
+.booking-benefit-screen small{
+  display:grid;
+  width:30px;
+  height:30px;
+  place-items:center;
+  border-radius:50%;
+  background:#d7aec1;
+  color:#17364b;
+  font-size:10px;
+  font-weight:900;
+}
+.booking-benefit-screen strong{
+  display:block;
+  margin-top:18px;
+  color:#17364b;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:24px;
+  line-height:1.02;
+}
+.booking-benefit-screen span{
+  display:block;
+  margin-top:9px;
+  color:#667985;
+  font-size:12px;
+  line-height:1.5;
+}
+.booking-app-bonus{
+  padding:28px;
+  background:#17364b;
+  color:#fff;
+}
+.booking-app-bonus .eyebrow{
+  color:#efc8da;
+  margin-bottom:16px;
+}
+.booking-app-bonus h3{
+  color:#fff;
+  font-size:30px;
+  line-height:1;
+}
+.booking-app-bonus p{
+  margin-top:14px;
+  color:#d4e1e9;
+  font-size:13px;
+}
+.booking-app-bonus a{
+  display:inline-block;
+  margin-top:20px;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.booking-primary-card{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:38px;
+  align-items:center;
+  padding:28px;
+  border:1px solid #c6d8e3;
+  border-radius:24px;
+  background:#f7fbfd;
+  box-shadow:0 22px 60px rgba(23,54,75,.08);
+}
+.booking-primary-card .home-work-copy h3{
+  font-size:clamp(42px,4vw,58px);
+}
+.booking-price-block{
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  margin-top:24px;
+}
+.booking-price-block strong{
+  color:#17364b;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:68px;
+  line-height:.8;
+  letter-spacing:-.05em;
+}
+.booking-price-block span{
+  color:#637482;
+  font-size:12px;
+  font-weight:800;
+  padding-bottom:6px;
+}
+.booking-bonus-line{
+  margin-top:18px;
+  padding:14px 16px;
+  border-left:3px solid #7b3f60;
+  background:#eef5fa;
+  color:#526b7b;
+  font-size:12px;
+}
+.booking-bonus-line b{color:#17364b}
+@media(max-width:900px){
+  .booking-benefit-flow,
+  .booking-primary-card{grid-template-columns:1fr}
+  .booking-benefit-screen{grid-template-columns:1fr}
+  .booking-benefit-screen>div{
+    border-right:0;
+    border-bottom:1px solid #d1dfe7;
+  }
+  .booking-benefit-screen>div:last-child{border-bottom:0}
+}
+@media(max-width:760px){
+  .booking-hero-preview{height:360px}
+  .booking-hero-preview iframe{
+    width:980px;
+    height:760px;
+    transform:scale(.38);
+  }
+  .booking-first-hero .booking-hero-browser{transform:none;border-radius:15px}
+  .booking-app-bonus{padding:22px}
+  .booking-primary-card{padding:18px;border-radius:16px}
+  .booking-price-block strong{font-size:58px}
+}
