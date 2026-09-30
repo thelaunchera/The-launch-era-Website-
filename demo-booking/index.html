@@ -101,7 +101,7 @@
           <div class="hero-actions"><button class="start-btn" onclick="setRequestMode('book');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book a Cleaning →</button><button class="secondary-start-btn" onclick="setRequestMode('quote');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Get a Quote</button></div>
         </div>
         <div class="hero-photo">
-          <img src="https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cleaner mopping a bright modern home">
+          <img id="heroPhoto" src="https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cleaner mopping a bright modern home">
           <div class="photo-overlay"><div><strong>Simple for your customers.</strong><small>Organized for your business.</small></div><span class="available">● Accepting bookings</span></div>
         </div>
       </div>
@@ -204,7 +204,7 @@
 
         <aside class="summary">
           <div class="summary-top"><div><small id="summaryKicker">Your booking</small><h3 id="summaryTitle">Almost done.</h3></div><span class="demo-tag">Demo</span></div>
-          <div class="summary-photo"><img src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
+          <div class="summary-photo"><img id="summaryPhoto" src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
           <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
           <div class="summary-row"><span>Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
           <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
@@ -219,7 +219,7 @@
     </section>
 
     <section class="story">
-      <img src="https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bright clean modern living room">
+      <img id="storyPhoto" src="https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bright clean modern living room">
       <div class="story-copy">
         <span class="kicker">Built for growing cleaning businesses</span>
         <h3>Your customers see simple. You get organized.</h3>
@@ -256,6 +256,31 @@
       selected.classList.add('selected');
       state.service=selected.dataset.service;
       state.base=Number(selected.dataset.price||0);
+    }
+
+    function updateDemoPhotos(){
+      const commercial=state.cleaningType==='Commercial';
+
+      const residential={
+        hero:'https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        summary:'https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900',
+        story:'https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      };
+
+      const commercialSet={
+        hero:'https://images.pexels.com/photos/10567271/pexels-photo-10567271.jpeg?auto=compress&cs=tinysrgb&w=1400',
+        summary:'https://images.pexels.com/photos/34516664/pexels-photo-34516664.jpeg?auto=compress&cs=tinysrgb&w=900',
+        story:'https://images.pexels.com/photos/20381389/pexels-photo-20381389.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      };
+
+      const set=commercial?commercialSet:residential;
+      $('heroPhoto').src=set.hero;
+      $('summaryPhoto').src=set.summary;
+      $('storyPhoto').src=set.story;
+
+      $('heroPhoto').alt=commercial?'Cleaner working in a commercial office space':'Cleaner mopping a bright modern home';
+      $('summaryPhoto').alt=commercial?'Commercial janitorial cleaning equipment':'Gloved hand cleaning a kitchen sink';
+      $('storyPhoto').alt=commercial?'Cleaner maintaining a commercial building':'Bright clean modern living room';
     }
 
     function updateDetailsCopy(){
@@ -306,6 +331,7 @@
         state.base=Number(chosen?.dataset.price||129);
         state.time=$('bookTimes').querySelector('.time.selected')?.dataset.time||'10:30 AM';
       }
+      updateDemoPhotos();
       render();
     }
     window.setRequestMode=setRequestMode;
@@ -356,6 +382,7 @@
       document.querySelectorAll('[data-extra]').forEach(box=>{ box.checked=false; });
       state.extras=[];
       updateDetailsCopy();
+      updateDemoPhotos();
       render();
     }));
 
@@ -412,6 +439,7 @@
 
     $('residentialExtras').hidden=false;
     $('commercialExtras').hidden=true;
+    updateDemoPhotos();
     setRequestMode('book');
   </script>
 </body>
