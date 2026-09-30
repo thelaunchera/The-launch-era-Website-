@@ -8,59 +8,56 @@
 
 #support .step{display:block}#support .step h3{margin:0 0 14px}#support .step p{margin:0 0 18px}#support .step .text-link{display:inline-block;min-height:44px;padding:10px 0}
 
+/* Layout 2 — deliberately separate visual systems for Booking Page and Cleaning App */
+.browser-dots{display:flex;gap:6px;align-items:center}.browser-dots i{width:8px;height:8px;border-radius:50%;display:block;background:#c8c4bb}.browser-dots i:nth-child(2){background:var(--yellow)}.browser-dots i:nth-child(3){background:#bfd4e6}
 
-/* Jiro-inspired motion layer — scoped to Booking Page + Cleaning App */
-.booking .hero,.app .hero{position:relative;overflow:hidden}
-.booking .hero:before,.app .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(230,239,247,.95) 0,rgba(230,239,247,.42) 38%,rgba(230,239,247,0) 72%);right:-170px;top:-210px;pointer-events:none;animation:tleAura 8s ease-in-out infinite alternate}
-.booking .hero-grid>.fade-in,.app .hero-grid>.fade-in{animation:tleHeroCopy .72s cubic-bezier(.2,.75,.25,1) both}
-.booking .hero-visual,.app .hero-visual{isolation:isolate;animation:tleHeroVisual .88s .08s cubic-bezier(.2,.75,.25,1) both;transform-origin:50% 70%}
-.booking .hero-photo,.app .hero-photo{transition:transform .7s cubic-bezier(.2,.75,.25,1),filter .7s ease}
-.booking .hero-visual:hover .hero-photo,.app .hero-visual:hover .hero-photo{transform:scale(1.018)}
-.booking .hero-caption,.app .hero-caption{animation:tleCaptionIn .62s .45s cubic-bezier(.2,.8,.25,1) both;box-shadow:0 16px 36px rgba(25,25,25,.08)}
-.hero-motion{position:absolute;inset:0;z-index:4;pointer-events:none}
-.motion-card{position:absolute;display:flex;align-items:center;gap:10px;max-width:220px;padding:11px 14px;border:1px solid rgba(25,25,25,.12);border-radius:10px;background:rgba(255,255,255,.94);box-shadow:0 14px 32px rgba(25,25,25,.12);backdrop-filter:blur(8px);font-size:12px;font-weight:700;line-height:1.25;animation:tleFloat 4.6s ease-in-out infinite}
-.motion-card:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 5px rgba(233,215,138,.24);flex:none}
-.motion-card small{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:500}
-.motion-card:nth-child(1){left:-18px;top:12%;animation-delay:-.7s}
-.motion-card:nth-child(2){right:-20px;bottom:31%;animation-delay:-2s}
-.motion-card:nth-child(3){left:4%;bottom:11%;animation-delay:-3.1s}
-.app .motion-card:nth-child(1){left:-24px;top:18%}
-.app .motion-card:nth-child(2){right:-22px;bottom:34%}
-.app .motion-card:nth-child(3){left:7%;bottom:10%}
-.motion-reveal{opacity:0;transform:translateY(26px) scale(.988);transition:opacity .68s cubic-bezier(.2,.75,.25,1),transform .68s cubic-bezier(.2,.75,.25,1)}
-.motion-reveal.is-visible{opacity:1;transform:none}
-.step.motion-reveal{transition-delay:var(--motion-delay,0ms)}
-.demo-frame.motion-reveal,.product-gallery.motion-reveal,.offer-card.motion-reveal{transform:translateY(30px) scale(.97)}
-.demo-frame.motion-reveal.is-visible,.product-gallery.motion-reveal.is-visible,.offer-card.motion-reveal.is-visible{transform:none}
-.booking .demo-frame,.app .screen-wrap{transition:transform .42s cubic-bezier(.2,.75,.25,1),box-shadow .42s ease}
-.booking .demo-frame:hover{transform:translateY(-5px) rotateX(1.2deg) rotateY(-1.2deg);box-shadow:17px 20px 0 #d5e3ef}
-.app .screen-wrap:hover{transform:translateY(-5px) scale(1.004);box-shadow:0 24px 50px rgba(25,25,25,.12)}
-.gallery-panel:not([hidden]){animation:tlePanelIn .36s cubic-bezier(.2,.75,.25,1) both}
-.gallery-nav button{transition:transform .18s ease,background .22s ease,color .22s ease,box-shadow .22s ease}
-.gallery-nav button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(25,25,25,.08)}
-.faq details[open] p{animation:tleFaqIn .3s cubic-bezier(.2,.75,.25,1) both}
-.faq summary{transition:transform .18s ease,color .18s ease}
-.faq summary:hover{transform:translateX(3px)}
-.offer-card{transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease}
-.offer-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(25,25,25,.10)}
-@keyframes tleHeroCopy{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes tleHeroVisual{from{opacity:0;transform:translateY(34px) scale(.955) rotateX(2deg)}to{opacity:1;transform:none}}
-@keyframes tleCaptionIn{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes tleFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-8px,0)}}
-@keyframes tleAura{from{transform:translate3d(0,0,0) scale(.92)}to{transform:translate3d(-34px,22px,0) scale(1.08)}}
-@keyframes tlePanelIn{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:none}}
-@keyframes tleFaqIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+/* BOOKING PAGE — meeting/booking flow */
+.booking .booking-hero{position:relative;overflow:hidden;padding:72px 0 82px;background:linear-gradient(180deg,var(--paper) 0%,#fff 100%)}
+.booking .booking-hero:before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;left:-310px;top:90px;background:radial-gradient(circle,rgba(233,215,138,.30),rgba(233,215,138,0) 68%);pointer-events:none}
+.booking-hero-copy{text-align:center;position:relative;z-index:2}.booking-hero-copy h1{max-width:900px;margin-inline:auto;font-size:clamp(46px,5.4vw,76px)}.booking-hero-copy .lead{max-width:710px;margin:24px auto 0}.booking-hero-copy .actions,.booking-hero-copy .hero-facts{justify-content:center}.booking-hero-copy .offer-note{text-align:center}
+.booking-stage{position:relative;display:grid;grid-template-columns:minmax(0,1.42fr) minmax(250px,.58fr);gap:24px;align-items:stretch;margin-top:52px;z-index:2}
+.booking-browser{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 34px 70px rgba(25,25,25,.13);animation:bookingBrowserIn .82s .12s cubic-bezier(.2,.75,.25,1) both}
+.booking-browser-top{min-height:48px;padding:0 18px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;color:var(--muted)}.booking-browser-top .browser-live{justify-self:end;background:var(--blue);color:var(--ink);border-radius:999px;padding:5px 9px;font-size:9px;letter-spacing:.08em}
+.booking-browser-body{padding:34px}.booking-intro{max-width:610px}.booking-intro .eyebrow{margin-bottom:10px}.booking-intro h2{font-size:clamp(31px,3vw,45px)}.booking-intro p{max-width:570px;margin-top:12px;color:var(--muted);font-size:14px}
+.booking-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.booking-flow-card{min-height:154px;padding:20px;border:1px solid var(--line);border-radius:13px;background:var(--paper);position:relative;overflow:hidden;transform:translateY(0);transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;animation:bookingStep 7.8s ease-in-out infinite}.booking-flow-card:nth-child(2){animation-delay:2.6s}.booking-flow-card:nth-child(3){animation-delay:5.2s}.booking-flow-card small{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:10px;font-weight:700}.booking-flow-card strong{display:block;margin-top:20px;font-family:Prompt,Arial,sans-serif;font-size:17px;line-height:1.25}.booking-flow-card span{display:block;margin-top:8px;color:var(--muted);font-size:12px;line-height:1.45}
+.booking-progress{height:4px;border-radius:999px;background:#ece8df;overflow:hidden;margin-top:22px}.booking-progress span{display:block;width:100%;height:100%;transform-origin:left;background:var(--ink);animation:bookingProgress 7.8s linear infinite}
+.booking-owner-photo{position:relative;min-height:100%;border-radius:20px;overflow:hidden;background:var(--blue);animation:bookingPhotoIn .82s .22s cubic-bezier(.2,.75,.25,1) both}.booking-owner-photo img{width:100%;height:100%;min-height:410px;object-fit:cover;object-position:62% center}.booking-owner-photo figcaption{position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:flex-start;gap:10px;padding:14px;border:1px solid rgba(255,255,255,.72);border-radius:12px;background:rgba(255,255,255,.93);box-shadow:0 12px 30px rgba(25,25,25,.12);backdrop-filter:blur(8px)}.booking-owner-photo .check{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--yellow);flex:none}.booking-owner-photo strong{display:block;font-size:12px;line-height:1.35}.booking-owner-photo small{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.35}
+.booking .benefit-strip{background:var(--ink);color:#fff}
+.booking #included .steps{gap:0;border-top:1px solid var(--ink)}.booking #included .step{padding:26px 24px 0;border-top:0;border-right:1px solid var(--line)}.booking #included .step:first-child{padding-left:0}.booking #included .step:last-child{border-right:0;padding-right:0}
+.booking-reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.2,.75,.25,1),transform .65s cubic-bezier(.2,.75,.25,1)}.booking-reveal.is-visible{opacity:1;transform:none}
+
+/* CLEANING APP — SaaS/product-first */
+.app .app-hero{position:relative;overflow:hidden;padding:76px 0 92px;background:var(--ink);color:#fff}.app .app-hero:before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;right:-360px;top:-420px;background:radial-gradient(circle,rgba(230,239,247,.26) 0%,rgba(230,239,247,0) 68%);pointer-events:none}.app .app-hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;left:-300px;bottom:-360px;background:radial-gradient(circle,rgba(233,215,138,.20) 0%,rgba(233,215,138,0) 68%);pointer-events:none}
+.app-hero-copy{text-align:center;position:relative;z-index:2}.app-hero-copy h1{max-width:920px;margin-inline:auto;font-size:clamp(48px,5.8vw,80px)}.app-hero-copy h1 em{background:linear-gradient(transparent 62%,rgba(230,239,247,.32) 62%)}.app-hero-copy .lead{max-width:720px;margin:24px auto 0;color:#d8d4cc}.app-hero-copy .actions,.app-hero-copy .hero-facts{justify-content:center}.app-hero-copy .hero-facts{color:#d8d4cc}.app-hero-copy .hero-facts span:before{color:var(--yellow)}.app-hero-copy .text-link{color:#fff}
+.app-product-stage{position:relative;margin-top:54px;z-index:2;perspective:1400px}.app-window{position:relative;max-width:1050px;margin-inline:auto;border:1px solid rgba(255,255,255,.16);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 38px 100px rgba(0,0,0,.45);transform-origin:50% 80%;animation:appWindowIn .9s .12s cubic-bezier(.2,.75,.25,1) both}.app-window-top{height:50px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:0 18px;background:#f5f3ee;border-bottom:1px solid #ded9cf;color:#625f59;font-size:11px;font-weight:700}.app-window-status{justify-self:end;padding:5px 9px;border-radius:999px;background:var(--ink);color:#fff;font-size:9px;letter-spacing:.08em}.app-window-screen{background:#fff;padding:8px}.app-window-screen img{width:100%;height:auto;border-radius:11px}
+.app-float{position:absolute;z-index:4;min-width:190px;padding:12px 14px;border:1px solid rgba(25,25,25,.11);border-radius:12px;background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 18px 42px rgba(0,0,0,.28);backdrop-filter:blur(9px);animation:appFloat 4.8s ease-in-out infinite}.app-float span{display:block;color:var(--muted);font-size:10px}.app-float strong{display:block;margin-top:3px;font-size:12px;line-height:1.35}.app-float-booking{left:-8px;top:18%;animation-delay:-.4s}.app-float-job{right:-12px;top:36%;animation-delay:-1.8s}.app-float-invoice{left:7%;bottom:-17px;animation-delay:-3.1s}
+.app .benefit-strip{background:var(--blue);color:var(--ink);border-bottom:1px solid #cedde9}.app .strip-grid p{border-color:#c7d8e6;font-weight:600}
+.app #how{background:var(--paper)}.app #how .steps{gap:16px}.app #how .step{padding:24px;border:1px solid var(--line);border-radius:14px;background:#fff}.app #how .step small{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue);color:var(--ink)}.app #how .step h3{margin-top:28px}
+.app #inside{background:var(--blue)}.app .product-gallery{padding:22px;border:1px solid #cddce8;border-radius:18px;background:rgba(255,255,255,.58)}.app .screen-wrap{box-shadow:0 18px 48px rgba(25,25,25,.10)}
+.app #pricing .offer-card{background:var(--ink);color:#fff;border-color:var(--ink)}.app #pricing .offer-card p{color:#d6d1c7}.app #pricing .offer-card .button.primary{background:var(--yellow);color:var(--ink)}
+.app-reveal{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .72s cubic-bezier(.2,.75,.25,1),transform .72s cubic-bezier(.2,.75,.25,1)}.app-reveal.is-visible{opacity:1;transform:none}.app .step.app-reveal:nth-child(2){transition-delay:90ms}.app .step.app-reveal:nth-child(3){transition-delay:180ms}
+
+/* Shared small interactions, with different motion systems above */
+.gallery-panel:not([hidden]){animation:appPanelIn .36s cubic-bezier(.2,.75,.25,1) both}.gallery-nav button{transition:transform .18s ease,background .22s ease,color .22s ease,box-shadow .22s ease}.gallery-nav button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(25,25,25,.08)}.faq details[open] p{animation:faqIn .3s cubic-bezier(.2,.75,.25,1) both}.faq summary{transition:transform .18s ease}.faq summary:hover{transform:translateX(3px)}.offer-card{transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease}.offer-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(25,25,25,.10)}
+
+@keyframes bookingBrowserIn{from{opacity:0;transform:translateX(-24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes bookingPhotoIn{from{opacity:0;transform:translateX(24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes bookingStep{0%,25%,100%{border-color:var(--line);box-shadow:none;transform:none;background:var(--paper)}8%,20%{border-color:var(--ink);box-shadow:0 12px 28px rgba(25,25,25,.09);transform:translateY(-5px);background:#fff}}
+@keyframes bookingProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes appWindowIn{from{opacity:0;transform:translateY(42px) scale(.94) rotateX(5deg)}to{opacity:1;transform:none}}
+@keyframes appFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-9px,0)}}
+@keyframes appPanelIn{from{opacity:0;transform:translateY(12px) scale(.992)}to{opacity:1;transform:none}}
+@keyframes faqIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+
+@media(max-width:1050px){
+  .booking-stage{grid-template-columns:1fr .52fr}.booking-flow{grid-template-columns:1fr}.booking-flow-card{min-height:0}.booking-flow-card strong{margin-top:12px}.booking-owner-photo img{min-height:520px}
+  .app-float-booking{left:4px}.app-float-job{right:4px}
+}
 @media(max-width:760px){
-  .booking .hero:before,.app .hero:before{width:360px;height:360px;right:-190px;top:-120px}
-  .motion-card{max-width:175px;padding:9px 11px;font-size:10px;border-radius:9px}
-  .motion-card small{font-size:9px}
-  .motion-card:nth-child(1),.app .motion-card:nth-child(1){left:-8px;top:7%}
-  .motion-card:nth-child(2),.app .motion-card:nth-child(2){right:-7px;bottom:26%}
-  .motion-card:nth-child(3),.app .motion-card:nth-child(3){display:none}
-  .booking .hero-visual:hover .hero-photo,.app .hero-visual:hover .hero-photo{transform:none}
+  .booking .booking-hero{padding:42px 0 54px}.booking-hero-copy h1{font-size:clamp(39px,11.2vw,56px)}.booking-stage{grid-template-columns:1fr;margin-top:34px;gap:16px}.booking-browser{border-radius:15px}.booking-browser-top{grid-template-columns:auto 1fr auto;font-size:9px}.booking-browser-body{padding:22px}.booking-intro h2{font-size:30px}.booking-flow{grid-template-columns:1fr;gap:9px;margin-top:22px}.booking-flow-card{min-height:0;padding:15px;animation:none}.booking-flow-card small{width:24px;height:24px}.booking-flow-card strong{font-size:15px;margin-top:10px}.booking-flow-card span{font-size:11px}.booking-progress{display:none}.booking-owner-photo{min-height:300px}.booking-owner-photo img{min-height:300px;height:330px}.booking #included .steps{border-top:0}.booking #included .step,.booking #included .step:first-child,.booking #included .step:last-child{padding:18px 0;border-right:0;border-top:1px solid var(--ink)}
+  .app .app-hero{padding:44px 0 62px}.app-hero-copy h1{font-size:clamp(40px,11.5vw,58px)}.app-product-stage{margin-top:36px}.app-window{border-radius:14px}.app-window-top{height:42px;grid-template-columns:auto 1fr auto;padding:0 11px;font-size:9px}.app-window-status{font-size:7px;padding:4px 7px}.app-window-screen{padding:4px}.app-float{min-width:145px;padding:9px 10px}.app-float span{font-size:8px}.app-float strong{font-size:10px}.app-float-booking{left:-3px;top:14%}.app-float-job{right:-3px;top:46%}.app-float-invoice{display:none}.app #how .step{display:block;padding:20px}.app #how .step h3{margin:22px 0 9px}.app #how .step p{grid-column:auto}.app .product-gallery{padding:12px}
 }
 @media(prefers-reduced-motion:reduce){
-  .booking .hero:before,.app .hero:before,.booking .hero-grid>.fade-in,.app .hero-grid>.fade-in,.booking .hero-visual,.app .hero-visual,.booking .hero-caption,.app .hero-caption,.motion-card,.gallery-panel:not([hidden]),.faq details[open] p{animation:none!important}
-  .motion-reveal{opacity:1!important;transform:none!important;transition:none!important}
-  .booking .hero-photo,.app .hero-photo,.booking .demo-frame,.app .screen-wrap,.gallery-nav button,.faq summary,.offer-card{transition:none!important}
+  .booking-browser,.booking-owner-photo,.booking-flow-card,.booking-progress span,.app-window,.app-float,.gallery-panel:not([hidden]),.faq details[open] p{animation:none!important}
+  .booking-reveal,.app-reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
