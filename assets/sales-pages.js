@@ -29,15 +29,18 @@
   const body = document.body;
   const isBooking = body.classList.contains('booking');
   const isApp = body.classList.contains('app');
+  const isHome = body.classList.contains('home');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!reduceMotion && (isBooking || isApp)) {
-    const selector = isBooking
-      ? '.section-head,.split,.connection,.offer-card,.faq,.benefit-strip,#included .step,#support .step'
-      : '.section-head,.split,.connection,.offer-card,.product-gallery,.faq,.benefit-strip,#how .step';
+  if (!reduceMotion && (isBooking || isApp || isHome)) {
+    const selector = isHome
+      ? '.home-reveal'
+      : (isBooking
+        ? '.section-head,.split,.connection,.offer-card,.faq,.benefit-strip,#included .step,#support .step'
+        : '.section-head,.split,.connection,.offer-card,.product-gallery,.faq,.benefit-strip,#how .step');
 
     const targets = [...document.querySelectorAll(selector)];
-    const revealClass = isBooking ? 'booking-reveal' : 'app-reveal';
+    const revealClass = isHome ? 'home-reveal' : (isBooking ? 'booking-reveal' : 'app-reveal');
     targets.forEach(el => el.classList.add(revealClass));
 
     if ('IntersectionObserver' in window) {
