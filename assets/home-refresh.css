@@ -513,3 +513,126 @@ body.home.home-editorial{--paper:#eef5fa;--white:#fff;--ink:#17364b;--muted:#637
   .lead-quiz-actions .button{width:100%;min-width:0}
   .lead-quiz-step:first-of-type .lead-quiz-actions{display:flex}
 }
+
+
+/* Cata-inspired pain order */
+.home-pain{
+  padding:88px 0 94px;
+  background:#fff;
+}
+.home-pain-head{
+  max-width:820px;
+  margin-bottom:42px;
+}
+.home-pain-head .eyebrow{color:#7b3f60}
+.home-pain-head h2{
+  max-width:790px;
+  font-size:clamp(48px,5.4vw,76px);
+  line-height:.93;
+  letter-spacing:-.05em;
+}
+.home-pain-head h2 span{
+  color:#7b3f60;
+  font-family:Allura,cursive;
+  font-size:1.08em;
+  font-weight:400;
+  white-space:nowrap;
+}
+.home-pain-head p{
+  max-width:630px;
+  margin-top:20px;
+  color:#657986;
+  font-size:16px;
+}
+.pain-story{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #c8d8e2;
+  border-bottom:1px solid #c8d8e2;
+}
+.pain-story article{
+  position:relative;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:12px;
+  min-height:250px;
+  padding:28px 22px 26px;
+  border-right:1px solid #c8d8e2;
+}
+.pain-story article:last-child{border-right:0}
+.pain-story article small{
+  display:grid;
+  width:30px;
+  height:30px;
+  place-items:center;
+  border-radius:50%;
+  background:#d7aec1;
+  color:#17364b;
+  font-size:10px;
+  font-weight:900;
+}
+.pain-tag{
+  display:block;
+  margin-bottom:12px;
+  color:#7b3f60;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.pain-story h3{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:25px;
+  line-height:1.02;
+  color:#17364b;
+}
+.pain-story p{
+  margin-top:12px;
+  color:#667985;
+  font-size:13px;
+  line-height:1.55;
+}
+.pain-turn{
+  max-width:760px;
+  margin:36px auto 0;
+  padding:20px 24px;
+  border-radius:16px;
+  background:#eef5fa;
+  text-align:center;
+}
+.pain-turn p{
+  color:#496475;
+  font-size:17px;
+}
+.pain-turn strong{
+  color:#17364b;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:22px;
+  font-weight:600;
+}
+@media(max-width:900px){
+  .pain-story{grid-template-columns:1fr 1fr}
+  .pain-story article:nth-child(2){border-right:0}
+  .pain-story article:nth-child(-n+2){border-bottom:1px solid #c8d8e2}
+}
+@media(max-width:760px){
+  .home-pain{padding:62px 0 66px}
+  .home-pain-head{margin-bottom:28px}
+  .home-pain-head h2{font-size:46px}
+  .home-pain-head p{font-size:14px}
+  .pain-story{
+    grid-template-columns:1fr;
+    border:0;
+    gap:10px;
+  }
+  .pain-story article,
+  .pain-story article:nth-child(2){
+    min-height:0;
+    padding:20px;
+    border:1px solid #c8d8e2;
+    border-radius:14px;
+    background:#f9fcfe;
+  }
+  .pain-story article:nth-child(-n+2){border-bottom:1px solid #c8d8e2}
+  .pain-story h3{font-size:24px}
+  .pain-turn{margin-top:20px;padding:18px}
+}
