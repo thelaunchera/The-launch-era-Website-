@@ -48,6 +48,10 @@
       if(label) label.textContent=lang==="es"
         ? `Pregunta ${current+1} de ${steps.length}`
         : `Question ${current+1} of ${steps.length}`;
+      form.querySelectorAll("[data-quiz-map-step]").forEach((item,i)=>{
+        item.classList.toggle("is-current",i===current);
+        item.classList.toggle("is-done",i<current);
+      });
       if(smooth) form.scrollIntoView({behavior:"smooth",block:"center"});
     }
 
@@ -62,6 +66,17 @@
       if(autoTimer) clearTimeout(autoTimer);
       show(current-1);
     }));
+
+    form.querySelectorAll("[data-quiz-reveal-contact] input[type='radio']").forEach((radio)=>{
+      radio.addEventListener("change",()=>{
+        const details=form.querySelector("[data-quiz-contact-details]");
+        if(details){
+          details.hidden=false;
+          details.classList.add("is-visible");
+          setTimeout(()=>details.scrollIntoView({behavior:"smooth",block:"nearest"}),80);
+        }
+      });
+    });
 
     form._showQuizThankYou=(name,emailSent)=>{
       form.querySelectorAll("[data-quiz-step],[data-quiz-progress]").forEach(el=>el.hidden=true);
@@ -108,7 +123,9 @@
       const service=String(fd.get("service_interest")||"").trim();
       const help=[...fd.getAll("help_needed").map(String).filter(Boolean)];
       const goal=String(fd.get("desired_outcome")||"").trim();
+      const nextAction=String(fd.get("next_action")||"").trim();
       if(goal) help.push("Goal: "+goal);
+      if(nextAction) help.push("Next: "+nextAction);
       if(service) help.push(service);
 
       const source=resolveSource(form,lang);
