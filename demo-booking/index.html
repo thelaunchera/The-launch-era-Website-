@@ -259,28 +259,59 @@
     }
 
     function updateDemoPhotos(){
-      const commercial=state.cleaningType==='Commercial';
+      const key=state.mode+"-"+state.cleaningType.toLowerCase();
 
-      const residential={
-        hero:'https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400',
-        summary:'https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900',
-        story:'https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      const photoSets={
+        "book-residential":{
+          hero:"https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400",
+          summary:"https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900",
+          story:"https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          heroAlt:"Cleaner mopping a bright residential home",
+          summaryAlt:"Cleaner working in a residential kitchen",
+          storyAlt:"Bright clean residential living room"
+        },
+        "book-commercial":{
+          hero:"https://images.pexels.com/photos/33357392/pexels-photo-33357392.jpeg?auto=compress&cs=tinysrgb&w=1400",
+          summary:"https://images.pexels.com/photos/36303748/pexels-photo-36303748.jpeg?auto=compress&cs=tinysrgb&w=900",
+          story:"https://images.pexels.com/photos/10567236/pexels-photo-10567236.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          heroAlt:"Professional cleaners working at a modern office building",
+          summaryAlt:"Commercial cleaning cart in a business hallway",
+          storyAlt:"Commercial workspace prepared for cleaning"
+        },
+        "quote-residential":{
+          hero:"https://images.pexels.com/photos/6196692/pexels-photo-6196692.jpeg?auto=compress&cs=tinysrgb&w=1400",
+          summary:"https://images.pexels.com/photos/4239128/pexels-photo-4239128.jpeg?auto=compress&cs=tinysrgb&w=900",
+          story:"https://images.pexels.com/photos/5591909/pexels-photo-5591909.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          heroAlt:"Professional cleaners preparing a residential cleaning",
+          summaryAlt:"Residential cleaner washing a bathroom fixture",
+          storyAlt:"Cleaner wiping a residential kitchen counter"
+        },
+        "quote-commercial":{
+          hero:"https://images.pexels.com/photos/8811390/pexels-photo-8811390.jpeg?auto=compress&cs=tinysrgb&w=1400",
+          summary:"https://images.pexels.com/photos/34516664/pexels-photo-34516664.jpeg?auto=compress&cs=tinysrgb&w=900",
+          story:"https://images.pexels.com/photos/18134199/pexels-photo-18134199.jpeg?auto=compress&cs=tinysrgb&w=1200",
+          heroAlt:"Cleaner washing a commercial storefront window",
+          summaryAlt:"Professional janitorial supplies for a commercial space",
+          storyAlt:"Professional cleaners working on a modern office building"
+        }
       };
 
-      const commercialSet={
-        hero:'https://images.pexels.com/photos/10567271/pexels-photo-10567271.jpeg?auto=compress&cs=tinysrgb&w=1400',
-        summary:'https://images.pexels.com/photos/34516664/pexels-photo-34516664.jpeg?auto=compress&cs=tinysrgb&w=900',
-        story:'https://images.pexels.com/photos/20381389/pexels-photo-20381389.jpeg?auto=compress&cs=tinysrgb&w=1200'
-      };
+      const set=photoSets[key]||photoSets["book-residential"];
+      const hero=$("heroPhoto");
+      const summary=$("summaryPhoto");
+      const story=$("storyPhoto");
 
-      const set=commercial?commercialSet:residential;
-      $('heroPhoto').src=set.hero;
-      $('summaryPhoto').src=set.summary;
-      $('storyPhoto').src=set.story;
+      hero.src=set.hero;
+      summary.src=set.summary;
+      story.src=set.story;
 
-      $('heroPhoto').alt=commercial?'Cleaner working in a commercial office space':'Cleaner mopping a bright modern home';
-      $('summaryPhoto').alt=commercial?'Commercial janitorial cleaning equipment':'Gloved hand cleaning a kitchen sink';
-      $('storyPhoto').alt=commercial?'Cleaner maintaining a commercial building':'Bright clean modern living room';
+      hero.alt=set.heroAlt;
+      summary.alt=set.summaryAlt;
+      story.alt=set.storyAlt;
+
+      hero.dataset.photoState=key;
+      summary.dataset.photoState=key;
+      story.dataset.photoState=key;
     }
 
     function updateDetailsCopy(){
