@@ -7,3 +7,60 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade-in{animation:none}.button{transition:none}.button:hover{transform:none}}
 
 #support .step{display:block}#support .step h3{margin:0 0 14px}#support .step p{margin:0 0 18px}#support .step .text-link{display:inline-block;min-height:44px;padding:10px 0}
+
+
+/* Jiro-inspired motion layer — scoped to Booking Page + Cleaning App */
+.booking .hero,.app .hero{position:relative;overflow:hidden}
+.booking .hero:before,.app .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(230,239,247,.95) 0,rgba(230,239,247,.42) 38%,rgba(230,239,247,0) 72%);right:-170px;top:-210px;pointer-events:none;animation:tleAura 8s ease-in-out infinite alternate}
+.booking .hero-grid>.fade-in,.app .hero-grid>.fade-in{animation:tleHeroCopy .72s cubic-bezier(.2,.75,.25,1) both}
+.booking .hero-visual,.app .hero-visual{isolation:isolate;animation:tleHeroVisual .88s .08s cubic-bezier(.2,.75,.25,1) both;transform-origin:50% 70%}
+.booking .hero-photo,.app .hero-photo{transition:transform .7s cubic-bezier(.2,.75,.25,1),filter .7s ease}
+.booking .hero-visual:hover .hero-photo,.app .hero-visual:hover .hero-photo{transform:scale(1.018)}
+.booking .hero-caption,.app .hero-caption{animation:tleCaptionIn .62s .45s cubic-bezier(.2,.8,.25,1) both;box-shadow:0 16px 36px rgba(25,25,25,.08)}
+.hero-motion{position:absolute;inset:0;z-index:4;pointer-events:none}
+.motion-card{position:absolute;display:flex;align-items:center;gap:10px;max-width:220px;padding:11px 14px;border:1px solid rgba(25,25,25,.12);border-radius:10px;background:rgba(255,255,255,.94);box-shadow:0 14px 32px rgba(25,25,25,.12);backdrop-filter:blur(8px);font-size:12px;font-weight:700;line-height:1.25;animation:tleFloat 4.6s ease-in-out infinite}
+.motion-card:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 5px rgba(233,215,138,.24);flex:none}
+.motion-card small{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:500}
+.motion-card:nth-child(1){left:-18px;top:12%;animation-delay:-.7s}
+.motion-card:nth-child(2){right:-20px;bottom:31%;animation-delay:-2s}
+.motion-card:nth-child(3){left:4%;bottom:11%;animation-delay:-3.1s}
+.app .motion-card:nth-child(1){left:-24px;top:18%}
+.app .motion-card:nth-child(2){right:-22px;bottom:34%}
+.app .motion-card:nth-child(3){left:7%;bottom:10%}
+.motion-reveal{opacity:0;transform:translateY(26px) scale(.988);transition:opacity .68s cubic-bezier(.2,.75,.25,1),transform .68s cubic-bezier(.2,.75,.25,1)}
+.motion-reveal.is-visible{opacity:1;transform:none}
+.step.motion-reveal{transition-delay:var(--motion-delay,0ms)}
+.demo-frame.motion-reveal,.product-gallery.motion-reveal,.offer-card.motion-reveal{transform:translateY(30px) scale(.97)}
+.demo-frame.motion-reveal.is-visible,.product-gallery.motion-reveal.is-visible,.offer-card.motion-reveal.is-visible{transform:none}
+.booking .demo-frame,.app .screen-wrap{transition:transform .42s cubic-bezier(.2,.75,.25,1),box-shadow .42s ease}
+.booking .demo-frame:hover{transform:translateY(-5px) rotateX(1.2deg) rotateY(-1.2deg);box-shadow:17px 20px 0 #d5e3ef}
+.app .screen-wrap:hover{transform:translateY(-5px) scale(1.004);box-shadow:0 24px 50px rgba(25,25,25,.12)}
+.gallery-panel:not([hidden]){animation:tlePanelIn .36s cubic-bezier(.2,.75,.25,1) both}
+.gallery-nav button{transition:transform .18s ease,background .22s ease,color .22s ease,box-shadow .22s ease}
+.gallery-nav button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(25,25,25,.08)}
+.faq details[open] p{animation:tleFaqIn .3s cubic-bezier(.2,.75,.25,1) both}
+.faq summary{transition:transform .18s ease,color .18s ease}
+.faq summary:hover{transform:translateX(3px)}
+.offer-card{transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease}
+.offer-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(25,25,25,.10)}
+@keyframes tleHeroCopy{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes tleHeroVisual{from{opacity:0;transform:translateY(34px) scale(.955) rotateX(2deg)}to{opacity:1;transform:none}}
+@keyframes tleCaptionIn{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes tleFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-8px,0)}}
+@keyframes tleAura{from{transform:translate3d(0,0,0) scale(.92)}to{transform:translate3d(-34px,22px,0) scale(1.08)}}
+@keyframes tlePanelIn{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:none}}
+@keyframes tleFaqIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+  .booking .hero:before,.app .hero:before{width:360px;height:360px;right:-190px;top:-120px}
+  .motion-card{max-width:175px;padding:9px 11px;font-size:10px;border-radius:9px}
+  .motion-card small{font-size:9px}
+  .motion-card:nth-child(1),.app .motion-card:nth-child(1){left:-8px;top:7%}
+  .motion-card:nth-child(2),.app .motion-card:nth-child(2){right:-7px;bottom:26%}
+  .motion-card:nth-child(3),.app .motion-card:nth-child(3){display:none}
+  .booking .hero-visual:hover .hero-photo,.app .hero-visual:hover .hero-photo{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .booking .hero:before,.app .hero:before,.booking .hero-grid>.fade-in,.app .hero-grid>.fade-in,.booking .hero-visual,.app .hero-visual,.booking .hero-caption,.app .hero-caption,.motion-card,.gallery-panel:not([hidden]),.faq details[open] p{animation:none!important}
+  .motion-reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .booking .hero-photo,.app .hero-photo,.booking .demo-frame,.app .screen-wrap,.gallery-nav button,.faq summary,.offer-card{transition:none!important}
+}
