@@ -331,3 +331,185 @@ body.home.home-editorial{--paper:#eef5fa;--white:#fff;--ink:#17364b;--muted:#637
   .contact-dialog-head h2{font-size:39px}
   .contact-dialog .home-contact-form{padding:18px}
 }
+
+
+/* Lead questionnaire */
+.lead-quiz-section{
+  padding:88px 0 98px;
+  background:#fff;
+  border-top:1px solid #d3e0e8;
+}
+.lead-quiz-shell{
+  display:grid;
+  grid-template-columns:.76fr 1.24fr;
+  gap:64px;
+  align-items:start;
+}
+.lead-quiz-intro{
+  position:sticky;
+  top:118px;
+}
+.lead-quiz-intro h2{
+  max-width:520px;
+  font-size:clamp(45px,4.7vw,68px);
+  line-height:.94;
+  letter-spacing:-.05em;
+}
+.lead-quiz-intro>p{
+  max-width:470px;
+  margin-top:20px;
+  color:#637482;
+  font-size:15px;
+}
+.lead-quiz-meta{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+.lead-quiz-meta span{
+  padding:8px 11px;
+  border-radius:999px;
+  background:#eef5fa;
+  color:#526b7b;
+  font-size:10px;
+  font-weight:800;
+}
+.tle-lead-quiz{
+  min-height:480px;
+  padding:28px;
+  border:1px solid #c7d8e2;
+  border-radius:22px;
+  background:#f7fbfd;
+  box-shadow:0 22px 58px rgba(23,54,75,.08);
+}
+.lead-quiz-progress{
+  height:5px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#dbe7ee;
+}
+.lead-quiz-progress span{
+  display:block;
+  width:33.333%;
+  height:100%;
+  border-radius:inherit;
+  background:#7b3f60;
+  transition:width .25s ease;
+}
+.lead-quiz-step-label{
+  margin-top:10px;
+  color:#70838f;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.lead-quiz-step{
+  margin-top:24px;
+}
+.lead-quiz-step h3{
+  margin-bottom:20px;
+  color:#17364b;
+  font-size:31px;
+  line-height:1;
+}
+.tle-lead-quiz label>span,
+.tle-lead-quiz legend{
+  display:block;
+  margin-bottom:7px;
+  color:#38566a;
+  font-size:11px;
+  font-weight:800;
+}
+.tle-lead-quiz input[type="text"],
+.tle-lead-quiz input[type="email"],
+.tle-lead-quiz input[type="tel"],
+.tle-lead-quiz select,
+.tle-lead-quiz textarea{
+  width:100%;
+  min-height:50px;
+  padding:12px 14px;
+  border:1px solid #bdd0dc;
+  border-radius:10px;
+  background:#fff;
+  color:#17364b;
+  font:500 14px/1.4 Manrope,'Helvetica Neue',Arial,sans-serif;
+  outline:none;
+}
+.tle-lead-quiz textarea{min-height:105px;resize:vertical}
+.tle-lead-quiz input:focus,
+.tle-lead-quiz select:focus,
+.tle-lead-quiz textarea:focus{
+  border-color:#7b3f60;
+  box-shadow:0 0 0 3px rgba(123,63,96,.10);
+}
+.tle-lead-quiz fieldset{
+  margin:0 0 20px;
+  padding:0;
+  border:0;
+}
+.quiz-choice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.quiz-choice-grid label{position:relative}
+.quiz-choice-grid input{
+  position:absolute;
+  opacity:0;
+  width:1px;
+  height:1px;
+}
+.quiz-choice-grid label span{
+  display:flex;
+  min-height:48px;
+  align-items:center;
+  margin:0;
+  padding:11px 13px;
+  border:1px solid #bfd1dc;
+  border-radius:11px;
+  background:#fff;
+  color:#4f6878;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:800;
+  transition:.16s ease;
+}
+.quiz-choice-grid input:checked+span{
+  border-color:#7b3f60;
+  background:#7b3f60;
+  color:#fff;
+}
+.quiz-choice-grid input:focus-visible+span{
+  outline:3px solid rgba(123,63,96,.16);
+  outline-offset:2px;
+}
+.lead-quiz-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:22px;
+}
+.lead-quiz-actions .button{min-width:150px}
+.quiz-back{
+  background:#fff;
+  border-color:#bfd0dc;
+  color:#17364b;
+}
+.quiz-back:hover{box-shadow:4px 4px 0 #cfe2ee}
+@media(max-width:900px){
+  .lead-quiz-shell{grid-template-columns:1fr;gap:30px}
+  .lead-quiz-intro{position:static}
+}
+@media(max-width:760px){
+  .lead-quiz-section{padding:62px 0 70px}
+  .lead-quiz-intro h2{font-size:44px}
+  .lead-quiz-intro>p{font-size:14px}
+  .tle-lead-quiz{min-height:0;padding:20px;border-radius:16px}
+  .lead-quiz-step h3{font-size:27px}
+  .quiz-choice-grid{grid-template-columns:1fr}
+  .lead-quiz-actions{display:grid;grid-template-columns:1fr 1fr}
+  .lead-quiz-actions .button{width:100%;min-width:0}
+  .lead-quiz-step:first-of-type .lead-quiz-actions{display:flex}
+}
