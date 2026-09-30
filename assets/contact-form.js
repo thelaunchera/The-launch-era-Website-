@@ -70,11 +70,20 @@
     form.querySelectorAll("[data-quiz-reveal-contact] input[type='radio']").forEach((radio)=>{
       radio.addEventListener("change",()=>{
         const details=form.querySelector("[data-quiz-contact-details]");
-        if(details){
-          details.hidden=false;
-          details.classList.add("is-visible");
-          setTimeout(()=>details.scrollIntoView({behavior:"smooth",block:"nearest"}),80);
+        const checkout=form.querySelector("[data-quiz-ready-checkout]");
+        const ready=/Ready to get my Booking Page|Quiero mi Página de Reservas/i.test(String(radio.value||""));
+
+        if(checkout){
+          checkout.hidden=!ready;
+          checkout.classList.toggle("is-visible",ready);
         }
+        if(details){
+          details.hidden=ready;
+          details.classList.toggle("is-visible",!ready);
+        }
+
+        const target=ready?checkout:details;
+        if(target) setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"nearest"}),80);
       });
     });
 
