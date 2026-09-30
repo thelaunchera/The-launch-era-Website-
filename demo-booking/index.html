@@ -68,7 +68,7 @@
     .cleaning-type-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
     .cleaning-type-btn{min-height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;font-weight:850;color:var(--muted)}
     .cleaning-type-btn.selected{background:var(--deep);border-color:var(--deep);color:#fff}
-    #commercialDetails[hidden],#residentialCounters[hidden]{display:none!important}
+    #bookServices[hidden],#quoteServices[hidden],#bookServiceLabel[hidden],#quoteServiceLabel[hidden],#bookTimes[hidden],#quoteTimes[hidden],#quoteDateNote[hidden],#residentialCounters[hidden],#residentialPropertyField[hidden],#commercialDetails[hidden],#commercialCounters[hidden]{display:none!important}
 
   </style>
 </head>
@@ -139,10 +139,15 @@
               <div class="counter"><div class="counter-label"><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button class="round" data-counter="baths" data-dir="-1">−</button><span id="baths" class="count">2</span><button class="round" data-counter="baths" data-dir="1">+</button></div></div>
             </div>
 
+            <div class="counter-grid" id="commercialCounters" hidden>
+              <div class="counter"><div class="counter-label"><strong>Restrooms</strong><small>Customer / staff restrooms</small></div><div class="counter-controls"><button class="round" data-counter="restrooms" data-dir="-1">−</button><span id="restrooms" class="count">2</span><button class="round" data-counter="restrooms" data-dir="1">+</button></div></div>
+              <div class="counter"><div class="counter-label"><strong>Floors / Levels</strong><small>Levels to be cleaned</small></div><div class="counter-controls"><button class="round" data-counter="floors" data-dir="-1">−</button><span id="floors" class="count">1</span><button class="round" data-counter="floors" data-dir="1">+</button></div></div>
+            </div>
+
             <div class="field-grid">
               <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option>Under 1,000 sq ft</option><option selected>1,000–1,999 sq ft</option><option>2,000–2,999 sq ft</option><option>3,000+ sq ft</option></select></div>
               <div class="field" id="residentialPropertyField"><label for="homeType">Property type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
-              <div class="field" id="commercialDetails" hidden><label for="commercialType">Commercial space</label><select id="commercialType"><option selected>Office</option><option>Storefront / Retail</option><option>Restaurant</option><option>Salon / Studio</option><option>Other commercial space</option></select></div>
+              <div class="field" id="commercialDetails" hidden><label for="commercialType">Commercial space</label><select id="commercialType"><option selected>Office</option><option>Storefront / Retail</option><option>Restaurant</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Other commercial space</option></select></div>
               <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected">One time</button><button class="pill">Weekly</button><button class="pill">Biweekly</button><button class="pill">Monthly</button></div></div>
             </div>
           </section>
@@ -216,7 +221,7 @@
   </div>
 
   <script>
-    const state={mode:'book',service:'Standard Cleaning',base:129,cleaningType:'Residential',beds:3,baths:2,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
+    const state={mode:'book',service:'Standard Cleaning',base:129,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
     const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
 
     function syncSelectedService(){
@@ -269,13 +274,13 @@
     function render(){
       $('sumService').textContent=state.service;
       $('sumHome').textContent=state.cleaningType==='Commercial'
-        ? 'Commercial · '+($('commercialType')?.value||'Commercial space')
-        : 'Residential · '+state.beds+' bed · '+state.baths+' bath';
+        ? 'Commercial · '+($('commercialType')?.value||'Commercial space')+' · '+state.restrooms+' restroom'+(state.restrooms===1?'':'s')+' · '+state.floors+' level'+(state.floors===1?'':'s')
+        : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath';
       $('sumFrequency').textContent=state.frequency;
       $('sumDate').textContent=state.date;
       $('sumTime').textContent=state.time;
       $('sumExtras').textContent=state.extras.length?state.extras.map(x=>x.name).join(', '):'None';
-      $('beds').textContent=state.beds;$('baths').textContent=state.baths;
+      $('beds').textContent=state.beds;$('baths').textContent=state.baths;$('restrooms').textContent=state.restrooms;$('floors').textContent=state.floors;
 
       const quote=state.mode==='quote';
       $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
@@ -303,11 +308,14 @@
       const commercial=state.cleaningType==='Commercial';
       $('residentialCounters').hidden=commercial;
       $('residentialPropertyField').hidden=commercial;
+      $('commercialCounters').hidden=!commercial;
       $('commercialDetails').hidden=!commercial;
       render();
     }));
 
     $('commercialType')?.addEventListener('change',render);
+    $('homeType')?.addEventListener('change',render);
+    $('sqft')?.addEventListener('change',render);
 
     document.querySelectorAll('[data-counter]').forEach(btn=>btn.addEventListener('click',()=>{
       const k=btn.dataset.counter;
