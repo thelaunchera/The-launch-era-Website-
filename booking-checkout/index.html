@@ -17,9 +17,9 @@ h1{font-size:34px;line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-we
 <body>
 <main class="card">
 <div class="brand">THE LAUNCH ERA</div>
-<div class="kicker" id="kicker">BOOKING PAGE + CLEANING APP</div>
+<div class="kicker" id="kicker">CUSTOM BOOKING PAGE</div>
 <h1 id="title">Opening your secure checkout…</h1>
-<p id="copy">$24.99 one-time · Professional Booking Page + 60 days of Cleaning App access. Then $5.99/month.</p>
+<p id="copy">$24.99 one-time · Professional Booking Page. Includes 60 days of optional Cleaning App access at no extra cost.</p>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" type="button" hidden>Try again</button>
 <div class="small" id="status">You’ll continue to secure checkout.</div>
@@ -34,9 +34,9 @@ const es=lang==="es";
 const title=document.getElementById("title"),copy=document.getElementById("copy"),status=document.getElementById("status"),retry=document.getElementById("retry"),dots=document.getElementById("dots"),kicker=document.getElementById("kicker");
 if(es){
  document.documentElement.lang="es";
- kicker.textContent="PÁGINA DE RESERVAS + APLICACIÓN";
+ kicker.textContent="PÁGINA DE RESERVAS PERSONALIZADA";
  title.textContent="Abriendo tu pago seguro…";
- copy.textContent="$24.99 pago único · Página de reservas profesional + 60 días de aplicación. Después $5.99/mes.";
+ copy.textContent="$24.99 pago único · Página de reservas profesional. Incluye 60 días opcionales de acceso a la aplicación sin costo adicional.";
  status.textContent="Continuarás al pago seguro.";
  retry.textContent="Intentar otra vez";
 }
@@ -44,7 +44,7 @@ async function openCheckout(){
  retry.hidden=true; dots.hidden=false;
  if(!checkoutEventSent){
   checkoutEventSent=true;
-  try{window.tleTrackEvent?.("begin_checkout",{currency:"USD",value:24.99,items:[{item_id:"booking_page_cleaning_app",item_name:"Booking Page + Cleaning App",price:24.99,quantity:1}]});}catch{}
+  try{window.tleTrackEvent?.("begin_checkout",{currency:"USD",value:24.99,items:[{item_id:"booking_page_cleaning_app",item_name:"Booking Page",price:24.99,quantity:1}]});}catch{}
  }
  status.textContent=es?"Continuarás al pago seguro.":"You’ll continue to secure checkout.";
  try{
