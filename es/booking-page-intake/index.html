@@ -30,7 +30,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div class="kicker">Formulario del cliente</div>
 <h1>Vamos a crear tu página de reservas y conectar el sistema detrás.</h1>
 <p>Completa este formulario una sola vez después de comprar tu Página de Reservas. Este formulario es para clientes que seleccionaron español al pagar.</p>
-<div class="note"><strong>Qué pasa después:</strong> creamos tus opciones de Reserva y Cotización, las conectamos a tu Página de Reservas profesional y enviamos las nuevas solicitudes al destino que tú elijas. Si quieres usar la aplicación, tienes 60 días de acceso incluidos sin costo adicional. <strong>Tiempo de producción: 24 horas después de recibir el formulario completo y los materiales necesarios.</strong></div>
+<div class="note"><strong>Qué pasa después:</strong> creamos tus opciones de Reserva y Cotización, las conectamos a tu Página de Reservas profesional y enviamos las nuevas solicitudes al destino que tú elijas. Si quieres usar la Web App de Limpieza, tienes 60 días de acceso incluidos sin costo adicional. Funciona en el navegador y puedes añadirla a tu pantalla de inicio para usarla como una app. <strong>Tiempo de producción: 24 horas después de recibir el formulario completo y los materiales necesarios.</strong></div>
 </section>
 
 <form id="intakeForm">
@@ -44,7 +44,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Nombre del negocio</label><input name="business_name" required></div>
 <div><label>Correo electrónico</label><input type="email" name="email" required></div>
 <div><label>Teléfono</label><input name="phone" required></div>
-<div><label>Correo para la aplicación <span class="small">(opcional)</span></label><input type="email" name="app_account_email" placeholder="Solo si quieres usar el acceso incluido a la aplicación"></div>
+<div><label>Correo para la Web App <span class="small">(opcional)</span></label><input type="email" name="app_account_email" placeholder="Solo si quieres usar el acceso incluido a la Web App"></div>
 <div><label>Zona horaria del negocio</label><input name="time_zone" required placeholder="Ejemplo: America/New_York"></div>
 <div><label>Moneda para tus precios</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
 <div class="full"><label>Áreas de servicio</label><input name="service_areas" required placeholder="Ciudades, códigos postales, condados..."></div>
@@ -86,7 +86,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Aviso mínimo para reservar</label><input name="minimum_booking_notice" required placeholder="Ejemplo: 24 horas"></div>
 <div><label>Tiempo entre trabajos</label><input name="buffer_time" required placeholder="Ejemplo: 30 minutos"></div>
 <div><label>¿Con cuánta anticipación pueden reservar?</label><input name="booking_window" required placeholder="Ejemplo: 60 días"></div>
-<div><label>¿Dónde quieres recibir las nuevas reservas y cotizaciones?</label><select name="inquiry_destination" required><option value="business_email">En mi correo de negocio</option><option value="other_workflow">En otro inbox o flujo que uso</option><option value="cleaning_app">En The Launch Era Cleaning App</option></select></div>
+<div><label>¿Dónde quieres recibir las nuevas reservas y cotizaciones?</label><select name="inquiry_destination" required><option value="business_email">En mi correo de negocio</option><option value="other_workflow">En otro inbox o flujo que uso</option><option value="cleaning_app">En The Launch Era Cleaning Web App</option></select></div>
 <div><label>Correo de destino / detalles del flujo</label><input name="inquiry_destination_details" required placeholder="Ejemplo: reservas@tunegocio.com o el flujo que usas"></div>
 <div><label>Método de contacto principal</label><select name="preferred_contact" required><option value="email">Correo electrónico</option><option value="text">Mensaje de texto</option><option value="whatsapp">WhatsApp</option></select></div>
 <div class="full"><label>Opciones de contacto para clientes</label><div class="checks">
@@ -109,7 +109,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <h2>5. Notas finales</h2><p>¿Hay algo que debamos saber antes de comenzar?</p>
 <div class="grid">
 <div><label>Fecha deseada de lanzamiento</label><input type="date" name="target_launch_date"></div>
-<div><label>Aplicación <span class="small">(beneficio opcional)</span></label><select name="app_setup_needed" required><option value="not_using_app">Solo quiero la Página de Reservas</option><option value="new">Quiero usar el acceso incluido — configúrenla por mí</option><option value="review">Ya tengo una cuenta — configúrenla</option></select></div>
+<div><label>Web App <span class="small">(beneficio opcional)</span></label><select name="app_setup_needed" required><option value="not_using_app">Solo quiero la Página de Reservas</option><option value="new">Quiero usar el acceso incluido a la Web App — configúrenla por mí</option><option value="review">Ya tengo una cuenta — configúrenla</option></select></div>
 <div class="full"><label>¿Algo más?</label><textarea name="notes"></textarea></div>
 </div>
 </section>
