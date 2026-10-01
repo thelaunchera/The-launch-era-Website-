@@ -12,20 +12,23 @@
 <body><main class="card"><div class="brand">THE LAUNCH ERA</div><div class="kicker" id="kicker">SECURE CHECKOUT</div><h1 id="title">Opening your secure checkout…</h1><p id="copy">You’ll continue securely with Stripe.</p><div class="dots" id="dots"><span></span><span></span><span></span></div><button id="retry" hidden>Try again</button><div class="small" id="status">No card details are handled by The Launch Era.</div></main>
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-tle-service-checkout";
-const offer=(new URLSearchParams(location.search).get("offer")||"").toLowerCase();
-const allowed={audit:"Instagram Audit · $10",starter:"Starter Content · $20/month",growth:"Growth Content · $30/month",pro:"Pro Content · $40/month"};
+const params=new URLSearchParams(location.search);
+const offer=(params.get("offer")||"").toLowerCase();
+const es=params.get("lang")==="es";
+const allowed={audit:"Instagram Audit · $15",starter:"Starter Content · $20/month",growth:"Growth Content · $30/month",pro:"Pro Content · $40/month","instagram-automation":"Instagram Automation · $29.99","website-automation":"Website Automation · $59.99",va:"VA Essential Support · $49.99/month"};
 const kicker=document.getElementById("kicker"),title=document.getElementById("title"),copy=document.getElementById("copy"),dots=document.getElementById("dots"),retry=document.getElementById("retry"),status=document.getElementById("status");
-if(!allowed[offer]){title.textContent="This checkout link is invalid.";copy.textContent="Return to The Launch Era and choose an offer again.";dots.hidden=true;status.textContent="";throw new Error("invalid offer")}
+if(es){document.documentElement.lang="es";title.textContent="Abriendo tu pago seguro…";copy.textContent="Continuarás de forma segura con Stripe.";retry.textContent="Intentar otra vez";status.textContent="The Launch Era no maneja los datos de tu tarjeta.";} 
+if(!allowed[offer]){title.textContent=es?"Este enlace de pago no es válido.":"This checkout link is invalid.";copy.textContent=es?"Regresa a The Launch Era y elige el servicio otra vez.":"Return to The Launch Era and choose an offer again.";dots.hidden=true;status.textContent="";throw new Error("invalid offer")}
 kicker.textContent=allowed[offer];
 async function openCheckout(){
- retry.hidden=true;dots.hidden=false;title.textContent="Opening your secure checkout…";copy.textContent="You’ll continue securely with Stripe.";status.textContent="No card details are handled by The Launch Era.";
+ retry.hidden=true;dots.hidden=false;title.textContent=es?"Abriendo tu pago seguro…":"Opening your secure checkout…";copy.textContent=es?"Continuarás de forma segura con Stripe.":"You’ll continue securely with Stripe.";status.textContent=es?"The Launch Era no maneja los datos de tu tarjeta.":"No card details are handled by The Launch Era.";
  try{
   const res=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({offer})});
   const data=await res.json().catch(()=>({}));
   if(!res.ok||!data.url) throw new Error("checkout");
   location.replace(data.url);
  }catch(e){
-  dots.hidden=true;title.textContent="We couldn’t open checkout.";copy.textContent="No charge was made.";status.textContent="Please try again.";retry.hidden=false;
+  dots.hidden=true;title.textContent=es?"No pudimos abrir el pago.":"We couldn’t open checkout.";copy.textContent=es?"No se hizo ningún cobro.":"No charge was made.";status.textContent=es?"Inténtalo otra vez.":"Please try again.";retry.hidden=false;
  }
 }
 retry.onclick=openCheckout;openCheckout();
