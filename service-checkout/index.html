@@ -13,19 +13,10 @@
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-tle-service-checkout";
 const offer=(new URLSearchParams(location.search).get("offer")||"").toLowerCase();
-const allowed={audit:"Instagram Audit",starter:"Starter Content · $20/month",growth:"Growth Content · $30/month",pro:"Pro Content · $40/month"};
+const allowed={audit:"Instagram Audit · $10",starter:"Starter Content · $20/month",growth:"Growth Content · $30/month",pro:"Pro Content · $40/month"};
 const kicker=document.getElementById("kicker"),title=document.getElementById("title"),copy=document.getElementById("copy"),dots=document.getElementById("dots"),retry=document.getElementById("retry"),status=document.getElementById("status");
 if(!allowed[offer]){title.textContent="This checkout link is invalid.";copy.textContent="Return to The Launch Era and choose an offer again.";dots.hidden=true;status.textContent="";throw new Error("invalid offer")}
 kicker.textContent=allowed[offer];
-if(offer==="audit"){
- dots.hidden=true;
- title.textContent="Audit checkout is being updated.";
- copy.textContent="The price has changed, so checkout is temporarily paused to prevent an incorrect charge.";
- status.textContent="No charge has been made. Please check back shortly.";
- retry.hidden=true;
-}else{
- openCheckout();
-}
 async function openCheckout(){
  retry.hidden=true;dots.hidden=false;title.textContent="Opening your secure checkout…";copy.textContent="You’ll continue securely with Stripe.";status.textContent="No card details are handled by The Launch Era.";
  try{
@@ -37,5 +28,5 @@ async function openCheckout(){
   dots.hidden=true;title.textContent="We couldn’t open checkout.";copy.textContent="No charge was made.";status.textContent="Please try again.";retry.hidden=false;
  }
 }
-retry.onclick=openCheckout;
+retry.onclick=openCheckout;openCheckout();
 </script></body></html>
