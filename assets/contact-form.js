@@ -202,9 +202,18 @@
         if(form.classList.contains("tle-lead-quiz") && typeof form._showQuizThankYou==="function"){
           form._showQuizThankYou(submittedName,Boolean(data.email_sent));
           if(status){status.textContent="";status.className="contact-form-status";}
-        }else if(status){
-          status.textContent=lang==="es"?"Gracias. Recibimos tu mensaje.":"Thanks. We received your message.";
-          status.className="contact-form-status is-success";
+        }else{
+          const confirmationTitle=lang==="es"?"¡Recibimos tu información!":"We’ve got your information!";
+          const confirmationBody=lang==="es"
+            ?"Gracias por comunicarte con The Launch Era. Recibimos tu mensaje y nos pondremos en contacto contigo pronto."
+            :"Thanks for contacting The Launch Era. We received your message and we’ll be in touch with you soon.";
+          if(status){
+            status.innerHTML="<strong>"+confirmationTitle+"</strong><br>"+confirmationBody;
+            status.className="contact-form-status is-success";
+          }
+          form.querySelectorAll("input, select, textarea, button[type='submit']").forEach(el=>el.hidden=true);
+          const card=form.closest(".contact-form-card, .contact-card, .form-card")||form;
+          card.scrollIntoView({behavior:"smooth",block:"center"});
         }
       }catch(error){
         if(status){
