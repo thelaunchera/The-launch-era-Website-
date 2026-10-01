@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Booking Page + Cleaning App client intake for The Launch Era.">
-<title>Booking Page + Cleaning App Intake — The Launch Era</title>
+<meta name="description" content="Booking Page client intake for The Launch Era.">
+<title>Booking Page Intake — The Launch Era</title>
 <link rel="icon" type="image/png" href="../the-launch-era-favicon.png">
 <style>
 :root{--ivory:#FAF8F3;--ink:#191919;--butter:#F2D85B;--blue:#B9D7FF;--soft:#EAF3FF;--line:#D9D5CD;--muted:#69645E;--white:#fff}
@@ -24,13 +24,13 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <script src="../assets/analytics.js"></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><span class="brand">THE LAUNCH ERA</span><span class="lang">Booking Page + Cleaning App</span></div><a id="intakeLanguage" href="/es/booking-page-intake/" style="display:block;text-align:right;padding:8px 20px;text-decoration:underline">Español</a></header>
+<header class="top"><div class="wrap"><span class="brand">THE LAUNCH ERA</span><span class="lang">Booking Page</span></div><a id="intakeLanguage" href="/es/booking-page-intake/" style="display:block;text-align:right;padding:8px 20px;text-decoration:underline">Español</a></header>
 <main class="wrap">
 <section class="hero">
 <div class="kicker">Client Intake</div>
 <h1>Let’s build your Booking Page — and connect the system behind it.</h1>
-<p>Please complete this once after purchasing Booking Page + Cleaning App. This form is for clients who selected English at checkout.</p>
-<div class="note"><strong>What happens next:</strong> we configure your Cleaning App, create your Booking and Quote links, connect both to your professional Booking Page, test the flow, and deliver <strong>one final page link</strong> for you to share with customers. <strong>Production time: 24 hours after we receive the complete form and required assets.</strong></div>
+<p>Please complete this once after purchasing your Booking Page. This form is for clients who selected English at checkout.</p>
+<div class="note"><strong>What happens next:</strong> we create your Booking and Quote paths, connect them to your professional Booking Page, and send new requests to the destination you choose. If you want the Cleaning App, 60 days of access are included at no extra cost. <strong>Production time: 24 hours after we receive the complete form and required assets.</strong></div>
 </section>
 
 <form id="intakeForm">
@@ -44,7 +44,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Business name</label><input name="business_name" required></div>
 <div><label>Email</label><input type="email" name="email" required></div>
 <div><label>Phone</label><input name="phone" required></div>
-<div><label>Cleaning App account email</label><input type="email" name="app_account_email" required placeholder="Use the email you want for app access"></div>
+<div><label>Cleaning App email <span class="small">(optional)</span></label><input type="email" name="app_account_email" placeholder="Only if you want to use the included App access"></div>
 <div><label>Business time zone</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
 <div><label>Customer pricing currency</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
 <div class="full"><label>Service areas</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
@@ -68,7 +68,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 </section>
 
 <section class="section">
-<h2>3. Services + pricing</h2><p>This guides both your Booking Page and Cleaning App.</p>
+<h2>3. Services + pricing</h2><p>This guides your Booking Page.</p>
 <div class="grid">
 <div class="full"><label>Cleaning services</label><textarea name="services" required placeholder="List one per line: Service — Price OR Quote Required — Approx. duration&#10;Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — Quote Required — 4 hours"></textarea></div>
 <div><label>Default pricing style</label><select name="pricing_style" required><option value="fixed">Fixed price</option><option value="starting_at">Starting at</option><option value="quote_only">Quote only</option><option value="mixed">Different by service</option></select></div>
@@ -86,6 +86,8 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div><label>Minimum booking notice</label><input name="minimum_booking_notice" required placeholder="Example: 24 hours"></div>
 <div><label>Travel / buffer time between jobs</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
 <div><label>How far ahead can clients book?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
+<div><label>Where should new bookings and quote requests go?</label><select name="inquiry_destination" required><option value="business_email">My business email</option><option value="other_workflow">Another inbox or workflow</option><option value="cleaning_app">The Launch Era Cleaning App</option></select></div>
+<div><label>Destination email / workflow details</label><input name="inquiry_destination_details" required placeholder="Example: bookings@yourbusiness.com or the workflow you use"></div>
 <div><label>Primary contact method</label><select name="preferred_contact" required><option value="email">Email</option><option value="text">Text</option><option value="whatsapp">WhatsApp</option></select></div>
 <div class="full"><label>Customer contact options to offer</label><div class="checks">
 <label class="check"><input type="checkbox" name="contact_email" checked><span>Email</span></label>
@@ -107,7 +109,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <h2>5. Final notes</h2><p>Anything we should know before building?</p>
 <div class="grid">
 <div><label>Target launch date</label><input type="date" name="target_launch_date"></div>
-<div><label>Cleaning App status</label><select name="app_setup_needed" required><option value="new">New account — set it up for me</option><option value="review">I already created my account — configure it</option></select></div>
+<div><label>Cleaning App <span class="small">(optional bonus)</span></label><select name="app_setup_needed" required><option value="not_using_app">I only want the Booking Page</option><option value="new">I want to use the included App access — set it up for me</option><option value="review">I already have an App account — configure it</option></select></div>
 <div class="full"><label>Anything else?</label><textarea name="notes"></textarea></div>
 </div>
 </section>
@@ -144,7 +146,7 @@ async function verifyAndTrackPurchase(){
       currency:String(data.currency||"USD"),
       items:[{
         item_id:"booking_page_cleaning_app",
-        item_name:"Booking Page + Cleaning App",
+        item_name:"Booking Page",
         price:Number(data.value||24.99),
         quantity:1
       }]
@@ -165,7 +167,8 @@ form.addEventListener("submit",async(e)=>{
  ["payment_cash","payment_check","payment_zelle","payment_other","contact_email","contact_text","contact_whatsapp"].forEach(k=>obj[k]=bool(fd,k));
  obj.booking_enabled=true;
  obj.quote_enabled=true;
- obj.cleaning_app_access_email=obj.app_account_email||obj.email;
+ obj.cleaning_app_selected=obj.app_setup_needed!=="not_using_app";
+ obj.cleaning_app_access_email=obj.cleaning_app_selected?(obj.app_account_email||obj.email):"";
  obj.business_phone=obj.phone;
  obj.business_time_zone=obj.time_zone;
  obj.customer_price_currency=obj.currency_code;
@@ -208,9 +211,9 @@ form.addEventListener("submit",async(e)=>{
  try{
    const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
    if(!r.ok) throw new Error("Submission failed");
-   try{window.tleTrackEvent?.("intake_complete",{product:"Booking Page + Cleaning App"});}catch{}
+   try{window.tleTrackEvent?.("intake_complete",{product:"Booking Page"});}catch{}
    form.reset();
-   statusEl.textContent="✓ Form received. We’ll use this to build your Booking Page + Cleaning App setup.";
+   statusEl.textContent="✓ Form received. We’ll use this to build your Booking Page and send requests where you selected.";
    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
  }catch(err){
    statusEl.textContent="We couldn’t submit the form. Please email hello@thelaunchera.com.";
