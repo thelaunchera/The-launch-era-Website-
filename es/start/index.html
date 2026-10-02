@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#58D6CF">
+<title>Sistema de Reservas para Negocios de Limpieza | The Launch Era</title>
+<meta name="description" content="Página de reservas personalizada más automatización simple de seguimiento para negocios de limpieza residencial.">
+<link rel="canonical" href="https://thelaunchera.com/es/start/">
+<link rel="alternate" hreflang="en" href="https://thelaunchera.com/start/">
+<link rel="alternate" hreflang="es" href="https://thelaunchera.com/es/start/">
+<link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/start/">
+<meta property="og:title" content="The Booking Flow Setup | The Launch Era">
+<meta property="og:description" content="Tu página de reservas, confirmación, organización y seguimiento conectados en un solo flujo.">
+<meta property="og:url" content="https://thelaunchera.com/es/start/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thelaunchera.com/assets/app-today-es.webp">
+<link rel="icon" href="/the-launch-era-favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="/assets/contact-form.js?v=20261002-bookingflow1" defer></script>
+<script src="/assets/analytics.js" defer></script>
+<style>
+:root{--bg:#F8FAF9;--aqua:#58D6CF;--ice:#E8F8F6;--blue:#A9DDF5;--teal:#087F79;--ink:#191919;--muted:#5E6664;--line:#D5E2DF;--white:#fff;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Prompt",Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}.skip{position:absolute;left:-9999px}.skip:focus{left:14px;top:14px;z-index:100;background:#fff;padding:10px}
+header{position:sticky;top:0;z-index:30;background:rgba(248,250,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,25,25,.09)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:.03em}.nav-right{display:flex;align-items:center;gap:16px;font-size:13px;font-weight:700}.nav-right a:hover{text-decoration:underline;text-underline-offset:4px}.pill{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700}
+.hero{padding:86px 0 68px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(88,214,207,.34),rgba(169,221,245,.12) 55%,transparent 72%);right:-140px;top:-160px;pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua)}h1,h2,h3{margin-top:0}h1{font-size:clamp(48px,7.2vw,86px);line-height:.94;letter-spacing:-.065em;margin:18px 0 22px;max-width:760px}.accent{color:var(--teal)}.lead{font-size:19px;max-width:690px;color:var(--muted);margin:0 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);border-radius:999px;padding:14px 20px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--ink);color:#fff}.btn.aqua{background:var(--aqua)}.btn.ghost{background:transparent}.proofline{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:12px;font-weight:700;color:#4f5755}.proofline span:before{content:"✓";margin-right:6px;color:var(--teal)}
+.flow-card{background:#fff;border:1px solid var(--line);box-shadow:0 28px 70px rgba(8,127,121,.12);padding:24px}.flow-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}.flow-top small{font-weight:800;letter-spacing:.1em}.live{font-size:11px;background:var(--ice);color:var(--teal);padding:7px 10px;border-radius:999px;font-weight:800}.flow-step{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #edf2f1}.flow-step:last-child{border-bottom:0}.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ice);font-size:12px;font-weight:800}.flow-step strong{display:block;font-size:14px}.flow-step span{display:block;font-size:12px;color:var(--muted)}.done{font-size:11px;color:var(--teal);font-weight:800}.flow-note{margin-top:16px;background:var(--ink);color:#fff;padding:16px;font-size:13px}
+.section{padding:78px 0}.section-head{max-width:780px;margin-bottom:34px}.section-head h2{font-size:clamp(38px,5.8vw,66px);line-height:.98;letter-spacing:-.055em;margin:12px 0 14px}.section-head p{font-size:18px;color:var(--muted);margin:0}.dark{background:var(--ink);color:#fff}.dark .section-head p,.dark .problem p{color:#b9c3c1}.dark .eyebrow:before{background:var(--aqua)}.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#31403d;border:1px solid #31403d}.problem{background:var(--ink);padding:26px;min-height:210px}.problem small{color:var(--aqua);font-weight:800}.problem h3{font-size:22px;line-height:1.15;margin:24px 0 10px}.problem p{margin:0}
+.system-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.system-step{background:#fff;border:1px solid var(--line);padding:22px;min-height:170px}.system-step b{font-size:12px;color:var(--teal)}.system-step h3{font-size:20px;line-height:1.15;margin:20px 0 8px}.system-step p{font-size:14px;color:var(--muted);margin:0}
+.offer{background:linear-gradient(135deg,var(--ice),#f9ffff 50%,#eaf5ff)}.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}.offer-copy h2{font-size:clamp(42px,6vw,70px);line-height:.98;letter-spacing:-.055em;margin:12px 0 18px}.offer-copy>p{font-size:18px;color:var(--muted)}.include{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.include div{background:rgba(255,255,255,.72);border:1px solid var(--line);padding:16px;font-size:14px}.include strong{display:block;margin-bottom:4px}.price-card{background:var(--ink);color:#fff;padding:34px;position:sticky;top:94px}.price-card .eyebrow{color:#fff}.price{font-size:64px;font-weight:800;line-height:1;margin:24px 0 4px;letter-spacing:-.05em}.once{color:#aeb9b7}.price-card ul{padding:0;list-style:none;margin:24px 0;display:grid;gap:12px}.price-card li{padding-left:22px;position:relative}.price-card li:before{content:"✓";position:absolute;left:0;color:var(--aqua)}.price-card .btn{width:100%;background:var(--aqua);color:var(--ink);border-color:var(--aqua)}.fine{font-size:11px;color:#9faaa8;margin-top:14px}
+.app-section{background:#fff}.app-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}.app-copy h2{font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 16px}.app-copy p{color:var(--muted);font-size:17px}.app-shot{border:1px solid var(--line);background:#f3f6f5;padding:14px}.app-shot img{display:block;width:100%;height:auto}.app-caption{display:flex;justify-content:space-between;gap:10px;font-size:11px;font-weight:700;margin-top:10px;color:#53605d}
+.founder{padding:70px 0;background:var(--teal);color:#fff}.founder-inner{display:grid;grid-template-columns:.65fr 1.35fr;gap:48px;align-items:start}.founder-tag{font-size:12px;letter-spacing:.1em;font-weight:800}.founder h2{font-size:clamp(40px,5.5vw,64px);line-height:.98;letter-spacing:-.05em;margin-bottom:18px}.founder p{font-size:18px;max-width:760px;color:#e4fffc}
+.form-section{padding:84px 0}.form-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}.form-copy h2{font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 16px}.form-copy p{font-size:17px;color:var(--muted)}.form-card{background:#fff;border:1px solid var(--line);padding:28px}.contact-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-card label{display:block;margin-bottom:14px;font-size:12px;font-weight:700}.form-card label>span{display:block;margin-bottom:7px}.form-card input,.form-card select,.form-card textarea{width:100%;font:inherit;padding:13px 12px;border:1px solid #b8c6c3;background:#fff;color:var(--ink);border-radius:0}.form-card textarea{min-height:120px;resize:vertical}.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.choice-row label{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);padding:11px;margin:0;font-size:13px}.choice-row input{width:auto;margin-top:4px}.contact-honeypot{position:absolute!important;left:-10000px!important}.contact-submit{width:100%;border:0;cursor:pointer}.contact-form-status{font-size:13px;margin:12px 0 0}.contact-form-status.is-success{background:var(--ice);padding:14px}.contact-consent{font-size:11px!important;color:var(--muted)!important}
+.faq{background:#fff}.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px}.faq h2{font-size:clamp(38px,5vw,56px);line-height:1;letter-spacing:-.05em}.faq details{border-top:1px solid var(--line);padding:18px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{font-weight:700;cursor:pointer}.faq details p{color:var(--muted);font-size:14px}
+footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-links{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:900px){.hero-grid,.offer-grid,.app-grid,.founder-inner,.form-grid,.faq-grid{grid-template-columns:1fr}.problem-grid{grid-template-columns:1fr 1fr}.system-flow{grid-template-columns:1fr 1fr}.price-card{position:static}.hero{padding-top:58px}.hero-grid{gap:36px}.app-grid{gap:28px}.founder-inner{gap:18px}}
+@media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 26px))}.nav-right .desktop-link{display:none}.hero{padding:46px 0 50px}h1{font-size:clamp(46px,14vw,64px)}.lead{font-size:17px}.actions .btn{width:100%}.proofline{display:grid;gap:8px}.problem-grid,.system-flow,.include,.contact-two,.choice-row{grid-template-columns:1fr}.problem{min-height:auto}.section{padding:60px 0}.price{font-size:54px}.form-card{padding:20px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header><div class="wrap nav"><a class="brand" href="/es/">THE LAUNCH ERA</a><div class="nav-right"><a class="desktop-link" href="#how">Cómo funciona</a><a href="/start/" hreflang="en" lang="en">EN</a><a class="pill" href="#start">Empezar</a></div></div></header>
+<main id="main">
+<section class="hero"><div class="wrap hero-grid">
+<div>
+<span class="eyebrow">PARA NEGOCIOS DE LIMPIEZA RESIDENCIAL</span>
+<h1>Tus reservas no deberían vivir en tus <span class="accent">DMs.</span></h1>
+<p class="lead">Creo un sistema simple de reservas + seguimiento para dueños de negocios de limpieza, para que las nuevas solicitudes lleguen claras, reciban confirmación y no dependan de que recuerdes cada próximo paso.</p>
+<div class="actions"><a class="btn primary" href="#start">Crear Mi Flujo de Reservas →</a><a class="btn ghost" href="/demo-booking/" target="_blank" rel="noopener">Ver Demo de Booking Page</a></div>
+<div class="proofline"><span>$69.99 pago único</span><span>Hecho para ti</span><span>Configuración en 48 horas*</span></div>
+</div>
+<div class="flow-card" aria-label="Vista del flujo de reservas">
+<div class="flow-top"><small>TU FLUJO DE RESERVAS</small><span class="live">CONECTADO</span></div>
+<div class="flow-step"><span class="num">01</span><div><strong>El cliente envía su solicitud</strong><span>Reserva o cotización con los detalles juntos.</span></div><span class="done">LISTO</span></div>
+<div class="flow-step"><span class="num">02</span><div><strong>Sale la confirmación</strong><span>Sabe que recibiste su solicitud.</span></div><span class="done">AUTO</span></div>
+<div class="flow-step"><span class="num">03</span><div><strong>Tú recibes el lead</strong><span>Los datos llegan al destino que elijas.</span></div><span class="done">AUTO</span></div>
+<div class="flow-step"><span class="num">04</span><div><strong>El lead queda organizado</strong><span>La información importante queda junta.</span></div><span class="done">AUTO</span></div>
+<div class="flow-step"><span class="num">05</span><div><strong>El follow-up se ejecuta</strong><span>Un seguimiento acordado ocurre cuando corresponde.</span></div><span class="done">AUTO</span></div>
+<div class="flow-note"><strong>Una solicitud. Un flujo claro.</strong><br>Sin un CRM complicado.</div>
+</div>
+</div></section>
+
+<section class="section dark"><div class="wrap">
+<div class="section-head"><span class="eyebrow">EL PROBLEMA REAL</span><h2>Una nueva solicitud no debería crear cinco tareas manuales.</h2><p>Si reservar un cliente significa revisar DMs, hacer las mismas preguntas, copiar datos y después acordarte del seguimiento, el proceso está dependiendo demasiado de ti.</p></div>
+<div class="problem-grid">
+<article class="problem"><small>01</small><h3>Las reservas se dispersan.</h3><p>Textos, DMs, llamadas y formularios guardan partes distintas del cliente.</p></article>
+<article class="problem"><small>02</small><h3>El cliente espera confirmación.</h3><p>No sabe si viste su solicitud.</p></article>
+<article class="problem"><small>03</small><h3>Copias los datos manualmente.</h3><p>La misma información pasa de mensaje a notas y calendario.</p></article>
+<article class="problem"><small>04</small><h3>El follow-up depende de tu memoria.</h3><p>Un buen lead puede enfriarse simplemente porque el día se complicó.</p></article>
+</div>
+</div></section>
+
+<section class="section" id="how"><div class="wrap">
+<div class="section-head"><span class="eyebrow">UN SISTEMA MÁS SIMPLE</span><h2>De “alguien me escribió” a un próximo paso claro.</h2><p>La meta no es automatizar tu personalidad. Es automatizar las partes repetitivas alrededor de la conversación.</p></div>
+<div class="system-flow">
+<article class="system-step"><b>01</b><h3>Tu Booking Page</h3><p>Un link público para reservas y solicitudes de cotización.</p></article>
+<article class="system-step"><b>02</b><h3>Confirmación inmediata</h3><p>Tu cliente recibe un mensaje claro de que llegó la solicitud.</p></article>
+<article class="system-step"><b>03</b><h3>Notificación para ti</h3><p>Recibes la información donde acordemos enviarla.</p></article>
+<article class="system-step"><b>04</b><h3>Lead tracker</h3><p>Contacto, servicio y estado quedan más fáciles de seguir.</p></article>
+<article class="system-step"><b>05</b><h3>Follow-up automático</h3><p>Un seguimiento basado en el tiempo que definamos.</p></article>
+</div>
+</div></section>
+
+<section class="section offer" id="offer"><div class="wrap offer-grid">
+<div class="offer-copy">
+<span class="eyebrow">THE BOOKING FLOW SETUP</span>
+<h2>Una sola configuración. Un camino más limpio hacia la reserva.</h2>
+<p>Esta es la oferta que recomiendo si tus clientes todavía necesitan un lugar mejor para reservar y también quieres que los pasos repetitivos después de la solicitud dejen de depender de tu memoria.</p>
+<div class="include">
+<div><strong>Booking Page personalizada</strong>Reservas + cotizaciones adaptadas a tus servicios y disponibilidad.</div>
+<div><strong>Confirmación al cliente</strong>Mensaje claro después de enviar la solicitud.</div>
+<div><strong>Alerta para el owner</strong>Los datos del lead llegan al destino acordado.</div>
+<div><strong>Lead tracker</strong>La información importante organizada en un solo lugar.</div>
+<div><strong>1 follow-up automático</strong>Un seguimiento de acuerdo con el tiempo definido.</div>
+<div><strong>60 días de Web App</strong>Bonus opcional si quieres usar la Cleaning Web App.</div>
+</div>
+</div>
+<aside class="price-card">
+<span class="eyebrow">OFERTA DE LANZAMIENTO</span>
+<div class="price">$69.99</div><div class="once">pago único</div>
+<ul><li>Booking Page + automatización conectadas</li><li>Hecho para tu negocio de limpieza</li><li>Una ronda de correcciones</li><li>Producción en 48 horas con información completa*</li><li>No requiere manejo mensual de automatización</li></ul>
+<a class="btn" href="#start">Empezar Mi Setup →</a>
+<p class="fine">*La producción comienza después de recibir la información y materiales completos. Si una integración acordada requiere una herramienta de pago de terceros, te avisamos antes de configurarla. El acceso a la Cleaning Web App es opcional; después de los 60 días incluidos cuesta $5.99/mes solo si decides continuar.</p>
+</aside>
+</div></section>
+
+<section class="section app-section"><div class="wrap app-grid">
+<div class="app-copy"><span class="eyebrow">BONUS OPCIONAL</span><h2>¿También quieres tus reservas dentro de un solo workspace?</h2><p>Tu Booking Flow no necesita la Cleaning Web App. Pero si quieres clientes, trabajos, cotizaciones y facturas en un mismo espacio desde el navegador, tienes 60 días incluidos sin costo adicional. Puedes añadirla a tu Home Screen y usarla como una app en teléfono, tablet o computadora.</p><a class="btn ghost" href="/es/cleaning-app/">Ver la Cleaning Web App →</a></div>
+<div class="app-shot"><img src="/assets/app-today-es.webp" alt="Pantalla Today de The Launch Era Cleaning Web App" loading="lazy"><div class="app-caption"><span>VISTA REAL DEL PRODUCTO</span><span>OPCIONAL</span></div></div>
+</div></section>
+
+<section class="founder"><div class="wrap founder-inner">
+<div class="founder-tag">CREADO POR DAILIN<br>THE LAUNCH ERA</div>
+<div><h2>Creo sistemas simples para negocios de limpieza.</h2><p>Creé The Launch Era alrededor de una idea sencilla: un negocio de limpieza que está creciendo no debería necesitar software complicado solo para mantener organizadas las reservas, la información de clientes y el seguimiento. Yo creo las piezas prácticas, las conecto y mantengo la experiencia fácil tanto para ti como para tus clientes.</p></div>
+</div></section>
+
+<section class="form-section" id="start"><div class="wrap form-grid">
+<div class="form-copy"><span class="eyebrow">EMPIEZA AQUÍ</span><h2>Cuéntame cómo funcionan las reservas en tu negocio ahora.</h2><p>No es un formulario largo de consultoría. Dame lo básico y lo usaré para entender si Booking Flow Setup encaja con lo que está frenando tu proceso.</p></div>
+<form class="tle-contact-form form-card" data-lang="es" data-source="tiktok_booking_flow_es">
+<div class="contact-honeypot" aria-hidden="true"><label>Sitio web<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<input type="hidden" name="service_interest" value="Booking Flow Setup">
+<input type="hidden" name="preferred_contact" value="Email">
+<div class="contact-two"><label><span>Tu nombre *</span><input name="name" type="text" autocomplete="name" required></label><label><span>Nombre del negocio *</span><input name="business_name" type="text" autocomplete="organization" required></label></div>
+<div class="contact-two"><label><span>Email *</span><input name="email" type="email" autocomplete="email" required></label><label><span>Teléfono <small>(opcional)</small></span><input name="phone" type="tel" autocomplete="tel"></label></div>
+<label><span>¿Dónde empiezan la mayoría de tus reservas?</span><select name="booking_method" required><option value="">Elige una</option><option>Mensajes de texto</option><option>DMs de Instagram o Facebook</option><option>Llamadas</option><option>Formulario del sitio web</option><option>Google Business Profile</option><option>Una mezcla de canales</option></select></label>
+<label><span>¿Qué te está tomando más tiempo?</span></label>
+<div class="choice-row">
+<label><input type="checkbox" name="help_needed" value="Demasiados mensajes de ida y vuelta">Demasiados mensajes</label>
+<label><input type="checkbox" name="help_needed" value="Solicitudes dispersas">Solicitudes dispersas</label>
+<label><input type="checkbox" name="help_needed" value="Organizar leads manualmente">Organizar datos manualmente</label>
+<label><input type="checkbox" name="help_needed" value="Recordar follow-up">Recordar follow-up</label>
+</div>
+<label><span>¿Algo más que quieras contarme?</span><textarea name="message" placeholder="Opcional — cuéntame cómo funciona tu proceso actual."></textarea></label>
+<button class="btn primary contact-submit" type="submit">Enviar Mi Solicitud →</button>
+<p class="contact-consent">Al enviar, aceptas que The Launch Era pueda contactarte sobre esta solicitud.</p>
+<p class="contact-form-status" data-form-status aria-live="polite"></p>
+</form>
+</div></section>
+
+<section class="section faq"><div class="wrap faq-grid">
+<div><span class="eyebrow">RESPUESTAS RÁPIDAS</span><h2>Simple a propósito.</h2></div>
+<div>
+<details><summary>¿Necesito tener un website?</summary><p>No. La Booking Page te da un link público para compartir aunque no tengas un sitio web completo.</p></details>
+<details><summary>¿La Cleaning Web App es obligatoria?</summary><p>No. El Booking Flow puede funcionar solo. Los 60 días de acceso a la Web App son un bonus opcional.</p></details>
+<details><summary>¿Qué se automatiza exactamente?</summary><p>El flujo acordado incluye confirmación al cliente, notificación del lead para ti, organización del lead y un follow-up automático. Mantenemos la automatización enfocada para que la experiencia siga sintiéndose humana.</p></details>
+<details><summary>¿Cuánto demora?</summary><p>Hasta 48 horas después de recibir la información y materiales completos necesarios para la configuración acordada.</p></details>
+<details><summary>¿Es mensual?</summary><p>No. Booking Flow Setup cuesta $69.99 una sola vez. La Cleaning Web App opcional es la única parte que puede continuar mensualmente después de los 60 días incluidos, a $5.99/mes si decides mantenerla.</p></details>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© 2026 The Launch Era · Sistemas prácticos para negocios de limpieza.</span><div class="footer-links"><a href="/es/">Inicio</a><a href="/help/?lang=es">Ayuda</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a></div></div></footer>
+</body></html>
