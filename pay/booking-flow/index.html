@@ -2,28 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#58D6CF">
-<title>The Booking Flow Setup | The Launch Era</title>
-<meta http-equiv="refresh" content="0;url=https://thelaunchera.hbportal.co/public/booking-flow-setup-fixed">
+<title>Booking Flow Setup — Secure Checkout | The Launch Era</title>
 <link rel="canonical" href="https://thelaunchera.com/pay/booking-flow/">
+<link rel="icon" href="/the-launch-era-favicon.png">
 <style>
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F8FAF9;color:#191919;font-family:Arial,sans-serif}
-.card{width:min(520px,calc(100% - 32px));background:#fff;border:1px solid #d7e3e0;padding:32px;text-align:center}
-.badge{display:inline-block;background:#E8F8F6;color:#087F79;padding:8px 10px;font-size:11px;font-weight:800;letter-spacing:.08em}
-h1{font-size:34px;line-height:1.05;margin:18px 0 10px}
-p{color:#66706d;line-height:1.6}
-a{display:inline-block;margin-top:14px;background:#191919;color:#fff;padding:14px 18px;text-decoration:none;font-weight:800}
+:root{--bg:#F8FAF9;--white:#fff;--aqua:#58D6CF;--ice:#E8F8F6;--teal:#087F79;--ink:#191919;--muted:#66706d;--line:#d7e3e0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;line-height:1.5}
+.wrap{width:min(760px,calc(100% - 30px));margin:auto;padding:42px 0 70px}
+.brand{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--teal)}
+.card{background:#fff;border:1px solid var(--line);padding:34px;margin-top:18px}
+.badge{display:inline-block;background:var(--ice);color:var(--teal);padding:8px 10px;font-size:11px;font-weight:900;letter-spacing:.08em}
+h1{font-size:clamp(42px,8vw,68px);line-height:.96;letter-spacing:-.055em;margin:18px 0 14px}
+.intro{font-size:18px;color:var(--muted);max-width:620px}
+.price{display:flex;align-items:flex-end;gap:8px;margin:28px 0 10px}.price b{font-size:46px;line-height:1}.price span{color:var(--muted);font-size:13px;padding-bottom:6px}
+.includes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:22px 0}.item{background:var(--ice);padding:12px;font-size:13px;font-weight:700}
+form{margin-top:30px;border-top:1px solid var(--line);padding-top:24px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:800;margin-bottom:6px}input{width:100%;padding:13px 12px;border:1px solid #aebdb9;background:#fff;font:inherit}
+.hp{position:absolute;left:-9999px}.btn{width:100%;margin-top:16px;border:0;background:var(--ink);color:#fff;padding:16px 18px;font-size:15px;font-weight:900;cursor:pointer}.btn:disabled{opacity:.5}
+.secure{text-align:center;color:var(--muted);font-size:12px;margin-top:12px}.status{margin-top:12px;font-size:13px;font-weight:700}
+.next{margin-top:24px;padding:16px;border-left:4px solid var(--aqua);background:#f6fbfa;color:var(--muted);font-size:13px}
+@media(max-width:640px){.wrap{padding-top:22px}.card{padding:22px}.grid,.includes{grid-template-columns:1fr}.full{grid-column:auto}}
 </style>
 </head>
 <body>
-<main class="card">
-<div class="badge">THE LAUNCH ERA</div>
-<h1>Opening your secure checkout…</h1>
-<p>The Booking Flow Setup · $69.99 one-time</p>
-<a href="https://thelaunchera.hbportal.co/public/booking-flow-setup-fixed">Continue to secure checkout</a>
+<main class="wrap">
+<div class="brand">THE LAUNCH ERA</div>
+<section class="card">
+<div class="badge">SECURE BOOKING FLOW CHECKOUT</div>
+<h1>A cleaner way to handle new inquiries.</h1>
+<p class="intro">Get your custom Booking Page connected to a Private Lead Tracker and automatic inquiry follow-up — without needing the Cleaning Web App.</p>
+<div class="price"><b>$69.99</b><span>one-time setup</span></div>
+<div class="includes">
+<div class="item">✓ Custom Booking Page</div>
+<div class="item">✓ Private Lead Tracker</div>
+<div class="item">✓ Client confirmation</div>
+<div class="item">✓ Owner lead alert</div>
+<div class="item">✓ Automatic inquiry follow-up</div>
+<div class="item">✓ 60 days optional Cleaning Web App</div>
+</div>
+<form id="checkoutForm">
+<div class="grid">
+<div><label>YOUR NAME *</label><input name="full_name" autocomplete="name" required></div>
+<div><label>BUSINESS NAME *</label><input name="business_name" autocomplete="organization" required></div>
+<div class="full"><label>BUSINESS EMAIL *</label><input type="email" name="email" autocomplete="email" required></div>
+<div class="full"><label>PHONE <span style="font-weight:400;color:#66706d">(optional)</span></label><input name="phone" autocomplete="tel"></div>
+<div class="hp" aria-hidden="true"><label>Website</label><input name="website" tabindex="-1" autocomplete="off"></div>
+</div>
+<button class="btn" id="continueBtn" type="submit">Continue to Secure Payment →</button>
+<div class="secure">Payment is completed securely through HoneyBook.</div>
+<div class="status" id="status" aria-live="polite"></div>
+</form>
+<div class="next"><strong>After payment:</strong> you’ll receive one private intake for your Booking Page, Lead Tracker and follow-up setup. No second onboarding form.</div>
+</section>
 </main>
-<script>location.replace("https://thelaunchera.hbportal.co/public/booking-flow-setup-fixed");</script>
+<script>
+const form=document.getElementById("checkoutForm"),btn=document.getElementById("continueBtn"),status=document.getElementById("status");
+form.addEventListener("submit",async(e)=>{
+ e.preventDefault();btn.disabled=true;status.textContent="Opening secure payment…";
+ const data=Object.fromEntries(new FormData(form).entries());data.language="en";
+ try{
+  const r=await fetch("https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-booking-flow-checkout-intent",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+  const d=await r.json();if(!r.ok)throw new Error(d.error||"Could not open checkout.");
+  location.href=d.checkout_url;
+ }catch(err){status.textContent=err.message||"Please try again.";btn.disabled=false}
+});
+</script>
 </body>
 </html>
