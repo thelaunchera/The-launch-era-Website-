@@ -64,7 +64,9 @@
     if(!link) return;
     let target;
     try{target=new URL(link.href,location.href);}catch{return;}
-    if(target.pathname.includes("/booking-checkout")||target.pathname.includes("/pay/booking-flow")){
+    if(link.dataset?.catalogItem){
+      window.tleTrackEvent("catalog_item_click",{item:link.dataset.catalogItem,link_path:target.pathname});
+    }else if(target.pathname.includes("/booking-checkout")||target.pathname.includes("/pay/booking-flow")){
       window.tleTrackEvent("booking_offer_click",{link_path:target.pathname});
     }else if(target.hostname==="app.thelaunchera.com"){
       window.tleTrackEvent("cleaning_app_click",{link_path:target.pathname||"/"});
