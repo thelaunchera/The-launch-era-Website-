@@ -38,6 +38,56 @@ header{position:sticky;top:0;z-index:30;background:rgba(248,250,249,.94);backdro
 footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-links{display:flex;gap:14px;flex-wrap:wrap}
 @media(max-width:900px){.hero-grid,.offer-grid,.app-grid,.founder-inner,.form-grid,.faq-grid{grid-template-columns:1fr}.problem-grid{grid-template-columns:1fr 1fr}.system-flow{grid-template-columns:1fr 1fr}.price-card{position:static}.hero{padding-top:58px}.hero-grid{gap:36px}.app-grid{gap:28px}.founder-inner{gap:18px}}
 @media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 26px))}.nav-right .desktop-link{display:none}.hero{padding:46px 0 50px}h1{font-size:clamp(46px,14vw,64px)}.lead{font-size:17px}.actions .btn{width:100%}.proofline{display:grid;gap:8px}.problem-grid,.system-flow,.include,.contact-two,.choice-row{grid-template-columns:1fr}.problem{min-height:auto}.section{padding:60px 0}.price{font-size:54px}.form-card{padding:20px}}
+
+/* OCT 3 INTERACTIVE TYPOGRAPHY + CARD UPGRADE — COLORS UNCHANGED */
+h1,.section-head h2,.offer-copy h2,.app-copy h2,.founder h2,.form-copy h2,.faq h2{font-weight:800;text-wrap:balance}
+.lead,.section-head p,.offer-copy>p,.app-copy p,.founder p,.form-copy p,.faq details p{text-wrap:pretty}
+.flow-card{border-radius:28px;box-shadow:0 24px 64px rgba(8,127,121,.12);transition:transform .28s ease,box-shadow .28s ease}
+.flow-card:hover{transform:translateY(-4px);box-shadow:0 34px 76px rgba(8,127,121,.16)}
+.flow-step{border-radius:16px;padding:13px 12px;transition:transform .22s ease,background .22s ease}
+.flow-step:hover{transform:translateX(6px);background:var(--ice)}
+.flow-note{border-radius:16px}
+.problem-grid{gap:14px;background:transparent;border:0}
+.problem{border:1px solid #31403d;border-radius:22px;min-height:220px;transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease}
+.problem:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.18);border-color:rgba(88,214,207,.55)}
+.system-flow{gap:14px}
+.system-step{border-radius:22px;min-height:190px;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.system-step:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(8,127,121,.09);border-color:rgba(8,127,121,.28)}
+.system-step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:var(--ice)}
+.include{gap:12px}
+.include div{border-radius:18px;padding:18px;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.include div:hover{transform:translateY(-3px);background:#fff;box-shadow:0 14px 34px rgba(8,127,121,.08)}
+.price-card{border-radius:28px;box-shadow:0 26px 64px rgba(25,25,25,.18);overflow:hidden}
+.price-card .btn{transition:transform .22s ease,box-shadow .22s ease}
+.price-card .btn:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 12px 28px rgba(88,214,207,.22)}
+.app-shot{border-radius:24px;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease}
+.app-shot:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(25,25,25,.09)}
+.form-card{border-radius:24px;box-shadow:0 18px 44px rgba(25,25,25,.055)}
+.form-card input,.form-card select,.form-card textarea,.choice-row label{border-radius:12px}
+.faq details{border:1px solid var(--line);border-radius:18px;padding:0;margin-bottom:10px;overflow:hidden;transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq details:hover{transform:translateY(-2px);border-color:rgba(8,127,121,.28);box-shadow:0 12px 30px rgba(8,127,121,.06)}
+.faq summary{list-style:none;padding:18px 48px 18px 18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:22px;font-weight:500;color:var(--teal);transition:transform .22s ease}
+.faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 18px 18px;margin:0}
+.problem,.system-step,.include>div,.price-card,.app-shot,.faq details{opacity:0}
+.is-visible .problem{animation:tleUp .5s cubic-bezier(.22,1,.36,1) both}
+.is-visible .problem:nth-child(2){animation-delay:.08s}.is-visible .problem:nth-child(3){animation-delay:.16s}.is-visible .problem:nth-child(4){animation-delay:.24s}
+.is-visible .system-step{animation:tleSide .48s cubic-bezier(.22,1,.36,1) both}
+.is-visible .system-step:nth-child(2){animation-delay:.09s}.is-visible .system-step:nth-child(3){animation-delay:.18s}.is-visible .system-step:nth-child(4){animation-delay:.27s}.is-visible .system-step:nth-child(5){animation-delay:.36s}
+.is-visible.include>div{animation:tleFeature .44s cubic-bezier(.22,1,.36,1) both}
+.is-visible.include>div:nth-child(2){animation-delay:.07s}.is-visible.include>div:nth-child(3){animation-delay:.14s}.is-visible.include>div:nth-child(4){animation-delay:.21s}.is-visible.include>div:nth-child(5){animation-delay:.28s}.is-visible.include>div:nth-child(6){animation-delay:.35s}
+.price-card.is-visible{animation:tlePrice .58s cubic-bezier(.22,1,.36,1) both}.app-shot.is-visible{animation:tleUp .58s cubic-bezier(.22,1,.36,1) both}
+.faq.is-visible details{animation:tleFaq .38s ease both}.faq.is-visible details:nth-of-type(2){animation-delay:.05s}.faq.is-visible details:nth-of-type(3){animation-delay:.1s}.faq.is-visible details:nth-of-type(4){animation-delay:.15s}.faq.is-visible details:nth-of-type(5){animation-delay:.2s}
+@keyframes tleUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tleSide{from{opacity:.1;transform:translateX(-22px)}to{opacity:1;transform:translateX(0)}}
+@keyframes tleFeature{from{opacity:0;transform:scale(.975) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes tlePrice{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes tleFaq{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.problem,.system-step,.include>div,.price-card,.app-shot,.faq details{opacity:1!important}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
@@ -152,4 +202,9 @@ footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(
 </div></section>
 </main>
 <footer><div class="wrap footer-row"><span>© 2026 The Launch Era · Sistemas prácticos para negocios de limpieza.</span><div class="footer-links"><a href="/es/">Inicio</a><a href="/help/?lang=es">Ayuda</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a></div></div></footer>
+
+<script>
+(()=>{const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;const groups=[...document.querySelectorAll(".problem-grid,.system-flow,.include,.price-card,.app-shot,.faq")];if(reduce){groups.forEach(x=>x.classList.add("is-visible"));return}const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target)}})},{threshold:.18});groups.forEach(x=>io.observe(x))})();
+</script>
+
 </body></html>
