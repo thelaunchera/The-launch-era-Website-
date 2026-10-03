@@ -82,28 +82,93 @@
   
     .mobile-main-site-cta{display:none}
     @media(max-width:700px){
-      .mobile-main-site-cta{
-        position:fixed;
-        left:12px;
-        right:12px;
-        bottom:12px;
-        z-index:70;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        min-height:48px;
-        padding:0 16px;
-        border-radius:999px;
-        background:var(--butter);
-        color:var(--ink);
-        text-decoration:none;
-        font-size:13px;
-        font-weight:900;
-        box-shadow:0 12px 30px rgba(25,25,25,.18);
-        border:1px solid rgba(25,25,25,.08)
-      }
-      body{padding-bottom:74px}
+      body{padding-bottom:86px}
     }
+
+    /* Concierge booking: selection reveals pricing; the estimate follows the customer. */
+    :root{--eucalyptus:#C7EAFF;--eucalyptus2:#EDF8FD;--deep:#315766}
+    body{background:var(--ivory)}
+    .demo-strip{background:var(--ink);letter-spacing:.04em;text-transform:none}
+    header{background:rgba(250,248,243,.92)}
+    .brand-mark{background:var(--ink);border-radius:12px;box-shadow:none}
+    .hero{padding:54px 0 40px}
+    .hero-grid{grid-template-columns:1fr .95fr;gap:clamp(32px,5vw,78px)}
+    .eyebrow{background:#fff;border-color:var(--line);color:var(--ink);letter-spacing:.035em}
+    h1{font-size:clamp(46px,5.5vw,72px);line-height:1.02;letter-spacing:-.052em}
+    .hero p{font-size:17px}
+    .hero-points span{background:transparent;border:0;padding:0 18px 0 0;color:#626762;font-size:12px}
+    .start-btn{border-radius:13px;box-shadow:none}
+    .secondary-start-btn{border-radius:13px;box-shadow:none}
+    .hero-photo{min-height:440px;border-radius:22px;box-shadow:none}
+    .photo-overlay{border-radius:13px;left:16px;right:16px;bottom:16px;box-shadow:0 8px 25px rgba(25,25,25,.1)}
+    .booking-shell{padding:22px 0 76px}
+    .booking-grid{grid-template-columns:minmax(0,1fr) 340px;gap:20px}
+    .panel{background:#fff;border-radius:22px;box-shadow:0 12px 36px rgba(25,25,25,.035)}
+    .flow{padding:clamp(22px,3vw,38px)}
+    .request-mode-switch{padding:5px;border-radius:14px;background:var(--ivory);margin-bottom:24px}
+    .request-mode-btn{border-radius:10px;font-size:14px}
+    .request-mode-btn.active{box-shadow:0 2px 9px rgba(25,25,25,.07)}
+    .stepper{display:flex;gap:8px;align-items:center;margin-bottom:28px;color:#737874;font-size:11px;font-weight:800;letter-spacing:.02em}
+    .stepper span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+    .stepper span:not(:last-child):after{content:"";display:block;width:18px;height:1px;background:#C9CFCA}
+    .stepper b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--eucalyptus2);color:var(--deep);font-size:10px}
+    .section{padding:4px 0 30px;margin-bottom:30px}
+    .section-label{font-size:11px;letter-spacing:.06em}
+    h2{font-size:clamp(27px,3vw,35px);letter-spacing:-.035em}
+    .services{gap:10px}
+    .service-card{min-height:154px;border-radius:15px;padding:18px;background:#FFFDF9;box-shadow:none}
+    .service-card:hover,.service-card:focus-visible{border-color:var(--deep);transform:translateY(-2px)}
+    .service-card.selected{background:var(--eucalyptus2);border-color:var(--deep);padding:17px;box-shadow:inset 0 0 0 1px var(--deep)}
+    .service-card strong{font-family:Prompt,Arial,sans-serif;font-size:17px;line-height:1.25}
+    .service-card .check{font-size:0}
+    .service-card .check:after{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#CBD3CC}
+    .service-card.selected .check:after{background:#fff}
+    .service-card .price{display:none;font-size:15px;margin-top:12px;letter-spacing:-.02em}
+    .service-card.selected .price{display:block}
+    .service-card:after{content:"View price";display:block;margin-top:12px;font-size:11px;font-weight:800;color:var(--deep)}
+    #quoteServices .service-card:after{content:"Select for quote"}
+    .service-card.selected:after{display:none}
+    .counter,.extra{border-radius:13px;background:#FFFDF9}
+    .cleaning-type-btn,.pill,.date-card,.time{border-radius:11px}
+    .summary{top:92px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:22px;box-shadow:0 15px 45px rgba(25,25,25,.07);padding:20px}
+    body.quote-mode .summary{background:#fff}
+    .summary:before{content:"";display:block;width:34px;height:4px;background:var(--butter);border-radius:4px;margin-bottom:18px}
+    .summary h3{font-size:22px}
+    .summary-top small{color:var(--muted)}
+    .demo-tag{background:var(--eucalyptus2);color:var(--deep)}
+    .summary-photo{height:116px;border-radius:12px}
+    .summary-row{border-color:var(--line)}
+    .summary-row span:first-child{color:var(--muted)}
+    .total{border-top:1px solid var(--line);margin-top:8px}
+    .total span{color:var(--muted)}
+    .total strong{color:var(--deep)}
+    .submit,body.quote-mode .submit{background:var(--ink);color:#fff;border-radius:11px;min-height:52px}
+    .micro{color:var(--muted)}
+    .story,.main-site-cta{box-shadow:none}
+    .mobile-booking-bar{display:none}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #86BEDA;outline-offset:2px}
+    @media(max-width:900px){.hero-grid,.booking-grid,.story{grid-template-columns:1fr}.hero-photo{min-height:390px}.summary{position:relative;top:auto}}
+    @media(max-width:620px){
+      .hero{padding:25px 0 20px}
+      .hero-photo{min-height:330px}
+      .photo-overlay{gap:8px}
+      .photo-overlay strong{font-size:13px}
+      .photo-overlay small{font-size:10px}
+      .available{font-size:10px}
+      .hero-points{gap:6px}
+      .booking-shell{padding-top:10px}
+      .flow{padding:20px}
+      .stepper{overflow-x:auto;scrollbar-width:none}
+      .stepper::-webkit-scrollbar{display:none}
+      .services{grid-template-columns:1fr}
+      .service-card{min-height:0}
+      .mobile-booking-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:rgba(255,253,249,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(25,25,25,.05);backdrop-filter:blur(12px)}
+      .mobile-booking-bar small{display:block;color:var(--muted);font-size:10px}
+      .mobile-booking-bar strong{font-size:17px;color:var(--deep)}
+      .mobile-booking-bar button{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:13px 16px;font-weight:800;font-size:12px}
+      body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+    }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
   </style>
 </head>
@@ -140,20 +205,20 @@
             <button type="button" class="request-mode-btn active" data-mode="book">Book a Cleaning</button>
             <button type="button" class="request-mode-btn" data-mode="quote">Get a Quote</button>
           </div>
-          <div class="stepper"><div class="step active"></div><div class="step active"></div><div class="step active"></div><div class="step"></div></div>
+          <div class="stepper" aria-label="Booking sections"><span><b>01</b> Service</span><span><b>02</b> Space</span><span><b>03</b> Schedule</span><span><b>04</b> Details</span></div>
 
           <section class="section">
-            <div class="section-label">01 · Service</div><h2 id="serviceTitle">Choose a bookable service.</h2><p class="section-intro" id="serviceIntro">These services can be booked directly with a visible sample price.</p>
+            <div class="section-label">01 · Service</div><h2 id="serviceTitle">What can we help you clean?</h2><p class="section-intro" id="serviceIntro">Choose a service to see its sample starting price.</p>
             <div class="service-path-label" id="bookServiceLabel"><strong>Book a Cleaning services</strong><span>Direct booking</span></div>
             <div class="services" id="bookServices">
-              <button class="service-card selected" data-service="Standard Cleaning" data-price="129"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129 · sample price</span></button>
+              <button class="service-card" data-service="Standard Cleaning" data-price="129" aria-pressed="false"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129 · sample price</span></button>
               <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219 · sample price</span></button>
               <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249 · sample price</span></button>
               <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119 · sample price</span></button>
             </div>
             <div class="service-path-label" id="quoteServiceLabel" hidden><strong>Get a Quote services</strong><span>Custom pricing</span></div>
             <div class="services" id="quoteServices" hidden>
-              <button class="service-card selected" data-service="Post-Construction Cleaning" data-price="0"><span class="check">✓</span><strong>Post-Construction Cleaning</strong><p>For dust, residue, and detailed cleanup after renovation or construction.</p><span class="price">Custom quote</span></button>
+              <button class="service-card" data-service="Post-Construction Cleaning" data-price="0" aria-pressed="false"><span class="check">✓</span><strong>Post-Construction Cleaning</strong><p>For dust, residue, and detailed cleanup after renovation or construction.</p><span class="price">Custom quote</span></button>
               <button class="service-card" data-service="Commercial Cleaning" data-price="0"><span class="check">✓</span><strong>Commercial Cleaning</strong><p>Tell us about your office, storefront, or commercial space.</p><span class="price">Custom quote</span></button>
               <button class="service-card" data-service="Large / Special Property" data-price="0"><span class="check">✓</span><strong>Large / Special Property</strong><p>For larger homes, special conditions, or work that needs a closer look.</p><span class="price">Custom quote</span></button>
               <button class="service-card" data-service="Custom Cleaning Request" data-price="0"><span class="check">✓</span><strong>Custom Cleaning Request</strong><p>Describe what you need and the business can build a quote around the job.</p><span class="price">Custom quote</span></button>
@@ -228,18 +293,18 @@
           </section>
         </div>
 
-        <aside class="summary">
+        <aside class="summary" id="bookingSummary" aria-live="polite">
           <div class="summary-top"><div><small id="summaryKicker">Your booking</small><h3 id="summaryTitle">Almost done.</h3></div><span class="demo-tag">Demo</span></div>
           <div class="summary-photo"><img id="summaryPhoto" src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
-          <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
+          <div class="summary-row"><span>Service</span><strong id="sumService">Choose a service</strong></div>
           <div class="summary-row"><span>Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
           <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
           <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
           <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
           <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
-          <div class="total"><span id="totalLabel">Sample estimated total</span><strong id="sumTotal">$129</strong></div>
+          <div class="total"><span id="totalLabel">Sample starting estimate</span><strong id="sumTotal">—</strong></div>
           <button class="submit" id="submitBtn">Request cleaning →</button>
-          <p class="micro">No payment is collected. This page is an interactive demonstration using sample information.</p>
+          <p class="micro">Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.</p>
         </aside>
       </div>
     </section>
@@ -266,19 +331,19 @@
 
   <footer><div class="wrap"><strong>Demo Booking + Quote Page by The Launch Era</strong><br>Sample business, pricing, customer information and addresses. Photography sourced from Pexels.</div></footer>
 
-  <a class="mobile-main-site-cta" href="/" aria-label="See The Launch Era website">See The Launch Era →</a>
+  <div class="mobile-booking-bar"><div><small id="mobileEstimateLabel">Sample starting estimate</small><strong id="mobileEstimate">Choose a service</strong></div><button type="button" id="reviewBooking">Review booking →</button></div>
 
   <div class="success" id="success" role="dialog" aria-modal="true">
     <div class="success-card"><div class="success-check">✓</div><h3 id="successTitle">Request received.</h3><p id="successCopy">In a real Booking Page, this request can flow into the cleaning business system so the owner can review, schedule, follow up, and keep the job organized.</p><button id="closeSuccess">Back to demo</button></div>
   </div>
 
   <script>
-    const state={mode:'book',service:'Standard Cleaning',base:129,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
+    const state={mode:'book',service:null,base:0,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
     const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
 
     function syncSelectedService(){
       const container=state.mode==='quote'?$('quoteServices'):$('bookServices');
-      const selected=container?.querySelector('.service-card.selected')||container?.querySelector('.service-card');
+      const selected=container?.querySelector('.service-card.selected');
       if(!selected) return;
       container.querySelectorAll('.service-card').forEach(x=>x.classList.remove('selected'));
       selected.classList.add('selected');
@@ -368,8 +433,8 @@
       $('quoteServices').hidden=!quote;
       $('bookServiceLabel').hidden=quote;
       $('quoteServiceLabel').hidden=!quote;
-      $('serviceTitle').textContent=quote?'Choose a quote-only service.':'Choose a bookable service.';
-      $('serviceIntro').textContent=quote?'These services need custom pricing before the job is confirmed.':'These services can be booked directly with a visible sample price.';
+      $('serviceTitle').textContent=quote?'What would you like quoted?':'What can we help you clean?';
+      $('serviceIntro').textContent=quote?'Choose a service and share the details. Pricing is prepared for your specific job.':'Choose a service to see its sample starting price.';
       $('bookTimes').hidden=quote;
       $('quoteTimes').hidden=!quote;
       $('quoteDateNote').hidden=!quote;
@@ -377,17 +442,17 @@
       $('dateTitle').textContent=quote?'When would you prefer the cleaning?':'Choose what works for you.';
       $('dateIntro').textContent=quote?'Choose a preferred date and time window. The business will confirm availability with your quote.':'Only sample available times are shown in this demo.';
       updateDetailsCopy();
-      document.querySelectorAll('.extra small[data-book-copy]').forEach(el=>{el.textContent=quote?'Include in quote':el.dataset.bookCopy});
+      updateExtraPriceLabels();
 
       if(quote){
-        const chosen=$('quoteServices').querySelector('.service-card.selected')||$('quoteServices').querySelector('.service-card');
-        state.service=chosen?.dataset.service||'Post-Construction Cleaning';
+        const chosen=$('quoteServices').querySelector('.service-card.selected');
+        state.service=chosen?.dataset.service||null;
         state.base=0;
         state.time=$('quoteTimes').querySelector('.time.selected')?.dataset.time||'Flexible';
       }else{
-        const chosen=$('bookServices').querySelector('.service-card.selected')||$('bookServices').querySelector('.service-card');
-        state.service=chosen?.dataset.service||'Standard Cleaning';
-        state.base=Number(chosen?.dataset.price||129);
+        const chosen=$('bookServices').querySelector('.service-card.selected');
+        state.service=chosen?.dataset.service||null;
+        state.base=Number(chosen?.dataset.price||0);
         state.time=$('bookTimes').querySelector('.time.selected')?.dataset.time||'10:30 AM';
       }
       updateDemoPhotos();
@@ -395,8 +460,15 @@
     }
     window.setRequestMode=setRequestMode;
 
+    function updateExtraPriceLabels(){
+      document.querySelectorAll('.extra small[data-book-copy]').forEach(el=>{
+        const checked=el.closest('.extra').querySelector('input').checked;
+        el.textContent=state.mode==='quote'?'Include in quote':checked?el.dataset.bookCopy:'Add to see price';
+      });
+    }
+
     function render(){
-      $('sumService').textContent=state.service;
+      $('sumService').textContent=state.service||'Choose a service';
       $('sumHome').textContent=state.cleaningType==='Commercial'
         ? 'Commercial · '+($('commercialType')?.value||'Commercial space')+' · '+state.restrooms+' restroom'+(state.restrooms===1?'':'s')+' · '+state.floors+' level'+(state.floors===1?'':'s')
         : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath';
@@ -409,17 +481,21 @@
       const quote=state.mode==='quote';
       $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
       $('summaryTitle').textContent=quote?'Ready to request.':'Almost done.';
-      $('totalLabel').textContent=quote?'Pricing':'Sample estimated total';
-      $('sumTotal').textContent=quote?'Custom quote':money(state.base+state.extras.reduce((s,x)=>s+x.price,0));
+      $('totalLabel').textContent=quote?'Pricing':'Sample starting estimate';
+      $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(state.base+state.extras.reduce((s,x)=>s+x.price,0));
       $('submitBtn').textContent=quote?'Get my quote →':'Request cleaning →';
+      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Sample starting estimate';
+      $('mobileEstimate').textContent=!state.service?'Choose a service':quote?'Request a quote':$('sumTotal').textContent;
+      $('reviewBooking').textContent=quote?'Review quote →':'Review booking →';
     }
 
     document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.addEventListener('click',()=>setRequestMode(btn.dataset.mode)));
 
     document.querySelectorAll('.service-card').forEach(btn=>btn.addEventListener('click',()=>{
       const parent=btn.closest('.services');
-      parent.querySelectorAll('.service-card').forEach(x=>x.classList.remove('selected'));
+      parent.querySelectorAll('.service-card').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
       btn.classList.add('selected');
+      btn.setAttribute('aria-pressed','true');
       state.service=btn.dataset.service;
       state.base=Number(btn.dataset.price||0);
       render();
@@ -440,6 +516,7 @@
       // Never carry residential add-ons into a commercial request or vice versa.
       document.querySelectorAll('[data-extra]').forEach(box=>{ box.checked=false; });
       state.extras=[];
+      updateExtraPriceLabels();
       updateDetailsCopy();
       updateDemoPhotos();
       render();
@@ -482,10 +559,19 @@
       state.extras=Array.from(document.querySelectorAll('[data-extra]:checked'))
         .filter(x=>x.dataset.extraGroup===activeGroup)
         .map(x=>({name:x.dataset.extra,price:state.mode==='quote'?0:Number(x.dataset.price)}));
+      updateExtraPriceLabels();
       render();
     }));
 
+    $('reviewBooking').addEventListener('click',()=>{
+      (state.service?$('bookingSummary'):$('bookServices').hidden?$('quoteServices'):$('bookServices')).scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
     $('submitBtn').addEventListener('click',()=>{
+      if(!state.service){
+        (state.mode==='quote'?$('quoteServices'):$('bookServices')).scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
       const quote=state.mode==='quote';
       $('successTitle').textContent=quote?'Quote request received.':'Request received.';
       $('successCopy').textContent=quote
