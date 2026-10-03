@@ -500,3 +500,20 @@
   .home-editorial .home-support-grid{grid-template-columns:1fr}
   .home-editorial .home-final{padding:68px 0}
 }
+
+
+/* CLEANING APP — PAIN + FUNCTIONS CARDS — 2026-10-03 */
+.app .app-explain-head{max-width:820px;margin-bottom:34px}
+.app .app-explain-head h2{font-size:clamp(38px,4.7vw,60px);line-height:1;letter-spacing:-.05em;margin:0 0 14px}
+.app .app-explain-head p{max-width:700px;margin:0;color:var(--muted);font-size:16px}
+.app .app-pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.app .app-function-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.app .app-info-card{min-height:210px;border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(180deg,#fff,#fafbfe);box-shadow:0 12px 34px rgba(47,74,124,.055);transition:transform .22s ease,box-shadow .22s ease}
+.app .app-info-card:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(47,74,124,.09)}
+.app .app-info-num{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--blue);font-family:Prompt,Arial,sans-serif;font-size:12px;font-weight:800;color:var(--ink)}
+.app .app-info-card h3{font-size:21px;line-height:1.12;margin:22px 0 9px}
+.app .app-info-card p{font-size:14px;line-height:1.58;color:var(--muted);margin:0}
+.app .app-functions{background:var(--paper)}
+.app .app-functions .app-info-card{background:#fff}
+@media(max-width:900px){.app .app-function-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.app .app-pain-grid,.app .app-function-grid{grid-template-columns:1fr}.app .app-info-card{min-height:0;padding:21px}.app .app-explain-head h2{font-size:40px}}
