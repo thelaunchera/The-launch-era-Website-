@@ -111,25 +111,38 @@ h1 .mauve{color:var(--action)}
   transform:perspective(1100px) rotateY(4deg) rotateX(1deg)
 }
 .screen{
-  background:#fff;border-radius:11px;padding:20px;min-height:245px;border:1px solid #E9E9ED
+  background:#fff;border-radius:11px;min-height:245px;border:1px solid #E9E9ED;overflow:hidden
 }
-.screen-brand{color:var(--ink);font-family:"Prompt";font-weight:700;font-size:13px;margin-bottom:22px}
-.screen-title{font-family:"Prompt";font-size:26px;color:var(--ink);font-weight:700;line-height:1.1}
-.screen-sub{font-size:11px;color:#7A7D88;margin:6px 0 15px}
-.service-tabs{display:flex;gap:7px;margin-bottom:13px}
-.service-tabs span{background:#F1F4FA;border-radius:999px;padding:7px 11px;font-size:9px;color:#667084}
-.service-tabs span:first-child{background:var(--ink);color:#fff}
-.mini-services{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.mini-services span{display:grid;place-items:center;text-align:center;min-height:58px;border:1px solid #E8E8EE;border-radius:11px;background:#fff;font-size:8px;color:#5D6270}
+.screen-grid{display:grid;grid-template-columns:1.32fr .68fr;min-height:245px}
+.screen-copy{padding:18px 16px 16px}
+.screen-brand{color:var(--ink);font-family:"Prompt";font-weight:700;font-size:10px;margin-bottom:17px}
+.screen-title{font-family:"Prompt";font-size:24px;color:var(--ink);font-weight:700;line-height:1.06}
+.screen-sub{font-size:9px;color:#7A7D88;margin:5px 0 13px}
+.booking-mini{display:grid;gap:7px}
+.booking-mini-row{display:grid;grid-template-columns:22px 1fr 12px;align-items:center;gap:7px;padding:8px;border:1px solid #E8E8EE;border-radius:9px;background:#fff;color:#5D6270;font-size:7px}
+.booking-mini-icon{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:#EEF5FF;color:var(--action);font-size:10px;font-weight:900}
+.booking-mini-row strong{display:block;color:var(--ink);font-size:7px;line-height:1.1}
+.booking-mini-row small{display:block;margin-top:2px;font-size:6px;color:#8A8E98}
+.screen-continue{margin-top:9px;border-radius:999px;background:var(--action);color:#fff;padding:7px 10px;text-align:center;font-size:7px;font-weight:800}
+.screen-photo{background:url("https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=900") center/cover no-repeat;min-height:245px}
+.phone-inner{position:relative;background:#F8F9FC;border-radius:25px;overflow:hidden}
+.phone-notch{position:absolute;z-index:3;top:0;left:50%;transform:translateX(-50%);width:66px;height:17px;background:#111;border-radius:0 0 12px 12px}
+.phone-cover{position:relative;height:394px;padding:42px 14px 16px;display:flex;flex-direction:column;justify-content:space-between;background:
+  linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.84) 43%,rgba(255,255,255,.15) 72%,rgba(25,25,25,.14) 100%),
+  url("https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=900") center/cover no-repeat}
+.phone-demo-brand{display:flex;align-items:center;justify-content:space-between;gap:7px;color:var(--ink);font-family:"Prompt";font-size:8px;font-weight:700}
+.phone-demo-brand span:first-child{display:inline-flex;align-items:center;gap:4px}
+.phone-demo-leaf{font-size:11px;color:var(--action)}
+.phone-demo-copy{margin-top:12px}
+.phone-demo-copy h3{margin:0;color:var(--ink);font-family:"Prompt";font-size:22px;line-height:.98;letter-spacing:-.04em;max-width:150px}
+.phone-demo-copy p{margin:7px 0 0;color:#516070;font-size:8px;line-height:1.35;max-width:145px}
+.phone-demo-cta{align-self:flex-start;margin-top:11px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 12px;font-size:8px;font-weight:800}
 .phone{
   position:absolute;z-index:4;right:2.5%;bottom:2%;
   width:205px;background:#111;border-radius:34px;padding:8px;
   box-shadow:0 30px 58px rgba(25,25,25,.28);
   transform:rotate(1deg)
 }
-.phone-inner{background:#F8F9FC;border-radius:25px;overflow:hidden}
-.phone-notch{width:66px;height:17px;background:#111;border-radius:0 0 12px 12px;margin:auto}
-.phone img{width:100%;height:394px;object-fit:cover;object-position:top}
 
 .section{padding:72px 0}
 .section-title{max-width:790px;margin-bottom:32px}
@@ -269,10 +282,17 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   .actions .btn{width:100%}
   .hero-art{min-height:455px;border-radius:25px}
   .laptop{left:3%;right:18%;bottom:5%;padding:8px 8px 12px}
-  .screen{padding:14px;min-height:210px}
-  .screen-title{font-size:20px}
+  .screen-grid{min-height:210px}
+  .screen-copy{padding:13px 11px}
+  .screen-title{font-size:18px}
+  .screen-photo{min-height:210px}
+  .booking-mini-row{padding:6px;grid-template-columns:18px 1fr 9px}
+  .booking-mini-icon{width:18px;height:18px;font-size:8px}
   .phone{width:150px;right:2%;bottom:2%}
-  .phone img{height:289px}
+  .phone-cover{height:289px;padding:34px 10px 11px}
+  .phone-demo-copy h3{font-size:16px;max-width:110px}
+  .phone-demo-copy p{font-size:6px;max-width:112px}
+  .phone-demo-cta{font-size:6px;padding:6px 9px}
   .pain-grid,.flow-grid{grid-template-columns:1fr}
   .recognition-inner,.final-inner{flex-direction:column;align-items:flex-start}
   .section{padding:58px 0}
@@ -290,7 +310,10 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   .nav-right{gap:10px}
   .hero-art{min-height:390px}
   .phone{width:127px}
-  .phone img{height:242px}
+  .phone-cover{height:242px;padding:30px 9px 9px}
+  .phone-demo-copy h3{font-size:14px;max-width:98px}
+  .phone-demo-copy p{font-size:5.5px;max-width:96px}
+  .phone-demo-cta{font-size:5.5px;padding:5px 8px}
   .laptop{right:13%}
   .mini-services{grid-template-columns:repeat(2,1fr)}
   .offer-main .btn{min-width:0;width:100%}
@@ -319,7 +342,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-                <h1>More bookings. Less <span class="mauve">manual work.</span></h1>
+        <h1>More bookings. Less <span class="mauve">manual work.</span></h1>
         <p class="hero-copy">Your Booking Page, client confirmation, private lead tracker and follow-up — connected into one clear flow for your cleaning business.</p>
         <div class="actions">
           <a class="btn primary" href="#offer">See What's Included →</a>
@@ -328,21 +351,38 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
         <p class="hero-note">Built for residential cleaning businesses · one-time setup</p>
       </div>
 
-      <!-- No-person hero photo. Pexels free license; commercial use permitted. -->
-      <div class="hero-art" aria-label="Bright clean home with booking system preview">
+      <div class="hero-art" aria-label="Bright cleaning business booking demo shown on laptop and phone">
         <div class="laptop" aria-hidden="true">
           <div class="screen">
-            <div class="screen-brand">THE LAUNCH ERA</div>
-            <div class="screen-title">Book a Cleaning</div>
-            <div class="screen-sub">Choose your service</div>
-            <div class="service-tabs"><span>Residential</span><span>Commercial</span></div>
-            <div class="mini-services"><span>Standard Clean</span><span>Deep Clean</span><span>Move In/Out</span><span>Custom Quote</span></div>
+            <div class="screen-grid">
+              <div class="screen-copy">
+                <div class="screen-brand">✦ THE LAUNCH ERA</div>
+                <div class="screen-title">Book Your<br>Cleaning Service</div>
+                <div class="screen-sub">Simple booking. A cleaner, brighter home.</div>
+                <div class="booking-mini">
+                  <div class="booking-mini-row"><span class="booking-mini-icon">✓</span><span><strong>Select a Service</strong><small>Standard Clean</small></span><span>›</span></div>
+                  <div class="booking-mini-row"><span class="booking-mini-icon">□</span><span><strong>Choose a Date</strong><small>Pick a date</small></span><span>›</span></div>
+                  <div class="booking-mini-row"><span class="booking-mini-icon">◷</span><span><strong>Choose a Time</strong><small>Select a time</small></span><span>›</span></div>
+                </div>
+                <div class="screen-continue">Continue →</div>
+              </div>
+              <div class="screen-photo"></div>
+            </div>
           </div>
         </div>
         <div class="phone" aria-hidden="true">
           <div class="phone-inner">
             <div class="phone-notch"></div>
-            <img src="/assets/app-hero-dashboard.webp" alt="">
+            <div class="phone-cover">
+              <div>
+                <div class="phone-demo-brand"><span><span class="phone-demo-leaf">✦</span> CLEANING DEMO</span><span>☰</span></div>
+                <div class="phone-demo-copy">
+                  <h3>A cleaner home for a brighter you.</h3>
+                  <p>Professional residential cleaning with a simple way to request your service.</p>
+                  <div class="phone-demo-cta">Book Your Clean →</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
