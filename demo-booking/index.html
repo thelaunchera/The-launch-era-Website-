@@ -162,7 +162,7 @@
       .stepper::-webkit-scrollbar{display:none}
       .services{grid-template-columns:1fr}
       .service-card{min-height:0}
-      .mobile-booking-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:rgba(255,253,249,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(25,25,25,.05);backdrop-filter:blur(12px)}
+      .mobile-booking-bar.visible{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:rgba(255,253,249,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(25,25,25,.05);backdrop-filter:blur(12px)}
       .mobile-booking-bar small{display:block;color:var(--muted);font-size:10px}
       .mobile-booking-bar strong{font-size:17px;color:var(--deep)}
       .mobile-booking-bar button{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:13px 16px;font-weight:800;font-size:12px}
@@ -566,6 +566,12 @@
     $('reviewBooking').addEventListener('click',()=>{
       (state.service?$('bookingSummary'):$('bookServices').hidden?$('quoteServices'):$('bookServices')).scrollIntoView({behavior:'smooth',block:'start'});
     });
+    document.querySelectorAll('.service-card').forEach(btn=>btn.setAttribute('aria-pressed',btn.classList.contains('selected')?'true':'false'));
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(entries=>{
+        document.querySelector('.mobile-booking-bar').classList.toggle('visible',entries[0].isIntersecting);
+      },{threshold:0.03}).observe($('booking'));
+    }
 
     $('submitBtn').addEventListener('click',()=>{
       if(!state.service){
