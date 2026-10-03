@@ -111,6 +111,11 @@
     .request-mode-switch{padding:5px;border-radius:14px;background:var(--ivory);margin-bottom:24px}
     .request-mode-btn{border-radius:10px;font-size:14px}
     .request-mode-btn.active{box-shadow:0 2px 9px rgba(25,25,25,.07)}
+    .request-mode-btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+    .booking-type{margin-bottom:18px}
+    .booking-type .section-label{margin-bottom:10px}
+    .booking-type .cleaning-type-switch{margin-bottom:0}
+    .commercial-route-note{margin:10px 0 0}
     .stepper{display:flex;gap:8px;align-items:center;margin-bottom:28px;color:#737874;font-size:11px;font-weight:800;letter-spacing:.02em}
     .stepper span{display:flex;align-items:center;gap:8px;white-space:nowrap}
     .stepper span:not(:last-child):after{content:"";display:block;width:18px;height:1px;background:#C9CFCA}
@@ -208,6 +213,14 @@
     <section id="booking" class="booking-shell">
       <div class="wrap booking-grid">
         <div class="panel flow">
+          <div class="booking-type">
+            <div class="section-label">What kind of space?</div>
+            <div class="cleaning-type-switch" id="cleaningType" aria-label="Choose cleaning type">
+              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential" aria-pressed="true">Residential</button>
+              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial" aria-pressed="false">Commercial</button>
+            </div>
+            <p class="quote-note commercial-route-note" id="commercialRouteNote" hidden>Commercial cleaning is priced for your space. We'll start a custom quote request.</p>
+          </div>
           <div class="request-mode-switch" aria-label="Choose request type">
             <button type="button" class="request-mode-btn active" data-mode="book">Book a Cleaning</button>
             <button type="button" class="request-mode-btn" data-mode="quote">Get a Quote</button>
@@ -233,13 +246,7 @@
           </section>
 
           <section class="section">
-            <div class="section-label">02 · Property details</div><h2>Tell us about the space.</h2><p class="section-intro">Start with the cleaning type, then add the details that fit the property.</p>
-
-            <label>Cleaning type</label>
-            <div class="cleaning-type-switch" id="cleaningType">
-              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential">Residential</button>
-              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial">Commercial</button>
-            </div>
+            <div class="section-label">02 · Property details</div><h2>Tell us about the space.</h2><p class="section-intro">Add a few details so the business can prepare for the job.</p>
 
             <div class="counter-grid" id="residentialCounters">
               <div class="counter"><div class="counter-label"><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button class="round" data-counter="beds" data-dir="-1">−</button><span id="beds" class="count">3</span><button class="round" data-counter="beds" data-dir="1">+</button></div></div>
@@ -450,19 +457,10 @@
     }
 
     function setRequestMode(mode){
-      if(mode==='book'&&state.cleaningType==='Commercial'){
-        state.cleaningType='Residential';
-        document.querySelectorAll('[data-cleaning-type]').forEach(btn=>btn.classList.toggle('selected',btn.dataset.cleaningType==='Residential'));
-        $('residentialCounters').hidden=false;
-        $('residentialPropertyField').hidden=false;
-        $('commercialCounters').hidden=true;
-        $('commercialDetails').hidden=true;
-        $('residentialExtras').hidden=false;
-        $('commercialExtras').hidden=true;
-        document.querySelectorAll('[data-extra]').forEach(box=>{box.checked=false});
-        state.extras=[];
-      }
-      state.mode=mode==='quote'?'quote':'book';
+      const commercial=state.cleaningType==='Commercial';
+      state.mode=mode==='quote'||commercial?'quote':'book';
+      document.querySelector('.request-mode-btn[data-mode="book"]').disabled=commercial;
+      $('commercialRouteNote').hidden=!commercial;
       document.body.classList.toggle('quote-mode',state.mode==='quote');
       document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===state.mode));
 
@@ -544,10 +542,13 @@
     }));
 
     document.querySelectorAll('[data-cleaning-type]').forEach(btn=>btn.addEventListener('click',()=>{
-      document.querySelectorAll('[data-cleaning-type]').forEach(x=>x.classList.remove('selected'));
+      document.querySelectorAll('[data-cleaning-type]').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
       btn.classList.add('selected');
+      btn.setAttribute('aria-pressed','true');
       state.cleaningType=btn.dataset.cleaningType;
       const commercial=state.cleaningType==='Commercial';
+      document.querySelector('.request-mode-btn[data-mode="book"]').disabled=commercial;
+      $('commercialRouteNote').hidden=!commercial;
       $('residentialCounters').hidden=commercial;
       $('residentialPropertyField').hidden=commercial;
       $('commercialCounters').hidden=!commercial;
