@@ -5,206 +5,494 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#58D6CF">
 <title>Booking Flow Setup for Cleaning Businesses | The Launch Era</title>
-<meta name="description" content="A Booking Page, client confirmation, Private Lead Tracker and smart follow-up connected into one simple flow for residential cleaning businesses.">
+<meta name="description" content="A simple booking flow for residential cleaning businesses: capture inquiries, organize client details and follow up without scattered messages or complicated systems.">
 <link rel="canonical" href="https://thelaunchera.com/start/">
 <link rel="alternate" hreflang="en" href="https://thelaunchera.com/start/">
 <link rel="alternate" hreflang="es" href="https://thelaunchera.com/es/start/">
 <link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/start/">
-<meta property="og:title" content="The Booking Flow Setup | The Launch Era">
-<meta property="og:description" content="Your Booking Page, confirmation, lead tracking and follow-up — connected into one simple flow.">
+<meta property="og:title" content="A Cleaner Booking Flow | The Launch Era">
+<meta property="og:description" content="Less chasing. Less scattered information. A better way to handle new cleaning clients.">
 <meta property="og:url" content="https://thelaunchera.com/start/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://thelaunchera.com/assets/app-today-en.webp">
+<meta property="og:image" content="https://images.pexels.com/photos/6196571/pexels-photo-6196571.jpeg?cs=srgb&fm=jpg">
 <link rel="icon" href="/the-launch-era-favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/contact-form.js?v=20261002-bookingflow1" defer></script>
 <script src="/assets/analytics.js" defer></script>
 <style>
-:root{--bg:#F8FAF9;--aqua:#58D6CF;--ice:#E8F8F6;--blue:#A9DDF5;--teal:#087F79;--ink:#191919;--muted:#5E6664;--line:#D5E2DF;--white:#fff;--max:1120px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Prompt",Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}.skip{position:absolute;left:-9999px}.skip:focus{left:14px;top:14px;z-index:100;background:#fff;padding:10px}
-header{position:sticky;top:0;z-index:30;background:rgba(248,250,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,25,25,.09)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:.03em}.nav-right{display:flex;align-items:center;gap:16px;font-size:13px;font-weight:700}.nav-right a:hover{text-decoration:underline;text-underline-offset:4px}.pill{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700}
-.hero{padding:86px 0 68px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(88,214,207,.34),rgba(169,221,245,.12) 55%,transparent 72%);right:-140px;top:-160px;pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua)}h1,h2,h3{margin-top:0}h1{font-size:clamp(48px,7.2vw,86px);line-height:.94;letter-spacing:-.065em;margin:18px 0 22px;max-width:760px}.accent{color:var(--teal)}.lead{font-size:19px;max-width:690px;color:var(--muted);margin:0 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);border-radius:999px;padding:14px 20px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--ink);color:#fff}.btn.aqua{background:var(--aqua)}.btn.ghost{background:transparent}.proofline{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:12px;font-weight:700;color:#4f5755}.proofline span:before{content:"✓";margin-right:6px;color:var(--teal)}
-.flow-card{background:#fff;border:1px solid var(--line);box-shadow:0 28px 70px rgba(8,127,121,.12);padding:24px}.flow-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}.flow-top small{font-weight:800;letter-spacing:.1em}.live{font-size:11px;background:var(--ice);color:var(--teal);padding:7px 10px;border-radius:999px;font-weight:800}.flow-step{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #edf2f1}.flow-step:last-child{border-bottom:0}.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ice);font-size:12px;font-weight:800}.flow-step strong{display:block;font-size:14px}.flow-step span{display:block;font-size:12px;color:var(--muted)}.done{font-size:11px;color:var(--teal);font-weight:800}.flow-note{margin-top:16px;background:var(--ink);color:#fff;padding:16px;font-size:13px}
-.section{padding:78px 0}.section-head{max-width:780px;margin-bottom:34px}.section-head h2{font-size:clamp(38px,5.8vw,66px);line-height:.98;letter-spacing:-.055em;margin:12px 0 14px}.section-head p{font-size:18px;color:var(--muted);margin:0}.dark{background:var(--ink);color:#fff}.dark .section-head p,.dark .problem p{color:#b9c3c1}.dark .eyebrow:before{background:var(--aqua)}.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#31403d;border:1px solid #31403d}.problem{background:var(--ink);padding:26px;min-height:210px}.problem small{color:var(--aqua);font-weight:800}.problem h3{font-size:22px;line-height:1.15;margin:24px 0 10px}.problem p{margin:0}
-.system-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.system-step{background:#fff;border:1px solid var(--line);padding:22px;min-height:170px}.system-step b{font-size:12px;color:var(--teal)}.system-step h3{font-size:20px;line-height:1.15;margin:20px 0 8px}.system-step p{font-size:14px;color:var(--muted);margin:0}
-.offer{background:linear-gradient(135deg,var(--ice),#f9ffff 50%,#eaf5ff)}.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}.offer-copy h2{font-size:clamp(42px,6vw,70px);line-height:.98;letter-spacing:-.055em;margin:12px 0 18px}.offer-copy>p{font-size:18px;color:var(--muted)}.include{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.include div{background:rgba(255,255,255,.72);border:1px solid var(--line);padding:16px;font-size:14px}.include strong{display:block;margin-bottom:4px}.price-card{background:var(--ink);color:#fff;padding:34px;position:sticky;top:94px}.price-card .eyebrow{color:#fff}.offer-price-row{display:flex;align-items:flex-end;gap:14px;margin:24px 0 4px}.was-price{font-size:24px;color:#aeb9b7;text-decoration:line-through;text-decoration-thickness:2px;margin-bottom:8px}.price{font-size:64px;font-weight:800;line-height:1;letter-spacing:-.05em}.once{color:#aeb9b7}.price-card ul{padding:0;list-style:none;margin:24px 0;display:grid;gap:12px}.price-card li{padding-left:22px;position:relative}.price-card li:before{content:"✓";position:absolute;left:0;color:var(--aqua)}.price-card .btn{width:100%;background:var(--aqua);color:var(--ink);border-color:var(--aqua)}.fine{font-size:11px;color:#9faaa8;margin-top:14px}
-.app-section{background:#fff}.app-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}.app-copy h2{font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 16px}.app-copy p{color:var(--muted);font-size:17px}.app-shot{border:1px solid var(--line);background:#f3f6f5;padding:14px}.app-shot img{display:block;width:100%;height:auto}.app-caption{display:flex;justify-content:space-between;gap:10px;font-size:11px;font-weight:700;margin-top:10px;color:#53605d}
-.founder{padding:70px 0;background:var(--teal);color:#fff}.founder-inner{display:grid;grid-template-columns:.65fr 1.35fr;gap:48px;align-items:start}.founder-tag{font-size:12px;letter-spacing:.1em;font-weight:800}.founder h2{font-size:clamp(40px,5.5vw,64px);line-height:.98;letter-spacing:-.05em;margin-bottom:18px}.founder p{font-size:18px;max-width:760px;color:#e4fffc}
-.form-section{padding:84px 0}.form-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}.form-copy h2{font-size:clamp(40px,5vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 16px}.form-copy p{font-size:17px;color:var(--muted)}.form-card{background:#fff;border:1px solid var(--line);padding:28px}.contact-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-card label{display:block;margin-bottom:14px;font-size:12px;font-weight:700}.form-card label>span{display:block;margin-bottom:7px}.form-card input,.form-card select,.form-card textarea{width:100%;font:inherit;padding:13px 12px;border:1px solid #b8c6c3;background:#fff;color:var(--ink);border-radius:0}.form-card textarea{min-height:120px;resize:vertical}.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.choice-row label{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);padding:11px;margin:0;font-size:13px}.choice-row input{width:auto;margin-top:4px}.contact-honeypot{position:absolute!important;left:-10000px!important}.contact-submit{width:100%;border:0;cursor:pointer}.contact-form-status{font-size:13px;margin:12px 0 0}.contact-form-status.is-success{background:var(--ice);padding:14px}.contact-consent{font-size:11px!important;color:var(--muted)!important}
-.faq{background:#fff}.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px}.faq h2{font-size:clamp(38px,5vw,56px);line-height:1;letter-spacing:-.05em}.faq details{border-top:1px solid var(--line);padding:18px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{font-weight:700;cursor:pointer}.faq details p{color:var(--muted);font-size:14px}
-footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-links{display:flex;gap:14px;flex-wrap:wrap}
-@media(max-width:900px){.hero-grid,.offer-grid,.app-grid,.founder-inner,.form-grid,.faq-grid{grid-template-columns:1fr}.problem-grid{grid-template-columns:1fr 1fr}.system-flow{grid-template-columns:1fr 1fr}.price-card{position:static}.hero{padding-top:58px}.hero-grid{gap:36px}.app-grid{gap:28px}.founder-inner{gap:18px}}
-@media(max-width:620px){.wrap{width:min(var(--max),calc(100% - 26px))}.nav-right .desktop-link{display:none}.hero{padding:46px 0 50px}h1{font-size:clamp(46px,14vw,64px)}.lead{font-size:17px}.actions .btn{width:100%}.proofline{display:grid;gap:8px}.problem-grid,.system-flow,.include,.contact-two,.choice-row{grid-template-columns:1fr}.problem{min-height:auto}.section{padding:60px 0}.price{font-size:54px}.form-card{padding:20px}}
+:root{
+  --bg:#F8FAF9;
+  --aqua:#58D6CF;
+  --ice:#E8F8F6;
+  --blue:#A9DDF5;
+  --teal:#087F79;
+  --ink:#191919;
+  --muted:#5E6664;
+  --line:#D5E2DF;
+  --white:#fff;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Prompt",Arial,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:14px;top:14px;z-index:100;background:#fff;padding:10px}
 
-/* OCT 3 INTERACTIVE TYPOGRAPHY + CARD UPGRADE — COLORS UNCHANGED */
-h1,.section-head h2,.offer-copy h2,.app-copy h2,.founder h2,.form-copy h2,.faq h2{font-weight:800;text-wrap:balance}
-.lead,.section-head p,.offer-copy>p,.app-copy p,.founder p,.form-copy p,.faq details p{text-wrap:pretty}
-.flow-card{border-radius:28px;box-shadow:0 24px 64px rgba(8,127,121,.12);transition:transform .28s ease,box-shadow .28s ease}
-.flow-card:hover{transform:translateY(-4px);box-shadow:0 34px 76px rgba(8,127,121,.16)}
-.flow-step{border-radius:16px;padding:13px 12px;transition:transform .22s ease,background .22s ease}
-.flow-step:hover{transform:translateX(6px);background:var(--ice)}
-.flow-note{border-radius:16px}
-.problem-grid{gap:14px;background:transparent;border:0}
-.problem{border:1px solid #31403d;border-radius:22px;min-height:220px;transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease}
-.problem:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.18);border-color:rgba(88,214,207,.55)}
-.system-flow{gap:14px}
-.system-step{border-radius:22px;min-height:190px;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
-.system-step:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(8,127,121,.09);border-color:rgba(8,127,121,.28)}
-.system-step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:var(--ice)}
-.include{gap:12px}
-.include div{border-radius:18px;padding:18px;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
-.include div:hover{transform:translateY(-3px);background:#fff;box-shadow:0 14px 34px rgba(8,127,121,.08)}
-.price-card{border-radius:28px;box-shadow:0 26px 64px rgba(25,25,25,.18);overflow:hidden}
-.price-card .btn{transition:transform .22s ease,box-shadow .22s ease}
-.price-card .btn:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 12px 28px rgba(88,214,207,.22)}
-.app-shot{border-radius:24px;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease}
-.app-shot:hover{transform:translateY(-4px);box-shadow:0 24px 54px rgba(25,25,25,.09)}
-.form-card{border-radius:24px;box-shadow:0 18px 44px rgba(25,25,25,.055)}
-.form-card input,.form-card select,.form-card textarea,.choice-row label{border-radius:12px}
-.faq details{border:1px solid var(--line);border-radius:18px;padding:0;margin-bottom:10px;overflow:hidden;transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease}
-.faq details:last-child{border-bottom:1px solid var(--line)}
-.faq details:hover{transform:translateY(-2px);border-color:rgba(8,127,121,.28);box-shadow:0 12px 30px rgba(8,127,121,.06)}
-.faq summary{list-style:none;padding:18px 48px 18px 18px;position:relative}
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(248,250,249,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(25,25,25,.08)
+}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:800;letter-spacing:.035em}
+.nav-right{display:flex;align-items:center;gap:16px;font-size:13px;font-weight:700}
+.nav-right a:not(.pill):hover{text-decoration:underline;text-underline-offset:4px}
+.pill,.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:999px;font-weight:800;
+  transition:transform .2s ease,box-shadow .2s ease
+}
+.pill{padding:11px 17px;background:var(--ink);color:#fff}
+.btn{padding:14px 20px;border:1.5px solid var(--ink)}
+.btn:hover,.pill:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--ink);color:#fff;box-shadow:0 12px 28px rgba(25,25,25,.12)}
+.btn.aqua{background:var(--aqua);color:var(--ink);border-color:var(--aqua)}
+.btn.ghost{background:transparent}
+
+.eyebrow{
+  display:inline-flex;gap:8px;align-items:center;
+  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase
+}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua)}
+h1,h2,h3{margin-top:0}
+h1,h2{font-weight:800;text-wrap:balance}
+p{text-wrap:pretty}
+
+.hero{padding:72px 0 62px;position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(88,214,207,.28),rgba(169,221,245,.10) 56%,transparent 73%);
+  right:-180px;top:-190px;pointer-events:none
+}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.02fr .98fr;
+  gap:58px;align-items:center
+}
+h1{
+  font-size:clamp(46px,6.9vw,80px);
+  line-height:.96;letter-spacing:-.06em;
+  margin:17px 0 22px;max-width:760px
+}
+.accent{color:var(--teal)}
+.lead{font-size:18px;max-width:670px;color:var(--muted);margin:0 0 26px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.micro{
+  display:flex;flex-wrap:wrap;gap:16px;
+  margin-top:22px;font-size:12px;color:#4F5755;font-weight:700
+}
+.micro span:before{content:"✓";margin-right:6px;color:var(--teal)}
+
+.hero-visual{position:relative}
+.hero-photo{
+  position:relative;overflow:hidden;border-radius:30px;
+  min-height:540px;background:#dfe8e6;
+  box-shadow:0 28px 70px rgba(8,127,121,.15)
+}
+.hero-photo img{
+  display:block;width:100%;height:540px;object-fit:cover;
+  object-position:center center
+}
+.hero-photo:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 48%,rgba(11,24,23,.54) 100%);
+  pointer-events:none
+}
+.hero-caption{
+  position:absolute;z-index:3;left:24px;right:24px;bottom:22px;
+  color:#fff;display:flex;justify-content:space-between;gap:16px;align-items:end
+}
+.hero-caption strong{font-size:18px;line-height:1.2;max-width:300px}
+.hero-caption small{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.floating{
+  position:absolute;z-index:4;background:#fff;border:1px solid rgba(25,25,25,.08);
+  border-radius:16px;padding:12px 14px;box-shadow:0 16px 34px rgba(25,25,25,.13)
+}
+.floating b{display:block;font-size:12px}
+.floating span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.float-one{left:-30px;top:44px}
+.float-two{right:-18px;top:185px}
+.float-three{left:-18px;bottom:86px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--aqua);margin-right:6px}
+
+.section{padding:72px 0}
+.section-head{max-width:790px;margin-bottom:32px}
+.section-head h2{
+  font-size:clamp(36px,5.4vw,62px);line-height:.99;
+  letter-spacing:-.052em;margin:11px 0 13px
+}
+.section-head p{font-size:17px;color:var(--muted);margin:0}
+
+.dark{background:var(--ink);color:#fff}
+.dark .section-head p,.dark .pain-card p{color:#BBC4C2}
+.dark .eyebrow:before{background:var(--aqua)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pain-card{
+  border:1px solid #33413F;border-radius:22px;
+  padding:26px;min-height:210px;
+  transition:transform .24s ease,border-color .24s ease
+}
+.pain-card:hover{transform:translateY(-4px);border-color:rgba(88,214,207,.58)}
+.pain-card small{color:var(--aqua);font-weight:800}
+.pain-card h3{font-size:22px;line-height:1.15;margin:24px 0 9px}
+.pain-card p{margin:0;font-size:15px}
+
+.flow-wrap{
+  display:grid;grid-template-columns:.86fr 1.14fr;gap:46px;align-items:center
+}
+.flow-copy h2{
+  font-size:clamp(38px,5vw,60px);line-height:1;
+  letter-spacing:-.052em;margin:11px 0 15px
+}
+.flow-copy p{font-size:17px;color:var(--muted);margin:0 0 22px}
+.flow-track{
+  background:#fff;border:1px solid var(--line);border-radius:26px;
+  padding:16px;box-shadow:0 22px 54px rgba(8,127,121,.09)
+}
+.flow-step{
+  display:grid;grid-template-columns:42px 1fr auto;
+  gap:12px;align-items:center;padding:15px 12px;
+  border-bottom:1px solid #EDF2F1
+}
+.flow-step:last-child{border-bottom:0}
+.num{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;background:var(--ice);
+  color:var(--teal);font-size:12px;font-weight:800
+}
+.flow-step strong{display:block;font-size:14px}
+.flow-step span{display:block;font-size:12px;color:var(--muted)}
+.status{
+  font-size:10px!important;font-weight:800!important;color:var(--teal)!important;
+  background:var(--ice);padding:6px 8px;border-radius:999px
+}
+
+.offer{background:linear-gradient(135deg,var(--ice),#fbffff 48%,#edf7ff)}
+.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}
+.offer-copy h2{
+  font-size:clamp(40px,5.6vw,66px);line-height:.99;
+  letter-spacing:-.054em;margin:11px 0 15px
+}
+.offer-copy>p{font-size:17px;color:var(--muted);max-width:680px}
+.deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.deliverable{
+  background:rgba(255,255,255,.78);border:1px solid var(--line);
+  border-radius:20px;padding:20px;min-height:170px
+}
+.deliverable b{
+  display:inline-grid;place-items:center;width:32px;height:32px;
+  border-radius:50%;background:var(--ice);color:var(--teal);font-size:12px
+}
+.deliverable h3{font-size:18px;line-height:1.18;margin:17px 0 7px}
+.deliverable p{font-size:13px;color:var(--muted);margin:0}
+
+.price-card{
+  background:var(--ink);color:#fff;padding:32px;border-radius:28px;
+  box-shadow:0 26px 64px rgba(25,25,25,.18);position:sticky;top:92px
+}
+.price-card .eyebrow{color:#fff}
+.price-row{display:flex;align-items:flex-end;gap:12px;margin:22px 0 5px}
+.was{font-size:22px;color:#AEB9B7;text-decoration:line-through;margin-bottom:8px}
+.price{font-size:62px;font-weight:800;letter-spacing:-.055em;line-height:1}
+.once{font-size:13px;color:#AEB9B7}
+.price-card ul{list-style:none;padding:0;margin:23px 0;display:grid;gap:11px}
+.price-card li{padding-left:21px;position:relative;font-size:14px}
+.price-card li:before{content:"✓";position:absolute;left:0;color:var(--aqua)}
+.price-card .btn{width:100%}
+.fine{font-size:10.5px;color:#9FAAA8;margin:13px 0 0}
+
+.faq{background:#fff}
+.faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:52px}
+.faq h2{
+  font-size:clamp(38px,5vw,56px);line-height:1;
+  letter-spacing:-.05em;margin:11px 0 0
+}
+.faq details{
+  border:1px solid var(--line);border-radius:18px;
+  margin-bottom:10px;overflow:hidden
+}
+.faq summary{
+  list-style:none;padding:18px 48px 18px 18px;
+  position:relative;font-weight:700;cursor:pointer
+}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:22px;font-weight:500;color:var(--teal);transition:transform .22s ease}
+.faq summary:after{
+  content:"+";position:absolute;right:18px;top:50%;
+  transform:translateY(-50%);font-size:22px;color:var(--teal)
+}
 .faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
-.faq details p{padding:0 18px 18px;margin:0}
-.problem,.system-step,.include>div,.price-card,.app-shot,.faq details{opacity:0}
-.is-visible .problem{animation:tleUp .5s cubic-bezier(.22,1,.36,1) both}
-.is-visible .problem:nth-child(2){animation-delay:.08s}.is-visible .problem:nth-child(3){animation-delay:.16s}.is-visible .problem:nth-child(4){animation-delay:.24s}
-.is-visible .system-step{animation:tleSide .48s cubic-bezier(.22,1,.36,1) both}
-.is-visible .system-step:nth-child(2){animation-delay:.09s}.is-visible .system-step:nth-child(3){animation-delay:.18s}.is-visible .system-step:nth-child(4){animation-delay:.27s}.is-visible .system-step:nth-child(5){animation-delay:.36s}
-.is-visible.include>div{animation:tleFeature .44s cubic-bezier(.22,1,.36,1) both}
-.is-visible.include>div:nth-child(2){animation-delay:.07s}.is-visible.include>div:nth-child(3){animation-delay:.14s}.is-visible.include>div:nth-child(4){animation-delay:.21s}.is-visible.include>div:nth-child(5){animation-delay:.28s}.is-visible.include>div:nth-child(6){animation-delay:.35s}
-.price-card.is-visible{animation:tlePrice .58s cubic-bezier(.22,1,.36,1) both}.app-shot.is-visible{animation:tleUp .58s cubic-bezier(.22,1,.36,1) both}
-.faq.is-visible details{animation:tleFaq .38s ease both}.faq.is-visible details:nth-of-type(2){animation-delay:.05s}.faq.is-visible details:nth-of-type(3){animation-delay:.1s}.faq.is-visible details:nth-of-type(4){animation-delay:.15s}.faq.is-visible details:nth-of-type(5){animation-delay:.2s}
-@keyframes tleUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes tleSide{from{opacity:.1;transform:translateX(-22px)}to{opacity:1;transform:translateX(0)}}
-@keyframes tleFeature{from{opacity:0;transform:scale(.975) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
-@keyframes tlePrice{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes tleFaq{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.problem,.system-step,.include>div,.price-card,.app-shot,.faq details{opacity:1!important}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.faq details p{padding:0 18px 18px;margin:0;color:var(--muted);font-size:14px}
 
+.final-cta{padding:70px 0;background:var(--teal);color:#fff}
+.final-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:34px
+}
+.final-inner h2{
+  font-size:clamp(38px,5vw,58px);line-height:1;
+  letter-spacing:-.05em;margin:0 0 10px;max-width:720px
+}
+.final-inner p{margin:0;color:#DFFFFB;font-size:16px}
+.final-inner .btn{flex:0 0 auto;background:#fff;color:var(--ink);border-color:#fff}
+
+footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.visible{animation:rise .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:940px){
+  .hero-grid,.flow-wrap,.offer-grid,.faq-grid{grid-template-columns:1fr}
+  .hero-grid{gap:34px}
+  .hero-visual{max-width:720px}
+  .hero-photo,.hero-photo img{height:520px;min-height:520px}
+  .price-card{position:static}
+  .deliverables{grid-template-columns:repeat(3,1fr)}
+  .final-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:700px){
+  .wrap{width:min(var(--max),calc(100% - 26px))}
+  .nav-right .desktop-link{display:none}
+  .hero{padding:44px 0 50px}
+  h1{font-size:clamp(45px,13.5vw,62px)}
+  .lead{font-size:16px}
+  .actions .btn{width:100%}
+  .micro{display:grid;gap:7px}
+  .hero-photo,.hero-photo img{height:440px;min-height:440px}
+  .float-one{left:10px;top:18px}
+  .float-two{right:10px;top:112px}
+  .float-three{left:10px;bottom:84px}
+  .floating{padding:10px 12px}
+  .pain-grid,.deliverables{grid-template-columns:1fr}
+  .pain-card,.deliverable{min-height:auto}
+  .section{padding:58px 0}
+  .flow-step{grid-template-columns:38px 1fr}
+  .flow-step .status{grid-column:2;justify-self:start}
+  .price{font-size:54px}
+  .final-cta{padding:58px 0}
+}
+@media(max-width:430px){
+  .hero-photo,.hero-photo img{height:400px;min-height:400px}
+  .hero-caption{left:18px;right:18px;bottom:18px}
+  .hero-caption small{display:none}
+  .float-three{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><div class="wrap nav"><a class="brand" href="/">THE LAUNCH ERA</a><div class="nav-right"><a class="desktop-link" href="#how">How it works</a><a href="/es/start/" hreflang="es" lang="es">ES</a><a class="pill" href="#offer">See the setup</a></div></div></header>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">THE LAUNCH ERA</a>
+    <div class="nav-right">
+      <a class="desktop-link" href="#how">How it works</a>
+      <a href="/es/start/" hreflang="es" lang="es">ES</a>
+      <a class="pill" href="#offer">See the setup</a>
+    </div>
+  </div>
+</header>
+
 <main id="main">
-<section class="hero"><div class="wrap hero-grid">
-<div>
-<span class="eyebrow">BUILT FOR RESIDENTIAL CLEANING BUSINESSES</span>
-<h1>Your marketing brings the inquiry. <span class="accent">Your system takes it from there.</span></h1>
-<p class="lead">I set up the booking path behind the click: your Booking Page, client confirmation, Private Lead Tracker and smart follow-up — connected for your cleaning business.</p>
-<div class="actions"><a class="btn primary" href="#offer">See What's Included →</a><a class="btn ghost" href="/demo-booking/" target="_blank" rel="noopener">View Booking Page Demo</a></div>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">BUILT FOR RESIDENTIAL CLEANING BUSINESSES</span>
+        <h1>Your cleaning business shouldn't live in <span class="accent">texts, notes and missed follow-ups.</span></h1>
+        <p class="lead">We set up a simple booking flow that keeps new inquiries, client details and follow-ups organized — without adding another complicated system to your day.</p>
+        <div class="actions">
+          <a class="btn primary" href="#offer">Get My Booking Flow →</a>
+          <a class="btn ghost" href="/demo-booking/" target="_blank" rel="noopener">View Booking Page Demo</a>
+        </div>
+        <div class="micro">
+          <span>One-time setup</span>
+          <span>Built for cleaning businesses</span>
+          <span>No complicated CRM</span>
+        </div>
+      </div>
 
-</div>
-<div class="flow-card" aria-label="Booking flow preview">
-<div class="flow-top"><small>YOUR BOOKING FLOW</small><span class="live">CONNECTED</span></div>
-<div class="flow-step"><span class="num">01</span><div><strong>Client sends request</strong><span>Booking or quote details arrive together.</span></div><span class="done">DONE</span></div>
-<div class="flow-step"><span class="num">02</span><div><strong>Confirmation goes out</strong><span>They know their request was received.</span></div><span class="done">AUTO</span></div>
-<div class="flow-step"><span class="num">03</span><div><strong>You get the lead</strong><span>Details go to the destination you choose.</span></div><span class="done">AUTO</span></div>
-<div class="flow-step"><span class="num">04</span><div><strong>Lead is organized</strong><span>Keep the important information together.</span></div><span class="done">AUTO</span></div>
-<div class="flow-step"><span class="num">05</span><div><strong>Follow-up runs</strong><span>One agreed follow-up happens when needed.</span></div><span class="done">AUTO</span></div>
-<div class="flow-note"><strong>One client inquiry. One clear flow.</strong><br>No complicated CRM required.</div>
-</div>
-</div></section>
+      <div class="hero-visual">
+        <!-- Hero photo: Pexels / Tima Miroshnichenko. Pexels License permits free commercial use; attribution not required. Source: https://www.pexels.com/photo/woman-in-gray-sweater-laughing-while-on-a-video-call-6197036/ -->
+        <div class="hero-photo">
+          <img src="https://images.pexels.com/photos/6196571/pexels-photo-6196571.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-6196571.jpg&fm=jpg" alt="Woman cleaning a home while using her phone" fetchpriority="high">
+          <div class="hero-caption">
+            <strong>The work is already enough. Your admin shouldn't be.</strong>
+            <small>REAL-LIFE WORKFLOW</small>
+          </div>
+        </div>
+        <div class="floating float-one"><b><span class="dot"></span>New inquiry</b><span>Client just messaged</span></div>
+        <div class="floating float-two"><b><span class="dot"></span>Client details</b><span>Not buried in DMs</span></div>
+        <div class="floating float-three"><b><span class="dot"></span>Follow-up</b><span>Clear next step</span></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section dark"><div class="wrap">
-<div class="section-head"><span class="eyebrow">THE REAL BOTTLENECK</span><h2>One new inquiry should not create five manual tasks.</h2><p>If booking a client means checking DMs, asking the same questions, copying details somewhere else and remembering to follow up later, the process is doing too much work through you.</p></div>
-<div class="problem-grid">
-<article class="problem"><small>01</small><h3>Bookings get scattered.</h3><p>Texts, DMs, calls and forms all hold different pieces of the client.</p></article>
-<article class="problem"><small>02</small><h3>Clients wait for confirmation.</h3><p>They are left wondering if you saw their request.</p></article>
-<article class="problem"><small>03</small><h3>Details get copied manually.</h3><p>The same information moves from message to notes to calendar.</p></article>
-<article class="problem"><small>04</small><h3>Follow-up depends on memory.</h3><p>A good inquiry can cool off simply because the day got busy.</p></article>
-</div>
-</div></section>
+  <section class="section dark">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">DOES THIS FEEL FAMILIAR?</span>
+        <h2>Running the business isn't the problem. Keeping everything together is.</h2>
+        <p>You can be great at cleaning and still lose time — or a good lead — because the admin is scattered across your day.</p>
+      </div>
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <small>01 · THE INQUIRY</small>
+          <h3>A new client messages while you're cleaning.</h3>
+          <p>You see it, plan to answer properly later… and the day keeps moving.</p>
+        </article>
+        <article class="pain-card reveal">
+          <small>02 · THE DETAILS</small>
+          <h3>The important information ends up everywhere.</h3>
+          <p>Service, address, availability and notes get split between texts, DMs and your own notes.</p>
+        </article>
+        <article class="pain-card reveal">
+          <small>03 · THE FOLLOW-UP</small>
+          <h3>A good lead goes cold because you got busy.</h3>
+          <p>Not because you didn't care — because remembering every next step became another job.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<section class="section" id="how"><div class="wrap">
-<div class="section-head"><span class="eyebrow">A SIMPLER SYSTEM</span><h2>From “someone messaged me” to a clear next step.</h2><p>The goal is not to automate your personality. It is to automate the repetitive pieces around the conversation.</p></div>
-<div class="system-flow">
-<article class="system-step"><b>01</b><h3>Your custom Booking Page</h3><p>One public link for booking and quote requests.</p></article>
-<article class="system-step"><b>02</b><h3>Instant confirmation</h3><p>Your client gets a clear message that the request was received.</p></article>
-<article class="system-step"><b>03</b><h3>Owner notification</h3><p>You receive the information where we agree it should go.</p></article>
-<article class="system-step"><b>04</b><h3>Lead tracker</h3><p>Keep contact details, service and status easier to follow.</p></article>
-<article class="system-step"><b>05</b><h3>Automatic follow-up</h3><p>Follow-up based on the timing we set together.</p></article>
-</div>
-</div></section>
+  <section class="section" id="how">
+    <div class="wrap flow-wrap">
+      <div class="flow-copy">
+        <span class="eyebrow">A BETTER FLOW</span>
+        <h2>What if every new inquiry had a next step?</h2>
+        <p>You don't need more apps. You need a cleaner path from “someone is interested” to “I know what happens next.”</p>
+        <a class="btn ghost" href="#offer">See what we build →</a>
+      </div>
+      <div class="flow-track reveal" aria-label="Booking flow">
+        <div class="flow-step"><span class="num">01</span><div><strong>Inquiry comes in</strong><span>Booking or quote details arrive together.</span></div><span class="status">CAPTURED</span></div>
+        <div class="flow-step"><span class="num">02</span><div><strong>Client gets confirmation</strong><span>They immediately know their request was received.</span></div><span class="status">SENT</span></div>
+        <div class="flow-step"><span class="num">03</span><div><strong>Lead stays organized</strong><span>The important details have one clear place to live.</span></div><span class="status">READY</span></div>
+        <div class="flow-step"><span class="num">04</span><div><strong>Follow-up has a next step</strong><span>Less relying on memory when the day gets busy.</span></div><span class="status">CLEAR</span></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section offer" id="offer"><div class="wrap offer-grid">
-<div class="offer-copy">
-<span class="eyebrow">THE BOOKING FLOW SETUP</span>
-<h2>One setup. A cleaner path to booking.</h2>
-<p>This is the offer I recommend if clients still need a better place to book and you also want the repetitive steps after the request to stop living in your head.</p>
-<div class="include">
-<div><strong>Custom Booking Page</strong>Booking + quote paths built around your services and availability.</div>
-<div><strong>Client confirmation</strong>A clear confirmation after the inquiry is submitted.</div>
-<div><strong>Owner alert</strong>New lead details sent to the destination we agree on.</div>
-<div><strong>Private Lead Tracker</strong>Important lead details, status and next action organized in one place.</div>
-<div><strong>Smart follow-up</strong>One agreed follow-up based on the timing and path we set together.</div>
-<div><strong>60 days Web App access</strong>Optional bonus if you want to use the Cleaning Web App.</div>
-</div>
-</div>
-<aside class="price-card">
-<span class="eyebrow">SPECIAL OFFER</span>
-<div class="offer-price-row"><span class="was-price">$99</span><div class="price">$49.99</div></div><div class="once">special offer · one-time setup</div>
-<ul><li>Booking Page + quote request flow</li><li>Client confirmation + owner alert</li><li>Private Lead Tracker + smart follow-up</li><li>Built for your cleaning business</li><li>48-hour production after complete information*</li></ul>
-<a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get the Booking Flow →</a>
-<p class="fine">*Production begins after we receive the complete information and required assets. If a paid third-party tool is required for an agreed integration, we tell you before setup. Cleaning Web App access is optional; after the included 60 days it is $5.99/month only if you choose to keep it.</p>
-</aside>
-</div></section>
+  <section class="section offer" id="offer">
+    <div class="wrap offer-grid">
+      <div class="offer-copy">
+        <span class="eyebrow">YOUR BOOKING FLOW SETUP</span>
+        <h2>We build the system behind the inquiry.</h2>
+        <p>Simple enough to use every day. Organized enough that new business doesn't disappear inside texts and DMs.</p>
+        <div class="deliverables">
+          <article class="deliverable reveal">
+            <b>01</b>
+            <h3>Your Booking Experience</h3>
+            <p>A clean booking + quote path clients can actually understand.</p>
+          </article>
+          <article class="deliverable reveal">
+            <b>02</b>
+            <h3>Your Lead Flow</h3>
+            <p>New inquiry details stay organized instead of getting buried in messages.</p>
+          </article>
+          <article class="deliverable reveal">
+            <b>03</b>
+            <h3>Your Follow-Up System</h3>
+            <p>A clear next step so opportunities don't disappear when you're busy.</p>
+          </article>
+        </div>
+      </div>
 
-<section class="section app-section"><div class="wrap app-grid">
-<div class="app-copy"><span class="eyebrow">OPTIONAL BONUS</span><h2>Want the bookings inside one workspace too?</h2><p>Your Booking Flow does not require the Cleaning Web App. But if you want clients, jobs, quotes and invoices in one browser-based workspace, 60 days are included at no extra cost. Add it to your Home Screen and use it like an app on phone, tablet or computer.</p><a class="btn ghost" href="/cleaning-app/">See the Cleaning Web App →</a></div>
-<div class="app-shot"><img src="/assets/app-today-en.webp" alt="The Launch Era Cleaning Web App Today screen" loading="lazy"><div class="app-caption"><span>REAL PRODUCT VIEW</span><span>OPTIONAL</span></div></div>
-</div></section>
+      <aside class="price-card reveal">
+        <span class="eyebrow">SPECIAL OFFER</span>
+        <div class="price-row"><span class="was">$99</span><div class="price">$49.99</div></div>
+        <div class="once">one-time setup</div>
+        <ul>
+          <li>Custom Booking Page + quote request flow</li>
+          <li>Client confirmation + owner notification</li>
+          <li>Private Lead Tracker</li>
+          <li>One smart follow-up path</li>
+          <li>Built around your cleaning business</li>
+        </ul>
+        <a class="btn aqua" href="/pay/booking-flow/" data-payment-cta="booking-flow">Start My Setup →</a>
+        <p class="fine">Production starts after we receive the complete information and required assets for your setup. Any paid third-party tool needed for an agreed integration is discussed with you first.</p>
+      </aside>
+    </div>
+  </section>
 
-<section class="founder"><div class="wrap founder-inner">
-<div class="founder-tag">BUILT BY DAILIN<br>THE LAUNCH ERA</div>
-<div><h2>I build the system behind the inquiry.</h2><p>Your marketing can get someone interested. The next step should not depend on scattered DMs, copied details or memory. I build the practical booking and follow-up pieces, connect them, and keep the experience simple for both you and your clients.</p></div>
-</div></section>
+  <section class="section faq">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="eyebrow">QUICK ANSWERS</span>
+        <h2>Simple by design.</h2>
+      </div>
+      <div>
+        <details>
+          <summary>Is this another complicated software?</summary>
+          <p>No. The goal is to make your current client flow simpler, not give you another system to babysit.</p>
+        </details>
+        <details>
+          <summary>Do I need to know anything technical?</summary>
+          <p>No. We handle the setup. You give us the information we need about your business and we build the flow around it.</p>
+        </details>
+        <details>
+          <summary>What happens after I purchase?</summary>
+          <p>You complete a short intake so we can personalize your booking flow, services and client path before production begins.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
-<section class="form-section" id="start"><div class="wrap form-grid">
-<div class="form-copy"><span class="eyebrow">QUESTIONS BEFORE YOU START?</span><h2>Tell me how bookings work in your business right now.</h2><p>If you are not ready to purchase yet, send me the basics. I’ll look at where your current booking flow is getting stuck and whether this setup fits what you need.</p></div>
-<form class="tle-contact-form form-card" data-lang="en" data-source="tiktok_booking_flow">
-<div class="contact-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-<input type="hidden" name="service_interest" value="Booking Flow Setup">
-<input type="hidden" name="preferred_contact" value="Email">
-<div class="contact-two"><label><span>Your name *</span><input name="name" type="text" autocomplete="name" required></label><label><span>Business name *</span><input name="business_name" type="text" autocomplete="organization" required></label></div>
-<div class="contact-two"><label><span>Email *</span><input name="email" type="email" autocomplete="email" required></label><label><span>Phone <small>(optional)</small></span><input name="phone" type="tel" autocomplete="tel"></label></div>
-<label><span>Where do most new bookings start?</span><select name="booking_method" required><option value="">Choose one</option><option>Text messages</option><option>Instagram or Facebook DMs</option><option>Phone calls</option><option>Website form</option><option>Google Business Profile</option><option>A mix of channels</option></select></label>
-<label><span>What is taking the most time?</span></label>
-<div class="choice-row">
-<label><input type="checkbox" name="help_needed" value="Too much back-and-forth">Back-and-forth messages</label>
-<label><input type="checkbox" name="help_needed" value="Missing or scattered inquiries">Scattered inquiries</label>
-<label><input type="checkbox" name="help_needed" value="Manual lead organization">Organizing details manually</label>
-<label><input type="checkbox" name="help_needed" value="Remembering follow-up">Remembering follow-up</label>
-</div>
-<label><span>Anything you want me to know?</span><textarea name="message" placeholder="Optional — tell me what your current booking process looks like."></textarea></label>
-<button class="btn primary contact-submit" type="submit">Send My Booking Flow Request →</button>
-<p class="contact-consent">By submitting, you agree that The Launch Era may contact you about this request.</p>
-<p class="contact-form-status" data-form-status aria-live="polite"></p>
-</form>
-</div></section>
-
-<section class="section faq"><div class="wrap faq-grid">
-<div><span class="eyebrow">QUICK ANSWERS</span><h2>Simple by design.</h2></div>
-<div>
-<details><summary>Do I need a website already?</summary><p>No. The custom Booking Page gives you a public link you can share even if you do not have a full website.</p></details>
-<details><summary>Is the Cleaning Web App required?</summary><p>No. The Booking Flow can stand on its own. The 60 days of Cleaning Web App access are an optional bonus.</p></details>
-<details><summary>What exactly gets automated?</summary><p>The agreed flow includes client confirmation, your lead notification, lead organization and one automatic follow-up. We keep the automation focused so the experience still feels human.</p></details>
-<details><summary>How long does setup take?</summary><p>Up to 48 hours after we receive the complete information and required materials for the agreed setup.</p></details>
-<details><summary>Is this monthly?</summary><p>No. The Booking Flow Setup is currently $49.99 one time as a special offer (regular price $99). The optional Cleaning Web App is the only part that can continue monthly after the included 60 days, at $5.99/month if you choose to keep it.</p></details>
-</div>
-</div></section>
+  <section class="final-cta">
+    <div class="wrap final-inner">
+      <div>
+        <h2>Less chasing. Less scattered information. A better way to handle new business.</h2>
+        <p>Your next inquiry should have a clear place to go.</p>
+      </div>
+      <a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get My Booking Flow — $49.99 →</a>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap footer-row"><span>© 2026 The Launch Era · Practical systems for cleaning businesses.</span><div class="footer-links"><a href="/">Home</a><a href="/help/?lang=en">Help</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div></div></footer>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 The Launch Era · Practical systems for cleaning businesses.</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/help/?lang=en">Help</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-(()=>{const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;const groups=[...document.querySelectorAll(".problem-grid,.system-flow,.include,.price-card,.app-shot,.faq")];if(reduce){groups.forEach(x=>x.classList.add("is-visible"));return}const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-visible");io.unobserve(e.target)}})},{threshold:.18});groups.forEach(x=>io.observe(x))})();
+(()=>{
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const items=[...document.querySelectorAll(".reveal")];
+  if(reduce){items.forEach(x=>x.classList.add("visible"));return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target);}
+    });
+  },{threshold:.14});
+  items.forEach(x=>io.observe(x));
+})();
 </script>
-
-</body></html>
+</body>
+</html>
