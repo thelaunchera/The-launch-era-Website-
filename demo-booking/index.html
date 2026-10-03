@@ -151,6 +151,10 @@
     .mobile-booking-bar{display:none}
     button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #86BEDA;outline-offset:2px}
     @media(max-width:900px){.hero-grid,.booking-grid,.story{grid-template-columns:1fr}.hero-photo{min-height:390px}.summary{position:relative;top:auto}}
+    @media(max-width:900px){
+      .hero-grid,.booking-grid{grid-template-columns:minmax(0,1fr)}
+      .hero-grid > *,.booking-grid > *{min-width:0}
+    }
     @media(max-width:620px){
       .hero{padding:25px 0 20px}
       .hero-photo{min-height:330px}
