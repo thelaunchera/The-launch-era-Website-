@@ -255,10 +255,10 @@
           <section class="section">
             <div class="section-label">03 · Date & time</div><h2 id="dateTitle">Choose what works for you.</h2><p class="section-intro" id="dateIntro">Only sample available times are shown in this demo.</p>
             <div class="date-row" id="dates">
-              <button class="date-card selected" data-date="Mon, Oct 5"><small>Mon</small><strong>5</strong><span>Oct</span></button>
-              <button class="date-card" data-date="Tue, Oct 6"><small>Tue</small><strong>6</strong><span>Oct</span></button>
-              <button class="date-card" data-date="Wed, Oct 7"><small>Wed</small><strong>7</strong><span>Oct</span></button>
-              <button class="date-card" data-date="Thu, Oct 8"><small>Thu</small><strong>8</strong><span>Oct</span></button>
+              <button class="date-card selected" type="button"><small></small><strong></strong><span></span></button>
+              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
+              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
+              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
             </div>
             <div class="times" id="bookTimes"><button class="time" data-time="8:00 AM">8:00 AM</button><button class="time selected" data-time="10:30 AM">10:30 AM</button><button class="time" data-time="1:00 PM">1:00 PM</button><button class="time" data-time="3:30 PM">3:30 PM</button></div>
             <div class="times" id="quoteTimes" hidden><button class="time" data-time="Morning">Morning</button><button class="time" data-time="Afternoon">Afternoon</button><button class="time selected" data-time="Flexible">Flexible</button></div>
@@ -338,8 +338,27 @@
   </div>
 
   <script>
-    const state={mode:'book',service:null,base:0,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'Mon, Oct 5',time:'10:30 AM',extras:[]};
+    const state={mode:'book',service:null,base:0,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'',time:'10:30 AM',extras:[]};
     const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
+
+    function populateDemoDates(){
+      const today=new Date();
+      const next=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+      let shown=0;
+      while(shown<4){
+        next.setDate(next.getDate()+1);
+        if(next.getDay()===0||next.getDay()===6) continue;
+        const card=$('dates').children[shown];
+        const weekday=new Intl.DateTimeFormat('en-US',{weekday:'short'}).format(next);
+        const month=new Intl.DateTimeFormat('en-US',{month:'short'}).format(next);
+        card.querySelector('small').textContent=weekday;
+        card.querySelector('strong').textContent=next.getDate();
+        card.querySelector('span').textContent=month;
+        card.dataset.date=weekday+', '+month+' '+next.getDate();
+        if(shown===0) state.date=card.dataset.date;
+        shown++;
+      }
+    }
 
     function syncSelectedService(){
       const container=state.mode==='quote'?$('quoteServices'):$('bookServices');
@@ -424,6 +443,18 @@
     }
 
     function setRequestMode(mode){
+      if(mode==='book'&&state.cleaningType==='Commercial'){
+        state.cleaningType='Residential';
+        document.querySelectorAll('[data-cleaning-type]').forEach(btn=>btn.classList.toggle('selected',btn.dataset.cleaningType==='Residential'));
+        $('residentialCounters').hidden=false;
+        $('residentialPropertyField').hidden=false;
+        $('commercialCounters').hidden=true;
+        $('commercialDetails').hidden=true;
+        $('residentialExtras').hidden=false;
+        $('commercialExtras').hidden=true;
+        document.querySelectorAll('[data-extra]').forEach(box=>{box.checked=false});
+        state.extras=[];
+      }
       state.mode=mode==='quote'?'quote':'book';
       document.body.classList.toggle('quote-mode',state.mode==='quote');
       document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===state.mode));
@@ -517,6 +548,26 @@
       document.querySelectorAll('[data-extra]').forEach(box=>{ box.checked=false; });
       state.extras=[];
       updateExtraPriceLabels();
+      if(commercial){
+        const choices=$('quoteServices').querySelectorAll('.service-card');
+        choices.forEach(choice=>{choice.classList.remove('selected');choice.setAttribute('aria-pressed','false')});
+        const commercialService=$('quoteServices').querySelector('[data-service="Commercial Cleaning"]');
+        commercialService.classList.add('selected');
+        commercialService.setAttribute('aria-pressed','true');
+        if(state.mode==='book'){
+          setRequestMode('quote');
+          return;
+        }
+        state.service='Commercial Cleaning';
+        state.base=0;
+      }else if(state.mode==='quote'){
+        const commercialService=$('quoteServices').querySelector('[data-service="Commercial Cleaning"]');
+        if(commercialService.classList.contains('selected')){
+          commercialService.classList.remove('selected');
+          commercialService.setAttribute('aria-pressed','false');
+          state.service=null;
+        }
+      }
       updateDetailsCopy();
       updateDemoPhotos();
       render();
@@ -590,6 +641,7 @@
 
     $('residentialExtras').hidden=false;
     $('commercialExtras').hidden=true;
+    populateDemoDates();
     updateDemoPhotos();
     setRequestMode('book');
   </script>
