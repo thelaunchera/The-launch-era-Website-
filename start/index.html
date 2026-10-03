@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#58D6CF">
+<meta name="theme-color" content="#FAF8F3">
 <title>Booking Flow Setup for Cleaning Businesses | The Launch Era</title>
-<meta name="description" content="A simple booking flow for residential cleaning businesses: capture inquiries, organize client details and follow up without scattered messages or complicated systems.">
+<meta name="description" content="A simple Booking Flow Setup for residential cleaning businesses: booking page, lead organization, confirmations and follow-up in one clear system.">
 <link rel="canonical" href="https://thelaunchera.com/start/">
 <link rel="alternate" hreflang="en" href="https://thelaunchera.com/start/">
 <link rel="alternate" hreflang="es" href="https://thelaunchera.com/es/start/">
 <link rel="alternate" hreflang="x-default" href="https://thelaunchera.com/start/">
-<meta property="og:title" content="A Cleaner Booking Flow | The Launch Era">
-<meta property="og:description" content="Less chasing. Less scattered information. A better way to handle new cleaning clients.">
+<meta property="og:title" content="Booking Flow Setup | The Launch Era">
+<meta property="og:description" content="More bookings. Less manual work. A clearer system behind every inquiry.">
 <meta property="og:url" content="https://thelaunchera.com/start/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.pexels.com/photos/6196571/pexels-photo-6196571.jpeg?cs=srgb&fm=jpg">
+<meta property="og:image" content="https://images.pexels.com/photos/10161222/pexels-photo-10161222.jpeg?auto=compress&dpr=1&h=750&w=1260">
 <link rel="icon" href="/the-launch-era-favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,276 +24,275 @@
 <script src="/assets/analytics.js" defer></script>
 <style>
 :root{
-  --bg:#F8FAF9;
-  --aqua:#58D6CF;
-  --ice:#E8F8F6;
-  --blue:#A9DDF5;
-  --teal:#087F79;
-  --ink:#191919;
-  --muted:#5E6664;
-  --line:#D5E2DF;
-  --white:#fff;
-  --max:1120px;
+  --ivory:#FAF8F3;
+  --butter:#F2D85B;
+  --blue:#BDDFFC;
+  --mauve:#C8A2C8;
+  --mulberry:#7C4D73;
+  --ink:#2F4A7C;
+  --black:#191919;
+  --white:#FFFFFF;
+  --soft:#F3F5FA;
+  --muted:#636876;
+  --line:#E3E5EA;
+  --max:1180px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Prompt",Arial,sans-serif;line-height:1.55}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
+body{margin:0;background:var(--ivory);color:var(--black);font-family:Futura,"Avenir Next",Arial,sans-serif;line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 .wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:14px;top:14px;z-index:100;background:#fff;padding:10px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:99;background:white;padding:10px 14px}
+h1,h2,h3{font-family:"Prompt",Arial,sans-serif;margin-top:0}
+h1,h2{letter-spacing:-.045em;text-wrap:balance}
+p{text-wrap:pretty}
 
 header{
   position:sticky;top:0;z-index:40;
-  background:rgba(248,250,249,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(25,25,25,.08)
+  background:rgba(250,248,243,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(47,74,124,.09)
 }
-.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{font-weight:800;letter-spacing:.035em}
-.nav-right{display:flex;align-items:center;gap:16px;font-size:13px;font-weight:700}
-.nav-right a:not(.pill):hover{text-decoration:underline;text-underline-offset:4px}
-.pill,.btn{
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:"Prompt",Arial,sans-serif;font-weight:600;color:var(--ink);font-size:22px;letter-spacing:.04em}
+.nav-right{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:700;color:var(--ink)}
+.nav-right a:not(.nav-cta):hover{text-decoration:underline;text-underline-offset:4px}
+.nav-cta,.btn{
   display:inline-flex;align-items:center;justify-content:center;
-  border-radius:999px;font-weight:800;
-  transition:transform .2s ease,box-shadow .2s ease
+  border-radius:999px;font-weight:800;transition:.22s ease
 }
-.pill{padding:11px 17px;background:var(--ink);color:#fff}
-.btn{padding:14px 20px;border:1.5px solid var(--ink)}
-.btn:hover,.pill:hover{transform:translateY(-2px)}
-.btn.primary{background:var(--ink);color:#fff;box-shadow:0 12px 28px rgba(25,25,25,.12)}
-.btn.aqua{background:var(--aqua);color:var(--ink);border-color:var(--aqua)}
-.btn.ghost{background:transparent}
+.nav-cta{background:var(--ink);color:white;padding:11px 18px}
+.btn{padding:14px 22px;border:1px solid var(--ink)}
+.btn.primary{background:var(--ink);color:white}
+.btn.light{background:white;color:var(--ink);border-color:#D6DAE4}
+.btn:hover,.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(47,74,124,.12)}
 
-.eyebrow{
-  display:inline-flex;gap:8px;align-items:center;
-  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase
+.hero{
+  position:relative;overflow:hidden;padding:64px 0 54px;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(200,162,200,.24),transparent 30%),
+    radial-gradient(circle at 16% 8%,rgba(189,223,252,.32),transparent 24%),
+    var(--ivory)
 }
-.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua)}
-h1,h2,h3{margin-top:0}
-h1,h2{font-weight:800;text-wrap:balance}
-p{text-wrap:pretty}
-
-.hero{padding:72px 0 62px;position:relative;overflow:hidden}
-.hero:before{
-  content:"";position:absolute;width:560px;height:560px;border-radius:50%;
-  background:radial-gradient(circle,rgba(88,214,207,.28),rgba(169,221,245,.10) 56%,transparent 73%);
-  right:-180px;top:-190px;pointer-events:none
+.hero-grid{display:grid;grid-template-columns:.98fr 1.02fr;gap:38px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--mulberry);font-size:12px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase
 }
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.02fr .98fr;
-  gap:58px;align-items:center
-}
+.kicker:before{content:"";width:22px;height:1px;background:var(--mulberry)}
 h1{
-  font-size:clamp(46px,6.9vw,80px);
-  line-height:.96;letter-spacing:-.06em;
-  margin:17px 0 22px;max-width:760px
+  color:var(--ink);font-size:clamp(48px,7.2vw,86px);
+  line-height:.96;margin:18px 0 22px;max-width:720px
 }
-.accent{color:var(--teal)}
-.lead{font-size:18px;max-width:670px;color:var(--muted);margin:0 0 26px}
+h1 .mauve{color:var(--mauve)}
+.hero-copy{font-size:18px;color:#555A67;max-width:650px;margin:0 0 27px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-.micro{
-  display:flex;flex-wrap:wrap;gap:16px;
-  margin-top:22px;font-size:12px;color:#4F5755;font-weight:700
-}
-.micro span:before{content:"✓";margin-right:6px;color:var(--teal)}
+.hero-note{margin-top:18px;font-size:12px;color:#6C7180}
 
-.hero-visual{position:relative}
-.hero-photo{
-  position:relative;overflow:hidden;border-radius:30px;
-  min-height:540px;background:#dfe8e6;
-  box-shadow:0 28px 70px rgba(8,127,121,.15)
+.hero-art{
+  min-height:500px;border-radius:34px;position:relative;overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(250,248,243,.06),rgba(250,248,243,.02)),
+    url("https://images.pexels.com/photos/10161222/pexels-photo-10161222.jpeg?auto=compress&dpr=1&w=1600") center/cover no-repeat;
+  box-shadow:0 26px 70px rgba(47,74,124,.13);
+  border:1px solid rgba(47,74,124,.08)
 }
-.hero-photo img{
-  display:block;width:100%;height:540px;object-fit:cover;
-  object-position:center center
-}
-.hero-photo:after{
+.hero-art:after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 48%,rgba(11,24,23,.54) 100%);
+  background:linear-gradient(180deg,rgba(255,255,255,.04) 30%,rgba(47,74,124,.12));
   pointer-events:none
 }
-.hero-caption{
-  position:absolute;z-index:3;left:24px;right:24px;bottom:22px;
-  color:#fff;display:flex;justify-content:space-between;gap:16px;align-items:end
+.laptop{
+  position:absolute;z-index:3;left:7%;right:25%;bottom:5%;
+  background:#E9E8E6;border:1px solid #D6D5D2;border-radius:18px 18px 9px 9px;
+  padding:12px 12px 18px;box-shadow:0 24px 45px rgba(25,25,25,.19);
+  transform:perspective(1100px) rotateY(4deg) rotateX(1deg)
 }
-.hero-caption strong{font-size:18px;line-height:1.2;max-width:300px}
-.hero-caption small{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
-.floating{
-  position:absolute;z-index:4;background:#fff;border:1px solid rgba(25,25,25,.08);
-  border-radius:16px;padding:12px 14px;box-shadow:0 16px 34px rgba(25,25,25,.13)
+.screen{
+  background:#fff;border-radius:11px;padding:20px;min-height:245px;border:1px solid #E9E9ED
 }
-.floating b{display:block;font-size:12px}
-.floating span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
-.float-one{left:-30px;top:44px}
-.float-two{right:-18px;top:185px}
-.float-three{left:-18px;bottom:86px}
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--aqua);margin-right:6px}
+.screen-brand{color:var(--ink);font-family:"Prompt";font-weight:700;font-size:13px;margin-bottom:22px}
+.screen-title{font-family:"Prompt";font-size:26px;color:var(--ink);font-weight:700;line-height:1.1}
+.screen-sub{font-size:11px;color:#7A7D88;margin:6px 0 15px}
+.service-tabs{display:flex;gap:7px;margin-bottom:13px}
+.service-tabs span{background:#F1F4FA;border-radius:999px;padding:7px 11px;font-size:9px;color:#667084}
+.service-tabs span:first-child{background:var(--ink);color:#fff}
+.mini-services{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mini-services span{display:grid;place-items:center;text-align:center;min-height:58px;border:1px solid #E8E8EE;border-radius:11px;background:#fff;font-size:8px;color:#5D6270}
+.phone{
+  position:absolute;z-index:4;right:4%;bottom:3%;
+  width:190px;background:#111;border-radius:32px;padding:9px;
+  box-shadow:0 28px 52px rgba(25,25,25,.25);
+  transform:rotate(2deg)
+}
+.phone-inner{background:#F8F9FC;border-radius:25px;overflow:hidden}
+.phone-notch{width:66px;height:17px;background:#111;border-radius:0 0 12px 12px;margin:auto}
+.phone img{width:100%;height:346px;object-fit:cover;object-position:top}
 
 .section{padding:72px 0}
-.section-head{max-width:790px;margin-bottom:32px}
-.section-head h2{
-  font-size:clamp(36px,5.4vw,62px);line-height:.99;
-  letter-spacing:-.052em;margin:11px 0 13px
+.section-title{max-width:790px;margin-bottom:32px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;color:var(--ink);letter-spacing:.18em;text-transform:uppercase;font-weight:800
 }
-.section-head p{font-size:17px;color:var(--muted);margin:0}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mauve)}
+.section-title h2{
+  color:var(--ink);font-size:clamp(38px,5.5vw,64px);
+  line-height:1;margin:12px 0 13px
+}
+.section-title p{font-size:17px;color:var(--muted);margin:0}
 
-.dark{background:var(--ink);color:#fff}
-.dark .section-head p,.dark .pain-card p{color:#BBC4C2}
-.dark .eyebrow:before{background:var(--aqua)}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.pain-card{
-  border:1px solid #33413F;border-radius:22px;
-  padding:26px;min-height:210px;
-  transition:transform .24s ease,border-color .24s ease
+.pain{background:#fff}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{
+  background:linear-gradient(180deg,#fff,#FAFBFE);
+  border:1px solid var(--line);border-radius:22px;padding:24px;
+  box-shadow:0 12px 34px rgba(47,74,124,.055);
+  transition:.23s ease
 }
-.pain-card:hover{transform:translateY(-4px);border-color:rgba(88,214,207,.58)}
-.pain-card small{color:var(--aqua);font-weight:800}
-.pain-card h3{font-size:22px;line-height:1.15;margin:24px 0 9px}
-.pain-card p{margin:0;font-size:15px}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(47,74,124,.09)}
+.card-icon{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--blue),var(--mauve));
+  color:var(--ink);font-weight:800;font-family:"Prompt"
+}
+.card h3{color:var(--ink);font-size:21px;line-height:1.14;margin:22px 0 9px}
+.card p{color:var(--muted);font-size:14px;margin:0}
 
-.flow-wrap{
-  display:grid;grid-template-columns:.86fr 1.14fr;gap:46px;align-items:center
+.recognition{padding:48px 0;background:linear-gradient(100deg,#EEF5FC,#F8F0F8)}
+.recognition-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+  border:1px solid rgba(47,74,124,.1);background:rgba(255,255,255,.62);
+  border-radius:28px;padding:30px 32px
 }
-.flow-copy h2{
-  font-size:clamp(38px,5vw,60px);line-height:1;
-  letter-spacing:-.052em;margin:11px 0 15px
-}
-.flow-copy p{font-size:17px;color:var(--muted);margin:0 0 22px}
-.flow-track{
-  background:#fff;border:1px solid var(--line);border-radius:26px;
-  padding:16px;box-shadow:0 22px 54px rgba(8,127,121,.09)
-}
-.flow-step{
-  display:grid;grid-template-columns:42px 1fr auto;
-  gap:12px;align-items:center;padding:15px 12px;
-  border-bottom:1px solid #EDF2F1
-}
-.flow-step:last-child{border-bottom:0}
-.num{
-  width:34px;height:34px;border-radius:50%;
-  display:grid;place-items:center;background:var(--ice);
-  color:var(--teal);font-size:12px;font-weight:800
-}
-.flow-step strong{display:block;font-size:14px}
-.flow-step span{display:block;font-size:12px;color:var(--muted)}
-.status{
-  font-size:10px!important;font-weight:800!important;color:var(--teal)!important;
-  background:var(--ice);padding:6px 8px;border-radius:999px
-}
+.recognition h2{font-size:clamp(30px,4vw,46px);color:var(--ink);line-height:1.04;margin:0;max-width:760px}
+.recognition strong{color:var(--mulberry)}
+.recognition p{font-size:15px;color:var(--muted);max-width:370px;margin:0}
 
-.offer{background:linear-gradient(135deg,var(--ice),#fbffff 48%,#edf7ff)}
-.offer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}
-.offer-copy h2{
-  font-size:clamp(40px,5.6vw,66px);line-height:.99;
-  letter-spacing:-.054em;margin:11px 0 15px
+.flow-section{background:var(--ivory)}
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch}
+.flow-step{position:relative}
+.flow-card{
+  height:100%;min-height:176px;border-radius:21px;
+  background:linear-gradient(160deg,#fff,#F5F7FC);
+  border:1px solid var(--line);padding:20px;
+  box-shadow:0 12px 30px rgba(47,74,124,.055)
 }
-.offer-copy>p{font-size:17px;color:var(--muted);max-width:680px}
-.deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
-.deliverable{
-  background:rgba(255,255,255,.78);border:1px solid var(--line);
-  border-radius:20px;padding:20px;min-height:170px
+.flow-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.flow-icon{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--blue),var(--mauve));color:var(--ink);font-weight:800
 }
-.deliverable b{
-  display:inline-grid;place-items:center;width:32px;height:32px;
-  border-radius:50%;background:var(--ice);color:var(--teal);font-size:12px
+.flow-num{font-family:"Prompt";font-size:21px;font-weight:600;color:#AAA8B3}
+.flow-card h3{font-size:16px;line-height:1.14;color:var(--ink);margin:0 0 7px}
+.flow-card p{font-size:12px;color:var(--muted);margin:0}
+.flow-arrow{
+  position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+  color:var(--ink);font-size:26px;z-index:2
 }
-.deliverable h3{font-size:18px;line-height:1.18;margin:17px 0 7px}
-.deliverable p{font-size:13px;color:var(--muted);margin:0}
+.flow-step:last-child .flow-arrow{display:none}
 
-.price-card{
-  background:var(--ink);color:#fff;padding:32px;border-radius:28px;
-  box-shadow:0 26px 64px rgba(25,25,25,.18);position:sticky;top:92px
+.offer{background:#fff}
+.offer-shell{
+  display:grid;grid-template-columns:1.42fr .58fr;gap:16px;align-items:stretch
 }
-.price-card .eyebrow{color:#fff}
-.price-row{display:flex;align-items:flex-end;gap:12px;margin:22px 0 5px}
-.was{font-size:22px;color:#AEB9B7;text-decoration:line-through;margin-bottom:8px}
-.price{font-size:62px;font-weight:800;letter-spacing:-.055em;line-height:1}
-.once{font-size:13px;color:#AEB9B7}
-.price-card ul{list-style:none;padding:0;margin:23px 0;display:grid;gap:11px}
-.price-card li{padding-left:21px;position:relative;font-size:14px}
-.price-card li:before{content:"✓";position:absolute;left:0;color:var(--aqua)}
-.price-card .btn{width:100%}
-.fine{font-size:10.5px;color:#9FAAA8;margin:13px 0 0}
+.offer-main{
+  position:relative;overflow:hidden;min-height:360px;border-radius:26px;
+  padding:30px 48% 30px 30px;border:1px solid var(--line);
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.95) 48%,rgba(255,255,255,.10) 72%),
+    url("https://images.pexels.com/photos/10573235/pexels-photo-10573235.jpeg?auto=compress&dpr=1&w=1200") right center/cover no-repeat;
+  box-shadow:0 18px 48px rgba(47,74,124,.08)
+}
+.offer-pill{
+  display:inline-flex;background:var(--butter);border-radius:999px;
+  padding:8px 16px;color:var(--ink);font-size:11px;font-weight:900;letter-spacing:.04em
+}
+.offer-main h2{color:var(--ink);font-size:clamp(38px,5vw,56px);line-height:1;margin:17px 0 9px}
+.offer-main>p{color:var(--muted);font-size:15px;max-width:520px;margin:0 0 18px}
+.price-line{display:flex;align-items:end;gap:13px;margin-bottom:18px}
+.old-price{font-size:25px;color:#A8A9AF;text-decoration:line-through;font-weight:700}
+.new-price{font-family:"Prompt";font-size:48px;font-weight:800;color:var(--ink);line-height:1}
+.offer-main .btn{min-width:250px}
+.benefits{
+  background:linear-gradient(180deg,#F7FAFE,#F4F3F9);
+  border:1px solid var(--line);border-radius:26px;padding:24px;
+  display:grid;align-content:center;gap:16px
+}
+.benefit{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center}
+.benefit span{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:#fff;color:var(--mulberry);font-weight:900;border:1px solid #E4E5EB
+}
+.benefit p{margin:0;color:var(--ink);font-size:14px}
 
-.faq{background:#fff}
-.faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:52px}
-.faq h2{
-  font-size:clamp(38px,5vw,56px);line-height:1;
-  letter-spacing:-.05em;margin:11px 0 0
-}
-.faq details{
-  border:1px solid var(--line);border-radius:18px;
-  margin-bottom:10px;overflow:hidden
-}
-.faq summary{
-  list-style:none;padding:18px 48px 18px 18px;
-  position:relative;font-weight:700;cursor:pointer
-}
+.faq{background:var(--ivory)}
+.faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px}
+.faq h2{font-size:clamp(38px,5vw,56px);color:var(--ink);line-height:1;margin:12px 0 0}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:10px;overflow:hidden}
+.faq summary{list-style:none;padding:18px 48px 18px 18px;position:relative;font-weight:800;color:var(--ink);cursor:pointer}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:after{
-  content:"+";position:absolute;right:18px;top:50%;
-  transform:translateY(-50%);font-size:22px;color:var(--teal)
-}
+.faq summary:after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--mulberry)}
 .faq details[open] summary:after{transform:translateY(-50%) rotate(45deg)}
 .faq details p{padding:0 18px 18px;margin:0;color:var(--muted);font-size:14px}
 
-.final-cta{padding:70px 0;background:var(--teal);color:#fff}
-.final-inner{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:34px
-}
-.final-inner h2{
-  font-size:clamp(38px,5vw,58px);line-height:1;
-  letter-spacing:-.05em;margin:0 0 10px;max-width:720px
-}
-.final-inner p{margin:0;color:#DFFFFB;font-size:16px}
-.final-inner .btn{flex:0 0 auto;background:#fff;color:var(--ink);border-color:#fff}
+.final{padding:62px 0;background:var(--ink);color:#fff}
+.final-inner{display:flex;align-items:center;justify-content:space-between;gap:36px}
+.final h2{font-size:clamp(34px,4.7vw,54px);line-height:1;margin:0 0 8px;max-width:780px}
+.final p{margin:0;color:#DDE7F5}
+.final .btn{background:white;color:var(--ink);border-color:white;flex:0 0 auto}
 
-footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707583}
 .footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .footer-links{display:flex;gap:14px;flex-wrap:wrap}
 
-.reveal{opacity:0;transform:translateY(16px)}
-.reveal.visible{animation:rise .5s cubic-bezier(.22,1,.36,1) both}
-@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.visible{animation:up .48s cubic-bezier(.22,1,.36,1) both}
+@keyframes up{to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:940px){
-  .hero-grid,.flow-wrap,.offer-grid,.faq-grid{grid-template-columns:1fr}
-  .hero-grid{gap:34px}
-  .hero-visual{max-width:720px}
-  .hero-photo,.hero-photo img{height:520px;min-height:520px}
-  .price-card{position:static}
-  .deliverables{grid-template-columns:repeat(3,1fr)}
-  .final-inner{align-items:flex-start;flex-direction:column}
+@media(max-width:980px){
+  .hero-grid,.offer-shell,.faq-grid{grid-template-columns:1fr}
+  .hero-art{min-height:520px}
+  .flow-grid{grid-template-columns:repeat(2,1fr)}
+  .flow-arrow{display:none}
+  .offer-main{padding-right:34%;min-height:340px}
+  .benefits{grid-template-columns:1fr 1fr}
 }
-@media(max-width:700px){
+@media(max-width:720px){
   .wrap{width:min(var(--max),calc(100% - 26px))}
-  .nav-right .desktop-link{display:none}
-  .hero{padding:44px 0 50px}
-  h1{font-size:clamp(45px,13.5vw,62px)}
-  .lead{font-size:16px}
+  .nav-right .desktop{display:none}
+  .hero{padding:44px 0 46px}
+  h1{font-size:clamp(46px,13.5vw,64px)}
+  .hero-copy{font-size:16px}
   .actions .btn{width:100%}
-  .micro{display:grid;gap:7px}
-  .hero-photo,.hero-photo img{height:440px;min-height:440px}
-  .float-one{left:10px;top:18px}
-  .float-two{right:10px;top:112px}
-  .float-three{left:10px;bottom:84px}
-  .floating{padding:10px 12px}
-  .pain-grid,.deliverables{grid-template-columns:1fr}
-  .pain-card,.deliverable{min-height:auto}
+  .hero-art{min-height:430px;border-radius:25px}
+  .laptop{left:4%;right:17%;bottom:5%;padding:8px 8px 12px}
+  .screen{padding:14px;min-height:210px}
+  .screen-title{font-size:20px}
+  .phone{width:145px;right:3%;bottom:3%}
+  .phone img{height:276px}
+  .pain-grid,.flow-grid{grid-template-columns:1fr}
+  .recognition-inner,.final-inner{flex-direction:column;align-items:flex-start}
   .section{padding:58px 0}
-  .flow-step{grid-template-columns:38px 1fr}
-  .flow-step .status{grid-column:2;justify-self:start}
-  .price{font-size:54px}
-  .final-cta{padding:58px 0}
+  .offer-main{
+    padding:28px 26px 230px;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.96) 56%,rgba(255,255,255,.14) 78%),
+      url("https://images.pexels.com/photos/10573235/pexels-photo-10573235.jpeg?auto=compress&dpr=1&w=900") center bottom/cover no-repeat;
+  }
+  .benefits{grid-template-columns:1fr}
+  .new-price{font-size:42px}
 }
-@media(max-width:430px){
-  .hero-photo,.hero-photo img{height:400px;min-height:400px}
-  .hero-caption{left:18px;right:18px;bottom:18px}
-  .hero-caption small{display:none}
-  .float-three{display:none}
+@media(max-width:460px){
+  .brand{font-size:18px}
+  .nav-right{gap:10px}
+  .hero-art{min-height:390px}
+  .phone{width:127px}
+  .phone img{height:242px}
+  .laptop{right:13%}
+  .mini-services{grid-template-columns:repeat(2,1fr)}
+  .offer-main .btn{min-width:0;width:100%}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -308,9 +307,9 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
   <div class="wrap nav">
     <a class="brand" href="/">THE LAUNCH ERA</a>
     <div class="nav-right">
-      <a class="desktop-link" href="#how">How it works</a>
+      <a class="desktop" href="#system">How it works</a>
       <a href="/es/start/" hreflang="es" lang="es">ES</a>
-      <a class="pill" href="#offer">See the setup</a>
+      <a class="nav-cta" href="#offer">See the setup →</a>
     </div>
   </div>
 </header>
@@ -319,119 +318,138 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">BUILT FOR RESIDENTIAL CLEANING BUSINESSES</span>
-        <h1>Your cleaning business shouldn't live in <span class="accent">texts, notes and missed follow-ups.</span></h1>
-        <p class="lead">We set up a simple booking flow that keeps new inquiries, client details and follow-ups organized — without adding another complicated system to your day.</p>
+        <span class="kicker">ONE SIMPLE SYSTEM</span>
+        <h1>More bookings. Less <span class="mauve">manual work.</span></h1>
+        <p class="hero-copy">Your Booking Page, client confirmation, private lead tracker and follow-up — connected into one clear flow for your cleaning business.</p>
         <div class="actions">
-          <a class="btn primary" href="#offer">Get My Booking Flow →</a>
-          <a class="btn ghost" href="/demo-booking/" target="_blank" rel="noopener">View Booking Page Demo</a>
+          <a class="btn primary" href="#offer">See What's Included →</a>
+          <a class="btn light" href="/demo-booking/" target="_blank" rel="noopener">View Booking Page Demo</a>
         </div>
-        <div class="micro">
-          <span>One-time setup</span>
-          <span>Built for cleaning businesses</span>
-          <span>No complicated CRM</span>
-        </div>
+        <p class="hero-note">Built for residential cleaning businesses · one-time setup</p>
       </div>
 
-      <div class="hero-visual">
-        <!-- Hero photo: Pexels / Tima Miroshnichenko. Pexels License permits free commercial use; attribution not required. Source: https://www.pexels.com/photo/woman-in-gray-sweater-laughing-while-on-a-video-call-6197036/ -->
-        <div class="hero-photo">
-          <img src="https://images.pexels.com/photos/6196571/pexels-photo-6196571.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-6196571.jpg&fm=jpg" alt="Woman cleaning a home while using her phone" fetchpriority="high">
-          <div class="hero-caption">
-            <strong>The work is already enough. Your admin shouldn't be.</strong>
-            <small>REAL-LIFE WORKFLOW</small>
+      <!-- No-person hero photo. Pexels free license; commercial use permitted. -->
+      <div class="hero-art" aria-label="Bright clean home with booking system preview">
+        <div class="laptop" aria-hidden="true">
+          <div class="screen">
+            <div class="screen-brand">THE LAUNCH ERA</div>
+            <div class="screen-title">Book a Cleaning</div>
+            <div class="screen-sub">Choose your service</div>
+            <div class="service-tabs"><span>Residential</span><span>Commercial</span></div>
+            <div class="mini-services"><span>Standard Clean</span><span>Deep Clean</span><span>Move In/Out</span><span>Custom Quote</span></div>
           </div>
         </div>
-        <div class="floating float-one"><b><span class="dot"></span>New inquiry</b><span>Client just messaged</span></div>
-        <div class="floating float-two"><b><span class="dot"></span>Client details</b><span>Not buried in DMs</span></div>
-        <div class="floating float-three"><b><span class="dot"></span>Follow-up</b><span>Clear next step</span></div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone-inner">
+            <div class="phone-notch"></div>
+            <img src="/assets/app-today-en.webp" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section dark">
+  <section class="section pain">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">DOES THIS FEEL FAMILIAR?</span>
-        <h2>Running the business isn't the problem. Keeping everything together is.</h2>
-        <p>You can be great at cleaning and still lose time — or a good lead — because the admin is scattered across your day.</p>
+      <div class="section-title">
+        <span class="eyebrow">THE REAL PAIN</span>
+        <h2>If your bookings feel scattered, it usually looks like this.</h2>
+        <p>The problem is not that you need to work harder. The problem is that too many small admin steps still depend on you remembering them.</p>
       </div>
       <div class="pain-grid">
-        <article class="pain-card reveal">
-          <small>01 · THE INQUIRY</small>
-          <h3>A new client messages while you're cleaning.</h3>
-          <p>You see it, plan to answer properly later… and the day keeps moving.</p>
+        <article class="card reveal">
+          <div class="card-icon">01</div>
+          <h3>A new inquiry arrives while you're cleaning.</h3>
+          <p>You see the message, plan to come back to it, then another job, call or client takes over.</p>
         </article>
-        <article class="pain-card reveal">
-          <small>02 · THE DETAILS</small>
-          <h3>The important information ends up everywhere.</h3>
-          <p>Service, address, availability and notes get split between texts, DMs and your own notes.</p>
+        <article class="card reveal">
+          <div class="card-icon">02</div>
+          <h3>The client details end up in different places.</h3>
+          <p>Service, address, date and notes are split between texts, DMs, forms and whatever you wrote down.</p>
         </article>
-        <article class="pain-card reveal">
-          <small>03 · THE FOLLOW-UP</small>
-          <h3>A good lead goes cold because you got busy.</h3>
-          <p>Not because you didn't care — because remembering every next step became another job.</p>
+        <article class="card reveal">
+          <div class="card-icon">03</div>
+          <h3>Follow-up happens only if you remember.</h3>
+          <p>A good lead can go quiet simply because the day got busy before you had a chance to circle back.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="how">
-    <div class="wrap flow-wrap">
-      <div class="flow-copy">
-        <span class="eyebrow">A BETTER FLOW</span>
-        <h2>What if every new inquiry had a next step?</h2>
-        <p>You don't need more apps. You need a cleaner path from “someone is interested” to “I know what happens next.”</p>
-        <a class="btn ghost" href="#offer">See what we build →</a>
+  <section class="recognition">
+    <div class="wrap recognition-inner">
+      <h2>If you're reading this thinking <strong>“that's exactly what happens to me,”</strong> this is the part we fix.</h2>
+      <p>You do not need a complicated CRM. You need a clear next step for every new inquiry.</p>
+    </div>
+  </section>
+
+  <section class="section flow-section" id="system">
+    <div class="wrap">
+      <div class="section-title">
+        <span class="eyebrow">A SIMPLER SYSTEM</span>
+        <h2>One inquiry. One clear flow.</h2>
+        <p>The repetitive parts happen in order, so you can focus on the client instead of rebuilding the process every time.</p>
       </div>
-      <div class="flow-track reveal" aria-label="Booking flow">
-        <div class="flow-step"><span class="num">01</span><div><strong>Inquiry comes in</strong><span>Booking or quote details arrive together.</span></div><span class="status">CAPTURED</span></div>
-        <div class="flow-step"><span class="num">02</span><div><strong>Client gets confirmation</strong><span>They immediately know their request was received.</span></div><span class="status">SENT</span></div>
-        <div class="flow-step"><span class="num">03</span><div><strong>Lead stays organized</strong><span>The important details have one clear place to live.</span></div><span class="status">READY</span></div>
-        <div class="flow-step"><span class="num">04</span><div><strong>Follow-up has a next step</strong><span>Less relying on memory when the day gets busy.</span></div><span class="status">CLEAR</span></div>
+
+      <div class="flow-grid">
+        <div class="flow-step reveal">
+          <article class="flow-card">
+            <div class="flow-head"><span class="flow-icon">✉</span><span class="flow-num">01</span></div>
+            <h3>The client sends a request.</h3>
+            <p>Booking or quote details arrive together.</p>
+          </article><span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step reveal">
+          <article class="flow-card">
+            <div class="flow-head"><span class="flow-icon">✓</span><span class="flow-num">02</span></div>
+            <h3>Confirmation goes out.</h3>
+            <p>They know their request was received.</p>
+          </article><span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step reveal">
+          <article class="flow-card">
+            <div class="flow-head"><span class="flow-icon">▤</span><span class="flow-num">03</span></div>
+            <h3>The lead stays organized.</h3>
+            <p>Important client details have one clear place to live.</p>
+          </article><span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step reveal">
+          <article class="flow-card">
+            <div class="flow-head"><span class="flow-icon">↗</span><span class="flow-num">04</span></div>
+            <h3>Follow-up has a next step.</h3>
+            <p>Less depending on memory when the day gets busy.</p>
+          </article><span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step reveal">
+          <article class="flow-card">
+            <div class="flow-head"><span class="flow-icon">★</span><span class="flow-num">05</span></div>
+            <h3>You get a cleaner booking process.</h3>
+            <p>More organized, more professional and easier to manage.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section offer" id="offer">
-    <div class="wrap offer-grid">
-      <div class="offer-copy">
-        <span class="eyebrow">YOUR BOOKING FLOW SETUP</span>
-        <h2>We build the system behind the inquiry.</h2>
-        <p>Simple enough to use every day. Organized enough that new business doesn't disappear inside texts and DMs.</p>
-        <div class="deliverables">
-          <article class="deliverable reveal">
-            <b>01</b>
-            <h3>Your Booking Experience</h3>
-            <p>A clean booking + quote path clients can actually understand.</p>
-          </article>
-          <article class="deliverable reveal">
-            <b>02</b>
-            <h3>Your Lead Flow</h3>
-            <p>New inquiry details stay organized instead of getting buried in messages.</p>
-          </article>
-          <article class="deliverable reveal">
-            <b>03</b>
-            <h3>Your Follow-Up System</h3>
-            <p>A clear next step so opportunities don't disappear when you're busy.</p>
-          </article>
+    <div class="wrap">
+      <div class="offer-shell">
+        <div class="offer-main reveal">
+          <span class="offer-pill">SPECIAL OFFER</span>
+          <h2>Booking Flow Setup</h2>
+          <p>Your Booking Page, confirmation, private lead tracker and smart follow-up — configured into one simple flow for your cleaning business.</p>
+          <div class="price-line"><span class="old-price">$99</span><span class="new-price">$49.99</span></div>
+          <a class="btn primary" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get My Booking Flow →</a>
         </div>
-      </div>
 
-      <aside class="price-card reveal">
-        <span class="eyebrow">SPECIAL OFFER</span>
-        <div class="price-row"><span class="was">$99</span><div class="price">$49.99</div></div>
-        <div class="once">one-time setup</div>
-        <ul>
-          <li>Custom Booking Page + quote request flow</li>
-          <li>Client confirmation + owner notification</li>
-          <li>Private Lead Tracker</li>
-          <li>One smart follow-up path</li>
-          <li>Built around your cleaning business</li>
-        </ul>
-        <a class="btn aqua" href="/pay/booking-flow/" data-payment-cta="booking-flow">Start My Setup →</a>
-        <p class="fine">Production starts after we receive the complete information and required assets for your setup. Any paid third-party tool needed for an agreed integration is discussed with you first.</p>
-      </aside>
+        <aside class="benefits reveal">
+          <div class="benefit"><span>▣</span><p>Custom Booking Page</p></div>
+          <div class="benefit"><span>✉</span><p>Client confirmation</p></div>
+          <div class="benefit"><span>▤</span><p>Private Lead Tracker</p></div>
+          <div class="benefit"><span>↗</span><p>Smart follow-up</p></div>
+          <div class="benefit"><span>✓</span><p>Ready for your business</p></div>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -444,25 +462,25 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
       <div>
         <details>
           <summary>Is this another complicated software?</summary>
-          <p>No. The goal is to make your current client flow simpler, not give you another system to babysit.</p>
+          <p>No. The setup is designed to simplify the path you already use with clients, not give you another system to babysit.</p>
         </details>
         <details>
           <summary>Do I need to know anything technical?</summary>
-          <p>No. We handle the setup. You give us the information we need about your business and we build the flow around it.</p>
+          <p>No. You give us the information about your services and booking process, and we handle the setup.</p>
         </details>
         <details>
           <summary>What happens after I purchase?</summary>
-          <p>You complete a short intake so we can personalize your booking flow, services and client path before production begins.</p>
+          <p>You complete a short intake so we can personalize the Booking Page and flow for your cleaning business before production begins.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="final-cta">
+  <section class="final">
     <div class="wrap final-inner">
       <div>
-        <h2>Less chasing. Less scattered information. A better way to handle new business.</h2>
-        <p>Your next inquiry should have a clear place to go.</p>
+        <h2>Less chasing. Less scattered information. A clearer way to handle new business.</h2>
+        <p>Give every new inquiry a next step.</p>
       </div>
       <a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get My Booking Flow — $49.99 →</a>
     </div>
@@ -488,7 +506,10 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
   if(reduce){items.forEach(x=>x.classList.add("visible"));return;}
   const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target);}
+      if(e.isIntersecting){
+        e.target.classList.add("visible");
+        io.unobserve(e.target);
+      }
     });
   },{threshold:.14});
   items.forEach(x=>io.observe(x));
