@@ -297,14 +297,14 @@
           <div class="summary-top"><div><small id="summaryKicker">Your booking</small><h3 id="summaryTitle">Almost done.</h3></div><span class="demo-tag">Demo</span></div>
           <div class="summary-photo"><img id="summaryPhoto" src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
           <div class="summary-row"><span>Service</span><strong id="sumService">Choose a service</strong></div>
-          <div class="summary-row"><span>Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
+          <div class="summary-row"><span id="sumPropertyLabel">Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
           <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
           <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
           <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
           <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
           <div class="total"><span id="totalLabel">Sample starting estimate</span><strong id="sumTotal">—</strong></div>
           <button class="submit" id="submitBtn">Request cleaning →</button>
-          <p class="micro">Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.</p>
+          <p class="micro" id="summaryMicro">Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.</p>
         </aside>
       </div>
     </section>
@@ -500,6 +500,7 @@
 
     function render(){
       $('sumService').textContent=state.service||'Choose a service';
+      $('sumPropertyLabel').textContent=state.cleaningType==='Commercial'?'Space':'Home';
       $('sumHome').textContent=state.cleaningType==='Commercial'
         ? 'Commercial · '+($('commercialType')?.value||'Commercial space')+' · '+state.restrooms+' restroom'+(state.restrooms===1?'':'s')+' · '+state.floors+' level'+(state.floors===1?'':'s')
         : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath';
@@ -511,13 +512,16 @@
 
       const quote=state.mode==='quote';
       $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
-      $('summaryTitle').textContent=quote?'Ready to request.':'Almost done.';
+      $('summaryTitle').textContent=!state.service?'Start with a service.':quote?'Ready to request.':'Almost done.';
       $('totalLabel').textContent=quote?'Pricing':'Sample starting estimate';
       $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(state.base+state.extras.reduce((s,x)=>s+x.price,0));
       $('submitBtn').textContent=quote?'Get my quote →':'Request cleaning →';
       $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Sample starting estimate';
       $('mobileEstimate').textContent=!state.service?'Choose a service':quote?'Request a quote':$('sumTotal').textContent;
       $('reviewBooking').textContent=quote?'Review quote →':'Review booking →';
+      $('summaryMicro').textContent=quote
+        ? 'The business will review these details and send a custom price. No payment is collected in this demo.'
+        : 'Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.';
     }
 
     document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.addEventListener('click',()=>setRequestMode(btn.dataset.mode)));
