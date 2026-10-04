@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#FAF8F3">
-  <title>Your Cleaning Business — Booking Demo</title>
-  <meta name="description" content="Interactive booking page demo for a growing residential cleaning business. Sample information only.">
+  <title>Luma Home Cleaning — Book Online | Interactive Demo</title>
+  <meta name="description" content="Interactive premium booking page demo for a residential cleaning business. Sample business, pricing and customer information only.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -214,14 +214,103 @@
       .booking-type{padding:11px}
     }
 
+  
+    /* Premium conversion layer — 2026-10-04 */
+    :root{--ivory:#FAF8F3;--paper:#FFFFFF;--ink:#191919;--muted:#666B69;--line:#E6E7E4;--deep:#355F78;--blue:#8EBDE0;--eucalyptus:#CFE8F7;--eucalyptus2:#EEF6FB;--butter:#F2D85B;--shadow:0 18px 50px rgba(25,25,25,.07)}
+    body{background:var(--ivory)}
+    .demo-strip{background:var(--ink);padding:8px 16px;font-size:11px}
+    header{background:rgba(250,248,243,.96);border-bottom:1px solid rgba(25,25,25,.055)}
+    .nav{min-height:72px}
+    .brand-mark{width:38px;height:38px;border-radius:50%;background:var(--blue);color:var(--ink);font-family:Prompt,Arial,sans-serif}
+    .brand-copy strong{font-family:Prompt,Arial,sans-serif;font-size:14px;letter-spacing:.015em}
+    .brand-copy span{font-size:10px}
+    .ghost{padding:11px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
+    .hero{padding:64px 0 42px}
+    .hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.86fr);gap:clamp(44px,7vw,92px)}
+    .eyebrow{border:0;background:var(--eucalyptus2);padding:9px 12px;color:var(--deep)}
+    .eyebrow-dot{background:var(--blue);box-shadow:none}
+    h1{max-width:680px;font-size:clamp(48px,6vw,78px);line-height:.97;letter-spacing:-.058em}
+    .hero p{max-width:610px;font-size:17px;color:#555B58}
+    .hero-points{margin:22px 0 28px;gap:0}
+    .hero-points span{position:relative;padding-left:18px;margin-right:20px;color:#565C59;font-weight:650}
+    .hero-points span:before{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;border-radius:50%;background:var(--blue);transform:translateY(-50%)}
+    .start-btn,.secondary-start-btn{min-height:52px;padding:0 20px;border-radius:12px}
+    .start-btn{background:var(--ink)}
+    .secondary-start-btn{background:transparent;border-color:#CDD2CF}
+    .hero-micro{margin:11px 0 0!important;font-size:11px!important;color:#7A7E7C!important}
+    .hero-photo{min-height:470px;border-radius:18px;background:#EDEFEA;box-shadow:0 20px 60px rgba(25,25,25,.08)}
+    .hero-photo:after{content:"";position:absolute;inset:0;border:1px solid rgba(25,25,25,.06);border-radius:inherit;pointer-events:none}
+    .photo-overlay{left:18px;right:18px;bottom:18px;padding:15px 16px;border-radius:12px;border:1px solid rgba(25,25,25,.07);box-shadow:0 12px 30px rgba(25,25,25,.1)}
+    .available{background:var(--eucalyptus2);color:var(--deep);border-radius:999px}
+    .trust-line{padding:0 0 24px}
+    .trust-line-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .trust-line-grid span{padding:15px 18px;font-size:12px;font-weight:800;color:#4E5451}
+    .trust-line-grid span+span{border-left:1px solid var(--line)}
+    .trust-line-grid b{display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:50%;background:var(--eucalyptus2);color:var(--deep);font-size:9px}
+    .booking-shell{padding:20px 0 82px}
+    .booking-grid{grid-template-columns:minmax(0,1fr) 360px;gap:24px}
+    .panel{border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 44px rgba(25,25,25,.045)}
+    .flow{padding:clamp(24px,3.2vw,42px)}
+    .booking-intro{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+    .booking-intro>span{display:block;margin-bottom:8px;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--deep)}
+    .booking-intro h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:8px}
+    .booking-intro p{margin:0;color:var(--muted);font-size:14px}
+    .booking-type{background:transparent;border:0;border-radius:0;padding:0;margin-bottom:14px}
+    .cleaning-type-switch,.request-mode-switch{padding:5px;background:#F4F3EF;border-color:#E7E5DE;border-radius:12px}
+    .cleaning-type-btn,.request-mode-btn{min-height:50px;border:0;border-radius:9px}
+    .cleaning-type-btn.selected,.request-mode-btn.active{background:#fff;color:var(--ink);box-shadow:0 3px 10px rgba(25,25,25,.06)}
+    .request-mode-btn[data-mode="quote"].active{background:var(--deep);color:#fff}
+    .commercial-route-note{border-left:3px solid var(--blue)}
+    .stepper{margin:24px 0 34px;padding:0;gap:10px}
+    .stepper span{font-size:10px;font-weight:800}
+    .stepper b{width:24px;height:24px;background:#F0F2F1;color:#59605D}
+    .stepper span.is-active b{background:var(--ink);color:#fff}
+    .stepper span.is-complete b{background:var(--blue);color:var(--ink)}
+    .section-label{color:var(--deep)}
+    .section-intro{max-width:650px}
+    .services{gap:12px}
+    .service-card{min-height:148px;border-radius:13px;background:#fff;border-color:#E2E4E1;padding:18px}
+    .service-card:hover,.service-card:focus-visible{border-color:var(--blue);transform:translateY(-1px)}
+    .service-card.selected{background:var(--eucalyptus2);border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);padding:17px}
+    .service-card:after{color:#5B7F94}
+    .service-card.selected .check{background:var(--deep);border-color:var(--deep)}
+    .service-card .price{color:var(--deep)}
+    .counter,.extra,input,select,textarea{background:#fff}
+    .counter,.extra{border-radius:12px}
+    .round{background:#F6F6F3}
+    .pill,.date-card,.time{background:#fff;border-color:#DEE1DE}
+    .pill.selected,.time.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .date-card.selected{background:var(--eucalyptus2);border-color:var(--blue)}
+    .wizard-nav{margin-top:28px;padding-top:24px}
+    .wizard-back,.wizard-next{border-radius:10px}
+    .wizard-next{background:var(--ink)}
+    .summary{top:96px;border-radius:18px;padding:22px;box-shadow:0 18px 48px rgba(25,25,25,.07)}
+    .summary:before{width:46px;height:5px;background:var(--blue);margin-bottom:17px}
+    .summary-photo{height:132px;border-radius:11px}
+    .summary-row{padding:10px 0}
+    .total strong{color:var(--ink);font-size:32px}
+    .estimate-note{background:var(--eucalyptus2);color:#365D72;border-radius:10px}
+    .submit,body.quote-mode .submit{background:var(--ink);border-radius:10px}
+    .submit:hover{transform:translateY(-1px)}
+    .story{border-radius:18px;border-color:var(--line)}
+    .story-copy{padding:clamp(30px,4vw,52px)}
+    .story-copy .kicker{color:var(--deep)}
+    .story-copy h3{font-size:clamp(34px,4vw,52px)}
+    .benefit{background:var(--eucalyptus2);color:#31586C;border-radius:10px}
+    .main-site-cta{border-radius:18px;background:var(--ink);border:0;box-shadow:none}
+    .main-site-cta a{background:var(--butter);border-radius:10px}
+    footer{padding-top:10px}
+    @media(max-width:900px){.hero{padding-top:44px}.hero-grid,.booking-grid{grid-template-columns:1fr}.hero-photo{min-height:400px}.summary{top:auto}}
+    @media(max-width:620px){.nav{min-height:62px}.brand-copy span{display:none}.hero{padding:30px 0 22px}h1{font-size:49px}.hero-grid{gap:28px}.hero-photo{min-height:320px}.trust-line-grid{grid-template-columns:1fr}.trust-line-grid span+span{border-left:0;border-top:1px solid var(--line)}.booking-shell{padding-top:8px}.flow{padding:20px 18px}.booking-intro{padding-bottom:18px;margin-bottom:18px}.cleaning-type-btn,.request-mode-btn{font-size:12px}.stepper{margin:19px 0 28px}.wizard-nav{bottom:86px}.summary{border-radius:15px}.story{border-radius:15px}.main-site-cta{border-radius:15px}}
+
   </style>
 </head>
 <body>
-  <div class="demo-strip">Interactive demo · Sample business, pricing & customer information only</div>
+  <div class="demo-strip">Interactive demo by The Launch Era · Sample business, pricing & customer information</div>
   <header>
     <div class="wrap nav">
-      <div class="brand"><div class="brand-mark">YC</div><div class="brand-copy"><strong>YOUR CLEANING BUSINESS</strong><span>Booking Page Demo</span></div></div>
-      <div class="nav-actions"><button class="ghost" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book a cleaning</button></div>
+      <div class="brand"><div class="brand-mark">L</div><div class="brand-copy"><strong>LUMA HOME CLEANING</strong><span>Professional home care</span></div></div>
+      <div class="nav-actions"><button class="ghost" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book online</button></div>
     </div>
   </header>
 
@@ -229,44 +318,47 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Real booking experience</div>
-          <h1>A clean home starts with an easier booking.</h1>
-          <p>Choose your space, service, home details, and extras. Your sample estimate updates as you go — then choose an available time.</p>
-          <div class="hero-points"><span>✓ Instant sample estimate</span><span>✓ Live-style availability</span><span>✓ Mobile friendly</span></div>
-          <div class="hero-actions"><button class="start-btn" onclick="setRequestMode('book');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book a Cleaning →</button><button class="secondary-start-btn" onclick="setRequestMode('quote');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Get a Quote</button></div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Online booking · Palm Beach sample</div>
+          <h1>Book your clean in under 2 minutes.</h1>
+          <p>Choose the service, tell us about your space, add only what you need, and see your estimate update before you request your time.</p>
+          <div class="hero-points"><span>Instant estimate</span><span>Real-time style availability</span><span>No account needed</span></div>
+          <div class="hero-actions"><button class="start-btn" onclick="setRequestMode('book');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Start my booking →</button><button class="secondary-start-btn" onclick="setRequestMode('quote');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">I need a custom quote</button></div><p class="hero-micro">No payment is collected in this demo.</p>
         </div>
         <div class="hero-photo">
           <img id="heroPhoto" src="https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cleaner mopping a bright modern home">
-          <div class="photo-overlay"><div><strong>Simple for your customers.</strong><small>Organized for your business.</small></div><span class="available">● Accepting bookings</span></div>
+          <div class="photo-overlay"><div><strong>Next opening</strong><small>Monday · 10:30 AM</small></div><span class="available">Available</span></div>
         </div>
       </div>
     </section>
 
+    <section class="trust-line" aria-label="Booking benefits"><div class="wrap trust-line-grid"><span><b>01</b> See your estimate</span><span><b>02</b> Choose your time</span><span><b>03</b> Get a clear confirmation</span></div></section>
+
     <section id="booking" class="booking-shell">
       <div class="wrap booking-grid">
         <div class="panel flow">
+          <div class="booking-intro"><span>BOOK ONLINE</span><h2>Build your cleaning in a few taps.</h2><p>Your estimate updates as you customize the visit.</p></div>
           <div class="booking-type">
-            <div class="section-label">What kind of space?</div>
+            <div class="section-label">First, what are we cleaning?</div>
             <div class="cleaning-type-switch" id="cleaningType" aria-label="Choose cleaning type">
-              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential" aria-pressed="true">Residential</button>
-              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial" aria-pressed="false">Commercial</button>
+              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential" aria-pressed="true">Residential home</button>
+              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial" aria-pressed="false">Commercial space</button>
             </div>
             <p class="quote-note commercial-route-note" id="commercialRouteNote" hidden>Commercial cleaning is priced for your space. We'll start a custom quote request.</p>
           </div>
           <div class="request-mode-switch" aria-label="Choose request type">
-            <button type="button" class="request-mode-btn active" data-mode="book">Book a Cleaning</button>
-            <button type="button" class="request-mode-btn" data-mode="quote">Get a Quote</button>
+            <button type="button" class="request-mode-btn active" data-mode="book">Book now</button>
+            <button type="button" class="request-mode-btn" data-mode="quote">Custom quote</button>
           </div>
           <div class="stepper" aria-label="Booking sections"><span><b>01</b> Service</span><span><b>02</b> Space</span><span><b>03</b> Schedule</span><span><b>04</b> Details</span></div>
 
           <section class="section">
             <div class="section-label">01 · Service</div><h2 id="serviceTitle">What can we help you clean?</h2><p class="section-intro" id="serviceIntro">Choose a service to see its sample starting price.</p>
-            <div class="service-path-label" id="bookServiceLabel"><strong>Book a Cleaning services</strong><span>Direct booking</span></div>
+            <div class="service-path-label" id="bookServiceLabel"><strong>Choose a cleaning</strong><span>Instant estimate</span></div>
             <div class="services" id="bookServices">
-              <button class="service-card" data-service="Standard Cleaning" data-price="129" aria-pressed="false"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129 · sample price</span></button>
-              <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219 · sample price</span></button>
-              <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249 · sample price</span></button>
-              <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119 · sample price</span></button>
+              <button class="service-card" data-service="Standard Cleaning" data-price="129" aria-pressed="false"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129</span></button>
+              <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219</span></button>
+              <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249</span></button>
+              <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119</span></button>
             </div>
             <div class="service-path-label" id="quoteServiceLabel" hidden><strong>Get a Quote services</strong><span>Custom pricing</span></div>
             <div class="services" id="quoteServices" hidden>
@@ -348,10 +440,10 @@
           <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
           <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
           <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
-          <div class="total"><span id="totalLabel">Sample instant estimate</span><strong id="sumTotal">—</strong></div>
+          <div class="total"><span id="totalLabel">Estimated total</span><strong id="sumTotal">—</strong></div>
           <div class="estimate-note" id="estimateNote">Updates with service, home size, frequency and extras.</div>
           <button class="submit" id="submitBtn">Request cleaning →</button>
-          <p class="micro" id="summaryMicro">Sample estimate only. Final pricing depends on the cleaning business. No payment is collected in this demo.</p>
+          <p class="micro" id="summaryMicro">Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.</p>
         </aside>
       </div>
     </section>
@@ -359,20 +451,20 @@
     <section class="story">
       <img id="storyPhoto" src="https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bright clean modern living room">
       <div class="story-copy">
-        <span class="kicker">Built for growing cleaning businesses</span>
-        <h3>Your customers see simple. You get organized.</h3>
-        <p>A polished Booking Page can collect the details you actually need before a job — instead of sending customers through a long back-and-forth in messages.</p>
-        <div class="benefits"><div class="benefit">Booking details in one place</div><div class="benefit">Clear service + timing choices</div><div class="benefit">Ready to flow into your system</div></div>
+        <span class="kicker">A smoother customer experience</span>
+        <h3>Less back-and-forth. More ready-to-book clients.</h3>
+        <p>Your customer can see the service, price range, extras, availability and next step in one clear flow — while the business receives a more complete request.</p>
+        <div class="benefits"><div class="benefit">Live estimate as choices change</div><div class="benefit">Commercial automatically routes to quote</div><div class="benefit">Built for phone-first booking</div></div>
       </div>
     </section>
 
     <section class="main-site-cta" aria-label="The Launch Era">
       <div class="main-site-cta-copy">
         <span class="kicker">Built by The Launch Era</span>
-        <h3>Want a Booking Page like this for your cleaning business?</h3>
-        <p>See how The Launch Era helps growing cleaning businesses organize bookings, quotes, clients and follow-up.</p>
+        <h3>Turn “how much?” into a complete booking request.</h3>
+        <p>Your services, pricing, availability, questions and brand — built into a customer flow that feels easy to use and valuable to own.</p>
       </div>
-      <a href="/" aria-label="Visit The Launch Era">Visit The Launch Era →</a>
+      <a href="/" aria-label="Visit The Launch Era">See The Launch Era →</a>
     </section>
   </main>
 
@@ -656,18 +748,18 @@
       $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
       $('summaryTitle').textContent=!state.service?'Start with a service.':quote?'Ready to request.':'Almost done.';
       const estimate=calculateEstimate();
-      $('totalLabel').textContent=quote?'Pricing':'Sample instant estimate';
+      $('totalLabel').textContent=quote?'Custom pricing':'Estimated total';
       $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(estimate.total);
-      $('submitBtn').textContent=quote?'Get my quote →':'Request cleaning →';
-      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Instant sample estimate';
+      $('submitBtn').textContent=quote?'Get my quote →':'Send booking request →';
+      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Estimated total';
       $('mobileEstimate').textContent=!state.service?'Choose a service':quote?'Request a quote':$('sumTotal').textContent;
       $('reviewBooking').textContent=quote?'Review quote →':'Review booking →';
       $('estimateNote').textContent=quote
         ? 'Custom pricing is prepared from the space and details you selected.'
-        : 'Updates with service, home size, frequency and extras'+(estimate.discountLabel?' · '+estimate.discountLabel:'')+'.';
+        : 'Updates live with service, home size, frequency and extras'+(estimate.discountLabel?' · '+estimate.discountLabel:'')+'.';
       $('summaryMicro').textContent=quote
         ? 'The business will review these details and send a custom price. No payment is collected in this demo.'
-        : 'Sample estimate only. Final pricing depends on the cleaning business. No payment is collected in this demo.';
+        : 'Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.';
       if(wizardSections.length) renderWizard();
     }
 
