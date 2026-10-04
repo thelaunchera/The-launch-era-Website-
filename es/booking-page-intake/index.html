@@ -142,12 +142,12 @@ async function verifyAndTrackPurchase(){
     if(localStorage.getItem(dedupeKey)==="1") return;
     window.tleTrackEvent?.("purchase",{
       transaction_id:data.transaction_id,
-      value:Number(data.value||24.99),
+      value:Number(data.value||19.99),
       currency:String(data.currency||"USD"),
       items:[{
         item_id:"booking_page_cleaning_app",
         item_name:"Booking Page",
-        price:Number(data.value||24.99),
+        price:Number(data.value||19.99),
         quantity:1
       }]
     });
