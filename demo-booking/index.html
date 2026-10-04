@@ -373,7 +373,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
             <h3>2 · Private Lead Tracker</h3>
             <small>The same request is saved automatically so the owner can move it forward without rebuilding the conversation.</small>
             <div class="tracker-card">
-              <div class="tracker-head"><div><div class="tracker-name" id="trackerName">Jordan M.</div><div class="tracker-meta" id="trackerMeta">booking · Standard Cleaning · jordan@example.com</div></div><span class="tracker-status" id="trackerStatus">NEW</span></div>
+              <div class="tracker-head"><div><div class="tracker-name" id="trackerName">Jordan M.</div><div class="tracker-meta" id="trackerMeta">booking · Standard Cleaning · jordan@example.com</div></div><div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end"><span class="tracker-status" style="background:#F2D85B" id="demoAttention">NEEDS ATTENTION</span><span class="tracker-status" id="trackerStatus">NEW</span></div></div>
               <div class="tracker-stages">
                 <button type="button" class="active" data-demo-stage="NEW">New</button>
                 <button type="button" data-demo-stage="REVIEWING">Reviewing</button>
@@ -382,7 +382,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
               </div>
               <div class="lead-row"><span>Frequency</span><strong id="ownerFrequency">One time</strong></div>
               <div class="lead-row"><span>Extras</span><strong id="ownerExtras">None</strong></div>
-              <div class="lead-row"><span>Follow-up</span><strong>Attached to this lead</strong></div>
+              <div class="lead-row"><span>Next follow-up</span><strong id="ownerNextFollowup">Tomorrow · 10:30 AM</strong></div>
               <div class="tracker-actions"><span>Pause / restart</span><span>Close</span><span>Lost</span></div>
             </div>
             <p class="truth-note">This is now the same owner-side structure used by Booking Flow: detailed alert, private lead card, real status controls and follow-up attached to the lead.</p>
@@ -459,6 +459,7 @@ function syncOwnerView(){
   $("ownerExtras").textContent=extras;
   $("trackerName").textContent=name;
   $("trackerMeta").textContent=type+" · "+service+" · "+email;
+  $("ownerNextFollowup").textContent="Tomorrow · "+state.time;
   const quoteStage=$("demoQuoteStage");
   if(quoteStage){quoteStage.textContent=isCommercial()?"Custom Quote":"Confirm";quoteStage.dataset.demoStage=isCommercial()?"CUSTOM QUOTE":"CONFIRM";}
 }
@@ -652,6 +653,7 @@ document.querySelectorAll("[data-demo-stage]").forEach(btn=>btn.addEventListener
   document.querySelectorAll("[data-demo-stage]").forEach(x=>x.classList.remove("active"));
   btn.classList.add("active");
   $("trackerStatus").textContent=btn.dataset.demoStage;
+  $("demoAttention").style.display=btn.dataset.demoStage==="NEW"?"inline-block":"none";
 }));
 $("closeModal").addEventListener("click",()=>$("modal").classList.remove("open"));
 $("modal").addEventListener("click",e=>{if(e.target.id==="modal") $("modal").classList.remove("open")});
