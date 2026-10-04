@@ -26,8 +26,8 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <main class="card">
 <div class="brand">THE LAUNCH ERA</div>
 <div class="kicker" id="checkoutKicker">SECURE CHECKOUT</div>
-<h1>Opening your Booking Flow checkout…</h1>
-<p>Custom Booking Page + Private Lead Tracker + automatic inquiry follow-up.</p>
+<h1>Opening Automated Booking + Follow-Up checkout…</h1>
+<p>Client booking + approximate estimate + owner alert + private lead tracking + automatic follow-up.</p>
 <div class="price" id="checkoutPrice"><span id="checkoutOldPrice" style="font-size:18px;font-weight:700;color:#8a9491;text-decoration:line-through;margin-right:8px">$99</span><span id="checkoutCurrentPrice">$29.99</span> <span id="checkoutPriceNote" style="font-size:13px;font-weight:500;color:#66706d">one-time</span></div>
 <div class="checkout-countdown" id="checkoutCountdown" aria-label="Offer time remaining">
   <span class="checkout-time"><b id="checkoutDays">07</b><span>DAYS</span></span>
@@ -37,7 +37,7 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 </div>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" hidden>Try again</button>
-<p class="small" id="status">You’ll review your order before completing payment.</p>
+<p class="small" id="status">Next: payment confirmation, then your private setup intake.</p>
 </main>
 <script src="/assets/analytics.js"></script>
 <script>
@@ -45,8 +45,8 @@ const lang=new URLSearchParams(location.search).get("lang")==="es"?"es":"en";
 try{sessionStorage.setItem("tleCheckoutLanguage",lang)}catch{}
 if(lang==="es"){
  document.documentElement.lang="es";document.title="Pago seguro | The Launch Era";
- document.querySelector("h1").textContent="Abriendo el pago de tu Booking Flow…";
- document.querySelector("h1 + p").textContent="Página de reservas personalizada + registro privado de prospectos + seguimiento automático de consultas.";
+ document.querySelector("h1").textContent="Abriendo el pago de Reservas + Seguimiento Automático…";
+ document.querySelector("h1 + p").textContent="Reserva del cliente + estimado aproximado + alerta al owner + organización del lead + seguimiento automático.";
  document.getElementById("checkoutKicker").textContent="PAGO SEGURO";
  document.getElementById("checkoutPriceNote").textContent="pago único";
  document.getElementById("retry").textContent="Intentar de nuevo";
