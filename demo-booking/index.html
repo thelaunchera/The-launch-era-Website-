@@ -135,7 +135,7 @@ select:focus,input:focus,textarea:focus{border-color:#8FC6E4;box-shadow:0 0 0 3p
 .submit{width:100%;min-height:50px;border:0;border-radius:10px;background:var(--ink);color:#fff;font-weight:900}
 .summary-foot{font-size:8px;line-height:1.45;color:#858987;text-align:center;margin:9px 4px 0}
 
-.owner-demo{padding:0 0 74px}.owner-card{background:var(--ink);color:#fff;border-radius:18px;padding:28px}.owner-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.owner-top h2{font-size:clamp(28px,4vw,42px);margin:7px 0 5px}.owner-top p{margin:0;color:#C8CCCA;font-size:12px;line-height:1.5;max-width:620px}.owner-badge{flex:0 0 auto;background:var(--blue);color:var(--ink);padding:8px 10px;border-radius:999px;font-size:9px;font-weight:900}.owner-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}.owner-panel{background:#252525;border:1px solid #393939;border-radius:13px;padding:16px}.owner-panel h3{font-size:15px;margin:0 0 12px}.lead-row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 0;border-bottom:1px solid #3A3A3A;font-size:10px}.lead-row:last-child{border-bottom:0}.lead-row span{color:#AEB4B1}.lead-row strong{text-align:right}.stage-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}.stage{padding:9px 6px;border-radius:8px;background:#303030;text-align:center;font-size:8px;font-weight:800;color:#AEB4B1}.stage.active{background:var(--blue);color:var(--ink)}.followup{display:flex;gap:9px;align-items:start;padding:11px 0;border-bottom:1px solid #3A3A3A}.followup:last-child{border-bottom:0}.followup i{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:4px;flex:0 0 auto}.followup strong{display:block;font-size:10px}.followup small{display:block;color:#AEB4B1;font-size:9px;line-height:1.4;margin-top:2px}.owner-cta{display:inline-flex;margin-top:16px;background:#fff;color:var(--ink);text-decoration:none;border-radius:9px;padding:12px 14px;font-size:10px;font-weight:900}.mobile-bar{display:none}
+.owner-demo{padding:0 0 74px}.owner-card{background:var(--ink);color:#fff;border-radius:18px;padding:28px}.owner-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.owner-top h2{font-size:clamp(28px,4vw,42px);margin:7px 0 5px}.owner-top p{margin:0;color:#C8CCCA;font-size:12px;line-height:1.5;max-width:650px}.owner-badge{flex:0 0 auto;background:var(--blue);color:var(--ink);padding:8px 10px;border-radius:999px;font-size:9px;font-weight:900}.owner-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.owner-panel{background:#252525;border:1px solid #393939;border-radius:13px;padding:16px}.owner-panel h3{font-size:15px;margin:0 0 5px}.owner-panel>small{display:block;color:#AEB4B1;font-size:9px;line-height:1.4;margin-bottom:12px}.mail-subject{font-size:11px;font-weight:900;margin:0 0 12px;padding:10px 11px;background:#303030;border-radius:8px}.lead-row{display:grid;grid-template-columns:82px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid #3A3A3A;font-size:10px}.lead-row:last-of-type{border-bottom:0}.lead-row span{color:#AEB4B1}.lead-row strong{text-align:right;overflow-wrap:anywhere}.mail-actions,.tracker-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.mail-actions span,.tracker-actions span{padding:8px 9px;border-radius:7px;font-size:8px;font-weight:900;background:#343434}.mail-actions span:first-child,.tracker-actions span:first-child{background:var(--blue);color:var(--ink)}.tracker-card{border:1px solid #414141;border-radius:10px;padding:13px}.tracker-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.tracker-name{font-size:13px;font-weight:900}.tracker-meta{color:#AEB4B1;font-size:8px;line-height:1.5;margin-top:4px;overflow-wrap:anywhere}.tracker-status{font-size:8px;font-weight:900;background:var(--blue);color:var(--ink);padding:6px 7px;border-radius:999px;text-transform:uppercase}.truth-note{margin:14px 0 0;color:#AEB4B1;font-size:9px;line-height:1.45}.owner-cta{display:inline-flex;margin-top:16px;background:#fff;color:var(--ink);text-decoration:none;border-radius:9px;padding:12px 14px;font-size:10px;font-weight:900}.mobile-bar{display:none}
 .modal{display:none;position:fixed;inset:0;z-index:80;background:rgba(25,25,25,.46);padding:20px;align-items:center;justify-content:center}
 .modal.open{display:flex}
 .modal-card{width:min(440px,100%);background:#fff;border-radius:16px;padding:27px;text-align:center}
@@ -417,11 +417,20 @@ const round5=n=>Math.max(5,Math.round(n/5)*5);
 
 function isCommercial(){return state.space==="Commercial"}
 function syncOwnerView(){
-  const est=calculate();
-  $("ownerRequest").textContent=isCommercial()?"Commercial quote request":state.service;
-  $("ownerProperty").textContent=isCommercial()?$("commercialType").value+" · "+$("commercialSqft").value:state.homeType+" · "+state.beds+" bed · "+state.baths+" bath";
-  $("ownerSchedule").textContent=state.date?(state.date+" · "+state.time):"Next available · "+state.time;
-  $("ownerEstimate").textContent=isCommercial()?"Custom quote":money(est.low)+"–"+money(est.high);
+  const name=($("name")?.value||"").trim()||"Jordan M.";
+  const email=($("email")?.value||"").trim()||"jordan@example.com";
+  const phone=($("phone")?.value||"").trim()||"(555) 014-2810";
+  const address=($("address")?.value||"").trim()||"123 Sample St.";
+  const type=isCommercial()?"quote":"booking";
+  const service=isCommercial()?"Commercial Cleaning":state.service;
+  $("ownerSubject").textContent="New "+type+" request — "+name;
+  $("ownerClient").textContent=name;
+  $("ownerEmail").textContent=email;
+  $("ownerPhone").textContent=phone;
+  $("ownerRequest").textContent=service;
+  $("ownerAddress").textContent=address;
+  $("trackerName").textContent=name;
+  $("trackerMeta").textContent=type+" · "+service+" · "+email+" · "+phone;
 }
 function showOwnerView(){
   syncOwnerView();
