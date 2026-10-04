@@ -21,47 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.pexels.com">
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/analytics.js" defer>
-(()=>{
-  const bar=document.getElementById("saleBar");
-  if(!bar) return;
-  const saleEnd=new Date(bar.dataset.saleEnd).getTime();
-  const saleStart=saleEnd-(7*24*60*60*1000);
-  const clock=document.getElementById("saleClockHand");
-  const countdown=document.getElementById("saleCountdown");
-  const kicker=document.getElementById("saleKicker");
-  const headline=document.getElementById("saleHeadline");
-  const buy=document.getElementById("saleBuy");
-  const offerPrice=document.getElementById("bookingFlowCurrentPrice");
-  const oldPrice=document.getElementById("bookingFlowOldPrice");
-  const finalCta=document.getElementById("bookingFlowFinalCta");
-  const tick=()=>{
-    const now=Date.now();
-    const remaining=Math.max(0,saleEnd-now);
-    const fraction=Math.max(0,Math.min(1,remaining/(saleEnd-saleStart)));
-    if(clock) clock.style.transform="rotate("+(fraction*360)+"deg)";
-    if(remaining<=0){
-      bar.classList.add("expired");
-      kicker.textContent="REGULAR PRICE";
-      headline.textContent="Booking Flow Setup · $99";
-      countdown.textContent="The 1-week offer has ended.";
-      buy.textContent="Get Booking Flow for $99 →";
-      if(offerPrice) offerPrice.textContent="$99";
-      if(oldPrice) oldPrice.style.display="none";
-      if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
-      return;
-    }
-    const totalMinutes=Math.floor(remaining/60000);
-    const d=Math.floor(totalMinutes/1440);
-    const h=Math.floor((totalMinutes%1440)/60);
-    const m=totalMinutes%60;
-    countdown.textContent=d+"d "+h+"h "+m+"m left";
-    setTimeout(tick,1000);
-  };
-  tick();
-})();
-
-</script>
+<script src="/assets/analytics.js" defer></script>
 <style>
 :root{
   --ivory:#FAF8F3;
@@ -889,6 +849,46 @@ footer{color:#707573}
   renderEstimate();
 })();
 
+</script>
+<script>
+(()=>{
+  const bar=document.getElementById("saleBar");
+  if(!bar) return;
+  const saleEnd=new Date(bar.dataset.saleEnd).getTime();
+  const saleStart=saleEnd-(7*24*60*60*1000);
+  const clock=document.getElementById("saleClockHand");
+  const countdown=document.getElementById("saleCountdown");
+  const kicker=document.getElementById("saleKicker");
+  const headline=document.getElementById("saleHeadline");
+  const buy=document.getElementById("saleBuy");
+  const offerPrice=document.getElementById("bookingFlowCurrentPrice");
+  const oldPrice=document.getElementById("bookingFlowOldPrice");
+  const finalCta=document.getElementById("bookingFlowFinalCta");
+  const tick=()=>{
+    const now=Date.now();
+    const remaining=Math.max(0,saleEnd-now);
+    const fraction=Math.max(0,Math.min(1,remaining/(saleEnd-saleStart)));
+    if(clock) clock.style.transform="rotate("+(fraction*360)+"deg)";
+    if(remaining<=0){
+      bar.classList.add("expired");
+      kicker.textContent="REGULAR PRICE";
+      headline.textContent="Booking Flow Setup · $99";
+      countdown.textContent="The 1-week offer has ended.";
+      buy.textContent="Get Booking Flow for $99 →";
+      if(offerPrice) offerPrice.textContent="$99";
+      if(oldPrice) oldPrice.style.display="none";
+      if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
+      return;
+    }
+    const totalMinutes=Math.floor(remaining/60000);
+    const d=Math.floor(totalMinutes/1440);
+    const h=Math.floor((totalMinutes%1440)/60);
+    const m=totalMinutes%60;
+    countdown.textContent=d+"d "+h+"h "+m+"m left";
+    setTimeout(tick,1000);
+  };
+  tick();
+})();
 </script>
 </body>
 </html>
