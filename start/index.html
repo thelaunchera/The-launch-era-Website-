@@ -515,30 +515,28 @@ footer{color:#707573}
 
 /* One-week Booking Flow sale */
 .sale-bar{background:var(--butter);border-bottom:1px solid rgba(25,25,25,.12)}
-.sale-bar-inner{min-height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px}
-.sale-clock{position:relative;width:44px;height:44px;border:2px solid var(--black);border-radius:50%;background:rgba(255,255,255,.25);flex:0 0 auto}
-.sale-clock:before,.sale-clock:after{content:"";position:absolute;background:var(--black);opacity:.35}
-.sale-clock:before{width:1px;height:36px;left:50%;top:2px;transform:translateX(-50%)}
-.sale-clock:after{height:1px;width:36px;top:50%;left:2px;transform:translateY(-50%)}
-.sale-clock-center{position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--black);transform:translate(-50%,-50%);z-index:3}
-.sale-clock-hand{position:absolute;z-index:2;left:calc(50% - 1px);bottom:50%;width:2px;height:15px;border-radius:2px;background:var(--black);transform-origin:50% 100%;transition:transform .9s linear}
-.sale-copy{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;min-width:0}
-.sale-copy small{font-size:9px;font-weight:900;letter-spacing:.12em}
-.sale-copy strong{font-family:"Prompt",Arial,sans-serif;font-size:15px}
+.sale-bar-inner{min-height:82px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
+.sale-copy{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:14px;row-gap:4px;min-width:0}
+.sale-copy small{grid-column:1/-1;font-size:9px;font-weight:900;letter-spacing:.12em}
+.sale-copy strong{font-family:"Prompt",Arial,sans-serif;font-size:15px;white-space:nowrap}
 .sale-copy s{opacity:.55;margin-right:4px}
-.sale-countdown{font-size:11px;font-weight:800;color:#4E4A2F}
+.sale-countdown{display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:6px;min-width:228px}
+.sale-time-unit{display:grid;place-items:center;gap:1px;min-height:46px;padding:5px 7px;border:1px solid rgba(25,25,25,.14);border-radius:10px;background:rgba(255,255,255,.48)}
+.sale-time-unit b{font-family:"Prompt",Arial,sans-serif;font-size:19px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:var(--black)}
+.sale-time-unit span{font-size:7px;font-weight:900;letter-spacing:.10em;color:#5B5741}
+.sale-countdown-ended{grid-column:1/-1;font-size:11px;font-weight:800;color:var(--muted)}
 .sale-buy{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 15px;border-radius:9px;background:var(--black);color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
 .sale-bar.expired{background:#E8E9E6}
-.sale-bar.expired .sale-countdown{color:var(--muted)}
+.sale-bar.expired .sale-time-unit{background:rgba(255,255,255,.55)}
 @media(max-width:720px){
-  .sale-bar-inner{min-height:82px;grid-template-columns:auto 1fr;gap:10px;padding-top:9px;padding-bottom:9px}
-  .sale-clock{width:38px;height:38px}
-  .sale-clock:before{height:30px;top:2px}.sale-clock:after{width:30px;left:2px}
-  .sale-clock-hand{height:13px}
-  .sale-copy{display:grid;gap:1px}
-  .sale-copy strong{font-size:13px;line-height:1.15}
-  .sale-countdown{font-size:9px}
-  .sale-buy{grid-column:1/-1;width:100%;min-height:40px}
+  .sale-bar-inner{min-height:0;grid-template-columns:1fr;gap:9px;padding-top:10px;padding-bottom:10px}
+  .sale-copy{grid-template-columns:1fr;gap:5px}
+  .sale-copy strong{font-size:13px;line-height:1.15;white-space:normal}
+  .sale-countdown{grid-template-columns:repeat(4,minmax(0,1fr));min-width:0;width:100%;gap:5px}
+  .sale-time-unit{min-height:44px;padding:5px 3px;border-radius:9px}
+  .sale-time-unit b{font-size:18px}
+  .sale-time-unit span{font-size:6.5px}
+  .sale-buy{width:100%;min-height:40px}
 }
 
 </style>
@@ -549,11 +547,15 @@ footer{color:#707573}
 
 <section class="sale-bar" id="saleBar" data-sale-end="2026-10-11T11:01:04Z">
   <div class="wrap sale-bar-inner">
-    <div class="sale-clock" aria-hidden="true"><span class="sale-clock-hand" id="saleClockHand"></span><span class="sale-clock-center"></span></div>
     <div class="sale-copy">
       <small id="saleKicker">1-WEEK OFFER</small>
       <strong id="saleHeadline">Booking Flow Setup: <s>$99</s> $29.99</strong>
-      <span class="sale-countdown" id="saleCountdown">7 days left</span>
+      <div class="sale-countdown" id="saleCountdown" aria-label="Offer time remaining">
+        <span class="sale-time-unit"><b id="saleDays">07</b><span>DAYS</span></span>
+        <span class="sale-time-unit"><b id="saleHours">00</b><span>HRS</span></span>
+        <span class="sale-time-unit"><b id="saleMinutes">00</b><span>MIN</span></span>
+        <span class="sale-time-unit"><b id="saleSeconds">00</b><span>SEC</span></span>
+      </div>
     </div>
     <a class="sale-buy" id="saleBuy" href="/pay/booking-flow/">Buy for $29.99 →</a>
   </div>
@@ -855,25 +857,25 @@ footer{color:#707573}
   const bar=document.getElementById("saleBar");
   if(!bar) return;
   const saleEnd=new Date(bar.dataset.saleEnd).getTime();
-  const saleStart=saleEnd-(7*24*60*60*1000);
-  const clock=document.getElementById("saleClockHand");
   const countdown=document.getElementById("saleCountdown");
+  const daysEl=document.getElementById("saleDays");
+  const hoursEl=document.getElementById("saleHours");
+  const minutesEl=document.getElementById("saleMinutes");
+  const secondsEl=document.getElementById("saleSeconds");
   const kicker=document.getElementById("saleKicker");
   const headline=document.getElementById("saleHeadline");
   const buy=document.getElementById("saleBuy");
   const offerPrice=document.getElementById("bookingFlowCurrentPrice");
   const oldPrice=document.getElementById("bookingFlowOldPrice");
   const finalCta=document.getElementById("bookingFlowFinalCta");
+  const pad=value=>String(value).padStart(2,"0");
   const tick=()=>{
-    const now=Date.now();
-    const remaining=Math.max(0,saleEnd-now);
-    const elapsed=Math.max(0,Math.min(1,(now-saleStart)/(saleEnd-saleStart)));
-    if(clock) clock.style.transform="rotate("+(-elapsed*360)+"deg)";
+    const remaining=Math.max(0,saleEnd-Date.now());
     if(remaining<=0){
       bar.classList.add("expired");
       kicker.textContent="REGULAR PRICE";
       headline.textContent="Booking Flow Setup · $99";
-      countdown.textContent="The 1-week offer has ended.";
+      if(countdown) countdown.innerHTML='<span class="sale-countdown-ended">The 1-week offer has ended.</span>';
       buy.textContent="Get Booking Flow for $99 →";
       if(offerPrice) offerPrice.textContent="$99";
       if(oldPrice) oldPrice.style.display="none";
@@ -881,12 +883,17 @@ footer{color:#707573}
       if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
       return;
     }
-    const totalMinutes=Math.floor(remaining/60000);
-    const d=Math.floor(totalMinutes/1440);
-    const h=Math.floor((totalMinutes%1440)/60);
-    const m=totalMinutes%60;
-    countdown.textContent=d+"d "+h+"h "+m+"m left";
-    setTimeout(tick,1000);
+    const totalSeconds=Math.floor(remaining/1000);
+    const d=Math.floor(totalSeconds/86400);
+    const h=Math.floor((totalSeconds%86400)/3600);
+    const m=Math.floor((totalSeconds%3600)/60);
+    const s=totalSeconds%60;
+    if(daysEl) daysEl.textContent=pad(d);
+    if(hoursEl) hoursEl.textContent=pad(h);
+    if(minutesEl) minutesEl.textContent=pad(m);
+    if(secondsEl) secondsEl.textContent=pad(s);
+    if(countdown) countdown.setAttribute("aria-label",d+" days, "+h+" hours, "+m+" minutes and "+s+" seconds remaining");
+    setTimeout(tick,250);
   };
   tick();
 })();
