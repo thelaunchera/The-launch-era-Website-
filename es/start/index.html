@@ -638,7 +638,7 @@ footer{color:#707573}
     <div class="wrap">
       <div class="what-you-see-head"><span class="hero-badge">UNA SOLICITUD · DOS LADOS</span><h2>El cliente ve la reserva. Tú recibes el sistema detrás.</h2><p>Booking Flow conecta la experiencia del cliente con las acciones del owner después de enviar.</p></div>
       <div class="two-sides">
-        <article class="side-card"><small>EL CLIENTE VE</small><h3>Un camino simple para enviar la solicitud.</h3><ul><li>Elige servicio y detalles de la propiedad</li><li>Ve un estimado aproximado</li><li>Elige un horario preferido</li><li>Recibe confirmación de que la solicitud llegó</li></ul></article>
+        <article class="side-card"><small>EL CLIENTE VE</small><h3>Un camino simple para enviar la solicitud.</h3><ul><li>Verifica primero el código ZIP de la zona de servicio</li><li>Elige servicio y detalles de la propiedad</li><li>Ve un estimado aproximado</li><li>Elige un horario preferido</li><li>Recibe confirmación de que la solicitud llegó</li></ul></article>
         <article class="side-card owner"><small>EL OWNER RECIBE</small><h3>El lead, el próximo paso y el seguimiento.</h3><ul><li>Alerta detallada al owner</li><li>Ficha privada con los detalles</li><li>Nuevo → Revisando → Confirmar / Cotización personalizada → Reservado</li><li>Seguimiento automático conectado al lead</li></ul></article>
       </div>
       <div class="clarity-line"><strong>¿Solo necesitas la página para el cliente?</strong> Elige la <a href="/es/booking-page/" style="text-decoration:underline;text-underline-offset:3px">Página de Reservas</a>. <strong>¿Necesitas el espacio completo para operar?</strong> Elige la <a href="/es/cleaning-app/" style="text-decoration:underline;text-underline-offset:3px">Aplicación Web</a>.</div>
@@ -661,6 +661,7 @@ footer{color:#707573}
       <div class="estimate-card" aria-label="Calculadora de estimado aproximado de limpieza">
         <div class="estimate-card-top"><div><small>DEMO EN VIVO</small><strong>Estimado aproximado de limpieza</strong></div><span>Se actualiza al instante</span></div>
         <div class="estimate-fields">
+          <label class="estimate-full">Código ZIP del servicio<input id="flowEstZip" inputmode="numeric" maxlength="5" placeholder="ej. 33436" style="width:100%;min-height:48px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 12px;color:var(--black);font:inherit"><small id="flowEstZipStatus" style="font-size:9px;color:var(--muted);font-weight:500">Escribe 5 dígitos para verificar la zona de servicio.</small></label>
           <label>Servicio<select id="flowEstService"><option value="129">Limpieza Estándar</option><option value="219">Limpieza Profunda</option><option value="249">Mudanza / Entrega</option><option value="119">Limpieza Recurrente</option></select></label>
           <label>Tamaño<select id="flowEstSqft"><option value="-10">Menos de 1,000 sq ft</option><option value="0" selected>1,000–1,999 sq ft</option><option value="40">2,000–2,999 sq ft</option><option value="85">3,000+ sq ft</option></select></label>
           <label>Habitaciones<select id="flowEstBeds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
@@ -770,7 +771,7 @@ footer{color:#707573}
         </div>
 
         <aside class="benefits reveal">
-          <div class="benefit"><span>▣</span><p>Página de Reservas personalizada</p></div>
+          <div class="benefit"><span>▣</span><p>Página de Reservas + verificación de código ZIP</p></div>
           <div class="benefit"><span>≈</span><p>Estimado aproximado de precio</p></div>
           <div class="benefit"><span>✉</span><p>Alerta al owner + confirmación al cliente</p></div>
           <div class="benefit"><span>▤</span><p>Private Lead Tracker detallado</p></div>
@@ -844,6 +845,8 @@ footer{color:#707573}
 })();
 
 (()=>{
+  const zip=document.getElementById("flowEstZip"), zipStatus=document.getElementById("flowEstZipStatus");
+  if(zip&&zipStatus){zip.addEventListener("input",()=>{zip.value=zip.value.replace(/\\D/g,"").slice(0,5);const ok=zip.value.length===5;zipStatus.textContent=ok?"✓ Zona de servicio disponible en este demo":"Escribe 5 dígitos para verificar la zona de servicio.";zipStatus.style.color=ok?"#355F78":"var(--muted)";});}
   const ids=["flowEstService","flowEstSqft","flowEstBeds","flowEstBaths","flowEstFrequency"];
   const els=ids.map(id=>document.getElementById(id));
   if(els.some(x=>!x)) return;
