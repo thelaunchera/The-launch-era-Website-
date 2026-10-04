@@ -81,8 +81,15 @@ function renderCheckoutCountdown(){
  setTimeout(renderCheckoutCountdown,250);
 }
 renderCheckoutCountdown();
+let paymentStartTracked=false;
+function trackPaymentStart(){
+ if(paymentStartTracked)return;
+ paymentStartTracked=true;
+ const amount=Date.now()<saleEnd?29.99:99;
+ window.tleTrackEvent?.("payment_start",{product:"booking_flow",amount,currency:"USD",language:lang});
+}
 async function openCheckout(){
- window.tleTrackEvent?.("payment_start",{product:"booking_flow",amount:29.99,currency:"USD",language:lang});
+ trackPaymentStart();
  retry.hidden=true;dots.hidden=false;status.textContent=lang==="es"?"Abriendo el pago seguro…":"Opening secure checkout…";
  try{
   const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({offer:"booking-flow",language:lang})});
