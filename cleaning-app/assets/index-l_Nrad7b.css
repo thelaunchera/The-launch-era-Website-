@@ -39,3 +39,13 @@
  .record-actions .mini-btn{min-height:40px}
  .actions .btn{width:100%}
 }
+
+/* Work-flow clarity */
+@media(max-width:900px){
+ .mobile-more-grid{grid-template-columns:1fr 1fr}
+ .mobile-more-grid a{min-height:52px;display:flex;align-items:center}
+}
+@media(max-width:620px){
+ .mobile-more-grid{grid-template-columns:1fr 1fr}
+ .mobile-more-grid a{padding:14px 13px}
+}
