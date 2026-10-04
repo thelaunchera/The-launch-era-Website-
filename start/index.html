@@ -747,7 +747,7 @@ footer{color:#707573}
     <div class="wrap">
       <div class="offer-shell">
         <div class="offer-main reveal">
-          <span class="offer-pill">SPECIAL OFFER</span>
+          <span class="offer-pill" id="bookingFlowOfferPill">1-WEEK OFFER</span>
           <h2>Booking Flow Setup</h2>
           <p>We connect the customer-facing Booking Page to confirmation, your private Lead Tracker and follow-up so each new inquiry has somewhere clear to go next.</p>
           <div class="price-line"><span class="old-price" id="bookingFlowOldPrice">$99</span><span class="new-price" id="bookingFlowCurrentPrice">$29.99</span></div>
@@ -877,6 +877,7 @@ footer{color:#707573}
       buy.textContent="Get Booking Flow for $99 →";
       if(offerPrice) offerPrice.textContent="$99";
       if(oldPrice) oldPrice.style.display="none";
+      const offerPill=document.getElementById("bookingFlowOfferPill"); if(offerPill) offerPill.textContent="REGULAR PRICE";
       if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
       return;
     }
