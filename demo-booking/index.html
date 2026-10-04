@@ -207,11 +207,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
   <section class="booking" id="booking">
     <div class="wrap shell">
       <div class="form-card">
-        <div class="space-switch" aria-label="Choose property type">
-          <button type="button" class="active" data-space="Residential">Residential</button>
-          <button type="button" data-space="Commercial">Commercial</button>
-        </div>
-        <p class="commercial-note">Cleaning a business space? Tell us what you need, and we’ll prepare a quote instead of a home-cleaning estimate.</p>
+        <p class="commercial-note" style="display:block">Choose a residential cleaning below. Need something custom or commercial? Use <strong>Request a Quote</strong> at the end of the service list.</p>
 
         <div class="progress" aria-label="Booking steps">
           <button type="button" data-jump="0"><span class="progress-bar"></span><small>1 · Service</small></button>
@@ -227,17 +223,18 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
             <p class="step-intro">Choose the residential service that best fits your home. You can change it before you finish.</p>
           </div>
           <div class="commercial-service-copy" hidden>
-            <h2>Request a commercial cleaning quote.</h2>
-            <p class="step-intro">Commercial spaces use a separate quote path. Tell us about the property and scope so the business can review it before pricing.</p>
+            <h2>Tell us what needs a custom quote.</h2>
+            <p class="step-intro">Commercial, post-construction and custom jobs use a quote path instead of a residential instant estimate.</p>
           </div>
           <div class="services residential-services">
-            <button class="service active" type="button" data-service="Standard Cleaning" data-price="129"><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span>From $129</span></button>
+            <button class="service active" type="button" data-service="Recurring Cleaning" data-price="119"><strong>Recurring Cleaning</strong><p>Ongoing home cleaning on a weekly, biweekly or monthly schedule.</p><span>From $119</span></button>
+            <button class="service" type="button" data-service="Standard Cleaning" data-price="129"><strong>Standard Cleaning</strong><p>Routine one-time cleaning for a home that needs a fresh reset.</p><span>From $129</span></button>
             <button class="service" type="button" data-service="Deep Cleaning" data-price="219"><strong>Deep Cleaning</strong><p>More detail for buildup and often-missed areas.</p><span>From $219</span></button>
             <button class="service" type="button" data-service="Move-In / Move-Out" data-price="249"><strong>Move-In / Move-Out</strong><p>Detailed cleaning for an empty or nearly empty home.</p><span>From $249</span></button>
-            <button class="service" type="button" data-service="Recurring Cleaning" data-price="119"><strong>Recurring Cleaning</strong><p>A repeating clean to keep the home consistently maintained.</p><span>From $119</span></button>
+            <button class="service quote-service" type="button" data-service="Request a Quote" data-price="0" data-quote="true"><strong>Request a Quote</strong><p>Commercial, post-construction or a job that needs custom pricing.</p><span>Custom pricing →</span></button>
           </div>
           <div class="commercial-services" hidden>
-            <div class="commercial-note" style="display:block;margin:0">No residential price range is used here. Commercial pricing is custom and is reviewed after the quote request is submitted.</div>
+            <div class="commercial-note" style="display:block;margin:0">No residential price range is shown here. The business reviews the property, scope and frequency before preparing a custom quote.</div>
           </div>
         </section>
 
@@ -428,8 +425,8 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 const state={
   space:"Residential",
   step:0,
-  service:"Standard Cleaning",
-  base:129,
+  service:"Recurring Cleaning",
+  base:119,
   beds:3,
   baths:2,
   sqft:0,
@@ -451,7 +448,7 @@ function syncOwnerView(){
   const phone=($("phone")?.value||"").trim()||"(555) 014-2810";
   const address=($("address")?.value||"").trim()||"123 Sample St.";
   const type=isCommercial()?"quote":"booking";
-  const service=isCommercial()?"Commercial Cleaning":state.service;
+  const service=isCommercial()?"Request a Quote":state.service;
   const property=isCommercial()
     ? $("commercialType").value+" · "+$("commercialSqft").value
     : state.homeType+" · "+state.beds+" bed · "+state.baths+" bath";
@@ -532,7 +529,7 @@ function render(){
   $("commercialTimes").hidden=!isCommercial();
 
   if(isCommercial()){
-    state.service="Commercial Cleaning";
+    state.service="Request a Quote";
     state.base=0;
     state.frequency=$("commercialFrequency").value;
     state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
@@ -603,6 +600,17 @@ document.querySelectorAll(".service").forEach(btn=>btn.addEventListener("click",
   const group=btn.parentElement;
   group.querySelectorAll(".service").forEach(x=>x.classList.remove("active"));
   btn.classList.add("active");
+  if(btn.dataset.quote==="true"){
+    state.space="Commercial";
+    state.service="Request a Quote";
+    state.base=0;
+    state.extras=[];
+    state.step=1;
+    render();
+    document.querySelector(".form-card").scrollIntoView({behavior:"smooth",block:"start"});
+    return;
+  }
+  state.space="Residential";
   state.service=btn.dataset.service;
   state.base=Number(btn.dataset.price||0);
   render();
