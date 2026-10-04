@@ -222,16 +222,22 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
         <section class="step active" data-step="0">
           <span class="step-label">Step 1</span>
-          <h2>What kind of cleaning would help?</h2>
-          <p class="step-intro">Start with the option that fits your space. You can always change it before you finish.</p>
+          <div class="residential-service-copy">
+            <h2>What kind of home cleaning do you need?</h2>
+            <p class="step-intro">Choose the residential service that best fits your home. You can change it before you finish.</p>
+          </div>
+          <div class="commercial-service-copy" hidden>
+            <h2>Request a commercial cleaning quote.</h2>
+            <p class="step-intro">Commercial spaces use a separate quote path. Tell us about the property and scope so the business can review it before pricing.</p>
+          </div>
           <div class="services residential-services">
             <button class="service active" type="button" data-service="Standard Cleaning" data-price="129"><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span>From $129</span></button>
             <button class="service" type="button" data-service="Deep Cleaning" data-price="219"><strong>Deep Cleaning</strong><p>More detail for buildup and often-missed areas.</p><span>From $219</span></button>
             <button class="service" type="button" data-service="Move-In / Move-Out" data-price="249"><strong>Move-In / Move-Out</strong><p>Detailed cleaning for an empty or nearly empty home.</p><span>From $249</span></button>
             <button class="service" type="button" data-service="Recurring Cleaning" data-price="119"><strong>Recurring Cleaning</strong><p>A repeating clean to keep the home consistently maintained.</p><span>From $119</span></button>
           </div>
-          <div class="services commercial-services" hidden>
-            <button class="service active" type="button" data-service="Commercial Cleaning" data-price="0"><strong>Commercial Cleaning</strong><p>Office, storefront, studio, salon, professional space or other commercial property.</p><span>Custom quote</span></button>
+          <div class="commercial-services" hidden>
+            <div class="commercial-note" style="display:block;margin:0">No residential price range is used here. Commercial pricing is custom and is reviewed after the quote request is submitted.</div>
           </div>
         </section>
 
@@ -510,6 +516,8 @@ function render(){
   document.body.classList.toggle("commercial",isCommercial());
   document.querySelector(".residential-services").hidden=isCommercial();
   document.querySelector(".commercial-services").hidden=!isCommercial();
+  document.querySelector(".residential-service-copy").hidden=isCommercial();
+  document.querySelector(".commercial-service-copy").hidden=!isCommercial();
   document.querySelector(".residential-property").hidden=isCommercial();
   document.querySelector(".commercial-property").hidden=!isCommercial();
   document.querySelector(".residential-extras").hidden=isCommercial();
