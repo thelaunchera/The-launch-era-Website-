@@ -12,8 +12,12 @@
 <body><main class="wrap">
 <div class="top"><div class="brand">THE LAUNCH ERA</div><div class="topnav"><a href="../../">← Sitio en español</a><a href="../../../intake/content/" hreflang="en">ENGLISH</a></div></div>
 <section class="card">
-<p class="kicker">Formulario · Español</p><h1>Formulario de Contenido</h1><p class="lead">Cuéntame sobre tu negocio de limpieza, tu marca y tus objetivos. Esta información se usa para preparar tu contenido mensual.</p>
-<div class="notice"><strong>Importante:</strong> Usa exactamente el mismo correo que utilizaste al pagar. <strong>Tu paquete (Starter, Growth o Pro) ya está conectado automáticamente a tu compra</strong>, así que no tienes que seleccionarlo otra vez aquí. Al enviar este formulario confirmas que revisaste y aceptas el Acuerdo de Servicio de Contenido.<br><br>Tu tiempo de prod<form id="contentIntake" novalidate>
+<p class="kicker">Formulario · Español</p>
+<h1>Formulario de Contenido</h1>
+<p class="lead">Cuéntame lo esencial sobre tu negocio y qué quieres lograr este mes. Lo demás es opcional.</p>
+<div class="notice"><strong>Importante:</strong> usa el mismo correo que utilizaste al pagar. Contenido Mensual es un solo servicio: <strong>5 piezas listas para publicar por mes</strong>. Al enviar este formulario confirmas que revisaste y aceptas el Acuerdo de Servicio de Contenido.</div>
+
+<form id="contentIntake" novalidate>
 <div class="q"><label for="client_name"><span class="n">01 · Tu nombre</span><span class="req">Obligatorio</span></label><input id="client_name" name="client_name" type="text" required></div>
 <div class="q"><label for="email"><span class="n">02 · Correo usado al pagar</span><span class="req">Obligatorio</span></label><input id="email" name="email" type="email" required autocomplete="email"></div>
 <div class="q"><label for="instagram"><span class="n">03 · Instagram o página principal</span></label><input id="instagram" name="instagram" type="text" placeholder="@usuario o https://..."></div>
@@ -21,7 +25,7 @@
 <div class="q"><label for="service_area"><span class="n">05 · Área de servicio</span><span class="req">Obligatorio</span></label><input id="service_area" name="service_area" required placeholder="Ciudades, ZIP o condados"></div>
 <div class="q"><label for="goal"><span class="n">06 · ¿Qué quieres lograr con el contenido este mes?</span><span class="req">Obligatorio</span></label><textarea id="goal" name="goal" required placeholder="Ej.: más reservas, mostrar trabajos, vender recurring cleaning"></textarea></div>
 <div class="q"><label for="priority_service"><span class="n">07 · ¿Qué servicio quieres priorizar?</span><span class="req">Obligatorio</span></label><input id="priority_service" name="priority_service" required></div>
-<div class="q"><label for="brand_assets_link"><span class="n">08 · Logo / fotos / carpeta de marca</span></label><input id="brand_assets_link" name="brand_assets_link" type="url" placeholder="Google Drive, Dropbox, etc."><div class="help">Si ya lo compartiste antes y no cambió, puedes dejarlo vacío.</div></div>
+<div class="q"><label for="brand_assets_link"><span class="n">08 · Logo / fotos / carpeta de marca</span></label><input id="brand_assets_link" name="brand_assets_link" type="url" placeholder="Google Drive, Dropbox, etc."><div class="help">Si ya lo compartiste antes y no cambió, déjalo vacío.</div></div>
 
 <details class="optional-details"><summary>Añadir más contexto de marca (opcional)</summary>
 <div class="q"><label for="ideal_client"><span class="n">¿Quién es tu cliente ideal?</span></label><textarea id="ideal_client" name="ideal_client"></textarea></div>
@@ -33,18 +37,17 @@
 </details>
 
 <div class="ready">
-<h2>¿Tenemos lo necesario para comenzar?</h2><p>Si tu logo/fotos u otro material todavía falta, marca No y dinos qué falta.</p>
+<h2>¿Tenemos lo necesario para comenzar?</h2>
+<p>Si todavía falta un logo, fotos u otro material importante, marca No y dinos qué falta.</p>
 <div class="choice"><label><input type="radio" name="assets_complete" value="true" required> Sí, está listo</label><label><input type="radio" name="assets_complete" value="false" required> No, falta algo</label></div>
 <div class="missing" id="missingWrap"><label for="missing_info"><strong>¿Qué falta?</strong></label><textarea id="missing_info" name="missing_info"></textarea></div>
 </div>
-<div class="actions"><button class="btn" id="submitBtn" type="submit">Enviar Información</button></div><div class="status" id="status" role="alert"></div>
-</form>holder="Ej.: fotos del equipo, logo actualizado, enlace de reservas..."></textarea></div>
-</div>
-<div class="actions"><button class="btn" id="submitBtn" type="submit">Enviar formulario</button></div>
+
+<div class="actions"><button class="btn" id="submitBtn" type="submit">Enviar Información</button></div>
 <div class="status" id="status" role="alert"></div>
 </form>
 
-<div class="success" id="success" role="status" aria-live="polite"><h2>Formulario enviado ✓</h2><p>Recibimos tu formulario de contenido. Tu proyecto avanzará automáticamente cuando toda la información y materiales necesarios estén completos.</p></div>
+<div class="success" id="success" role="status" aria-live="polite"><h2>Formulario enviado ✓</h2><p>Recibimos tu formulario de Contenido. Tu proyecto avanzará cuando tengamos la información y materiales necesarios.</p></div>
 </section><div class="foot">The Launch Era · hello@thelaunchera.com · Se habla español</div>
 </main>
 <script>
