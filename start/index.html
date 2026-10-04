@@ -21,7 +21,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.pexels.com">
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="/assets/analytics.js" defer></script>
+<script src="/assets/analytics.js" defer>
+(()=>{
+  const bar=document.getElementById("saleBar");
+  if(!bar) return;
+  const saleEnd=new Date(bar.dataset.saleEnd).getTime();
+  const saleStart=saleEnd-(7*24*60*60*1000);
+  const clock=document.getElementById("saleClockHand");
+  const countdown=document.getElementById("saleCountdown");
+  const kicker=document.getElementById("saleKicker");
+  const headline=document.getElementById("saleHeadline");
+  const buy=document.getElementById("saleBuy");
+  const offerPrice=document.getElementById("bookingFlowCurrentPrice");
+  const oldPrice=document.getElementById("bookingFlowOldPrice");
+  const finalCta=document.getElementById("bookingFlowFinalCta");
+  const tick=()=>{
+    const now=Date.now();
+    const remaining=Math.max(0,saleEnd-now);
+    const fraction=Math.max(0,Math.min(1,remaining/(saleEnd-saleStart)));
+    if(clock) clock.style.transform="rotate("+(fraction*360)+"deg)";
+    if(remaining<=0){
+      bar.classList.add("expired");
+      kicker.textContent="REGULAR PRICE";
+      headline.textContent="Booking Flow Setup · $99";
+      countdown.textContent="The 1-week offer has ended.";
+      buy.textContent="Get Booking Flow for $99 →";
+      if(offerPrice) offerPrice.textContent="$99";
+      if(oldPrice) oldPrice.style.display="none";
+      if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
+      return;
+    }
+    const totalMinutes=Math.floor(remaining/60000);
+    const d=Math.floor(totalMinutes/1440);
+    const h=Math.floor((totalMinutes%1440)/60);
+    const m=totalMinutes%60;
+    countdown.textContent=d+"d "+h+"h "+m+"m left";
+    setTimeout(tick,1000);
+  };
+  tick();
+})();
+
+</script>
 <style>
 :root{
   --ivory:#FAF8F3;
@@ -512,10 +552,52 @@ footer{color:#707573}
   .nav-cta{padding:9px 10px}
 }
 
+
+/* One-week Booking Flow sale */
+.sale-bar{background:var(--butter);border-bottom:1px solid rgba(25,25,25,.12)}
+.sale-bar-inner{min-height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px}
+.sale-clock{position:relative;width:44px;height:44px;border:2px solid var(--black);border-radius:50%;background:rgba(255,255,255,.25);flex:0 0 auto}
+.sale-clock:before,.sale-clock:after{content:"";position:absolute;background:var(--black);opacity:.35}
+.sale-clock:before{width:1px;height:36px;left:50%;top:2px;transform:translateX(-50%)}
+.sale-clock:after{height:1px;width:36px;top:50%;left:2px;transform:translateY(-50%)}
+.sale-clock-center{position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--black);transform:translate(-50%,-50%);z-index:3}
+.sale-clock-hand{position:absolute;z-index:2;left:calc(50% - 1px);bottom:50%;width:2px;height:15px;border-radius:2px;background:var(--black);transform-origin:50% 100%;transition:transform .9s linear}
+.sale-copy{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;min-width:0}
+.sale-copy small{font-size:9px;font-weight:900;letter-spacing:.12em}
+.sale-copy strong{font-family:"Prompt",Arial,sans-serif;font-size:15px}
+.sale-copy s{opacity:.55;margin-right:4px}
+.sale-countdown{font-size:11px;font-weight:800;color:#4E4A2F}
+.sale-buy{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 15px;border-radius:9px;background:var(--black);color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
+.sale-bar.expired{background:#E8E9E6}
+.sale-bar.expired .sale-countdown{color:var(--muted)}
+@media(max-width:720px){
+  .sale-bar-inner{min-height:82px;grid-template-columns:auto 1fr;gap:10px;padding-top:9px;padding-bottom:9px}
+  .sale-clock{width:38px;height:38px}
+  .sale-clock:before{height:30px;top:2px}.sale-clock:after{width:30px;left:2px}
+  .sale-clock-hand{height:13px}
+  .sale-copy{display:grid;gap:1px}
+  .sale-copy strong{font-size:13px;line-height:1.15}
+  .sale-countdown{font-size:9px}
+  .sale-buy{grid-column:1/-1;width:100%;min-height:40px}
+}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
+
+<section class="sale-bar" id="saleBar" data-sale-end="2026-10-11T11:01:04Z">
+  <div class="wrap sale-bar-inner">
+    <div class="sale-clock" aria-hidden="true"><span class="sale-clock-hand" id="saleClockHand"></span><span class="sale-clock-center"></span></div>
+    <div class="sale-copy">
+      <small id="saleKicker">1-WEEK OFFER</small>
+      <strong id="saleHeadline">Booking Flow Setup: <s>$99</s> $29.99</strong>
+      <span class="sale-countdown" id="saleCountdown">7 days left</span>
+    </div>
+    <a class="sale-buy" id="saleBuy" href="/pay/booking-flow/">Buy for $29.99 →</a>
+  </div>
+</section>
 
 <header>
   <div class="wrap nav">
@@ -708,7 +790,7 @@ footer{color:#707573}
           <span class="offer-pill">SPECIAL OFFER</span>
           <h2>Booking Flow Setup</h2>
           <p>We connect the customer-facing Booking Page to confirmation, your private Lead Tracker and follow-up so each new inquiry has somewhere clear to go next.</p>
-          <div class="price-line"><span class="old-price">$99</span><span class="new-price">$49.99</span></div>
+          <div class="price-line"><span class="old-price" id="bookingFlowOldPrice">$99</span><span class="new-price" id="bookingFlowCurrentPrice">$29.99</span></div>
           <a class="btn primary" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get My Booking Flow →</a>
         </div>
 
@@ -753,7 +835,7 @@ footer{color:#707573}
         <h2>Give every new cleaning lead somewhere clear to go next.</h2>
         <p>A polished front end for your customer. A cleaner process behind it for you.</p>
       </div>
-      <a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow">Get My Booking Flow — $49.99 →</a>
+      <a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow"><span id="bookingFlowFinalCta">Get My Booking Flow — $29.99 →</span></a>
     </div>
   </section>
 </main>
