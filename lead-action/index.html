@@ -10,7 +10,7 @@
   const r=await fetch("https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-booking-flow-lead-action",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token,action})});
   const d=await r.json();
   if(!r.ok) throw new Error(d.error||"Could not update this lead.");
-  const labels={booked:"Booked",contacted:"Contacted",pause:"Follow-up paused",closed:"Closed",lost:"Closed as lost"};
+  const labels={reviewing:"Marked as reviewing",quoted:"Quote / confirmation stage",booked:"Booked",contacted:"Contacted",pause:"Follow-up paused",closed:"Closed",lost:"Closed as lost"};
   card.classList.remove("loading");icon.textContent="✓";title.textContent=labels[action]||"Updated";copy.textContent=(d.customer_name||"This lead")+" has been updated. You can close this page.";
  }catch(e){card.classList.remove("loading");card.classList.add("error");icon.textContent="!";title.textContent="We couldn't update this lead.";copy.textContent=e.message||"The link may have expired."}
 })();
