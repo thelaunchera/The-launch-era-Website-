@@ -20,7 +20,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 .actions{margin-top:18px}.btn{width:100%;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:16px 20px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}.btn:disabled{opacity:.45}
 .status{margin-top:14px;font-weight:700}.small{font-size:12px;color:var(--muted)}.lang{float:right;font-size:12px;font-weight:800}
 @media(max-width:650px){.grid,.checks{grid-template-columns:1fr}.section{padding:22px}.hero{padding-top:42px}}
-</style>
+.optional-details{margin:14px 0;border:1px solid var(--line);background:#fff;padding:0 16px}.optional-details summary{cursor:pointer;font-weight:800;padding:14px 0}.quick-note{font-size:12px;color:var(--muted);margin-top:8px}</style>
 <script src="../assets/analytics.js"></script>
 </head>
 <body>
@@ -30,87 +30,59 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div class="kicker">Client Intake</div>
 <h1>Let’s build your Booking Page — and connect the system behind it.</h1>
 <p>Please complete this once after purchasing your Booking Page. This form is for clients who selected English at checkout.</p>
-<div class="note"><strong>What happens next:</strong> we create your Booking and Quote paths, connect them to your professional Booking Page, and send new requests to the destination you choose. If you want the Cleaning Web App, 60 days of access are included at no extra cost. It runs in your browser and can be added to your Home Screen to use like an app. <strong>Production time: 24 hours after we receive the complete form and required assets.</strong></div>
-</section>
-
-<form id="intakeForm">
+<div class="note"><strong>What happens next:</strong> we create your Booking and Quote paths, connect them to your professional Booking Page, and send new requests to the destination you choose. If you want the Cleaning Web App, 60 days of access are <form id="intakeForm">
 <input type="hidden" name="type" value="tle.booking_app_intake">
-
-<section class="section">
-<h2>1. Business basics</h2><p>Tell us the essentials.</p>
-<div class="grid">
 <input type="hidden" name="language" value="english">
-<div><label>Your name</label><input name="full_name" required></div>
-<div><label>Business name</label><input name="business_name" required></div>
-<div><label>Email</label><input type="email" name="email" required></div>
-<div><label>Phone</label><input name="phone" required></div>
-<div><label>Cleaning Web App email <span class="small">(optional)</span></label><input type="email" name="app_account_email" placeholder="Only if you want to use the included Web App access"></div>
-<div><label>Business time zone</label><input name="time_zone" required placeholder="Example: America/New_York"></div>
-<div><label>Customer pricing currency</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
-<div class="full"><label>Service areas</label><input name="service_areas" required placeholder="Cities, ZIP codes, counties..."></div>
-<div><label>Instagram URL</label><input type="url" name="instagram_url" placeholder="https://..."></div>
-<div><label>Google Business Profile URL</label><input type="url" name="google_business_url" placeholder="https://..."></div>
-</div>
-</section>
+<input type="hidden" name="time_zone" id="time_zone" value="America/New_York">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="pricing_style" value="mixed">
+<input type="hidden" name="minimum_booking_notice" value="24 hours">
+<input type="hidden" name="buffer_time" value="30 minutes">
+<input type="hidden" name="booking_window" value="60 days">
+<input type="hidden" name="preferred_contact" value="email">
+<input type="hidden" name="inquiry_destination" value="business_email">
+<input type="hidden" name="owner_email" id="owner_email">
+<input type="hidden" name="business_hours_display" id="business_hours_display">
+<input type="checkbox" name="contact_email" checked hidden>
 
-<section class="section">
-<h2>2. Booking Page</h2><p>What your clients should see first.</p>
-<div class="grid">
-<div><label>Existing domain</label><input name="existing_domain" placeholder="Leave blank if none"></div>
-<div><label>Brand colors</label><input name="brand_colors" placeholder="Names or hex codes"></div>
-<div class="full"><label>Logo or brand files link</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
-<div class="full"><label>Photo folder link</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
-<div class="full"><label>Short About</label><textarea name="about_business" placeholder="What should a new client know?"></textarea></div>
-<div class="full"><label>Reviews</label><textarea name="reviews" placeholder="Paste 2–4 reviews or a link"></textarea></div>
-<div class="full"><label>Main message or special offer</label><textarea name="main_offer" placeholder="Optional"></textarea></div>
-<div class="full"><label>Business hours to show on your page</label><textarea name="business_hours_display" required placeholder="Example: Mon–Fri 8 AM–5 PM; Sat 8 AM–12 PM"></textarea></div>
-</div>
-</section>
+<section class="section"><h2>1. The essentials</h2><p>Just what we need to get started.</p><div class="grid">
+<div><label>Your name *</label><input name="full_name" required autocomplete="name"></div>
+<div><label>Business name *</label><input name="business_name" required autocomplete="organization"></div>
+<div><label>Business email *</label><input type="email" name="email" id="email" required autocomplete="email"></div>
+<div><label>Phone <span class="small">(optional)</span></label><input name="phone" autocomplete="tel"></div>
+<div class="full"><label>Service area *</label><input name="service_areas" required placeholder="Example: Boynton Beach, Delray Beach, Boca Raton"></div>
+</div></section>
 
-<section class="section">
-<h2>3. Services + pricing</h2><p>This guides your Booking Page.</p>
-<div class="grid">
-<div class="full"><label>Cleaning services</label><textarea name="services" required placeholder="List one per line: Service — Price OR Quote Required — Approx. duration&#10;Example: Standard Cleaning — $120 — 2 hours&#10;Deep Cleaning — Quote Required — 4 hours"></textarea></div>
-<div><label>Default pricing style</label><select name="pricing_style" required><option value="fixed">Fixed price</option><option value="starting_at">Starting at</option><option value="quote_only">Quote only</option><option value="mixed">Different by service</option></select></div>
-<div><label>Typical service duration</label><input name="service_duration" placeholder="Example: 2–3 hours"></div>
-<div class="full"><label>Add-ons</label><textarea name="add_ons" placeholder="List each add-on with price and extra time. Example: Inside oven — +$35 — +30 min"></textarea></div>
-</div>
-</section>
-
-<section class="section">
-<h2>4. Booking + quote</h2><p>We connect both paths for you: <strong>Book a Cleaning</strong> and <strong>Request a Quote</strong>.</p>
-<input type="hidden" name="booking_enabled" value="true">
-<input type="hidden" name="quote_enabled" value="true">
-<div class="grid" style="margin-top:16px">
-<div class="full"><label>Booking availability</label><textarea name="availability" required placeholder="Example: Mon–Fri 8:00 AM–4:00 PM; Sat 9:00 AM–1:00 PM"></textarea></div>
-<div><label>Minimum booking notice</label><input name="minimum_booking_notice" required placeholder="Example: 24 hours"></div>
-<div><label>Travel / buffer time between jobs</label><input name="buffer_time" required placeholder="Example: 30 minutes"></div>
-<div><label>How far ahead can clients book?</label><input name="booking_window" required placeholder="Example: 60 days"></div>
-<div><label>Where should new bookings and quote requests go?</label><select name="inquiry_destination" required><option value="business_email">My business email</option><option value="other_workflow">Another inbox or workflow</option><option value="cleaning_app">The Launch Era Cleaning Web App</option></select></div>
-<div><label>Destination email / workflow details</label><input name="inquiry_destination_details" required placeholder="Example: bookings@yourbusiness.com or the workflow you use"></div>
-<div><label>Primary contact method</label><select name="preferred_contact" required><option value="email">Email</option><option value="text">Text</option><option value="whatsapp">WhatsApp</option></select></div>
-<div class="full"><label>Customer contact options to offer</label><div class="checks">
-<label class="check"><input type="checkbox" name="contact_email" checked><span>Email</span></label>
-<label class="check"><input type="checkbox" name="contact_text"><span>Text</span></label>
-<label class="check"><input type="checkbox" name="contact_whatsapp"><span>WhatsApp</span></label>
-</div></div>
-<div><label>Customer-facing business email</label><input type="email" name="owner_email" required></div>
-<div class="full"><label>Payment methods offered</label><div class="checks">
+<section class="section"><h2>2. Booking</h2><p>The details clients need to send a request.</p><div class="grid">
+<div class="full"><label>Services + prices *</label><textarea name="services" required placeholder="Example: Standard Cleaning — $140&#10;Deep Cleaning — from $220&#10;Commercial — Quote"></textarea></div>
+<div class="full"><label>When can clients book? *</label><textarea name="availability" id="availability" required placeholder="Example: Mon–Fri 8 AM–4 PM; Sat 9 AM–1 PM"></textarea></div>
+<div class="full"><label>Add-ons <span class="small">(optional)</span></label><textarea name="add_ons" placeholder="Example: Inside oven +$35"></textarea></div>
+<div class="full"><label>Where should requests be emailed?</label><input type="email" name="inquiry_destination_details" id="destination_email" placeholder="Leave blank to use your business email"></div>
+<div class="full"><label>How do you accept payment? *</label><div class="checks">
 <label class="check"><input type="checkbox" name="payment_cash"><span>Cash</span></label>
 <label class="check"><input type="checkbox" name="payment_check"><span>Check</span></label>
-<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(U.S.)</span></span></label>
+<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle</span></label>
 <label class="check"><input type="checkbox" name="payment_other"><span>Other</span></label>
 </div></div>
-<div class="full" style="margin-top:16px"><label>Cancellation / rescheduling policy</label><textarea name="cancellation_policy" required placeholder="Example: Please give 24 hours notice to cancel or reschedule."></textarea></div>
 </div>
+<details class="optional-details"><summary>Add branding or policies (optional)</summary><div class="grid">
+<div><label>Website</label><input name="existing_domain" type="url" placeholder="https://..."></div>
+<div><label>Instagram</label><input name="instagram_url" type="url" placeholder="https://instagram.com/..."></div>
+<div class="full"><label>Logo / photos</label><input name="logo_assets_link" type="url" placeholder="Google Drive, Dropbox, etc."></div>
+<div><label>Brand colors</label><input name="brand_colors"></div>
+<div><label>Cancellation / rescheduling</label><input name="cancellation_policy" placeholder="Example: 24-hour notice"></div>
+<div class="full"><label>Anything important about the business</label><textarea name="about_business"></textarea></div>
+</div></details>
 </section>
 
-<section class="section">
-<h2>5. Final notes</h2><p>Anything we should know before building?</p>
-<div class="grid">
-<div><label>Target launch date</label><input type="date" name="target_launch_date"></div>
-<div><label>Cleaning Web App <span class="small">(optional bonus)</span></label><select name="app_setup_needed" required><option value="not_using_app">I only want the Booking Page</option><option value="new">I want to use the included Web App access — set it up for me</option><option value="review">I already have an App account — configure it</option></select></div>
-<div class="full"><label>Anything else?</label><textarea name="notes"></textarea></div>
+<section class="section"><h2>3. One last choice</h2><p>Your Booking Page works without the Web App.</p><div class="grid">
+<div><label>Cleaning Web App <span class="small">(optional)</span></label><select name="app_setup_needed"><option value="not_using_app">I only want the Booking Page</option><option value="new">I want the included 60 days</option><option value="review">I already have an account</option></select></div>
+<div><label>Ideal launch date <span class="small">(optional)</span></label><input type="date" name="target_launch_date"></div>
+<div class="full"><label>Anything else? <span class="small">(optional)</span></label><textarea name="notes"></textarea></div>
+</div><p class="quick-note">We use simple starting defaults for booking notice, travel buffer and calendar window. We can adjust them later.</p></section>
+
+<div class="actions"><button class="btn" id="submitBtn" type="submit">Send My Information</button><div class="status" id="status" aria-live="polite"></div></div>
+</form>><textarea name="notes"></textarea></div>
 </div>
 </section>
 
@@ -161,7 +133,7 @@ if(!purchaseSession){
 }
 form.addEventListener("submit",async(e)=>{
  e.preventDefault(); btn.disabled=true; statusEl.textContent="Sending…";
- const fd=new FormData(form);
+ try{document.getElementById("time_zone").value=Intl.DateTimeFormat().resolvedOptions().timeZone||"America/New_York";}catch{} const email=document.getElementById("email").value.trim();document.getElementById("owner_email").value=email;document.getElementById("business_hours_display").value=document.getElementById("availability").value.trim();if(!document.getElementById("destination_email").value.trim())document.getElementById("destination_email").value=email; const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
  ["payment_cash","payment_check","payment_zelle","payment_other","contact_email","contact_text","contact_whatsapp"].forEach(k=>obj[k]=bool(fd,k));
