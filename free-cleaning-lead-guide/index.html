@@ -252,7 +252,7 @@ html[data-language="es"] [data-lang-block="en"]{display:none!important}
         <h1>Recibes consultas. <span class="underline">¿Dónde se están perdiendo los leads?</span></h1>
         <p class="lede">Un sistema gratuito y mobile-first para que cada consulta tenga un estado, un próximo paso y una fecha de seguimiento — sin depender de DMs, notas o memoria.</p>
         <div class="quick-proof">
-          <span>✓ Guía móvil de 11 páginas</span>
+          <span>✓ Guía móvil de 8 páginas</span>
           <span>✓ 3 guiones de seguimiento</span>
           <span>✓ Tracker editable</span>
         </div>
@@ -403,7 +403,7 @@ html[data-language="es"] [data-lang-block="en"]{display:none!important}
 
         <p class="micro" data-lang-block="en">We'll only use your email to send the resource you requested. <a href="../privacy.html">Privacy</a>.</p>
         <p class="micro" data-lang-block="es">Usaremos tu correo para enviarte el recurso que solicitaste. <a href="../privacy.html">Privacidad</a>.</p>
-        <div class="status" id="formStatus" role="status" aria-live="polite"></div>
+        <div class="status" id="formStatus" role="status" aria-live="polite"></div><p id="resourceFallback" hidden><a id="resourceLink" target="_blank" rel="noopener">Open your resource →</a> <a id="trackerResource" hidden target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1NYhsQDqQZB9UnJeTqfgFOCXlAYTtzOCC/edit">Abrir registro editable →</a></p>
       </form>
 
       <div class="tip" data-lang-block="en"><strong>Quick tip:</strong> When you send a quote, set the next follow-up date before you close the tab. It sounds small, but it stops a lot of good leads from vanishing.</div>
@@ -428,7 +428,7 @@ html[data-language="es"] [data-lang-block="en"]{display:none!important}
 const FORM_ENDPOINT = "https://hook.us2.make.com/71gescpt0jssc2102yon8qhubqbau1rj";
 const FREEBIE_URLS = {
   en: "https://drive.google.com/file/d/1Ee9o6t4fuYArrqToFrFSy1df8BvTYC6D/view?usp=drivesdk",
-  es: "https://drive.google.com/drive/folders/1xNu3evYuejlatBQFaZf0KmaxAZQ4VOnJ"
+  es: "https://drive.google.com/file/d/1AWoKb8c2Qfu_sgcyk8JkpVbpTOUPPQR-/view?usp=drivesdk"
 };
 
 const root = document.documentElement;
@@ -437,6 +437,8 @@ const enRadio = document.getElementById("language-en");
 const esRadio = document.getElementById("language-es");
 
 function setLanguage(lang){
+  document.getElementById("resourceFallback").hidden=true;
+  document.getElementById("formStatus").textContent="";
   root.dataset.language = lang;
   root.lang = lang;
   buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.languageBtn === lang));
@@ -466,6 +468,8 @@ document.getElementById("freebieForm").addEventListener("submit", async (event) 
   }
 
   const button = form.querySelector(".submit");
+  const fallback=document.getElementById("resourceFallback"),resource=document.getElementById("resourceLink");
+  fallback.hidden=true;
   button.disabled = true;
   status.textContent = language === "es" ? "Enviando…" : "Sending…";
   status.classList.add("show");
@@ -489,14 +493,23 @@ document.getElementById("freebieForm").addEventListener("submit", async (event) 
     });
     if(!response.ok) throw new Error("Request failed");
     status.textContent = language === "es"
-      ? "¡Listo! Revisa tu correo para recibir tu freebie."
-      : "You're in! Check your inbox for the freebie.";
+      ? "Tu solicitud fue recibida. Puedes abrir la guía y el registro aquí."
+      : "Your request was received. You can open the resource here now.";
+    resource.href=FREEBIE_URLS[language];
+    resource.textContent=language==="es"?"Abrir mi recurso →":"Open my resource →";
+    fallback.hidden=false;
+    document.getElementById("trackerResource").hidden=language!=="es";
+    window.tleTrackEvent?.("generate_lead",{lead_type:"freebie",language});
     form.reset();
     if(language === "es") esRadio.checked = true; else enRadio.checked = true;
   }catch(error){
     status.textContent = language === "es"
-      ? "No pudimos enviarlo ahora. Inténtalo otra vez en un momento."
-      : "We couldn't send it right now. Please try again in a moment.";
+      ? "No pudimos confirmar el envío. Puedes abrir el recurso aquí y volver a intentarlo después."
+      : "We couldn't confirm delivery. Open the resource here and try again later.";
+    resource.href=FREEBIE_URLS[language];
+    resource.textContent=language==="es"?"Abrir mi recurso →":"Open my resource →";
+    fallback.hidden=false;
+    document.getElementById("trackerResource").hidden=language!=="es";
   }finally{
     button.disabled = false;
   }

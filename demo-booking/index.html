@@ -142,7 +142,7 @@ select:focus,input:focus,textarea:focus{border-color:#8FC6E4;box-shadow:0 0 0 3p
 .modal-check{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;background:var(--blue);font-weight:900}
 .modal h3{font-size:26px;margin:0 0 8px}
 .modal p{color:var(--muted);font-size:13px;line-height:1.5}
-.modal button{border:0;background:var(--ink);color:#fff;border-radius:9px;padding:12px 16px;font-weight:800}
+.modal .demo-offer{display:block;margin:18px 0 10px;background:var(--ink);color:#fff;padding:14px 16px;border-radius:9px;font-size:13px;font-weight:800;text-decoration:none}.modal button{border:0;background:var(--ink);color:#fff;border-radius:9px;padding:12px 16px;font-weight:800}
 
 footer{padding:0 0 34px;text-align:center;color:var(--muted);font-size:9px}
 footer a{color:var(--ink);font-weight:800;text-decoration:none}
@@ -179,7 +179,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
-</head>
+<script src="/assets/analytics.js" defer></script><script src="/assets/demo-language.js" defer></script></head>
 <body>
 <div class="demo-note">Interactive demo · sample business, pricing and availability only</div>
 <header>
@@ -359,7 +359,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
     <div class="modal-check">✓</div>
     <h3 id="modalTitle">Request received.</h3>
     <p id="modalCopy">In a real Booking Page, this complete request can move into the business system for confirmation, scheduling and follow-up.</p>
-    <button type="button" id="closeModal">Close demo</button>
+    <a class="demo-offer" id="demoOffer" href="/start/#offer" data-demo-offer>Get this setup for your cleaning business →</a><button type="button" id="closeModal">Keep exploring</button>
   </div>
 </div>
 
@@ -399,14 +399,15 @@ function calculate(){
 
 function populateDates(){
   const buttons=[...document.querySelectorAll(".date-btn")];
-  const fmtDay=new Intl.DateTimeFormat("en-US",{weekday:"short"});
-  const fmtMonth=new Intl.DateTimeFormat("en-US",{month:"short"});
+  const demoLocale=new URLSearchParams(location.search).get("lang")==="es"?"es-US":"en-US";
+  const fmtDay=new Intl.DateTimeFormat(demoLocale,{weekday:"short"});
+  const fmtMonth=new Intl.DateTimeFormat(demoLocale,{month:"short"});
   let offset=1;
   buttons.forEach((btn,i)=>{
     let d=new Date();
     d.setDate(d.getDate()+offset);
     while(d.getDay()===0){offset++;d=new Date();d.setDate(d.getDate()+offset)}
-    btn.dataset.date=d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"});
+    btn.dataset.date=d.toLocaleDateString(demoLocale,{weekday:"short",month:"short",day:"numeric"});
     btn.querySelector("small").textContent=fmtDay.format(d);
     btn.querySelector("strong").textContent=d.getDate();
     btn.querySelector("span").textContent=fmtMonth.format(d);
@@ -563,6 +564,8 @@ $("submitBtn").addEventListener("click",()=>{
     ?"In a real Booking Flow, the owner receives the commercial details, prepares the custom quote, and follows up from one organized place."
     :"In a real Booking Flow, this complete request can move into confirmation, scheduling and follow-up without rebuilding the client details.";
   $("modal").classList.add("open");
+  window.tleTrackEvent?.("demo_complete",{request_type:isCommercial()?"quote":"booking"});
+  $("demoOffer").focus();
 });
 $("closeModal").addEventListener("click",()=>$("modal").classList.remove("open"));
 $("modal").addEventListener("click",e=>{if(e.target.id==="modal") $("modal").classList.remove("open")});

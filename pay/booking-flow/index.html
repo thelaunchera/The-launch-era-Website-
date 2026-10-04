@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#58D6CF">
-<title>Opening Stripe Checkout | The Launch Era</title>
+<title>Secure Checkout | The Launch Era</title>
 <link rel="canonical" href="https://thelaunchera.com/pay/booking-flow/">
 <style>
 :root{--bg:#F8FAF9;--white:#fff;--aqua:#58D6CF;--ice:#E8F8F6;--teal:#087F79;--ink:#191919;--muted:#66706d;--line:#d7e3e0}
@@ -25,7 +25,7 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <body>
 <main class="card">
 <div class="brand">THE LAUNCH ERA</div>
-<div class="kicker" id="checkoutKicker">STRIPE SECURE CHECKOUT</div>
+<div class="kicker" id="checkoutKicker">SECURE CHECKOUT</div>
 <h1>Opening your Booking Flow checkout…</h1>
 <p>Custom Booking Page + Private Lead Tracker + automatic inquiry follow-up.</p>
 <div class="price" id="checkoutPrice"><span id="checkoutOldPrice" style="font-size:18px;font-weight:700;color:#8a9491;text-decoration:line-through;margin-right:8px">$99</span><span id="checkoutCurrentPrice">$29.99</span> <span id="checkoutPriceNote" style="font-size:13px;font-weight:500;color:#66706d">one-time</span></div>
@@ -37,9 +37,20 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 </div>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" hidden>Try again</button>
-<p class="small" id="status">You’ll review the order in Stripe before completing payment.</p>
+<p class="small" id="status">You’ll review your order before completing payment.</p>
 </main>
 <script>
+const lang=new URLSearchParams(location.search).get("lang")==="es"?"es":"en";
+try{sessionStorage.setItem("tleCheckoutLanguage",lang)}catch{}
+if(lang==="es"){
+ document.documentElement.lang="es";document.title="Pago seguro | The Launch Era";
+ document.querySelector("h1").textContent="Abriendo el pago de tu Booking Flow…";
+ document.querySelector("h1 + p").textContent="Página de reservas personalizada + registro privado de prospectos + seguimiento automático de consultas.";
+ document.getElementById("checkoutKicker").textContent="PAGO SEGURO";
+ document.getElementById("checkoutPriceNote").textContent="pago único";
+ document.getElementById("retry").textContent="Intentar de nuevo";
+ document.querySelectorAll(".checkout-time span").forEach((el,i)=>el.textContent=["DÍAS","HRS","MIN","SEG"][i]);
+}
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-tle-service-checkout";
 const retry=document.getElementById("retry"),dots=document.getElementById("dots"),status=document.getElementById("status");
 const saleEnd=new Date("2026-10-11T11:01:04Z").getTime();
@@ -49,11 +60,11 @@ const pad=value=>String(value).padStart(2,"0");
 function renderCheckoutCountdown(){
  const remaining=Math.max(0,saleEnd-Date.now());
  if(remaining<=0){
-  document.getElementById("checkoutKicker").textContent="STRIPE SECURE CHECKOUT";
+  document.getElementById("checkoutKicker").textContent=lang==="es"?"PAGO SEGURO":"SECURE CHECKOUT";
   document.getElementById("checkoutOldPrice").style.display="none";
   document.getElementById("checkoutCurrentPrice").textContent="$99";
-  document.getElementById("checkoutPriceNote").textContent="regular price · one-time";
-  if(countdown) countdown.innerHTML='<span class="checkout-ended">The 1-week offer has ended.</span>';
+  document.getElementById("checkoutPriceNote").textContent=lang==="es"?"precio regular · pago único":"regular price · one-time";
+  if(countdown) countdown.innerHTML='<span class="checkout-ended">'+(lang==="es"?"Esta oferta terminó.":"This offer has ended.")+'</span>';
   return;
  }
  const totalSeconds=Math.floor(remaining/1000);
@@ -70,14 +81,14 @@ function renderCheckoutCountdown(){
 }
 renderCheckoutCountdown();
 async function openCheckout(){
- retry.hidden=true;dots.hidden=false;status.textContent="Opening Stripe…";
+ retry.hidden=true;dots.hidden=false;status.textContent=lang==="es"?"Abriendo el pago seguro…":"Opening secure checkout…";
  try{
-  const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({offer:"booking-flow"})});
+  const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({offer:"booking-flow",language:lang})});
   const d=await r.json().catch(()=>({}));
   if(!r.ok||!d.url) throw new Error("checkout");
-  location.replace(d.url);
+  const checkoutUrl=new URL(d.url);if(checkoutUrl.protocol!=="https:"||checkoutUrl.hostname!=="buy.stripe.com")throw new Error("checkout URL");checkoutUrl.searchParams.set("locale",lang);location.replace(checkoutUrl.href);
  }catch(e){
-  dots.hidden=true;retry.hidden=false;status.textContent="We couldn’t open Stripe. No charge was made.";
+  dots.hidden=true;retry.hidden=false;status.textContent=lang==="es"?"No pudimos abrir el pago. Intenta de nuevo.":"We couldn’t open checkout. Please try again.";
  }
 }
 retry.onclick=openCheckout;openCheckout();
