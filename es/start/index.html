@@ -322,6 +322,110 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* Premium Booking Flow layer — 2026-10-04 */
+:root{
+  --ivory:#FAF8F3;--butter:#F2D85B;--blue:#C7E7FA;--mauve:#5E93B7;
+  --mulberry:#355F78;--action:#355F78;--ink:#191919;--black:#191919;
+  --white:#FFFFFF;--soft:#F4F6F5;--muted:#646966;--line:#E4E6E3
+}
+body{background:var(--ivory);color:var(--black)}
+header{background:rgba(250,248,243,.96);border-bottom:1px solid rgba(25,25,25,.055)}
+.nav{height:68px}
+.brand{color:var(--black);font-size:18px;letter-spacing:.055em}
+.nav-right{color:var(--black)}
+.nav-cta,.btn{border-radius:11px}
+.nav-cta{background:var(--black)}
+.btn{border-color:#CDD3CF}
+.btn.primary{background:var(--black);border-color:var(--black)}
+.btn.light{background:transparent;color:var(--black);border-color:#C9CFCC}
+.btn:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:none}
+.hero{padding:70px 0 54px;background:var(--ivory)}
+.hero-grid{grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);gap:clamp(42px,6vw,84px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:10px;font-weight:900;letter-spacing:.12em;color:#355F78}
+.hero-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
+h1{color:var(--black);font-size:clamp(50px,6.6vw,82px);line-height:.97;margin:18px 0 20px;letter-spacing:-.058em}
+h1 .mauve{color:#355F78}
+.hero-copy{font-size:17px;line-height:1.65;color:#555B58;max-width:640px}
+.hero-note{color:#737875}
+.hero-art{min-height:500px;border-radius:18px;box-shadow:0 22px 60px rgba(25,25,25,.08);border-color:rgba(25,25,25,.07)}
+.hero-art:after{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(25,25,25,.08))}
+.laptop{left:4%;right:18%;bottom:6%;border-radius:14px 14px 7px 7px;box-shadow:0 24px 46px rgba(25,25,25,.18);transform:perspective(1100px) rotateY(2deg)}
+.screen{border-radius:9px}
+.screen-brand{color:#355F78;letter-spacing:.09em}
+.screen-title{color:var(--black)}
+.booking-mini-row{border-radius:8px;border-color:#E4E7E4;background:#fff}
+.booking-mini-icon{border-radius:50%;background:#EEF6FB;color:#355F78;font-size:7px}
+.screen-continue{border-radius:8px;background:var(--black)}
+.phone{border-radius:30px;box-shadow:0 28px 56px rgba(25,25,25,.24)}
+.phone-inner{border-radius:23px}
+.phone-demo-brand{color:var(--black)}
+.phone-demo-leaf{color:#355F78}
+.phone-demo-copy h3{color:var(--black)}
+.phone-demo-cta{background:var(--black);border-radius:8px}
+.system-strip{padding:0 0 28px}
+.system-strip-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.system-strip-grid>span:not(.strip-arrow){padding:16px 15px;text-align:center;font-size:12px;font-weight:800;color:#4B514E}
+.system-strip-grid b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;margin-right:7px;background:#EEF6FB;color:#355F78;font-size:9px}
+.strip-arrow{color:#A9AFAC;font-size:18px}
+.section{padding:76px 0}
+.section-title{max-width:860px}
+.section-title h2{color:var(--black);font-size:clamp(40px,5.3vw,62px)}
+.section-title p{color:var(--muted)}
+.pain{background:#fff}
+.pain-grid{gap:12px}
+.card{background:#fff;border-radius:14px;box-shadow:none;padding:25px}
+.card:hover{transform:translateY(-1px);box-shadow:none;border-color:#C9DDE9}
+.card-icon{width:34px;height:34px;border-radius:50%;background:#EEF6FB;color:#355F78;font-size:11px}
+.card h3{color:var(--black);font-size:20px}
+.recognition{padding:46px 0;background:#EEF6FB}
+.recognition-inner{background:transparent;border:0;border-radius:0;padding:0}
+.recognition h2{color:var(--black)}
+.recognition strong{color:#355F78}
+.flow-section{background:var(--ivory)}
+.flow-grid{gap:0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff}
+.flow-step{min-width:0}
+.flow-card{min-height:205px;border:0;border-right:1px solid var(--line);border-radius:0;background:#fff;box-shadow:none;padding:22px}
+.flow-step:last-child .flow-card{border-right:0}
+.flow-icon{width:32px;height:32px;background:#EEF6FB;color:#355F78}
+.flow-num{font-size:17px;color:#999F9C}
+.flow-arrow{display:none}
+.flow-card h3{color:var(--black);font-size:16px}
+.offer{background:#fff}
+.offer-shell{grid-template-columns:1.3fr .7fr;gap:14px}
+.offer-main{border-radius:16px;box-shadow:none;border-color:var(--line)}
+.offer-pill{border-radius:999px;background:var(--butter);color:var(--black)}
+.offer-main h2{color:var(--black)}
+.new-price{color:var(--black)}
+.benefits{background:#EEF6FB;border-radius:16px}
+.benefit span{color:#355F78;border:0}
+.benefit p{color:var(--black)}
+.faq details{border-radius:12px}
+.faq h2,.faq summary{color:var(--black)}
+.faq summary:after{color:#355F78}
+.final{background:var(--black)}
+.final p{color:#D9DEDB}
+.final .btn{border-radius:10px}
+footer{color:#707573}
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .flow-grid{grid-template-columns:repeat(2,1fr)}
+  .flow-card{border-bottom:1px solid var(--line)}
+  .flow-step:nth-child(2n) .flow-card{border-right:0}
+}
+@media(max-width:720px){
+  .hero{padding:42px 0 40px}
+  h1{font-size:clamp(46px,13.5vw,62px)}
+  .hero-art{min-height:430px}
+  .system-strip-grid{grid-template-columns:1fr}
+  .system-strip-grid>span:not(.strip-arrow){text-align:left;padding:12px 15px;border-bottom:1px solid var(--line)}
+  .system-strip-grid>span:not(.strip-arrow):last-child{border-bottom:0}
+  .strip-arrow{display:none}
+  .flow-grid{grid-template-columns:1fr}
+  .flow-card{min-height:0;border-right:0;border-bottom:1px solid var(--line)}
+  .flow-step:last-child .flow-card{border-bottom:0}
+}
+
 </style>
 </head>
 <body>
@@ -342,13 +446,13 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Más reservas. Menos <span class="mauve">trabajo manual.</span></h1>
-        <p class="hero-copy">Tu Página de Reservas, confirmación al cliente, Rastreador Privado de Consultas y seguimiento — conectados en un solo flujo claro para tu negocio de limpieza.</p>
+        <span class="hero-badge">BOOKING FLOW SETUP</span><h1>Convierte nuevas consultas en un <span class="mauve">próximo paso claro.</span></h1>
+        <p class="hero-copy">Tu cliente reserva. Recibe confirmación. Sus datos llegan a un solo lugar. El seguimiento ya tiene un próximo paso — sin reconstruir el proceso cada vez.</p>
         <div class="actions">
-          <a class="btn primary" href="#offer">Ver Qué Incluye →</a>
-          <a class="btn light" href="/demo-booking/" target="_blank" rel="noopener">Ver Demo de la Página de Reservas</a>
+          <a class="btn primary" href="#system">Ver el Booking Flow →</a>
+          <a class="btn light" href="/demo-booking/" target="_blank" rel="noopener">Probar el Demo de Booking Page</a>
         </div>
-        <p class="hero-note">Creado para negocios de limpieza residencial · configuración de pago único</p>
+        <p class="hero-note">Reserva para el cliente + organización detrás del negocio · configuración de pago único</p>
       </div>
 
       <div class="hero-art" aria-label="Demo de reservas para negocio de limpieza mostrado en laptop y teléfono">
@@ -356,15 +460,15 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
           <div class="screen">
             <div class="screen-grid">
               <div class="screen-copy">
-                <div class="screen-brand">✦ THE LAUNCH ERA</div>
-                <div class="screen-title">Reserva tu<br>Servicio de Limpieza</div>
-                <div class="screen-sub">Una reserva simple. Un hogar más limpio.</div>
+                <div class="screen-brand">OWNER VIEW · BOOKING FLOW</div>
+                <div class="screen-title">Nueva consulta<br>→ reservada</div>
+                <div class="screen-sub">Un camino claro después de cada solicitud.</div>
                 <div class="booking-mini">
-                  <div class="booking-mini-row"><span class="booking-mini-icon">✓</span><span><strong>Selecciona un Servicio</strong><small>Limpieza Estándar</small></span><span>›</span></div>
-                  <div class="booking-mini-row"><span class="booking-mini-icon">□</span><span><strong>Elige una Fecha</strong><small>Selecciona una fecha</small></span><span>›</span></div>
-                  <div class="booking-mini-row"><span class="booking-mini-icon">◷</span><span><strong>Elige una Hora</strong><small>Selecciona un horario</small></span><span>›</span></div>
+                  <div class="booking-mini-row"><span class="booking-mini-icon">01</span><span><strong>Solicitud recibida</strong><small>Limpieza estándar · nueva</small></span><span>✓</span></div>
+                  <div class="booking-mini-row"><span class="booking-mini-icon">02</span><span><strong>Confirmación al cliente</strong><small>Enviada automáticamente</small></span><span>✓</span></div>
+                  <div class="booking-mini-row"><span class="booking-mini-icon">03</span><span><strong>Seguimiento</strong><small>Próximo paso listo</small></span><span>→</span></div>
                 </div>
-                <div class="screen-continue">Continuar →</div>
+                <div class="screen-continue">Abrir lead →</div>
               </div>
               <div class="screen-photo"></div>
             </div>
@@ -375,11 +479,11 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
             <div class="phone-notch"></div>
             <div class="phone-cover">
               <div>
-                <div class="phone-demo-brand"><span><span class="phone-demo-leaf">✦</span> DEMO DE LIMPIEZA</span><span>☰</span></div>
+                <div class="phone-demo-brand"><span><span class="phone-demo-leaf">✦</span> LUMA HOME CLEANING</span><span>☰</span></div>
                 <div class="phone-demo-copy">
-                  <h3>Hogares más limpios. Vidas más tranquilas.</h3>
-                  <p>Servicio de limpieza residencial con una forma simple de solicitar tu limpieza.</p>
-                  <div class="phone-demo-cta">Reservar ahora →</div>
+                  <h3>Reserva tu limpieza en menos de 2 minutos.</h3>
+                  <p>Elige servicio, detalles y horario preferido en un solo flujo simple.</p>
+                  <div class="phone-demo-cta">Empezar reserva →</div>
                 </div>
               </div>
             </div>
@@ -389,28 +493,37 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
     </div>
   </section>
 
+  <section class="system-strip" aria-label="Resumen del Booking Flow">
+    <div class="wrap system-strip-grid">
+      <span><b>01</b> Booking Page</span><span class="strip-arrow">→</span>
+      <span><b>02</b> Confirmación</span><span class="strip-arrow">→</span>
+      <span><b>03</b> Lead Tracker</span><span class="strip-arrow">→</span>
+      <span><b>04</b> Seguimiento</span>
+    </div>
+  </section>
+
   <section class="section pain">
     <div class="wrap">
       <div class="section-title">
         
-        <h2>Si tus reservas se sienten dispersas, normalmente se ve así.</h2>
-        <p>El problema no es que necesites trabajar más. Es que demasiados pasos administrativos pequeños todavía dependen de que tú los recuerdes.</p>
+        <h2>Los buenos leads no siempre desaparecen porque dijeron que no.</h2>
+        <p>A veces se pierden entre el DM, los datos de la reserva, la nota que ibas a escribir y el seguimiento que pensabas enviar.</p>
       </div>
       <div class="pain-grid">
         <article class="card reveal">
           <div class="card-icon">01</div>
-          <h3>Llega una nueva solicitud mientras estás limpiando.</h3>
-          <p>Ves el mensaje y piensas volver después, pero aparece otro trabajo, llamada o cliente y el día sigue.</p>
+          <h3>La consulta llega en el peor momento.</h3>
+          <p>Estás limpiando, manejando o con un cliente — y el lead queda dependiendo de que lo recuerdes después.</p>
         </article>
         <article class="card reveal">
           <div class="card-icon">02</div>
-          <h3>Los datos del cliente terminan en diferentes lugares.</h3>
-          <p>Servicio, dirección, fecha y notas quedan repartidos entre textos, mensajes directos, formularios y lo que anotaste.</p>
+          <h3>Los detalles se dispersan antes de reservar el trabajo.</h3>
+          <p>Servicio, dirección, horario y notas terminan repartidos entre mensajes, formularios y apuntes rápidos.</p>
         </article>
         <article class="card reveal">
           <div class="card-icon">03</div>
-          <h3>El seguimiento ocurre solo si te acuerdas.</h3>
-          <p>Una buena solicitud puede enfriarse simplemente porque el día se complicó antes de que pudieras retomar la conversación.</p>
+          <h3>Un lead interesado se enfría en silencio.</h3>
+          <p>El cliente nunca dijo que no. La conversación simplemente se detuvo porque no había un próximo paso claro.</p>
         </article>
       </div>
     </div>
@@ -418,8 +531,8 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
 
   <section class="recognition">
     <div class="wrap recognition-inner">
-      <h2>Si estás leyendo esto pensando <strong>“eso es exactamente lo que me pasa,”</strong> esta es la parte que arreglamos.</h2>
-      <p>No necesitas un CRM complicado. Necesitas un próximo paso claro para cada nueva solicitud.</p>
+      <h2>La solución no es otro CRM complicado. <strong>Es un camino más claro después de cada consulta.</strong></h2>
+      <p>Tu cliente ve una experiencia simple. Detrás, la información queda organizada y el próximo seguimiento es más fácil de ver.</p>
     </div>
   </section>
 
@@ -427,44 +540,44 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
     <div class="wrap">
       <div class="section-title">
         
-        <h2>Una solicitud. Un flujo claro.</h2>
-        <p>Las partes repetitivas ocurren en orden para que puedas enfocarte en el cliente, en vez de reconstruir el proceso cada vez.</p>
+        <h2>De la consulta al próximo paso — sin adivinar.</h2>
+        <p>Las partes repetitivas ocurren en el mismo orden cada vez, para que un día ocupado no decida qué pasa con ese lead.</p>
       </div>
 
       <div class="flow-grid">
         <div class="flow-step reveal">
           <article class="flow-card">
             <div class="flow-head"><span class="flow-icon">✉</span><span class="flow-num">01</span></div>
-            <h3>El cliente envía una solicitud.</h3>
-            <p>Los detalles de la reserva o cotización llegan juntos.</p>
+            <h3>El cliente reserva o pide una cotización.</h3>
+            <p>Servicio, propiedad, horario y contacto llegan juntos.</p>
           </article><span class="flow-arrow">→</span>
         </div>
         <div class="flow-step reveal">
           <article class="flow-card">
             <div class="flow-head"><span class="flow-icon">✓</span><span class="flow-num">02</span></div>
-            <h3>Sale la confirmación.</h3>
-            <p>El cliente sabe que su solicitud fue recibida.</p>
+            <h3>Recibe confirmación enseguida.</h3>
+            <p>No tiene que preguntarse si su solicitud desapareció en un formulario.</p>
           </article><span class="flow-arrow">→</span>
         </div>
         <div class="flow-step reveal">
           <article class="flow-card">
             <div class="flow-head"><span class="flow-icon">▤</span><span class="flow-num">03</span></div>
-            <h3>La solicitud queda organizada.</h3>
-            <p>Los datos importantes del cliente quedan en un solo lugar claro.</p>
+            <h3>El lead cae en un solo lugar claro.</h3>
+            <p>Puedes ver lo que pidió sin reconstruir toda la conversación.</p>
           </article><span class="flow-arrow">→</span>
         </div>
         <div class="flow-step reveal">
           <article class="flow-card">
             <div class="flow-head"><span class="flow-icon">↗</span><span class="flow-num">04</span></div>
-            <h3>El seguimiento tiene un próximo paso.</h3>
+            <h3>El seguimiento ya tiene un próximo paso.</h3>
             <p>Menos dependencia de tu memoria cuando el día se complica.</p>
           </article><span class="flow-arrow">→</span>
         </div>
         <div class="flow-step reveal">
           <article class="flow-card">
             <div class="flow-head"><span class="flow-icon">★</span><span class="flow-num">05</span></div>
-            <h3>Tienes un proceso de reservas más claro.</h3>
-            <p>Más organizado, más profesional y más fácil de manejar.</p>
+            <h3>El cliente avanza con más claridad.</h3>
+            <p>Reservado, no interesado o seguimiento después — menos cabos sueltos.</p>
           </article>
         </div>
       </div>
@@ -477,7 +590,7 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
         <div class="offer-main reveal">
           <span class="offer-pill">OFERTA ESPECIAL</span>
           <h2>Configuración del Flujo de Reservas</h2>
-          <p>Tu Página de Reservas, confirmación, Rastreador Privado de Consultas y seguimiento inteligente — configurados en un solo flujo simple para tu negocio de limpieza.</p>
+          <p>Conectamos la Booking Page que ve tu cliente con la confirmación, tu Lead Tracker privado y el seguimiento para que cada nueva consulta tenga un lugar claro donde avanzar.</p>
           <div class="price-line"><span class="old-price">$99</span><span class="new-price">$49.99</span></div>
           <a class="btn primary" href="/pay/booking-flow/" data-payment-cta="booking-flow">Obtener Mi Flujo de Reservas →</a>
         </div>
@@ -519,8 +632,8 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:#707
   <section class="final">
     <div class="wrap final-inner">
       <div>
-        <h2>Menos persecución. Menos información dispersa. Una forma más clara de manejar nuevas solicitudes.</h2>
-        <p>Dale a cada nueva solicitud un próximo paso.</p>
+        <h2>Dale a cada nuevo lead de limpieza un próximo paso claro.</h2>
+        <p>Una experiencia pulida para tu cliente. Un proceso más limpio detrás para ti.</p>
       </div>
       <a class="btn" href="/pay/booking-flow/" data-payment-cta="booking-flow">Obtener Mi Flujo de Reservas — $49.99 →</a>
     </div>
