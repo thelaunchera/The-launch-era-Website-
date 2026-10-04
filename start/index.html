@@ -562,7 +562,7 @@ footer{color:#707573}
 <section class="sale-bar" id="saleBar" data-sale-end="2026-10-11T11:01:04Z">
   <div class="wrap sale-bar-inner">
     <div class="sale-copy">
-      <strong id="saleHeadline">Booking Flow Setup: <s>$99</s> $29.99</strong>
+      <strong id="saleHeadline">Automated Booking + Follow-Up: <s>$99</s> $29.99</strong>
       <div class="sale-countdown" id="saleCountdown" aria-label="Offer time remaining">
         <span class="sale-time-unit"><b id="saleDays">07</b><span>DAYS</span></span>
         <span class="sale-time-unit"><b id="saleHours">00</b><span>HRS</span></span>
@@ -627,7 +627,7 @@ footer{color:#707573}
 
   <section class="system-strip" aria-label="Automated booking and follow-up overview">
     <div class="wrap system-strip-grid">
-      <span><b>01</b> Booking Page</span><span class="strip-arrow">→</span>
+      <span><b>01</b> Client Booking</span><span class="strip-arrow">→</span>
       <span><b>02</b> Approx. Estimate</span><span class="strip-arrow">→</span>
       <span><b>03</b> Owner Alert</span><span class="strip-arrow">→</span>
       <span><b>04</b> Private Lead Card</span><span class="strip-arrow">→</span>
@@ -772,7 +772,7 @@ footer{color:#707573}
         </div>
 
         <aside class="benefits reveal">
-          <div class="benefit"><span>▣</span><p>Custom Booking Page + service-area ZIP check</p></div>
+          <div class="benefit"><span>▣</span><p>Client booking + service-area ZIP check</p></div>
           <div class="benefit"><span>≈</span><p>Approximate price estimate</p></div>
           <div class="benefit"><span>✉</span><p>Owner email alert + client confirmation</p></div>
           <div class="benefit"><span>▤</span><p>Detailed Private Lead Tracker</p></div>
@@ -800,7 +800,7 @@ footer{color:#707573}
         </details>
         <details>
           <summary>What happens after I purchase?</summary>
-          <p>We send you a short form for your services, business details and how you want to handle new requests. Once we have everything we need, your setup is ready within 48 hours. One correction round is included.</p>
+          <p>Payment confirmed → private intake → we build and connect your booking, lead tracking and follow-up → you review the finished setup. Production starts after the required intake details are received.</p>
         </details>
       </div>
     </div>
@@ -889,13 +889,13 @@ footer{color:#707573}
     const remaining=Math.max(0,saleEnd-Date.now());
     if(remaining<=0){
       bar.classList.add("expired");
-      headline.textContent="Booking Flow Setup · $99";
+      headline.textContent="Automated Booking + Follow-Up · $99";
       if(countdown) countdown.innerHTML='<span class="sale-countdown-ended">The offer has ended.</span>';
-      buy.textContent="Get Booking Flow for $99 →";
+      buy.textContent="Get Automated Booking + Follow-Up for $99 →";
       if(offerPrice) offerPrice.textContent="$99";
       if(oldPrice) oldPrice.style.display="none";
       const offerPill=document.getElementById("bookingFlowOfferPill"); if(offerPill) offerPill.textContent="REGULAR PRICE";
-      if(finalCta) finalCta.textContent="Get My Booking Flow — $99 →";
+      if(finalCta) finalCta.textContent="Get Automated Booking + Follow-Up — $99 →";
       return;
     }
     const totalSeconds=Math.floor(remaining/1000);
