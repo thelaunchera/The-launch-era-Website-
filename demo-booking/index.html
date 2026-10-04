@@ -1,896 +1,574 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#FAF8F3">
-  <title>Luma Home Cleaning — Book Online | Interactive Demo</title>
-  <meta name="description" content="Interactive premium booking page demo for a residential cleaning business. Sample business, pricing and customer information only.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--ivory:#FAF8F3;--paper:#FFFDF9;--ink:#191919;--muted:#6E726F;--eucalyptus:#CFE2DD;--eucalyptus2:#EAF2EF;--deep:#294640;--butter:#F2D85B;--line:#E8E4DC;--shadow:0 18px 45px rgba(37,48,45,.09)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Futura,"Trebuchet MS",Arial,sans-serif;background:radial-gradient(circle at 8% 4%,rgba(207,226,221,.58),transparent 28%),linear-gradient(180deg,var(--ivory) 0%,#fff 42%,var(--ivory) 100%);color:var(--ink);-webkit-font-smoothing:antialiased}
-    button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
-    .demo-strip{background:var(--deep);color:#fff;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    header{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.97);border-bottom:1px solid rgba(25,25,25,.06);backdrop-filter:blur(10px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}.brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brand-mark{width:42px;height:42px;border-radius:14px;background:var(--deep);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em;box-shadow:0 8px 18px rgba(41,70,64,.18)}
-    .brand-copy{line-height:1.05;min-width:0}.brand-copy strong{display:block;font-size:15px;letter-spacing:.03em;white-space:nowrap}.brand-copy span{display:block;color:var(--muted);font-size:11px;margin-top:5px}
-    .nav-actions{display:flex;align-items:center;gap:10px}.lang{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 12px;color:var(--ink)}.ghost{border:0;background:transparent;color:var(--deep);font-weight:700;padding:10px 8px}
-    .hero{padding:42px 0 28px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--eucalyptus2);border:1px solid #D9E9E4;border-radius:999px;padding:9px 13px;color:var(--deep);font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
-    .eyebrow-dot{width:8px;height:8px;background:var(--butter);border-radius:50%;box-shadow:0 0 0 4px rgba(242,216,91,.18)}
-    h1{font-family:Prompt,"Arial Rounded MT Bold",Arial,sans-serif;font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-.055em;margin:18px 0;max-width:760px}
-    .hero p{font-size:18px;line-height:1.6;color:#515653;max-width:630px;margin:0 0 26px}.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.hero-points span{padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:700}
-    .start-btn{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:16px 22px;font-weight:800;box-shadow:0 10px 22px rgba(25,25,25,.16);transition:.2s transform}.start-btn:hover{transform:translateY(-2px)}
-    .hero-photo{position:relative;border-radius:34px;overflow:hidden;min-height:520px;box-shadow:var(--shadow);background:#dfe9e6}.hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
-    .photo-overlay{position:absolute;left:22px;right:22px;bottom:22px;background:#fff;border-radius:20px;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 14px 35px rgba(20,34,30,.15)}
-    .photo-overlay strong{font-size:15px}.photo-overlay small{display:block;color:var(--muted);margin-top:5px}.available{background:var(--eucalyptus2);color:var(--deep);padding:10px 12px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap}
-    .booking-shell{padding:28px 0 78px}.booking-grid{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:28px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.flow{padding:28px}
-    .stepper{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}.step{height:6px;border-radius:999px;background:#E9E7E1}.step.active{background:var(--eucalyptus)}.step.active:first-child{background:var(--deep)}
-    .section{padding:8px 0 30px;border-bottom:1px solid var(--line);margin-bottom:28px}.section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.section-label{font-size:12px;color:var(--deep);text-transform:uppercase;letter-spacing:.09em;font-weight:900;margin-bottom:8px}
-    h2{font-family:Prompt,"Arial Rounded MT Bold",Arial,sans-serif;font-size:clamp(28px,4vw,40px);line-height:1.08;letter-spacing:-.04em;margin:0 0 8px}.section-intro{color:var(--muted);line-height:1.55;margin:0 0 20px}
-    .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.service-card{text-align:left;border:1px solid var(--line);border-radius:18px;background:#fff;padding:18px;transition:.2s;min-height:138px;position:relative}.service-card:hover{transform:translateY(-2px);border-color:#B9D4CC}.service-card.selected{border:2px solid var(--deep);background:var(--eucalyptus2);padding:17px}
-    .service-card .check{position:absolute;right:14px;top:14px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:12px;background:#fff}.service-card.selected .check{background:var(--deep);color:#fff;border-color:var(--deep)}
-    .service-card strong{display:block;font-size:18px;margin:5px 34px 8px 0}.service-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.price{display:block;color:var(--deep);font-weight:900;margin-top:12px;font-size:14px}
-    .counter-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.counter{border:1px solid var(--line);border-radius:18px;background:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}.counter-label strong{display:block;font-size:15px}.counter-label small{color:var(--muted)}
-    .counter-controls{display:flex;align-items:center;gap:10px}.round{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--ivory);font-size:18px}.count{min-width:18px;text-align:center;font-weight:900}
-    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:800;color:#4F5552}
-    input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;color:var(--ink);outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:#9EBFB6;box-shadow:0 0 0 4px rgba(207,226,221,.45)}
-    .pills{display:flex;flex-wrap:wrap;gap:9px}.pill{border:1px solid var(--line);background:#fff;padding:11px 14px;border-radius:999px;font-weight:700;font-size:13px}.pill.selected{background:var(--deep);color:#fff;border-color:var(--deep)}
-    .date-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.date-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 8px;text-align:center}.date-card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.date-card strong{display:block;font-size:22px;margin:5px 0 1px}.date-card.selected{background:var(--eucalyptus2);border:2px solid var(--deep);padding:13px 7px}
-    .times{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.time{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 13px;font-weight:700}.time.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .extras{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.extra{border:1px solid var(--line);border-radius:15px;background:#fff;padding:14px;display:flex;gap:10px;align-items:flex-start}.extra input{width:18px;height:18px;margin-top:1px;accent-color:var(--deep)}.extra strong{font-size:14px}.extra small{display:block;color:var(--muted);margin-top:3px}
-    .summary{position:sticky;top:112px;padding:22px;background:var(--deep);color:#fff;border-radius:28px;box-shadow:0 24px 55px rgba(41,70,64,.21)}.summary-top{display:flex;justify-content:space-between;gap:10px;align-items:start;margin-bottom:18px}.summary h3{font-family:Prompt,Arial,sans-serif;font-size:24px;letter-spacing:-.03em;margin:2px 0}.demo-tag{font-size:10px;text-transform:uppercase;letter-spacing:.09em;background:rgba(255,255,255,.12);padding:8px 9px;border-radius:999px}
-    .summary-photo{height:148px;border-radius:18px;overflow:hidden;margin-bottom:18px;background:#d7e7e2}.summary-photo img{width:100%;height:100%;object-fit:cover}.summary-row{display:flex;justify-content:space-between;gap:15px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px}.summary-row span:first-child{color:rgba(255,255,255,.68)}.summary-row strong{text-align:right}
-    .total{display:flex;justify-content:space-between;align-items:end;padding:17px 0 4px}.total span{color:rgba(255,255,255,.7);font-size:12px}.total strong{font-size:28px}.submit{width:100%;border:0;background:var(--butter);color:var(--ink);border-radius:15px;padding:15px 16px;font-weight:900;margin-top:14px}.micro{font-size:10px;line-height:1.45;color:rgba(255,255,255,.62);text-align:center;margin:10px 4px 0}
-    .story{margin:0 auto 72px;width:min(1180px,calc(100% - 32px));display:grid;grid-template-columns:.9fr 1.1fr;border-radius:30px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}.story img{width:100%;height:100%;min-height:420px;object-fit:cover}.story-copy{padding:42px;align-self:center}.story-copy .kicker{font-size:12px;color:var(--deep);font-weight:900;letter-spacing:.1em;text-transform:uppercase}.story-copy h3{font-family:Prompt,Arial,sans-serif;font-size:42px;line-height:1.02;letter-spacing:-.045em;margin:12px 0 16px}.story-copy p{color:var(--muted);line-height:1.65;font-size:16px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.benefit{padding:14px;border-radius:14px;background:var(--eucalyptus2);font-size:12px;font-weight:800;color:var(--deep)}
-    footer{padding:34px 0 48px;text-align:center;color:var(--muted);font-size:12px}footer strong{color:var(--ink)}
-    .success{display:none;position:fixed;inset:0;background:rgba(25,25,25,.45);z-index:80;padding:22px;align-items:center;justify-content:center}.success.open{display:flex}.success-card{width:min(520px,100%);background:var(--paper);border-radius:28px;padding:30px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.2)}.success-check{width:72px;height:72px;border-radius:50%;background:var(--eucalyptus);display:grid;place-items:center;margin:0 auto 18px;font-size:30px;color:var(--deep);font-weight:900}.success-card h3{font-family:Prompt,Arial,sans-serif;font-size:34px;letter-spacing:-.04em;margin:0 0 10px}.success-card p{color:var(--muted);line-height:1.6}.success-card button{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:13px 18px;font-weight:800}
-    @media(max-width:900px){.hero-grid,.booking-grid,.story{grid-template-columns:1fr}.hero-photo{min-height:430px}.summary{position:relative;top:auto}.story img{min-height:320px}.story-copy{padding:30px}}
-    @media(max-width:620px){.wrap{width:min(100% - 22px,1180px)}.demo-strip{font-size:10px}.nav{padding:12px 0}.brand-copy strong{font-size:13px}.brand-copy span{font-size:10px}.ghost{display:none}.hero{padding-top:26px}h1{font-size:47px}.hero p{font-size:16px}.hero-photo{min-height:380px;border-radius:26px}.photo-overlay{left:14px;right:14px;bottom:14px;padding:14px}.booking-shell{padding-top:12px}.flow{padding:20px}.services,.field-grid,.extras,.counter-grid{grid-template-columns:1fr}.date-row{grid-template-columns:repeat(4,1fr);gap:6px}.date-card{padding:11px 4px}.date-card.selected{padding:10px 3px}.date-card strong{font-size:19px}.story{width:min(100% - 22px,1180px);margin-bottom:46px}.story-copy h3{font-size:34px}.benefits{grid-template-columns:1fr}.summary{border-radius:24px}}
-  
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .secondary-start-btn{border:1px solid var(--line);background:#fff;color:var(--deep);border-radius:999px;padding:15px 20px;font-weight:800;box-shadow:0 7px 18px rgba(41,70,64,.07)}
-    .request-mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:7px;margin:0 0 26px;border-radius:18px;background:#F1EFE9;border:1px solid var(--line)}
-    .request-mode-btn{min-height:48px;border:0;border-radius:13px;background:transparent;color:var(--muted);font-weight:900;font-size:13px;transition:.18s}
-    .request-mode-btn.active{background:#fff;color:var(--ink);box-shadow:0 5px 14px rgba(25,25,25,.07)}
-    .request-mode-btn[data-mode="quote"].active{background:var(--eucalyptus2);color:var(--deep);box-shadow:none}
-    .quote-note{margin:12px 0 0;padding:12px 14px;border-radius:13px;background:var(--eucalyptus2);color:var(--deep);font-size:12px;line-height:1.45;font-weight:750}
-    body.quote-mode .extra small{color:var(--deep)}
-    body.quote-mode .summary{background:#335A52}
-    body.quote-mode .submit{background:var(--eucalyptus);color:var(--deep)}
-    @media(max-width:620px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions button{width:100%}.request-mode-switch{margin-bottom:20px}.request-mode-btn{font-size:12px}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FAF8F3">
+<title>Luma Home Cleaning — Booking Demo</title>
+<meta name="description" content="Interactive cleaning booking page demo by The Launch Era. Sample business, availability and pricing only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAF8F3;
+  --paper:#FFFFFF;
+  --ink:#191919;
+  --muted:#666B69;
+  --line:#E4E6E3;
+  --blue:#C7E7FA;
+  --blue-soft:#EEF7FC;
+  --blue-deep:#355F78;
+  --yellow:#F2D85B;
+  --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Futura,"Avenir Next",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.demo-note{background:var(--ink);color:#fff;text-align:center;padding:8px 14px;font-size:10px;letter-spacing:.03em}
+header{background:rgba(250,248,243,.96);border-bottom:1px solid rgba(25,25,25,.06);position:sticky;top:0;z-index:30;backdrop-filter:blur(12px)}
+.nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--blue);font-family:Prompt,Arial,sans-serif;font-weight:800}
+.brand-copy strong{display:block;font-family:Prompt,Arial,sans-serif;font-size:13px;letter-spacing:.015em}
+.brand-copy span{display:block;margin-top:2px;font-size:10px;color:var(--muted)}
+.nav button{border:0;background:transparent;font-size:12px;font-weight:800;color:var(--blue-deep);padding:9px 4px}
 
-  
-    .service-path-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
-    .service-path-label strong{font-size:13px;color:var(--ink)}
-    .service-path-label span{font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--deep);background:var(--eucalyptus2);border:1px solid #D9E9E4;border-radius:999px;padding:6px 9px}
-    .cleaning-type-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-    .cleaning-type-btn{min-height:46px;border:1px solid var(--line);background:#fff;border-radius:14px;font-weight:850;color:var(--muted)}
-    .cleaning-type-btn.selected{background:var(--deep);border-color:var(--deep);color:#fff}
-    #bookServices[hidden],#quoteServices[hidden],#bookServiceLabel[hidden],#quoteServiceLabel[hidden],#bookTimes[hidden],#quoteTimes[hidden],#quoteDateNote[hidden],#residentialCounters[hidden],#residentialPropertyField[hidden],#commercialDetails[hidden],#commercialCounters[hidden],#residentialExtras[hidden],#commercialExtras[hidden]{display:none!important}
+.intro{padding:40px 0 24px}
+.intro-grid{display:flex;align-items:end;justify-content:space-between;gap:34px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--blue-deep);text-transform:uppercase}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
+h1,h2,h3{font-family:Prompt,Arial,sans-serif;letter-spacing:-.04em}
+h1{font-size:clamp(38px,6vw,64px);line-height:.98;margin:12px 0 12px;max-width:680px}
+.intro p{margin:0;color:var(--muted);font-size:15px;line-height:1.55;max-width:620px}
+.intro-side{flex:0 0 auto;text-align:right;padding-bottom:4px}
+.intro-side small{display:block;color:var(--muted);font-size:10px}
+.intro-side strong{display:block;margin-top:3px;font-family:Prompt,Arial,sans-serif;font-size:16px}
 
-  
-    .main-site-cta{width:min(1180px,calc(100% - 32px));margin:0 auto 58px;padding:30px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#355d54);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 18px 42px rgba(41,70,64,.18);border:1px solid rgba(255,255,255,.08)}
-    .main-site-cta-copy{max-width:720px}
-    .main-site-cta .kicker{display:block;margin-bottom:7px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-    .main-site-cta h3{margin:0 0 7px;font-family:Prompt,Arial,sans-serif;font-size:clamp(26px,4vw,38px);line-height:1.04;letter-spacing:-.04em}
-    .main-site-cta p{margin:0;color:rgba(255,255,255,.76);font-size:13px;line-height:1.5}
-    .main-site-cta a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;background:var(--butter);color:var(--ink);text-decoration:none;font-size:13px;font-weight:900;white-space:nowrap}
-    @media(max-width:700px){.main-site-cta{width:min(100% - 22px,1180px);margin:-20px auto 42px;padding:22px;display:grid}.main-site-cta a{width:100%}}
+.booking{padding:10px 0 74px}
+.shell{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.form-card,.summary{background:var(--paper);border:1px solid var(--line);border-radius:16px}
+.form-card{padding:28px}
+.space-switch{display:grid;grid-template-columns:1fr 1fr;gap:5px;background:#F3F3EF;border:1px solid #ECEAE4;border-radius:11px;padding:5px;margin-bottom:24px}
+.space-switch button{min-height:48px;border:0;border-radius:8px;background:transparent;color:#737875;font-weight:800}
+.space-switch button.active{background:#fff;color:var(--ink);box-shadow:0 3px 10px rgba(25,25,25,.055)}
+.commercial-note{display:none;margin:-12px 0 22px;padding:11px 13px;border-left:3px solid var(--blue-deep);background:var(--blue-soft);font-size:11px;line-height:1.5;color:var(--blue-deep)}
+body.commercial .commercial-note{display:block}
+.progress{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:28px}
+.progress button{border:0;background:transparent;padding:0;text-align:left}
+.progress-bar{display:block;height:4px;border-radius:999px;background:#ECEDEB;margin-bottom:7px}
+.progress button.active .progress-bar,.progress button.done .progress-bar{background:var(--blue-deep)}
+.progress small{font-size:9px;color:#999D9B;font-weight:800}
+.progress button.active small,.progress button.done small{color:var(--ink)}
 
-  
-    .mobile-main-site-cta{display:none}
-    @media(max-width:700px){
-      body{padding-bottom:86px}
-    }
+.step{display:none;animation:fade .18s ease}
+.step.active{display:block}
+@keyframes fade{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:none}}
+.step-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:var(--blue-deep);text-transform:uppercase}
+.step h2{font-size:clamp(26px,4vw,36px);line-height:1.06;margin:8px 0}
+.step-intro{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 20px}
 
-    /* Concierge booking: selection reveals pricing; the estimate follows the customer. */
-    :root{--eucalyptus:#C7EAFF;--eucalyptus2:#EDF8FD;--deep:#315766}
-    body{background:var(--ivory)}
-    .demo-strip{background:var(--ink);letter-spacing:.04em;text-transform:none}
-    header{background:rgba(250,248,243,.92)}
-    .brand-mark{background:var(--ink);border-radius:12px;box-shadow:none}
-    .hero{padding:54px 0 40px}
-    .hero-grid{grid-template-columns:1fr .95fr;gap:clamp(32px,5vw,78px)}
-    .eyebrow{background:#fff;border-color:var(--line);color:var(--ink);letter-spacing:.035em}
-    h1{font-size:clamp(46px,5.5vw,72px);line-height:1.02;letter-spacing:-.052em}
-    .hero p{font-size:17px}
-    .hero-points span{background:transparent;border:0;padding:0 18px 0 0;color:#626762;font-size:12px}
-    .start-btn{border-radius:13px;box-shadow:none}
-    .secondary-start-btn{border-radius:13px;box-shadow:none}
-    .hero-photo{min-height:440px;border-radius:22px;box-shadow:none}
-    .photo-overlay{border-radius:13px;left:16px;right:16px;bottom:16px;box-shadow:0 8px 25px rgba(25,25,25,.1)}
-    .booking-shell{padding:22px 0 76px}
-    .booking-grid{grid-template-columns:minmax(0,1fr) 340px;gap:20px}
-    .panel{background:#fff;border-radius:22px;box-shadow:0 12px 36px rgba(25,25,25,.035)}
-    .flow{padding:clamp(22px,3vw,38px)}
-    .request-mode-switch{padding:5px;border-radius:14px;background:var(--ivory);margin-bottom:24px}
-    .request-mode-btn{border-radius:10px;font-size:14px}
-    .request-mode-btn.active{box-shadow:0 2px 9px rgba(25,25,25,.07)}
-    .request-mode-btn[data-mode="quote"].active{background:var(--deep);color:#fff;box-shadow:none}
-    .request-mode-btn:disabled{background:transparent;opacity:.4;cursor:not-allowed;box-shadow:none}
-    .booking-type{margin-bottom:18px}
-    .booking-type .section-label{margin-bottom:10px}
-    .booking-type .cleaning-type-switch{margin-bottom:0}
-    .commercial-route-note{margin:10px 0 0}
-    .stepper{display:flex;gap:8px;align-items:center;margin-bottom:28px;color:#737874;font-size:11px;font-weight:800;letter-spacing:.02em}
-    .stepper span{display:flex;align-items:center;gap:8px;white-space:nowrap}
-    .stepper span:not(:last-child):after{content:"";display:block;width:18px;height:1px;background:#C9CFCA}
-    .stepper b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--eucalyptus2);color:var(--deep);font-size:10px}
-    .section{padding:4px 0 30px;margin-bottom:30px}
-    .section-label{font-size:11px;letter-spacing:.06em}
-    h2{font-size:clamp(27px,3vw,35px);letter-spacing:-.035em}
-    .services{gap:10px}
-    .service-card{min-height:154px;border-radius:15px;padding:18px;background:#FFFDF9;box-shadow:none}
-    .service-card:hover,.service-card:focus-visible{border-color:var(--deep);transform:translateY(-2px)}
-    .service-card.selected{background:var(--eucalyptus2);border-color:var(--deep);padding:17px;box-shadow:inset 0 0 0 1px var(--deep)}
-    .service-card strong{font-family:Prompt,Arial,sans-serif;font-size:17px;line-height:1.25}
-    .service-card .check{font-size:0}
-    .service-card .check:after{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#CBD3CC}
-    .service-card.selected .check:after{background:#fff}
-    .service-card .price{display:none;font-size:15px;margin-top:12px;letter-spacing:-.02em}
-    .service-card.selected .price{display:block}
-    .service-card:after{content:"View price";display:block;margin-top:12px;font-size:11px;font-weight:800;color:var(--deep)}
-    #quoteServices .service-card:after{content:"Select for quote"}
-    .service-card.selected:after{display:none}
-    .counter,.extra{border-radius:13px;background:#FFFDF9}
-    .cleaning-type-btn,.pill,.date-card,.time{border-radius:11px}
-    .summary{top:92px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:22px;box-shadow:0 15px 45px rgba(25,25,25,.07);padding:20px}
-    body.quote-mode .summary{background:#fff}
-    .summary:before{content:"";display:block;width:34px;height:4px;background:var(--butter);border-radius:4px;margin-bottom:18px}
-    .summary h3{font-size:22px}
-    .summary-top small{color:var(--muted)}
-    .demo-tag{background:var(--eucalyptus2);color:var(--deep)}
-    .summary-photo{height:116px;border-radius:12px}
-    .summary-row{border-color:var(--line)}
-    .summary-row span:first-child{color:var(--muted)}
-    .total{border-top:1px solid var(--line);margin-top:8px}
-    .total span{color:var(--muted)}
-    .total strong{color:var(--deep)}
-    .submit,body.quote-mode .submit{background:var(--ink);color:#fff;border-radius:11px;min-height:52px}
-    .micro{color:var(--muted)}
-    .story,.main-site-cta{box-shadow:none}
-    .mobile-booking-bar{display:none}
-    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #86BEDA;outline-offset:2px}
-    @media(max-width:900px){.hero-grid,.booking-grid,.story{grid-template-columns:1fr}.hero-photo{min-height:390px}.summary{position:relative;top:auto}}
-    @media(max-width:900px){
-      .hero-grid,.booking-grid{grid-template-columns:minmax(0,1fr)}
-      .hero-grid > *,.booking-grid > *{min-width:0}
-    }
-    @media(max-width:620px){
-      .hero{padding:25px 0 20px}
-      .hero-photo{min-height:330px}
-      .photo-overlay{gap:8px}
-      .photo-overlay strong{font-size:13px}
-      .photo-overlay small{font-size:10px}
-      .available{font-size:10px}
-      .hero-points{gap:6px}
-      .booking-shell{padding-top:10px}
-      .flow{padding:20px}
-      .stepper{overflow-x:auto;scrollbar-width:none}
-      .stepper::-webkit-scrollbar{display:none}
-      .services{grid-template-columns:1fr}
-      .service-card{min-height:0}
-      .mobile-booking-bar.visible{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:rgba(255,253,249,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(25,25,25,.05);backdrop-filter:blur(12px)}
-      .mobile-booking-bar small{display:block;color:var(--muted);font-size:10px}
-      .mobile-booking-bar strong{font-size:17px;color:var(--deep)}
-      .mobile-booking-bar button{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:13px 16px;font-weight:800;font-size:12px}
-      body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
-    }
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.service{position:relative;min-height:126px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:left}
+.service:hover{border-color:#B6D9EC}
+.service.active{background:var(--blue-soft);border-color:#9CCBE5;box-shadow:inset 0 0 0 1px #9CCBE5}
+.service strong{display:block;font-family:Prompt,Arial,sans-serif;font-size:15px;line-height:1.2;padding-right:22px}
+.service p{margin:6px 0 11px;color:var(--muted);font-size:11px;line-height:1.4}
+.service span{font-size:11px;font-weight:900;color:var(--blue-deep)}
+.service:after{content:"";position:absolute;top:15px;right:15px;width:16px;height:16px;border-radius:50%;border:1px solid #CDD1CE;background:#fff}
+.service.active:after{border:5px solid var(--blue-deep)}
 
-  
-    /* Guided booking flow: one clear decision at a time. */
-    .wizard-section{display:none!important;border-bottom:0!important;margin-bottom:0!important;padding-bottom:8px!important}
-    .wizard-section.wizard-active{display:block!important;animation:wizardIn .24s ease}
-    @keyframes wizardIn{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
-    .wizard-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
-    .wizard-nav button{min-height:46px;border-radius:12px;padding:0 17px;font-weight:900}
-    .wizard-back{border:1px solid var(--line);background:#fff;color:var(--ink)}
-    .wizard-next{border:0;background:var(--ink);color:#fff;margin-left:auto;min-width:150px}
-    .wizard-next:disabled{opacity:.35;cursor:not-allowed}
-    .stepper{overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
-    .stepper::-webkit-scrollbar{display:none}
-    .stepper span{opacity:.5}
-    .stepper span.is-active,.stepper span.is-complete{opacity:1}
-    .stepper span.is-active b{background:var(--ink);color:#fff}
-    .stepper span.is-complete b{background:var(--eucalyptus);color:var(--deep)}
-    .estimate-note{margin:7px 0 2px;padding:11px 12px;border-radius:11px;background:var(--eucalyptus2);color:var(--deep);font-size:11px;line-height:1.4;font-weight:800}
-    #frequency .pill small{font-size:10px;margin-left:4px;opacity:.75}
-    .summary.estimate-pop{animation:estimatePop .18s ease}
-    @keyframes estimatePop{50%{transform:scale(1.012)}}
-    .booking-type{padding:14px;border:1px solid var(--line);border-radius:15px;background:#FFFDF9}
-    .cleaning-type-btn{min-height:52px;font-size:14px}
-    @media(max-width:620px){
-      .wizard-nav{position:sticky;bottom:86px;background:#fff;padding:14px 0 3px;z-index:8}
-      .wizard-nav button{min-height:48px}
-      .stepper{margin-left:-2px;margin-right:-2px}
-      .stepper span{font-size:10px}
-      .stepper span:not(:last-child):after{width:10px}
-      .booking-type{padding:11px}
-    }
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;font-weight:800;color:#545A57}
+select,input,textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:13px 12px;outline:none}
+select:focus,input:focus,textarea:focus{border-color:#8FC6E4;box-shadow:0 0 0 3px rgba(199,231,250,.55)}
+.counters{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px}
+.counter{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px}
+.counter strong{display:block;font-size:12px}
+.counter small{display:block;margin-top:2px;color:var(--muted);font-size:9px}
+.counter-controls{display:flex;align-items:center;gap:9px}
+.counter-controls button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#F7F7F4;font-size:16px}
+.counter-controls b{min-width:16px;text-align:center;font-size:13px}
 
-  
-    /* Premium conversion layer — 2026-10-04 */
-    :root{--ivory:#FAF8F3;--paper:#FFFFFF;--ink:#191919;--muted:#666B69;--line:#E6E7E4;--deep:#355F78;--blue:#8EBDE0;--eucalyptus:#CFE8F7;--eucalyptus2:#EEF6FB;--butter:#F2D85B;--shadow:0 18px 50px rgba(25,25,25,.07)}
-    body{background:var(--ivory)}
-    .demo-strip{background:var(--ink);padding:8px 16px;font-size:11px}
-    header{background:rgba(250,248,243,.96);border-bottom:1px solid rgba(25,25,25,.055)}
-    .nav{min-height:72px}
-    .brand-mark{width:38px;height:38px;border-radius:50%;background:var(--blue);color:var(--ink);font-family:Prompt,Arial,sans-serif}
-    .brand-copy strong{font-family:Prompt,Arial,sans-serif;font-size:14px;letter-spacing:.015em}
-    .brand-copy span{font-size:10px}
-    .ghost{padding:11px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
-    .hero{padding:64px 0 42px}
-    .hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.86fr);gap:clamp(44px,7vw,92px)}
-    .eyebrow{border:0;background:var(--eucalyptus2);padding:9px 12px;color:var(--deep)}
-    .eyebrow-dot{background:var(--blue);box-shadow:none}
-    h1{max-width:680px;font-size:clamp(48px,6vw,78px);line-height:.97;letter-spacing:-.058em}
-    .hero p{max-width:610px;font-size:17px;color:#555B58}
-    .hero-points{margin:22px 0 28px;gap:0}
-    .hero-points span{position:relative;padding-left:18px;margin-right:20px;color:#565C59;font-weight:650}
-    .hero-points span:before{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;border-radius:50%;background:var(--blue);transform:translateY(-50%)}
-    .start-btn,.secondary-start-btn{min-height:52px;padding:0 20px;border-radius:12px}
-    .start-btn{background:var(--ink)}
-    .secondary-start-btn{background:transparent;border-color:#CDD2CF}
-    .hero-micro{margin:11px 0 0!important;font-size:11px!important;color:#7A7E7C!important}
-    .hero-photo{min-height:470px;border-radius:18px;background:#EDEFEA;box-shadow:0 20px 60px rgba(25,25,25,.08)}
-    .hero-photo:after{content:"";position:absolute;inset:0;border:1px solid rgba(25,25,25,.06);border-radius:inherit;pointer-events:none}
-    .photo-overlay{left:18px;right:18px;bottom:18px;padding:15px 16px;border-radius:12px;border:1px solid rgba(25,25,25,.07);box-shadow:0 12px 30px rgba(25,25,25,.1)}
-    .available{background:var(--eucalyptus2);color:var(--deep);border-radius:999px}
-    .trust-line{padding:0 0 24px}
-    .trust-line-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-    .trust-line-grid span{padding:15px 18px;font-size:12px;font-weight:800;color:#4E5451}
-    .trust-line-grid span+span{border-left:1px solid var(--line)}
-    .trust-line-grid b{display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:50%;background:var(--eucalyptus2);color:var(--deep);font-size:9px}
-    .booking-shell{padding:20px 0 82px}
-    .booking-grid{grid-template-columns:minmax(0,1fr) 360px;gap:24px}
-    .panel{border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 44px rgba(25,25,25,.045)}
-    .flow{padding:clamp(24px,3.2vw,42px)}
-    .booking-intro{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
-    .booking-intro>span{display:block;margin-bottom:8px;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--deep)}
-    .booking-intro h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:8px}
-    .booking-intro p{margin:0;color:var(--muted);font-size:14px}
-    .booking-type{background:transparent;border:0;border-radius:0;padding:0;margin-bottom:14px}
-    .cleaning-type-switch,.request-mode-switch{padding:5px;background:#F4F3EF;border-color:#E7E5DE;border-radius:12px}
-    .cleaning-type-btn,.request-mode-btn{min-height:50px;border:0;border-radius:9px}
-    .cleaning-type-btn.selected,.request-mode-btn.active{background:#fff;color:var(--ink);box-shadow:0 3px 10px rgba(25,25,25,.06)}
-    .request-mode-btn[data-mode="quote"].active{background:var(--deep);color:#fff}
-    .commercial-route-note{border-left:3px solid var(--blue)}
-    .stepper{margin:24px 0 34px;padding:0;gap:10px}
-    .stepper span{font-size:10px;font-weight:800}
-    .stepper b{width:24px;height:24px;background:#F0F2F1;color:#59605D}
-    .stepper span.is-active b{background:var(--ink);color:#fff}
-    .stepper span.is-complete b{background:var(--blue);color:var(--ink)}
-    .section-label{color:var(--deep)}
-    .section-intro{max-width:650px}
-    .services{gap:12px}
-    .service-card{min-height:148px;border-radius:13px;background:#fff;border-color:#E2E4E1;padding:18px}
-    .service-card:hover,.service-card:focus-visible{border-color:var(--blue);transform:translateY(-1px)}
-    .service-card.selected{background:var(--eucalyptus2);border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);padding:17px}
-    .service-card:after{color:#5B7F94}
-    .service-card.selected .check{background:var(--deep);border-color:var(--deep)}
-    .service-card .price{color:var(--deep)}
-    .counter,.extra,input,select,textarea{background:#fff}
-    .counter,.extra{border-radius:12px}
-    .round{background:#F6F6F3}
-    .pill,.date-card,.time{background:#fff;border-color:#DEE1DE}
-    .pill.selected,.time.selected{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .date-card.selected{background:var(--eucalyptus2);border-color:var(--blue)}
-    .wizard-nav{margin-top:28px;padding-top:24px}
-    .wizard-back,.wizard-next{border-radius:10px}
-    .wizard-next{background:var(--ink)}
-    .summary{top:96px;border-radius:18px;padding:22px;box-shadow:0 18px 48px rgba(25,25,25,.07)}
-    .summary:before{width:46px;height:5px;background:var(--blue);margin-bottom:17px}
-    .summary-photo{height:132px;border-radius:11px}
-    .summary-row{padding:10px 0}
-    .total strong{color:var(--ink);font-size:32px}
-    .estimate-note{background:var(--eucalyptus2);color:#365D72;border-radius:10px}
-    .submit,body.quote-mode .submit{background:var(--ink);border-radius:10px}
-    .submit:hover{transform:translateY(-1px)}
-    .story{border-radius:18px;border-color:var(--line)}
-    .story-copy{padding:clamp(30px,4vw,52px)}
-    .story-copy .kicker{color:var(--deep)}
-    .story-copy h3{font-size:clamp(34px,4vw,52px)}
-    .benefit{background:var(--eucalyptus2);color:#31586C;border-radius:10px}
-    .main-site-cta{border-radius:18px;background:var(--ink);border:0;box-shadow:none}
-    .main-site-cta a{background:var(--butter);border-radius:10px}
-    footer{padding-top:10px}
-    @media(max-width:900px){.hero{padding-top:44px}.hero-grid,.booking-grid{grid-template-columns:1fr}.hero-photo{min-height:400px}.summary{top:auto}}
-    @media(max-width:620px){.nav{min-height:62px}.brand-copy span{display:none}.hero{padding:30px 0 22px}h1{font-size:49px}.hero-grid{gap:28px}.hero-photo{min-height:320px}.trust-line-grid{grid-template-columns:1fr}.trust-line-grid span+span{border-left:0;border-top:1px solid var(--line)}.booking-shell{padding-top:8px}.flow{padding:20px 18px}.booking-intro{padding-bottom:18px;margin-bottom:18px}.cleaning-type-btn,.request-mode-btn{font-size:12px}.stepper{margin:19px 0 28px}.wizard-nav{bottom:86px}.summary{border-radius:15px}.story{border-radius:15px}.main-site-cta{border-radius:15px}}
+.frequency{display:flex;flex-wrap:wrap;gap:8px}
+.frequency button,.time-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 12px;font-size:11px;font-weight:800}
+.frequency button.active,.time-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.frequency button small{font-size:8px;margin-left:3px;opacity:.7}
 
-  </style>
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.extra{display:flex;align-items:start;gap:9px;border:1px solid var(--line);border-radius:11px;padding:12px;background:#fff}
+.extra input{width:17px;height:17px;margin:1px 0 0;padding:0;accent-color:var(--blue-deep)}
+.extra strong{display:block;font-size:11px}
+.extra small{display:block;margin-top:3px;color:var(--muted);font-size:9px}
+
+.dates{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.date-btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 5px;text-align:center}
+.date-btn small{display:block;color:var(--muted);font-size:8px;text-transform:uppercase}
+.date-btn strong{display:block;font-size:17px;margin:2px 0}
+.date-btn span{font-size:9px;color:var(--muted)}
+.date-btn.active{background:var(--blue-soft);border-color:#9CCBE5}
+.times{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+
+.step-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:25px;padding-top:20px;border-top:1px solid var(--line)}
+.back,.next{min-height:46px;border-radius:10px;padding:0 16px;font-weight:900}
+.back{border:1px solid var(--line);background:#fff}
+.next{border:0;background:var(--ink);color:#fff;margin-left:auto;min-width:132px}
+.next:disabled{opacity:.35;cursor:not-allowed}
+
+.summary{position:sticky;top:88px;padding:20px}
+.summary-head{display:flex;align-items:start;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.summary-head small{display:block;color:var(--muted);font-size:9px}
+.summary-head h3{font-size:19px;margin:4px 0 0}
+.demo-pill{padding:6px 8px;border-radius:999px;background:var(--blue-soft);color:var(--blue-deep);font-size:8px;font-weight:900}
+.summary-row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:10px}
+.summary-row span{color:var(--muted)}
+.summary-row strong{text-align:right;font-weight:800}
+.estimate{padding:18px 0 12px}
+.estimate small{display:block;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.05em}
+.estimate strong{display:block;margin-top:3px;font-family:Prompt,Arial,sans-serif;font-size:31px;letter-spacing:-.04em}
+.estimate-note{font-size:9px;line-height:1.4;color:var(--muted);margin-top:5px}
+.submit{width:100%;min-height:50px;border:0;border-radius:10px;background:var(--ink);color:#fff;font-weight:900}
+.summary-foot{font-size:8px;line-height:1.45;color:#858987;text-align:center;margin:9px 4px 0}
+
+.mobile-bar{display:none}
+.modal{display:none;position:fixed;inset:0;z-index:80;background:rgba(25,25,25,.46);padding:20px;align-items:center;justify-content:center}
+.modal.open{display:flex}
+.modal-card{width:min(440px,100%);background:#fff;border-radius:16px;padding:27px;text-align:center}
+.modal-check{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;background:var(--blue);font-weight:900}
+.modal h3{font-size:26px;margin:0 0 8px}
+.modal p{color:var(--muted);font-size:13px;line-height:1.5}
+.modal button{border:0;background:var(--ink);color:#fff;border-radius:9px;padding:12px 16px;font-weight:800}
+
+footer{padding:0 0 34px;text-align:center;color:var(--muted);font-size:9px}
+footer a{color:var(--ink);font-weight:800;text-decoration:none}
+
+@media(max-width:820px){
+  .shell{grid-template-columns:1fr}
+  .summary{position:relative;top:auto}
+  .intro-grid{align-items:start}
+  .intro-side{display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 22px,var(--max))}
+  .demo-note{font-size:9px}
+  .nav{min-height:58px}
+  .brand-copy span{display:none}
+  .nav button{font-size:10px}
+  .intro{padding:27px 0 18px}
+  h1{font-size:42px}
+  .intro p{font-size:13px}
+  .booking{padding-top:4px}
+  .form-card{padding:18px 16px;border-radius:13px}
+  .services,.fields,.extras,.counters{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .service{min-height:0}
+  .progress small{font-size:8px}
+  .dates{gap:5px}
+  .date-btn{padding:9px 3px}
+  .summary{border-radius:13px;margin-bottom:64px}
+  .mobile-bar{position:fixed;display:flex;left:0;right:0;bottom:0;z-index:50;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);backdrop-filter:blur(12px)}
+  .mobile-bar small{display:block;color:var(--muted);font-size:8px}
+  .mobile-bar strong{font-family:Prompt,Arial,sans-serif;font-size:17px}
+  .mobile-bar button{border:0;background:var(--ink);color:#fff;border-radius:9px;padding:11px 13px;font-size:10px;font-weight:900}
+  body{padding-bottom:72px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <div class="demo-strip">Interactive demo by The Launch Era · Sample business, pricing & customer information</div>
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><div class="brand-mark">L</div><div class="brand-copy"><strong>LUMA HOME CLEANING</strong><span>Professional home care</span></div></div>
-      <div class="nav-actions"><button class="ghost" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book online</button></div>
+<div class="demo-note">Interactive demo · sample business, pricing and availability only</div>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="mark">L</div>
+      <div class="brand-copy"><strong>LUMA HOME CLEANING</strong><span>Professional home care</span></div>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Online booking · Palm Beach sample</div>
-          <h1>Book your clean in under 2 minutes.</h1>
-          <p>Choose the service, tell us about your space, add only what you need, and see your estimate update before you request your time.</p>
-          <div class="hero-points"><span>Instant estimate</span><span>Real-time style availability</span><span>No account needed</span></div>
-          <div class="hero-actions"><button class="start-btn" onclick="setRequestMode('book');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Start my booking →</button><button class="secondary-start-btn" onclick="setRequestMode('quote');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">I need a custom quote</button></div><p class="hero-micro">No payment is collected in this demo.</p>
-        </div>
-        <div class="hero-photo">
-          <img id="heroPhoto" src="https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cleaner mopping a bright modern home">
-          <div class="photo-overlay"><div><strong>Next opening</strong><small>Monday · 10:30 AM</small></div><span class="available">Available</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-line" aria-label="Booking benefits"><div class="wrap trust-line-grid"><span><b>01</b> See your estimate</span><span><b>02</b> Choose your time</span><span><b>03</b> Get a clear confirmation</span></div></section>
-
-    <section id="booking" class="booking-shell">
-      <div class="wrap booking-grid">
-        <div class="panel flow">
-          <div class="booking-intro"><span>BOOK ONLINE</span><h2>Build your cleaning in a few taps.</h2><p>Your estimate updates as you customize the visit.</p></div>
-          <div class="booking-type">
-            <div class="section-label">First, what are we cleaning?</div>
-            <div class="cleaning-type-switch" id="cleaningType" aria-label="Choose cleaning type">
-              <button type="button" class="cleaning-type-btn selected" data-cleaning-type="Residential" aria-pressed="true">Residential home</button>
-              <button type="button" class="cleaning-type-btn" data-cleaning-type="Commercial" aria-pressed="false">Commercial space</button>
-            </div>
-            <p class="quote-note commercial-route-note" id="commercialRouteNote" hidden>Commercial cleaning is priced for your space. We'll start a custom quote request.</p>
-          </div>
-          <div class="request-mode-switch" aria-label="Choose request type">
-            <button type="button" class="request-mode-btn active" data-mode="book">Book now</button>
-            <button type="button" class="request-mode-btn" data-mode="quote">Custom quote</button>
-          </div>
-          <div class="stepper" aria-label="Booking sections"><span><b>01</b> Service</span><span><b>02</b> Space</span><span><b>03</b> Schedule</span><span><b>04</b> Details</span></div>
-
-          <section class="section">
-            <div class="section-label">01 · Service</div><h2 id="serviceTitle">What can we help you clean?</h2><p class="section-intro" id="serviceIntro">Choose a service to see its sample starting price.</p>
-            <div class="service-path-label" id="bookServiceLabel"><strong>Choose a cleaning</strong><span>Instant estimate</span></div>
-            <div class="services" id="bookServices">
-              <button class="service-card" data-service="Standard Cleaning" data-price="129" aria-pressed="false"><span class="check">✓</span><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span class="price">From $129</span></button>
-              <button class="service-card" data-service="Deep Cleaning" data-price="219"><span class="check">✓</span><strong>Deep Cleaning</strong><p>Extra attention for buildup, details, and those often-missed areas.</p><span class="price">From $219</span></button>
-              <button class="service-card" data-service="Move-In / Move-Out" data-price="249"><span class="check">✓</span><strong>Move-In / Move-Out</strong><p>A detailed clean for an empty or nearly empty home.</p><span class="price">From $249</span></button>
-              <button class="service-card" data-service="Recurring Cleaning" data-price="119"><span class="check">✓</span><strong>Recurring Cleaning</strong><p>Keep your home consistently clean with a repeating schedule.</p><span class="price">From $119</span></button>
-            </div>
-            <div class="service-path-label" id="quoteServiceLabel" hidden><strong>Get a Quote services</strong><span>Custom pricing</span></div>
-            <div class="services" id="quoteServices" hidden>
-              <button class="service-card" data-service="Post-Construction Cleaning" data-price="0" aria-pressed="false"><span class="check">✓</span><strong>Post-Construction Cleaning</strong><p>For dust, residue, and detailed cleanup after renovation or construction.</p><span class="price">Custom quote</span></button>
-              <button class="service-card" data-service="Commercial Cleaning" data-price="0"><span class="check">✓</span><strong>Commercial Cleaning</strong><p>Tell us about your office, storefront, or commercial space.</p><span class="price">Custom quote</span></button>
-              <button class="service-card" data-service="Large / Special Property" data-price="0"><span class="check">✓</span><strong>Large / Special Property</strong><p>For larger homes, special conditions, or work that needs a closer look.</p><span class="price">Custom quote</span></button>
-              <button class="service-card" data-service="Custom Cleaning Request" data-price="0"><span class="check">✓</span><strong>Custom Cleaning Request</strong><p>Describe what you need and the business can build a quote around the job.</p><span class="price">Custom quote</span></button>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-label">02 · Property details</div><h2>Tell us about the space.</h2><p class="section-intro">Add a few details so the business can prepare for the job.</p>
-
-            <div class="counter-grid" id="residentialCounters">
-              <div class="counter"><div class="counter-label"><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button class="round" data-counter="beds" data-dir="-1">−</button><span id="beds" class="count">3</span><button class="round" data-counter="beds" data-dir="1">+</button></div></div>
-              <div class="counter"><div class="counter-label"><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button class="round" data-counter="baths" data-dir="-1">−</button><span id="baths" class="count">2</span><button class="round" data-counter="baths" data-dir="1">+</button></div></div>
-            </div>
-
-            <div class="counter-grid" id="commercialCounters" hidden>
-              <div class="counter"><div class="counter-label"><strong>Restrooms</strong><small>Customer / staff restrooms</small></div><div class="counter-controls"><button class="round" data-counter="restrooms" data-dir="-1">−</button><span id="restrooms" class="count">2</span><button class="round" data-counter="restrooms" data-dir="1">+</button></div></div>
-              <div class="counter"><div class="counter-label"><strong>Floors / Levels</strong><small>Levels to be cleaned</small></div><div class="counter-controls"><button class="round" data-counter="floors" data-dir="-1">−</button><span id="floors" class="count">1</span><button class="round" data-counter="floors" data-dir="1">+</button></div></div>
-            </div>
-
-            <div class="field-grid">
-              <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option>Under 1,000 sq ft</option><option selected>1,000–1,999 sq ft</option><option>2,000–2,999 sq ft</option><option>3,000+ sq ft</option></select></div>
-              <div class="field" id="residentialPropertyField"><label for="homeType">Property type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
-              <div class="field" id="commercialDetails" hidden><label for="commercialType">Commercial space</label><select id="commercialType"><option selected>Office</option><option>Storefront / Retail</option><option>Restaurant</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Other commercial space</option></select></div>
-              <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected" data-frequency="One time">One time</button><button class="pill" data-frequency="Weekly">Weekly <small>−15%</small></button><button class="pill" data-frequency="Biweekly">Biweekly <small>−10%</small></button><button class="pill" data-frequency="Monthly">Monthly <small>−5%</small></button></div></div>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-label">03 · Date & time</div><h2 id="dateTitle">Choose what works for you.</h2><p class="section-intro" id="dateIntro">Only sample available times are shown in this demo.</p>
-            <div class="date-row" id="dates">
-              <button class="date-card selected" type="button"><small></small><strong></strong><span></span></button>
-              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
-              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
-              <button class="date-card" type="button"><small></small><strong></strong><span></span></button>
-            </div>
-            <div class="times" id="bookTimes"><button class="time" data-time="8:00 AM">8:00 AM</button><button class="time selected" data-time="10:30 AM">10:30 AM</button><button class="time" data-time="1:00 PM">1:00 PM</button><button class="time" data-time="3:30 PM">3:30 PM</button></div>
-            <div class="times" id="quoteTimes" hidden><button class="time" data-time="Morning">Morning</button><button class="time" data-time="Afternoon">Afternoon</button><button class="time selected" data-time="Flexible">Flexible</button></div>
-            <p class="quote-note" id="quoteDateNote" hidden>A preferred date helps the business prepare your quote. It is not a confirmed appointment yet.</p>
-          </section>
-
-          <section class="section">
-            <div class="section-label">04 · Details</div><h2 id="extrasTitle">Want anything extra?</h2><p class="section-intro" id="extrasIntro">Add only what you need. You can see everything in your booking summary.</p>
-            <div class="extras" id="residentialExtras">
-              <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25" data-extra-group="residential"><span><strong>Inside oven</strong><small data-book-copy="+$25 sample">+$25 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Inside refrigerator" data-price="30" data-extra-group="residential"><span><strong>Inside refrigerator</strong><small data-book-copy="+$30 sample">+$30 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Interior windows" data-price="35" data-extra-group="residential"><span><strong>Interior windows</strong><small data-book-copy="+$35 sample">+$35 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Baseboards" data-price="20" data-extra-group="residential"><span><strong>Baseboards</strong><small data-book-copy="+$20 sample">+$20 sample</small></span></label>
-            </div>
-            <div class="extras" id="commercialExtras" hidden>
-              <label class="extra"><input type="checkbox" data-extra="High-touch disinfection" data-price="40" data-extra-group="commercial"><span><strong>High-touch disinfection</strong><small data-book-copy="+$40 sample">+$40 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Interior glass" data-price="45" data-extra-group="commercial"><span><strong>Interior glass</strong><small data-book-copy="+$45 sample">+$45 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Breakroom / kitchenette" data-price="35" data-extra-group="commercial"><span><strong>Breakroom / kitchenette</strong><small data-book-copy="+$35 sample">+$35 sample</small></span></label>
-              <label class="extra"><input type="checkbox" data-extra="Trash & liner service" data-price="30" data-extra-group="commercial"><span><strong>Trash & liner service</strong><small data-book-copy="+$30 sample">+$30 sample</small></span></label>
-            </div>
-          </section>
-
-          <section class="section">
-            <div class="section-label">05 · Your details</div><h2>Where should we send the confirmation?</h2><p class="section-intro">Everything below is sample information for this demo.</p>
-            <div class="field-grid">
-              <div class="field"><label for="name">Name</label><input id="name" value="Jordan Lee"></div>
-              <div class="field"><label for="phone">Phone</label><input id="phone" value="(202) 555-0148"></div>
-              <div class="field full"><label for="email">Email</label><input id="email" value="jordan@example.com"></div>
-              <div class="field full"><label for="address">Service address</label><input id="address" value="123 Example Street, Demo City"></div>
-              <div class="field full"><label for="notes">Anything we should know?</label><textarea id="notes" rows="3">Friendly dog at home. Please focus on the kitchen and main bathroom.</textarea></div>
-            </div>
-          </section>
-        </div>
-
-        <aside class="summary" id="bookingSummary" aria-live="polite">
-          <div class="summary-top"><div><small id="summaryKicker">Your booking</small><h3 id="summaryTitle">Almost done.</h3></div><span class="demo-tag">Demo</span></div>
-          <div class="summary-photo"><img id="summaryPhoto" src="https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gloved hand cleaning a kitchen sink"></div>
-          <div class="summary-row"><span>Service</span><strong id="sumService">Choose a service</strong></div>
-          <div class="summary-row"><span id="sumPropertyLabel">Home</span><strong id="sumHome">3 bed · 2 bath</strong></div>
-          <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
-          <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
-          <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
-          <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
-          <div class="total"><span id="totalLabel">Estimated total</span><strong id="sumTotal">—</strong></div>
-          <div class="estimate-note" id="estimateNote">Updates with service, home size, frequency and extras.</div>
-          <button class="submit" id="submitBtn">Request cleaning →</button>
-          <p class="micro" id="summaryMicro">Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="story">
-      <img id="storyPhoto" src="https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bright clean modern living room">
-      <div class="story-copy">
-        <span class="kicker">A smoother customer experience</span>
-        <h3>Less back-and-forth. More ready-to-book clients.</h3>
-        <p>Your customer can see the service, price range, extras, availability and next step in one clear flow — while the business receives a more complete request.</p>
-        <div class="benefits"><div class="benefit">Live estimate as choices change</div><div class="benefit">Commercial automatically routes to quote</div><div class="benefit">Built for phone-first booking</div></div>
-      </div>
-    </section>
-
-    <section class="main-site-cta" aria-label="The Launch Era">
-      <div class="main-site-cta-copy">
-        <span class="kicker">Built by The Launch Era</span>
-        <h3>Turn “how much?” into a complete booking request.</h3>
-        <p>Your services, pricing, availability, questions and brand — built into a customer flow that feels easy to use and valuable to own.</p>
-      </div>
-      <a href="/" aria-label="Visit The Launch Era">See The Launch Era →</a>
-    </section>
-  </main>
-
-  <footer><div class="wrap"><strong>Demo Booking + Quote Page by The Launch Era</strong><br>Sample business, pricing, customer information and addresses. Photography sourced from Pexels.</div></footer>
-
-  <div class="mobile-booking-bar"><div><small id="mobileEstimateLabel">Sample starting estimate</small><strong id="mobileEstimate">Choose a service</strong></div><button type="button" id="reviewBooking">Review booking →</button></div>
-
-  <div class="success" id="success" role="dialog" aria-modal="true">
-    <div class="success-card"><div class="success-check">✓</div><h3 id="successTitle">Request received.</h3><p id="successCopy">In a real Booking Page, this request can flow into the cleaning business system so the owner can review, schedule, follow up, and keep the job organized.</p><button id="closeSuccess">Back to demo</button></div>
+    <button type="button" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book online</button>
   </div>
+</header>
 
-  <script>
-    const state={mode:'book',service:null,base:0,cleaningType:'Residential',beds:3,baths:2,restrooms:2,floors:1,frequency:'One time',date:'',time:'10:30 AM',extras:[]};
-    const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(0);
+<main>
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="eyebrow">Online booking</span>
+        <h1>Book your clean without the back-and-forth.</h1>
+        <p>Choose what you need, see an approximate range, pick a preferred time, and send one complete request.</p>
+      </div>
+      <div class="intro-side"><small>Typical time to complete</small><strong>Under 2 minutes</strong></div>
+    </div>
+  </section>
 
-    function populateDemoDates(){
-      const today=new Date();
-      const next=new Date(today.getFullYear(),today.getMonth(),today.getDate());
-      let shown=0;
-      while(shown<4){
-        next.setDate(next.getDate()+1);
-        if(next.getDay()===0||next.getDay()===6) continue;
-        const card=$('dates').children[shown];
-        const weekday=new Intl.DateTimeFormat('en-US',{weekday:'short'}).format(next);
-        const month=new Intl.DateTimeFormat('en-US',{month:'short'}).format(next);
-        card.querySelector('small').textContent=weekday;
-        card.querySelector('strong').textContent=next.getDate();
-        card.querySelector('span').textContent=month;
-        card.dataset.date=weekday+', '+month+' '+next.getDate();
-        if(shown===0) state.date=card.dataset.date;
-        shown++;
-      }
-    }
+  <section class="booking" id="booking">
+    <div class="wrap shell">
+      <div class="form-card">
+        <div class="space-switch" aria-label="Choose property type">
+          <button type="button" class="active" data-space="Residential">Residential</button>
+          <button type="button" data-space="Commercial">Commercial</button>
+        </div>
+        <p class="commercial-note">Commercial jobs use custom pricing. Continue to send the space details for a quote.</p>
 
-    function syncSelectedService(){
-      const container=state.mode==='quote'?$('quoteServices'):$('bookServices');
-      const selected=container?.querySelector('.service-card.selected');
-      if(!selected) return;
-      container.querySelectorAll('.service-card').forEach(x=>x.classList.remove('selected'));
-      selected.classList.add('selected');
-      state.service=selected.dataset.service;
-      state.base=Number(selected.dataset.price||0);
-    }
+        <div class="progress" aria-label="Booking steps">
+          <button type="button" data-jump="0"><span class="progress-bar"></span><small>1 · Service</small></button>
+          <button type="button" data-jump="1"><span class="progress-bar"></span><small>2 · Property</small></button>
+          <button type="button" data-jump="2"><span class="progress-bar"></span><small>3 · Extras</small></button>
+          <button type="button" data-jump="3"><span class="progress-bar"></span><small>4 · Schedule</small></button>
+        </div>
 
-    function updateDemoPhotos(){
-      const key=state.mode+"-"+state.cleaningType.toLowerCase();
+        <section class="step active" data-step="0">
+          <span class="step-label">Step 1</span>
+          <h2>What do you need cleaned?</h2>
+          <p class="step-intro">Choose one service. You can change it anytime before sending the request.</p>
+          <div class="services residential-services">
+            <button class="service active" type="button" data-service="Standard Cleaning" data-price="129"><strong>Standard Cleaning</strong><p>Routine cleaning for a home that needs a fresh reset.</p><span>From $129</span></button>
+            <button class="service" type="button" data-service="Deep Cleaning" data-price="219"><strong>Deep Cleaning</strong><p>More detail for buildup and often-missed areas.</p><span>From $219</span></button>
+            <button class="service" type="button" data-service="Move-In / Move-Out" data-price="249"><strong>Move-In / Move-Out</strong><p>Detailed cleaning for an empty or nearly empty home.</p><span>From $249</span></button>
+            <button class="service" type="button" data-service="Recurring Cleaning" data-price="119"><strong>Recurring Cleaning</strong><p>A repeating clean to keep the home consistently maintained.</p><span>From $119</span></button>
+          </div>
+          <div class="services commercial-services" hidden>
+            <button class="service active" type="button" data-service="Commercial Cleaning" data-price="0"><strong>Commercial Cleaning</strong><p>Office, storefront, studio, salon, professional space or other commercial property.</p><span>Custom quote</span></button>
+          </div>
+        </section>
 
-      const photoSets={
-        "book-residential":{
-          hero:"https://images.pexels.com/photos/36729566/pexels-photo-36729566.jpeg?auto=compress&cs=tinysrgb&w=1400",
-          summary:"https://images.pexels.com/photos/9462224/pexels-photo-9462224.jpeg?auto=compress&cs=tinysrgb&w=900",
-          story:"https://images.pexels.com/photos/19889139/pexels-photo-19889139.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          heroAlt:"Cleaner mopping a bright residential home",
-          summaryAlt:"Cleaner working in a residential kitchen",
-          storyAlt:"Bright clean residential living room"
-        },
-        "book-commercial":{
-          hero:"https://images.pexels.com/photos/33357392/pexels-photo-33357392.jpeg?auto=compress&cs=tinysrgb&w=1400",
-          summary:"https://images.pexels.com/photos/36303748/pexels-photo-36303748.jpeg?auto=compress&cs=tinysrgb&w=900",
-          story:"https://images.pexels.com/photos/10567236/pexels-photo-10567236.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          heroAlt:"Professional cleaners working at a modern office building",
-          summaryAlt:"Commercial cleaning cart in a business hallway",
-          storyAlt:"Commercial workspace prepared for cleaning"
-        },
-        "quote-residential":{
-          hero:"https://images.pexels.com/photos/6196692/pexels-photo-6196692.jpeg?auto=compress&cs=tinysrgb&w=1400",
-          summary:"https://images.pexels.com/photos/4239128/pexels-photo-4239128.jpeg?auto=compress&cs=tinysrgb&w=900",
-          story:"https://images.pexels.com/photos/5591909/pexels-photo-5591909.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          heroAlt:"Professional cleaners preparing a residential cleaning",
-          summaryAlt:"Residential cleaner washing a bathroom fixture",
-          storyAlt:"Cleaner wiping a residential kitchen counter"
-        },
-        "quote-commercial":{
-          hero:"https://images.pexels.com/photos/8811390/pexels-photo-8811390.jpeg?auto=compress&cs=tinysrgb&w=1400",
-          summary:"https://images.pexels.com/photos/34516664/pexels-photo-34516664.jpeg?auto=compress&cs=tinysrgb&w=900",
-          story:"https://images.pexels.com/photos/18134199/pexels-photo-18134199.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          heroAlt:"Cleaner washing a commercial storefront window",
-          summaryAlt:"Professional janitorial supplies for a commercial space",
-          storyAlt:"Professional cleaners working on a modern office building"
-        }
-      };
+        <section class="step" data-step="1">
+          <span class="step-label">Step 2</span>
+          <h2>Tell us about the space.</h2>
+          <p class="step-intro">A few details help build a better approximate range and a more complete request.</p>
 
-      const set=photoSets[key]||photoSets["book-residential"];
-      const hero=$("heroPhoto");
-      const summary=$("summaryPhoto");
-      const story=$("storyPhoto");
+          <div class="residential-property">
+            <div class="counters">
+              <div class="counter"><div><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button type="button" data-counter="beds" data-dir="-1">−</button><b id="beds">3</b><button type="button" data-counter="beds" data-dir="1">+</button></div></div>
+              <div class="counter"><div><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button type="button" data-counter="baths" data-dir="-1">−</button><b id="baths">2</b><button type="button" data-counter="baths" data-dir="1">+</button></div></div>
+            </div>
+            <div class="fields">
+              <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option value="-10">Under 1,000 sq ft</option><option value="0" selected>1,000–1,999 sq ft</option><option value="40">2,000–2,999 sq ft</option><option value="85">3,000+ sq ft</option></select></div>
+              <div class="field"><label for="homeType">Property type</label><select id="homeType"><option>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
+            </div>
+          </div>
 
-      hero.src=set.hero;
-      summary.src=set.summary;
-      story.src=set.story;
+          <div class="commercial-property" hidden>
+            <div class="fields">
+              <div class="field"><label for="commercialType">Space type</label><select id="commercialType"><option>Office</option><option>Storefront / Retail</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Restaurant</option><option>Other commercial space</option></select></div>
+              <div class="field"><label for="commercialSqft">Approx. square footage</label><select id="commercialSqft"><option>Under 2,000 sq ft</option><option>2,000–4,999 sq ft</option><option>5,000–9,999 sq ft</option><option>10,000+ sq ft</option></select></div>
+              <div class="field full"><label for="commercialNotes">Anything important about the space?</label><textarea id="commercialNotes" rows="3" placeholder="Example: 2 restrooms, breakroom, interior glass..."></textarea></div>
+            </div>
+          </div>
+        </section>
 
-      hero.alt=set.heroAlt;
-      summary.alt=set.summaryAlt;
-      story.alt=set.storyAlt;
+        <section class="step" data-step="2">
+          <span class="step-label">Step 3</span>
+          <h2>Add only what you need.</h2>
+          <p class="step-intro">Extras and frequency update the approximate range for residential bookings.</p>
+          <div class="residential-extras">
+            <div class="extras">
+              <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25"><span><strong>Inside oven</strong><small>+$25 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Inside refrigerator" data-price="30"><span><strong>Inside refrigerator</strong><small>+$30 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Interior windows" data-price="35"><span><strong>Interior windows</strong><small>+$35 sample</small></span></label>
+              <label class="extra"><input type="checkbox" data-extra="Baseboards" data-price="20"><span><strong>Baseboards</strong><small>+$20 sample</small></span></label>
+            </div>
+            <div style="height:16px"></div>
+            <div class="field">
+              <label>How often?</label>
+              <div class="frequency" id="frequency">
+                <button class="active" type="button" data-discount="0" data-frequency="One time">One time</button>
+                <button type="button" data-discount=".15" data-frequency="Weekly">Weekly <small>−15%</small></button>
+                <button type="button" data-discount=".10" data-frequency="Biweekly">Biweekly <small>−10%</small></button>
+                <button type="button" data-discount=".05" data-frequency="Monthly">Monthly <small>−5%</small></button>
+              </div>
+            </div>
+          </div>
+          <div class="commercial-extras" hidden>
+            <div class="fields">
+              <div class="field full"><label for="commercialFrequency">How often do you need cleaning?</label><select id="commercialFrequency"><option>One time</option><option>Weekly</option><option>2–3 times per week</option><option>5 times per week</option><option>Not sure yet</option></select></div>
+              <div class="field full"><label for="commercialScope">What should we include?</label><textarea id="commercialScope" rows="4" placeholder="Restrooms, floors, trash, glass, breakroom, high-touch areas..."></textarea></div>
+            </div>
+          </div>
+        </section>
 
-      hero.dataset.photoState=key;
-      summary.dataset.photoState=key;
-      story.dataset.photoState=key;
-    }
+        <section class="step" data-step="3">
+          <span class="step-label">Step 4</span>
+          <h2>Choose a preferred time.</h2>
+          <p class="step-intro" id="scheduleIntro">Select a sample opening, then add your contact details.</p>
+          <div class="dates" id="dates">
+            <button type="button" class="date-btn active"><small></small><strong></strong><span></span></button>
+            <button type="button" class="date-btn"><small></small><strong></strong><span></span></button>
+            <button type="button" class="date-btn"><small></small><strong></strong><span></span></button>
+            <button type="button" class="date-btn"><small></small><strong></strong><span></span></button>
+          </div>
+          <div class="times" id="residentialTimes">
+            <button type="button" class="time-btn">8:00 AM</button>
+            <button type="button" class="time-btn active">10:30 AM</button>
+            <button type="button" class="time-btn">1:00 PM</button>
+            <button type="button" class="time-btn">3:30 PM</button>
+          </div>
+          <div class="times" id="commercialTimes" hidden>
+            <button type="button" class="time-btn">Morning</button>
+            <button type="button" class="time-btn">Afternoon</button>
+            <button type="button" class="time-btn active">Flexible</button>
+          </div>
 
-    function updateDetailsCopy(){
-      const quote=state.mode==='quote';
-      const commercial=state.cleaningType==='Commercial';
-      if(commercial){
-        $('extrasTitle').textContent=quote?'What should the commercial quote include?':'Add services for this commercial space.';
-        $('extrasIntro').textContent=quote
-          ? 'Select the commercial details the business should price into the quote.'
-          : 'Choose any additional commercial services needed for this visit.';
-      }else{
-        $('extrasTitle').textContent=quote?'Anything the business should include?':'Want anything extra?';
-        $('extrasIntro').textContent=quote
-          ? 'Add the residential details that matter so the quote can be prepared more accurately.'
-          : 'Add only what you need. You can see everything in your booking summary.';
-      }
-    }
+          <div class="fields">
+            <div class="field"><label for="name">Name</label><input id="name" placeholder="Your name"></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" inputmode="tel" placeholder="(000) 000-0000"></div>
+            <div class="field full"><label for="email">Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+            <div class="field full"><label for="address">Service address</label><input id="address" placeholder="Street, city, state"></div>
+            <div class="field full"><label for="notes">Anything else?</label><textarea id="notes" rows="3" placeholder="Access notes, pets, priorities..."></textarea></div>
+          </div>
+        </section>
 
-    function setRequestMode(mode){
-      const commercial=state.cleaningType==='Commercial';
-      state.mode=mode==='quote'||commercial?'quote':'book';
-      document.querySelector('.request-mode-btn[data-mode="book"]').disabled=commercial;
-      $('commercialRouteNote').hidden=!commercial;
-      document.body.classList.toggle('quote-mode',state.mode==='quote');
-      document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===state.mode));
+        <div class="step-nav">
+          <button type="button" class="back" id="backBtn">← Back</button>
+          <button type="button" class="next" id="nextBtn">Continue →</button>
+        </div>
+      </div>
 
-      const quote=state.mode==='quote';
-      $('bookServices').hidden=quote;
-      $('quoteServices').hidden=!quote;
-      $('bookServiceLabel').hidden=quote;
-      $('quoteServiceLabel').hidden=!quote;
-      $('serviceTitle').textContent=quote?'What would you like quoted?':'What can we help you clean?';
-      $('serviceIntro').textContent=quote?'Choose a service and share the details. Pricing is prepared for your specific job.':'Choose a service to see its sample starting price.';
-      $('bookTimes').hidden=quote;
-      $('quoteTimes').hidden=!quote;
-      $('quoteDateNote').hidden=!quote;
+      <aside class="summary" id="summary">
+        <div class="summary-head">
+          <div><small id="summaryKicker">YOUR BOOKING</small><h3 id="summaryTitle">Ready when you are.</h3></div>
+          <span class="demo-pill">DEMO</span>
+        </div>
+        <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
+        <div class="summary-row"><span>Property</span><strong id="sumProperty">3 bed · 2 bath</strong></div>
+        <div class="summary-row"><span>Frequency</span><strong id="sumFrequency">One time</strong></div>
+        <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
+        <div class="summary-row"><span>Preferred time</span><strong id="sumSchedule">Choose in step 4</strong></div>
+        <div class="estimate">
+          <small id="estimateLabel">APPROXIMATE RANGE</small>
+          <strong id="estimateValue">$135–$160</strong>
+          <div class="estimate-note" id="estimateNote">Updates as you customize the cleaning.</div>
+        </div>
+        <button type="button" class="submit" id="submitBtn">Send booking request →</button>
+        <p class="summary-foot" id="summaryFoot">Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.</p>
+      </aside>
+    </div>
+  </section>
+</main>
 
-      $('dateTitle').textContent=quote?'When would you prefer the cleaning?':'Choose what works for you.';
-      $('dateIntro').textContent=quote?'Choose a preferred date and time window. The business will confirm availability with your quote.':'Only sample available times are shown in this demo.';
-      updateDetailsCopy();
-      updateExtraPriceLabels();
+<div class="mobile-bar">
+  <div><small id="mobileLabel">Approximate range</small><strong id="mobileEstimate">$135–$160</strong></div>
+  <button type="button" id="reviewBtn">Review</button>
+</div>
 
-      if(quote){
-        const chosen=$('quoteServices').querySelector('.service-card.selected');
-        state.service=chosen?.dataset.service||null;
-        state.base=0;
-        state.time=$('quoteTimes').querySelector('.time.selected')?.dataset.time||'Flexible';
-      }else{
-        const chosen=$('bookServices').querySelector('.service-card.selected');
-        state.service=chosen?.dataset.service||null;
-        state.base=Number(chosen?.dataset.price||0);
-        state.time=$('bookTimes').querySelector('.time.selected')?.dataset.time||'10:30 AM';
-      }
-      updateDemoPhotos();
-      render();
-    }
-    window.setRequestMode=setRequestMode;
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <div class="modal-check">✓</div>
+    <h3 id="modalTitle">Request received.</h3>
+    <p id="modalCopy">In a real Booking Page, this complete request can move into the business system for confirmation, scheduling and follow-up.</p>
+    <button type="button" id="closeModal">Close demo</button>
+  </div>
+</div>
 
-    function updateExtraPriceLabels(){
-      document.querySelectorAll('.extra small[data-book-copy]').forEach(el=>{
-        const checked=el.closest('.extra').querySelector('input').checked;
-        el.textContent=state.mode==='quote'?'Include in quote':checked?el.dataset.bookCopy:'Add to see price';
-      });
-    }
+<footer>
+  <div class="wrap">Interactive demo by <a href="/">The Launch Era</a> · sample business, prices and availability.</div>
+</footer>
 
+<script>
+const state={
+  space:"Residential",
+  step:0,
+  service:"Standard Cleaning",
+  base:129,
+  beds:3,
+  baths:2,
+  sqft:0,
+  homeType:"House",
+  frequency:"One time",
+  discount:0,
+  extras:[],
+  date:"",
+  time:"10:30 AM"
+};
+const $=id=>document.getElementById(id);
+const money=n=>"$"+Math.round(n);
+const round5=n=>Math.max(5,Math.round(n/5)*5);
 
-    function calculateEstimate(){
-      if(state.mode==='quote'||!state.service) return {total:null,discount:0,discountLabel:''};
-      let subtotal=Number(state.base||0);
+function isCommercial(){return state.space==="Commercial"}
 
-      // Demo pricing logic: owner-configurable in a real Booking Page.
-      if(state.cleaningType==='Residential'){
-        subtotal += Math.max(0,state.beds-2)*12;
-        subtotal += Math.max(0,state.baths-1)*18;
+function calculate(){
+  if(isCommercial()) return null;
+  let total=state.base+Number(state.sqft||0)+Math.max(0,state.beds-2)*12+Math.max(0,state.baths-1)*18;
+  total+=state.extras.reduce((s,x)=>s+Number(x.price||0),0);
+  total=Math.max(79,total*(1-state.discount));
+  return {low:round5(total*.92),high:round5(total*1.08)};
+}
 
-        const sqftValue=$('sqft')?.value||'';
-        const sqftAdjustment={
-          'Under 1,000 sq ft':-10,
-          '1,000–1,999 sq ft':0,
-          '2,000–2,999 sq ft':40,
-          '3,000+ sq ft':85
-        }[sqftValue]||0;
-        subtotal += sqftAdjustment;
-      }
+function populateDates(){
+  const buttons=[...document.querySelectorAll(".date-btn")];
+  const fmtDay=new Intl.DateTimeFormat("en-US",{weekday:"short"});
+  const fmtMonth=new Intl.DateTimeFormat("en-US",{month:"short"});
+  let offset=1;
+  buttons.forEach((btn,i)=>{
+    let d=new Date();
+    d.setDate(d.getDate()+offset);
+    while(d.getDay()===0){offset++;d=new Date();d.setDate(d.getDate()+offset)}
+    btn.dataset.date=d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"});
+    btn.querySelector("small").textContent=fmtDay.format(d);
+    btn.querySelector("strong").textContent=d.getDate();
+    btn.querySelector("span").textContent=fmtMonth.format(d);
+    if(i===0) state.date=btn.dataset.date;
+    offset++;
+  });
+}
 
-      subtotal += state.extras.reduce((sum,item)=>sum+Number(item.price||0),0);
+function renderProgress(){
+  document.querySelectorAll(".progress button").forEach((b,i)=>{
+    b.classList.toggle("active",i===state.step);
+    b.classList.toggle("done",i<state.step);
+  });
+  document.querySelectorAll(".step").forEach((s,i)=>s.classList.toggle("active",i===state.step));
+  $("backBtn").style.visibility=state.step===0?"hidden":"visible";
+  $("nextBtn").textContent=state.step===3?"Review request →":"Continue →";
+}
 
-      const discountRate={
-        'Weekly':.15,
-        'Biweekly':.10,
-        'Monthly':.05
-      }[state.frequency]||0;
+function render(){
+  document.body.classList.toggle("commercial",isCommercial());
+  document.querySelector(".residential-services").hidden=isCommercial();
+  document.querySelector(".commercial-services").hidden=!isCommercial();
+  document.querySelector(".residential-property").hidden=isCommercial();
+  document.querySelector(".commercial-property").hidden=!isCommercial();
+  document.querySelector(".residential-extras").hidden=isCommercial();
+  document.querySelector(".commercial-extras").hidden=!isCommercial();
+  $("residentialTimes").hidden=isCommercial();
+  $("commercialTimes").hidden=!isCommercial();
 
-      const total=Math.max(79,Math.round(subtotal*(1-discountRate)));
-      return {
-        total,
-        discount:discountRate,
-        discountLabel:discountRate?Math.round(discountRate*100)+'% recurring savings':''
-      };
-    }
+  if(isCommercial()){
+    state.service="Commercial Cleaning";
+    state.base=0;
+    state.frequency=$("commercialFrequency").value;
+    state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
+  }else{
+    state.homeType=$("homeType").value;
+    state.sqft=Number($("sqft").value||0);
+  }
 
-    let wizardStep=0;
-    let wizardSections=[];
+  $("sumService").textContent=state.service;
+  $("sumProperty").textContent=isCommercial()
+    ? $("commercialType").value+" · "+$("commercialSqft").value
+    : state.homeType+" · "+state.beds+" bed · "+state.baths+" bath";
+  $("sumFrequency").textContent=state.frequency;
+  $("sumExtras").textContent=isCommercial()?"Included in quote":(state.extras.length?state.extras.map(x=>x.name).join(", "):"None");
+  $("sumSchedule").textContent=state.date?(state.date+" · "+state.time):"Choose in step 4";
 
-    function renderWizard(){
-      if(!wizardSections.length) return;
-      wizardSections.forEach((section,index)=>section.classList.toggle('wizard-active',index===wizardStep));
-      document.querySelectorAll('.stepper span').forEach((item,index)=>{
-        item.classList.toggle('is-active',index===wizardStep);
-        item.classList.toggle('is-complete',index<wizardStep);
-      });
+  const est=calculate();
+  $("summaryKicker").textContent=isCommercial()?"YOUR QUOTE REQUEST":"YOUR BOOKING";
+  $("estimateLabel").textContent=isCommercial()?"PRICING":"APPROXIMATE RANGE";
+  $("estimateValue").textContent=isCommercial()?"Custom quote":money(est.low)+"–"+money(est.high);
+  $("estimateNote").textContent=isCommercial()
+    ?"Commercial pricing is prepared from the space and scope you send."
+    :"Updates as you customize the cleaning.";
+  $("summaryFoot").textContent=isCommercial()
+    ?"The business reviews the request before confirming pricing or scheduling. No payment is collected in this demo."
+    :"Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.";
+  $("submitBtn").textContent=isCommercial()?"Send quote request →":"Send booking request →";
+  $("mobileLabel").textContent=isCommercial()?"Custom pricing":"Approximate range";
+  $("mobileEstimate").textContent=isCommercial()?"Request a quote":money(est.low)+"–"+money(est.high);
 
-      const back=$('wizardBack');
-      const next=$('wizardNext');
-      if(back) back.hidden=wizardStep===0;
-      if(next){
-        next.disabled=wizardStep===0&&!state.service;
-        next.textContent=wizardStep===wizardSections.length-1?'Review request →':'Continue →';
-      }
-    }
+  renderProgress();
+}
 
-    function goWizard(direction){
-      if(direction>0&&wizardStep===0&&!state.service) return;
-      if(direction>0&&wizardStep===wizardSections.length-1){
-        $('bookingSummary').classList.add('estimate-pop');
-        setTimeout(()=>$('bookingSummary').classList.remove('estimate-pop'),220);
-        $('bookingSummary').scrollIntoView({behavior:'smooth',block:'center'});
-        return;
-      }
-      wizardStep=Math.max(0,Math.min(wizardSections.length-1,wizardStep+direction));
-      renderWizard();
-      document.querySelector('.panel.flow').scrollIntoView({behavior:'smooth',block:'start'});
-    }
+document.querySelectorAll("[data-space]").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll("[data-space]").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  state.space=btn.dataset.space;
+  state.step=0;
+  if(isCommercial()){
+    state.service="Commercial Cleaning";state.base=0;state.extras=[];
+  }else{
+    state.service=document.querySelector(".residential-services .service.active")?.dataset.service||"Standard Cleaning";
+    state.base=Number(document.querySelector(".residential-services .service.active")?.dataset.price||129);
+  }
+  render();
+}));
 
-    function initWizard(){
-      const serviceSection=$('serviceTitle').closest('.section');
-      const propertySection=$('residentialCounters').closest('.section');
-      const scheduleSection=$('dateTitle').closest('.section');
-      const extrasSection=$('extrasTitle').closest('.section');
-      const detailsSection=$('name').closest('.section');
+document.querySelectorAll(".service").forEach(btn=>btn.addEventListener("click",()=>{
+  const group=btn.parentElement;
+  group.querySelectorAll(".service").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  state.service=btn.dataset.service;
+  state.base=Number(btn.dataset.price||0);
+  render();
+}));
 
-      // Put add-ons before scheduling so price is clear before a customer picks a time.
-      scheduleSection.parentNode.insertBefore(extrasSection,scheduleSection);
-      wizardSections=[serviceSection,propertySection,extrasSection,scheduleSection,detailsSection];
+document.querySelectorAll("[data-counter]").forEach(btn=>btn.addEventListener("click",()=>{
+  const key=btn.dataset.counter;
+  state[key]=Math.max(0,Math.min(10,state[key]+Number(btn.dataset.dir)));
+  $(key).textContent=state[key];
+  render();
+}));
 
-      const stepLabels=['Service','Space','Extras','Schedule','Review'];
-      document.querySelector('.stepper').innerHTML=stepLabels.map((label,index)=>'<span><b>'+String(index+1).padStart(2,'0')+'</b> '+label+'</span>').join('');
+$("sqft").addEventListener("change",render);
+$("homeType").addEventListener("change",render);
+$("commercialType").addEventListener("change",render);
+$("commercialSqft").addEventListener("change",render);
+$("commercialFrequency").addEventListener("change",render);
 
-      const labels=[
-        '01 · Service',
-        '02 · Property details',
-        '03 · Extras',
-        '04 · Date & time',
-        '05 · Review & contact'
-      ];
-      wizardSections.forEach((section,index)=>{
-        section.classList.add('wizard-section');
-        section.querySelector('.section-label').textContent=labels[index];
-      });
+document.querySelectorAll("#frequency button").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll("#frequency button").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  state.frequency=btn.dataset.frequency;
+  state.discount=Number(btn.dataset.discount||0);
+  render();
+}));
 
-      const nav=document.createElement('div');
-      nav.className='wizard-nav';
-      nav.innerHTML='<button type="button" class="wizard-back" id="wizardBack">← Back</button><button type="button" class="wizard-next" id="wizardNext">Continue →</button>';
-      document.querySelector('.panel.flow').appendChild(nav);
-      $('wizardBack').addEventListener('click',()=>goWizard(-1));
-      $('wizardNext').addEventListener('click',()=>goWizard(1));
-      renderWizard();
-    }
+document.querySelectorAll("[data-extra]").forEach(box=>box.addEventListener("change",()=>{
+  state.extras=[...document.querySelectorAll("[data-extra]:checked")].map(x=>({name:x.dataset.extra,price:Number(x.dataset.price||0)}));
+  render();
+}));
 
-    function render(){
-      $('sumService').textContent=state.service||'Choose a service';
-      $('sumPropertyLabel').textContent=state.cleaningType==='Commercial'?'Space':'Home';
-      $('sumHome').textContent=state.cleaningType==='Commercial'
-        ? 'Commercial · '+($('commercialType')?.value||'Commercial space')+' · '+state.restrooms+' restroom'+(state.restrooms===1?'':'s')+' · '+state.floors+' level'+(state.floors===1?'':'s')
-        : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath · '+($('sqft')?.value||'');
-      $('sumFrequency').textContent=state.frequency;
-      $('sumDate').textContent=state.date;
-      $('sumTime').textContent=state.time;
-      $('sumExtras').textContent=state.extras.length?state.extras.map(x=>x.name).join(', '):'None';
-      $('beds').textContent=state.beds;$('baths').textContent=state.baths;$('restrooms').textContent=state.restrooms;$('floors').textContent=state.floors;
+document.querySelectorAll(".date-btn").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".date-btn").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  state.date=btn.dataset.date;
+  render();
+}));
 
-      const quote=state.mode==='quote';
-      $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
-      $('summaryTitle').textContent=!state.service?'Start with a service.':quote?'Ready to request.':'Almost done.';
-      const estimate=calculateEstimate();
-      $('totalLabel').textContent=quote?'Custom pricing':'Estimated total';
-      $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(estimate.total);
-      $('submitBtn').textContent=quote?'Get my quote →':'Send booking request →';
-      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Estimated total';
-      $('mobileEstimate').textContent=!state.service?'Choose a service':quote?'Request a quote':$('sumTotal').textContent;
-      $('reviewBooking').textContent=quote?'Review quote →':'Review booking →';
-      $('estimateNote').textContent=quote
-        ? 'Custom pricing is prepared from the space and details you selected.'
-        : 'Updates live with service, home size, frequency and extras'+(estimate.discountLabel?' · '+estimate.discountLabel:'')+'.';
-      $('summaryMicro').textContent=quote
-        ? 'The business will review these details and send a custom price. No payment is collected in this demo.'
-        : 'Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.';
-      if(wizardSections.length) renderWizard();
-    }
+document.querySelectorAll(".times").forEach(group=>{
+  group.querySelectorAll(".time-btn").forEach(btn=>btn.addEventListener("click",()=>{
+    group.querySelectorAll(".time-btn").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    state.time=btn.textContent.trim();
+    render();
+  }));
+});
 
-    document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.addEventListener('click',()=>setRequestMode(btn.dataset.mode)));
+document.querySelectorAll("[data-jump]").forEach(btn=>btn.addEventListener("click",()=>{
+  const n=Number(btn.dataset.jump);
+  if(n<=state.step){state.step=n;render()}
+}));
 
-    document.querySelectorAll('.service-card').forEach(btn=>btn.addEventListener('click',()=>{
-      const parent=btn.closest('.services');
-      parent.querySelectorAll('.service-card').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
-      btn.classList.add('selected');
-      btn.setAttribute('aria-pressed','true');
-      state.service=btn.dataset.service;
-      state.base=Number(btn.dataset.price||0);
-      render();
-    }));
+$("backBtn").addEventListener("click",()=>{
+  state.step=Math.max(0,state.step-1);
+  render();
+  document.querySelector(".form-card").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("nextBtn").addEventListener("click",()=>{
+  if(state.step<3){
+    state.step++;
+    render();
+    document.querySelector(".form-card").scrollIntoView({behavior:"smooth",block:"start"});
+  }else{
+    $("summary").scrollIntoView({behavior:"smooth",block:"center"});
+  }
+});
+$("reviewBtn").addEventListener("click",()=>$("summary").scrollIntoView({behavior:"smooth",block:"center"}));
 
-    document.querySelectorAll('[data-cleaning-type]').forEach(btn=>btn.addEventListener('click',()=>{
-      document.querySelectorAll('[data-cleaning-type]').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
-      btn.classList.add('selected');
-      btn.setAttribute('aria-pressed','true');
-      state.cleaningType=btn.dataset.cleaningType;
-      const commercial=state.cleaningType==='Commercial';
-      document.querySelector('.request-mode-btn[data-mode="book"]').disabled=commercial;
-      $('commercialRouteNote').hidden=!commercial;
-      $('residentialCounters').hidden=commercial;
-      $('residentialPropertyField').hidden=commercial;
-      $('commercialCounters').hidden=!commercial;
-      $('commercialDetails').hidden=!commercial;
-      $('residentialExtras').hidden=commercial;
-      $('commercialExtras').hidden=!commercial;
+$("submitBtn").addEventListener("click",()=>{
+  $("modalTitle").textContent=isCommercial()?"Quote request received.":"Request received.";
+  $("modalCopy").textContent=isCommercial()
+    ?"In a real Booking Flow, the owner receives the commercial details, prepares the custom quote, and follows up from one organized place."
+    :"In a real Booking Flow, this complete request can move into confirmation, scheduling and follow-up without rebuilding the client details.";
+  $("modal").classList.add("open");
+});
+$("closeModal").addEventListener("click",()=>$("modal").classList.remove("open"));
+$("modal").addEventListener("click",e=>{if(e.target.id==="modal") $("modal").classList.remove("open")});
 
-      // Never carry residential add-ons into a commercial request or vice versa.
-      document.querySelectorAll('[data-extra]').forEach(box=>{ box.checked=false; });
-      state.extras=[];
-      updateExtraPriceLabels();
-      if(commercial){
-        const choices=$('quoteServices').querySelectorAll('.service-card');
-        choices.forEach(choice=>{choice.classList.remove('selected');choice.setAttribute('aria-pressed','false')});
-        const commercialService=$('quoteServices').querySelector('[data-service="Commercial Cleaning"]');
-        commercialService.classList.add('selected');
-        commercialService.setAttribute('aria-pressed','true');
-        if(state.mode==='book'){
-          setRequestMode('quote');
-          return;
-        }
-        state.service='Commercial Cleaning';
-        state.base=0;
-      }else if(state.mode==='quote'){
-        const commercialService=$('quoteServices').querySelector('[data-service="Commercial Cleaning"]');
-        if(commercialService.classList.contains('selected')){
-          commercialService.classList.remove('selected');
-          commercialService.setAttribute('aria-pressed','false');
-          state.service=null;
-        }
-      }
-      updateDetailsCopy();
-      updateDemoPhotos();
-      render();
-    }));
-
-    $('commercialType')?.addEventListener('change',render);
-    $('homeType')?.addEventListener('change',render);
-    $('sqft')?.addEventListener('change',render);
-
-    document.querySelectorAll('[data-counter]').forEach(btn=>btn.addEventListener('click',()=>{
-      const k=btn.dataset.counter;
-      state[k]=Math.max(0,Math.min(10,state[k]+Number(btn.dataset.dir)));
-      render();
-    }));
-
-    document.querySelectorAll('#frequency .pill').forEach(btn=>btn.addEventListener('click',()=>{
-      document.querySelectorAll('#frequency .pill').forEach(x=>x.classList.remove('selected'));
-      btn.classList.add('selected');
-      state.frequency=btn.dataset.frequency||btn.textContent.trim();
-      render();
-    }));
-
-    document.querySelectorAll('.date-card').forEach(btn=>btn.addEventListener('click',()=>{
-      document.querySelectorAll('.date-card').forEach(x=>x.classList.remove('selected'));
-      btn.classList.add('selected');
-      state.date=btn.dataset.date;
-      render();
-    }));
-
-    document.querySelectorAll('.time').forEach(btn=>btn.addEventListener('click',()=>{
-      const group=btn.closest('.times');
-      group.querySelectorAll('.time').forEach(x=>x.classList.remove('selected'));
-      btn.classList.add('selected');
-      state.time=btn.dataset.time||btn.textContent.trim();
-      render();
-    }));
-
-    document.querySelectorAll('[data-extra]').forEach(box=>box.addEventListener('change',()=>{
-      const activeGroup=state.cleaningType==='Commercial'?'commercial':'residential';
-      state.extras=Array.from(document.querySelectorAll('[data-extra]:checked'))
-        .filter(x=>x.dataset.extraGroup===activeGroup)
-        .map(x=>({name:x.dataset.extra,price:state.mode==='quote'?0:Number(x.dataset.price)}));
-      updateExtraPriceLabels();
-      render();
-    }));
-
-    $('reviewBooking').addEventListener('click',()=>{
-      (state.service?$('bookingSummary'):$('bookServices').hidden?$('quoteServices'):$('bookServices')).scrollIntoView({behavior:'smooth',block:'start'});
-    });
-    document.querySelectorAll('.service-card').forEach(btn=>btn.setAttribute('aria-pressed',btn.classList.contains('selected')?'true':'false'));
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(entries=>{
-        document.querySelector('.mobile-booking-bar').classList.toggle('visible',entries[0].isIntersecting);
-      },{threshold:0.03}).observe($('booking'));
-    }
-
-    $('submitBtn').addEventListener('click',()=>{
-      if(!state.service){
-        (state.mode==='quote'?$('quoteServices'):$('bookServices')).scrollIntoView({behavior:'smooth',block:'center'});
-        return;
-      }
-      const quote=state.mode==='quote';
-      $('successTitle').textContent=quote?'Quote request received.':'Request received.';
-      $('successCopy').textContent=quote
-        ? 'In a real Booking Page, this quote request can go directly into Quote Center so the owner can review the job, build the price, send the quote, and follow up from one place.'
-        : 'In a real Booking Page, this request can flow into the cleaning business system so the owner can review, schedule, follow up, and keep the job organized.';
-      $('success').classList.add('open');
-    });
-    $('closeSuccess').addEventListener('click',()=>$('success').classList.remove('open'));
-    $('success').addEventListener('click',e=>{if(e.target.id==='success')$('success').classList.remove('open')});
-
-    $('residentialExtras').hidden=false;
-    $('commercialExtras').hidden=true;
-    populateDemoDates();
-    updateDemoPhotos();
-    setRequestMode('book');
-    initWizard();
-  </script>
+populateDates();
+render();
+</script>
 </body>
 </html>
