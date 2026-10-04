@@ -39,6 +39,7 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <button id="retry" hidden>Try again</button>
 <p class="small" id="status">You’ll review your order before completing payment.</p>
 </main>
+<script src="/assets/analytics.js"></script>
 <script>
 const lang=new URLSearchParams(location.search).get("lang")==="es"?"es":"en";
 try{sessionStorage.setItem("tleCheckoutLanguage",lang)}catch{}
@@ -81,6 +82,7 @@ function renderCheckoutCountdown(){
 }
 renderCheckoutCountdown();
 async function openCheckout(){
+ window.tleTrackEvent?.("payment_start",{product:"booking_flow",amount:29.99,currency:"USD",language:lang});
  retry.hidden=true;dots.hidden=false;status.textContent=lang==="es"?"Abriendo el pago seguro…":"Opening secure checkout…";
  try{
   const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({offer:"booking-flow",language:lang})});
