@@ -555,7 +555,7 @@ footer{color:#707573}
     <div class="sale-clock" aria-hidden="true"><span class="sale-clock-hand" id="saleClockHand"></span><span class="sale-clock-center"></span></div>
     <div class="sale-copy">
       <small id="saleKicker">OFERTA</small>
-      <strong id="saleHeadline">Booking Flow Setup: <s>$99</s> $29.99</strong>
+      <strong id="saleHeadline">Reservas + Seguimiento Automático: <s>$99</s> $29.99</strong>
       <span class="sale-countdown" id="saleCountdown">Quedan 7 días</span>
     </div>
     <a class="sale-buy" id="saleBuy" href="/pay/booking-flow/?lang=es">Comprar por $29.99 →</a>
@@ -626,7 +626,7 @@ footer{color:#707573}
 
   <section class="system-strip" aria-label="Resumen de reservas y seguimiento automático">
     <div class="wrap system-strip-grid">
-      <span><b>01</b> Booking Page</span><span class="strip-arrow">→</span>
+      <span><b>01</b> Reserva del Cliente</span><span class="strip-arrow">→</span>
       <span><b>02</b> Estimado Aprox.</span><span class="strip-arrow">→</span>
       <span><b>03</b> Alerta al Owner</span><span class="strip-arrow">→</span>
       <span><b>04</b> Ficha Privada</span><span class="strip-arrow">→</span>
@@ -890,9 +890,9 @@ footer{color:#707573}
     if(remaining<=0){
       bar.classList.add("expired");
       kicker.textContent="PRECIO REGULAR";
-      headline.textContent="Booking Flow Setup · $99";
+      headline.textContent="Reservas + Seguimiento Automático · $99";
       countdown.textContent="La oferta terminó.";
-      buy.textContent="Obtener Booking Flow por $99 →";
+      buy.textContent="Obtener Reservas + Seguimiento por $99 →";
       if(offerPrice) offerPrice.textContent="$99";
       if(oldPrice) oldPrice.style.display="none";
       const offerPill=document.getElementById("bookingFlowOfferPill"); if(offerPill) offerPill.textContent="PRECIO REGULAR";
