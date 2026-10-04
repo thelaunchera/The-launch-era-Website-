@@ -377,7 +377,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
               <div class="tracker-stages">
                 <button type="button" class="active" data-demo-stage="NEW">New</button>
                 <button type="button" data-demo-stage="REVIEWING">Reviewing</button>
-                <button type="button" data-demo-stage="QUOTE / CONFIRM">Quote / Confirm</button>
+                <button type="button" id="demoQuoteStage" data-demo-stage="QUOTE / CONFIRM">Confirm</button>
                 <button type="button" data-demo-stage="BOOKED">Booked</button>
               </div>
               <div class="lead-row"><span>Frequency</span><strong id="ownerFrequency">One time</strong></div>
@@ -459,6 +459,8 @@ function syncOwnerView(){
   $("ownerExtras").textContent=extras;
   $("trackerName").textContent=name;
   $("trackerMeta").textContent=type+" · "+service+" · "+email;
+  const quoteStage=$("demoQuoteStage");
+  if(quoteStage){quoteStage.textContent=isCommercial()?"Custom Quote":"Confirm";quoteStage.dataset.demoStage=isCommercial()?"CUSTOM QUOTE":"CONFIRM";}
 }
 function showOwnerView(){
   syncOwnerView();
