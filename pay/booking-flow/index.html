@@ -20,10 +20,10 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <body>
 <main class="card">
 <div class="brand">THE LAUNCH ERA</div>
-<div class="kicker">STRIPE SECURE CHECKOUT</div>
+<div class="kicker" id="checkoutKicker">1-WEEK OFFER · STRIPE SECURE CHECKOUT</div>
 <h1>Opening your Booking Flow checkout…</h1>
 <p>Custom Booking Page + Private Lead Tracker + automatic inquiry follow-up.</p>
-<div class="price"><span style="font-size:18px;font-weight:700;color:#8a9491;text-decoration:line-through;margin-right:8px">$99</span>$49.99 <span style="font-size:13px;font-weight:500;color:#66706d">special offer · one-time</span></div>
+<div class="price" id="checkoutPrice"><span id="checkoutOldPrice" style="font-size:18px;font-weight:700;color:#8a9491;text-decoration:line-through;margin-right:8px">$99</span><span id="checkoutCurrentPrice">$29.99</span> <span id="checkoutPriceNote" style="font-size:13px;font-weight:500;color:#66706d">1-week offer · one-time</span></div>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" hidden>Try again</button>
 <p class="small" id="status">You’ll review the order in Stripe before completing payment.</p>
@@ -31,6 +31,13 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-tle-service-checkout";
 const retry=document.getElementById("retry"),dots=document.getElementById("dots"),status=document.getElementById("status");
+const saleEnd=new Date("2026-10-11T11:01:04Z").getTime();
+if(Date.now()>=saleEnd){
+ document.getElementById("checkoutKicker").textContent="STRIPE SECURE CHECKOUT";
+ document.getElementById("checkoutOldPrice").style.display="none";
+ document.getElementById("checkoutCurrentPrice").textContent="$99";
+ document.getElementById("checkoutPriceNote").textContent="regular price · one-time";
+}
 async function openCheckout(){
  retry.hidden=true;dots.hidden=false;status.textContent="Opening Stripe…";
  try{
