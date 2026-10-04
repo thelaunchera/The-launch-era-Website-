@@ -14,6 +14,11 @@
 .kicker{display:inline-block;margin-top:22px;background:var(--ice);color:var(--teal);padding:8px 10px;font-size:11px;font-weight:900}
 h1{font-size:38px;line-height:1.02;letter-spacing:-.04em;margin:16px 0 10px}p{color:var(--muted);line-height:1.6}
 .price{font-weight:900;font-size:30px;margin:20px 0}.dots{display:flex;gap:6px;margin:20px 0}.dots span{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:p 1s infinite ease-in-out}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes p{50%{opacity:.25;transform:scale(.8)}}
+.checkout-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:14px 0 18px}
+.checkout-time{display:grid;place-items:center;gap:2px;min-height:52px;padding:7px 5px;border:1px solid var(--line);background:var(--ice)}
+.checkout-time b{font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+.checkout-time span{font-size:7px;font-weight:900;letter-spacing:.11em;color:var(--teal)}
+.checkout-ended{grid-column:1/-1;font-size:12px;font-weight:800;color:var(--muted)}
 button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;font-weight:900;cursor:pointer}button[hidden]{display:none}.small{font-size:12px;color:var(--muted)}
 </style>
 </head>
@@ -24,6 +29,12 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 <h1>Opening your Booking Flow checkout…</h1>
 <p>Custom Booking Page + Private Lead Tracker + automatic inquiry follow-up.</p>
 <div class="price" id="checkoutPrice"><span id="checkoutOldPrice" style="font-size:18px;font-weight:700;color:#8a9491;text-decoration:line-through;margin-right:8px">$99</span><span id="checkoutCurrentPrice">$29.99</span> <span id="checkoutPriceNote" style="font-size:13px;font-weight:500;color:#66706d">1-week offer · one-time</span></div>
+<div class="checkout-countdown" id="checkoutCountdown" aria-label="Offer time remaining">
+  <span class="checkout-time"><b id="checkoutDays">07</b><span>DAYS</span></span>
+  <span class="checkout-time"><b id="checkoutHours">00</b><span>HRS</span></span>
+  <span class="checkout-time"><b id="checkoutMinutes">00</b><span>MIN</span></span>
+  <span class="checkout-time"><b id="checkoutSeconds">00</b><span>SEC</span></span>
+</div>
 <div class="dots" id="dots"><span></span><span></span><span></span></div>
 <button id="retry" hidden>Try again</button>
 <p class="small" id="status">You’ll review the order in Stripe before completing payment.</p>
@@ -32,12 +43,32 @@ button{width:100%;padding:14px 18px;border:0;background:var(--ink);color:#fff;fo
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/create-tle-service-checkout";
 const retry=document.getElementById("retry"),dots=document.getElementById("dots"),status=document.getElementById("status");
 const saleEnd=new Date("2026-10-11T11:01:04Z").getTime();
-if(Date.now()>=saleEnd){
- document.getElementById("checkoutKicker").textContent="STRIPE SECURE CHECKOUT";
- document.getElementById("checkoutOldPrice").style.display="none";
- document.getElementById("checkoutCurrentPrice").textContent="$99";
- document.getElementById("checkoutPriceNote").textContent="regular price · one-time";
+const countdown=document.getElementById("checkoutCountdown");
+const cdDays=document.getElementById("checkoutDays"),cdHours=document.getElementById("checkoutHours"),cdMinutes=document.getElementById("checkoutMinutes"),cdSeconds=document.getElementById("checkoutSeconds");
+const pad=value=>String(value).padStart(2,"0");
+function renderCheckoutCountdown(){
+ const remaining=Math.max(0,saleEnd-Date.now());
+ if(remaining<=0){
+  document.getElementById("checkoutKicker").textContent="STRIPE SECURE CHECKOUT";
+  document.getElementById("checkoutOldPrice").style.display="none";
+  document.getElementById("checkoutCurrentPrice").textContent="$99";
+  document.getElementById("checkoutPriceNote").textContent="regular price · one-time";
+  if(countdown) countdown.innerHTML='<span class="checkout-ended">The 1-week offer has ended.</span>';
+  return;
+ }
+ const totalSeconds=Math.floor(remaining/1000);
+ const d=Math.floor(totalSeconds/86400);
+ const h=Math.floor((totalSeconds%86400)/3600);
+ const m=Math.floor((totalSeconds%3600)/60);
+ const s=totalSeconds%60;
+ if(cdDays) cdDays.textContent=pad(d);
+ if(cdHours) cdHours.textContent=pad(h);
+ if(cdMinutes) cdMinutes.textContent=pad(m);
+ if(cdSeconds) cdSeconds.textContent=pad(s);
+ if(countdown) countdown.setAttribute("aria-label",d+" days, "+h+" hours, "+m+" minutes and "+s+" seconds remaining");
+ setTimeout(renderCheckoutCountdown,250);
 }
+renderCheckoutCountdown();
 async function openCheckout(){
  retry.hidden=true;dots.hidden=false;status.textContent="Opening Stripe…";
  try{
