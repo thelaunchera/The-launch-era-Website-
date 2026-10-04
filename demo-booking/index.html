@@ -188,7 +188,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
       <div class="mark">L</div>
       <div class="brand-copy"><strong>LUMA HOME CLEANING</strong><span>Professional home care</span></div>
     </div>
-    <div class="nav-actions"><button type="button" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book online</button><button type="button" class="owner-link" onclick="showOwnerView()">See owner view</button></div>
+    <div class="nav-actions"><button type="button" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Try the demo</button><button type="button" class="owner-link" onclick="showOwnerView()">See owner view</button></div>
   </div>
 </header>
 
@@ -196,11 +196,11 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
   <section class="intro">
     <div class="wrap intro-grid">
       <div>
-        <span class="eyebrow">Online booking</span>
-        <h1>Let’s take cleaning off your list.</h1>
-        <p>Tell us a little about your place and when you’d like it cleaned. We’ll show you an estimated price along the way, and you can review everything before sending your request.</p>
+        <span class="eyebrow">Interactive booking demo</span>
+        <h1>See what booking could feel like for your clients.</h1>
+        <p>Try the experience yourself: choose a service, watch the estimate update, and then see exactly what the cleaning business receives on the other side.</p>
       </div>
-      <div class="intro-side"><small>Typical time to complete</small><strong>Under 2 minutes</strong></div>
+      <div class="intro-side"><small>Try the full demo</small><strong>About 2 minutes</strong></div>
     </div>
   </section>
 
@@ -243,8 +243,8 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
         <section class="step" data-step="1">
           <span class="step-label">Step 2</span>
-          <h2>Tell us about the space.</h2>
-          <p class="step-intro">A few quick details help us estimate the cleaning your space needs.</p>
+          <h2 id="propertyHeading">Tell us about the home.</h2>
+          <p class="step-intro" id="propertyIntro">A few quick details help calculate the approximate residential cleaning range.</p>
 
           <div class="residential-property">
             <div class="counters">
@@ -268,8 +268,8 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
         <section class="step" data-step="2">
           <span class="step-label">Step 3</span>
-          <h2>Add only what you need.</h2>
-          <p class="step-intro">Extras and frequency update the approximate range for residential bookings.</p>
+          <h2 id="extrasHeading">Customize the cleaning.</h2>
+          <p class="step-intro" id="extrasIntro">Add extras or choose a frequency and watch the approximate range update.</p>
           <div class="residential-extras">
             <div class="extras">
               <label class="extra"><input type="checkbox" data-extra="Inside oven" data-price="25"><span><strong>Inside oven</strong><small>+$25 sample</small></span></label>
@@ -298,7 +298,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
         <section class="step" data-step="3">
           <span class="step-label">Step 4</span>
-          <h2>Choose a preferred time.</h2>
+          <h2 id="scheduleHeading">Choose a preferred cleaning time.</h2>
           <p class="step-intro" id="scheduleIntro">Pick the time that works best for you, then tell us how to reach you. These are example times for the demo.</p>
           <div class="dates" id="dates">
             <button type="button" class="date-btn active"><small></small><strong></strong><span></span></button>
@@ -335,7 +335,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
       <aside class="summary" id="summary">
         <div class="summary-head">
-          <div><small id="summaryKicker">YOUR BOOKING</small><h3 id="summaryTitle">Ready when you are.</h3></div>
+          <div><small id="summaryKicker">YOUR BOOKING</small><h3 id="summaryTitle">Your request at a glance.</h3></div>
           <span class="demo-pill">DEMO</span>
         </div>
         <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
@@ -357,7 +357,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
     <div class="wrap">
       <div class="owner-card">
         <div class="owner-top">
-          <div><span class="eyebrow">Behind the booking</span><h2>What the business owner actually receives.</h2><p>The request becomes an owner alert and a private lead card with the same details the client already entered — plus a clear stage and follow-up controls.</p></div>
+          <div><span class="eyebrow">Now switch sides</span><h2>See what happens after the client clicks send.</h2><p>The same request becomes an owner alert and a private lead card, so the cleaning business can review it, follow up and move the lead toward booked without re-entering the details.</p></div>
           <span class="owner-badge">CURRENT FLOW · DEMO</span>
         </div>
         <div class="owner-grid">
@@ -394,7 +394,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
             <p class="truth-note">This is now the same owner-side structure used by Booking Flow: detailed alert, private lead card, real status controls and follow-up attached to the lead.</p>
           </div>
         </div>
-        <a class="owner-cta" href="/start/#offer" data-demo-offer>Get this Booking Flow setup →</a>
+        <a class="owner-cta" href="/start/#offer" data-demo-offer>Want this for your cleaning business? See Booking Flow →</a>
       </div>
     </div>
   </section>
@@ -409,8 +409,8 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
   <div class="modal-card">
     <div class="modal-check">✓</div>
     <h3 id="modalTitle">Request received.</h3>
-    <p id="modalCopy">In a real Booking Page, this complete request can move into the business system for confirmation, scheduling and follow-up.</p>
-    <a class="demo-offer" id="seeOwnerAfter" href="#ownerView">See what the owner receives →</a><a class="demo-offer" id="demoOffer" href="/start/#offer" data-demo-offer>Get this setup for your cleaning business →</a><button type="button" id="closeModal">Keep exploring</button>
+    <p id="modalCopy">That’s the client side. Now see how the same request arrives organized for the business owner — ready to review, follow up and move toward booked.</p>
+    <a class="demo-offer" id="seeOwnerAfter" href="#ownerView">See the owner side →</a><a class="demo-offer" id="demoOffer" href="/start/#offer" data-demo-offer>Want this flow for your business? →</a><button type="button" id="closeModal">Keep exploring</button>
   </div>
 </div>
 
@@ -530,9 +530,21 @@ function render(){
     state.base=0;
     state.frequency=$("commercialFrequency").value;
     state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
+    $("propertyHeading").textContent="Tell us about the business space.";
+    $("propertyIntro").textContent="Share the basics the cleaning business needs to prepare a custom commercial quote.";
+    $("extrasHeading").textContent="Tell us what the space needs.";
+    $("extrasIntro").textContent="Add the cleaning frequency and scope so the business can review the request before pricing.";
+    $("scheduleHeading").textContent="Choose a preferred service window.";
+    $("scheduleIntro").textContent="Choose a preferred date and general time window. The business confirms availability after reviewing the quote request.";
   }else{
     state.homeType=$("homeType").value;
     state.sqft=Number($("sqft").value||0);
+    $("propertyHeading").textContent="Tell us about the home.";
+    $("propertyIntro").textContent="A few quick details help calculate the approximate residential cleaning range.";
+    $("extrasHeading").textContent="Customize the cleaning.";
+    $("extrasIntro").textContent="Add extras or choose a frequency and watch the approximate range update.";
+    $("scheduleHeading").textContent="Choose a preferred cleaning time.";
+    $("scheduleIntro").textContent="Pick the time that works best for you, then tell us how to reach you. These are example times for the demo.";
   }
 
   $("sumService").textContent=state.service;
