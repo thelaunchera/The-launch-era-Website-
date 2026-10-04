@@ -7,6 +7,9 @@
 <style>
 :root{--ivory:#FBFAF6;--ink:#242424;--yellow:#F6E9A8;--blue:#CFE5F7;--purple:#6E5AA8;--muted:#6f6a63;--line:#d8d6d0}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--ivory);color:var(--ink);font-family:Arial,sans-serif}.card{width:min(520px,100%);background:#fff;border:1px solid var(--line);padding:34px;border-radius:24px;box-shadow:0 20px 55px rgba(0,0,0,.07)}.brand{font-size:12px;font-weight:800;letter-spacing:.08em}.kicker{display:inline-flex;margin:24px 0 10px;padding:7px 10px;border-radius:999px;background:var(--yellow);font-size:11px;font-weight:800}h1{font-size:34px;line-height:1.05;margin:0 0 12px}p{color:var(--muted);line-height:1.6}.dots{display:flex;gap:6px;margin:22px 0}.dots span{width:8px;height:8px;border-radius:50%;background:var(--purple);animation:pulse 1s infinite ease-in-out}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}button{width:100%;border:0;border-radius:999px;background:var(--ink);color:#fff;padding:14px 18px;font-weight:800;font-size:15px;cursor:pointer}button[hidden]{display:none}.small{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* TLE visual system — 2026-10-05 */
+body{background:linear-gradient(180deg,#FFFFFF 0%,#F5FAFC 100%)}
 </style>
 </head>
 <body><main class="card"><div class="brand">THE LAUNCH ERA</div><div class="kicker" id="kicker">SECURE CHECKOUT</div><h1 id="title">Opening your secure checkout…</h1><p id="copy">Your secure checkout is opening now.</p><div class="dots" id="dots"><span></span><span></span><span></span></div><button id="retry" hidden>Try again</button><div class="small" id="status">Please review your order before completing payment.</div></main>
