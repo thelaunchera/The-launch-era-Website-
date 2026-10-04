@@ -76,7 +76,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(
 </div>
 </div></section>
 
-<section class="feature"><div class="wrap feature-row"><div><small>OFERTA ESPECIAL</small><h2>Configuración del Flujo de Reservas</h2><p>El cliente envía su solicitud. Recibe confirmación. Tú recibes la consulta organizada en un solo lugar y el seguimiento ya no depende de tu memoria. <strong>$49.99 ahora</strong> · <s>precio regular $99</s>.</p></div><a class="btn light" href="/es/start/">Ver la Oferta →</a></div></section>
+<section class="feature" id="homeBookingFlowOffer" data-sale-end="2026-10-11T11:01:04Z"><div class="wrap feature-row"><div><small id="homeOfferLabel">OFERTA DE 1 SEMANA</small><h2>Configuración del Flujo de Reservas</h2><p>El cliente envía su solicitud. Recibe confirmación. Tú recibes la consulta organizada en un solo lugar y el seguimiento ya no depende de tu memoria. <strong id="homeOfferPrice">$29.99 ahora</strong> · <s id="homeOfferRegular">precio regular $99</s>.</p></div><a class="btn light" href="/es/start/" id="homeOfferCta">Ver la Oferta →</a></div></section>
 
 <section class="section contact" id="contact"><div class="wrap contact-grid">
 <div class="contact-copy"><span class="kicker">CONTACTO</span><h2>¿No sabes cuál servicio encaja?</h2><p>Cuéntame qué se siente desorganizado. Te orientaré hacia la opción más relevante.</p></div>
@@ -116,4 +116,6 @@ footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(
   }));
 })();
 </script>
-</body></html>
+<script>
+(()=>{const el=document.getElementById("homeBookingFlowOffer");if(!el)return;const end=new Date(el.dataset.saleEnd).getTime();if(Date.now()>=end){document.getElementById("homeOfferLabel").textContent="BOOKING FLOW SETUP";document.getElementById("homeOfferPrice").textContent="$99 pago único";document.getElementById("homeOfferRegular").style.display="none";document.getElementById("homeOfferCta").textContent="Ver Booking Flow →";}})();
+</script></body></html>
