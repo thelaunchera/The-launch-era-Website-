@@ -247,6 +247,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
           <p class="step-intro" id="propertyIntro">A few quick details help calculate the approximate residential cleaning range.</p>
 
           <div class="residential-property">
+            <div class="field full" style="margin-bottom:11px"><label for="zip">Service ZIP code</label><input id="zip" inputmode="numeric" maxlength="5" placeholder="e.g. 33436"><small id="zipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to preview service availability.</small></div>
             <div class="counters">
               <div class="counter"><div><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button type="button" data-counter="beds" data-dir="-1">−</button><b id="beds">3</b><button type="button" data-counter="beds" data-dir="1">+</button></div></div>
               <div class="counter"><div><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button type="button" data-counter="baths" data-dir="-1">−</button><b id="baths">2</b><button type="button" data-counter="baths" data-dir="1">+</button></div></div>
@@ -258,6 +259,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
           </div>
 
           <div class="commercial-property" hidden>
+            <div class="field full" style="margin-bottom:11px"><label for="commercialZip">Business ZIP code</label><input id="commercialZip" inputmode="numeric" maxlength="5" placeholder="e.g. 33436"><small id="commercialZipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to continue with a quote request.</small></div>
             <div class="fields">
               <div class="field"><label for="commercialType">Space type</label><select id="commercialType"><option>Office</option><option>Storefront / Retail</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Restaurant</option><option>Other commercial space</option></select></div>
               <div class="field"><label for="commercialSqft">Approx. square footage</label><select id="commercialSqft"><option>Under 2,000 sq ft</option><option>2,000–4,999 sq ft</option><option>5,000–9,999 sq ft</option><option>10,000+ sq ft</option></select></div>
@@ -286,6 +288,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
                 <button type="button" data-discount=".10" data-frequency="Biweekly">Biweekly <small>−10%</small></button>
                 <button type="button" data-discount=".05" data-frequency="Monthly">Monthly <small>−5%</small></button>
               </div>
+              <div id="recurringSave" style="display:none;margin-top:10px;font-size:11px;font-weight:800;color:var(--blue-deep)">Recurring savings applied to every visit.</div>
             </div>
           </div>
           <div class="commercial-extras" hidden>
@@ -347,6 +350,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
           <small id="estimateLabel">APPROXIMATE RANGE</small>
           <strong id="estimateValue">$135–$160</strong>
           <div class="estimate-note" id="estimateNote">Updates as you customize the cleaning.</div>
+          <div id="savingsNote" style="display:none;margin-top:7px;font-size:10px;font-weight:900;color:var(--blue-deep)"></div>
         </div>
         <button type="button" class="submit" id="submitBtn">Send booking request →</button>
         <p class="summary-foot" id="summaryFoot">Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.</p>
@@ -394,6 +398,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
             <p class="truth-note">This is now the same owner-side structure used by Booking Flow: detailed alert, private lead card, real status controls and follow-up attached to the lead.</p>
           </div>
         </div>
+        <div style="margin:22px 0;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff"><small style="font-weight:900;color:var(--blue-deep)">WHY THE FLOW MATTERS</small><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:11px;line-height:1.5"><div><strong>Without it</strong><br>Request → inbox → remember to follow up</div><div><strong>With Booking Flow</strong><br>Request → organized lead → status → follow-up → booked</div></div></div>
         <a class="owner-cta" href="/start/#offer" data-demo-offer>Want this for your cleaning business? See Booking Flow →</a>
       </div>
     </div>
@@ -409,6 +414,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
   <div class="modal-card">
     <div class="modal-check">✓</div>
     <h3 id="modalTitle">Request received.</h3>
+    <div id="confirmationSteps" style="display:grid;gap:7px;margin:14px 0;text-align:left;font-size:11px;font-weight:800"><span>✓ Request captured</span><span>✓ Owner notified</span><span>✓ Lead organized for follow-up</span></div>
     <p id="modalCopy">That’s the client side. Now see how the same request arrives organized for the business owner — ready to review, follow up and move toward booked.</p>
     <a class="demo-offer" id="seeOwnerAfter" href="#ownerView">See the owner side →</a><a class="demo-offer" id="demoOffer" href="/start/#offer" data-demo-offer>Want this flow for your business? →</a><button type="button" id="closeModal">Keep exploring</button>
   </div>
@@ -559,9 +565,15 @@ function render(){
   $("summaryKicker").textContent=isCommercial()?"YOUR QUOTE REQUEST":"YOUR BOOKING";
   $("estimateLabel").textContent=isCommercial()?"PRICING":"APPROXIMATE RANGE";
   $("estimateValue").textContent=isCommercial()?"Custom quote":money(est.low)+"–"+money(est.high);
+  if(!isCommercial()){$("estimateValue").animate?.([{transform:"scale(1)"},{transform:"scale(1.045)"},{transform:"scale(1)"}],{duration:220});}
   $("estimateNote").textContent=isCommercial()
     ?"Commercial pricing is prepared from the space and scope you send."
-    :"Updates as you customize the cleaning.";
+    :"Updates instantly as you customize the cleaning.";
+  const savePct=Math.round((state.discount||0)*100);
+  $("savingsNote").style.display=(!isCommercial()&&savePct)?"block":"none";
+  $("savingsNote").textContent=savePct?state.frequency+" · Save "+savePct+"% per visit":"";
+  $("recurringSave").style.display=(!isCommercial()&&savePct)?"block":"none";
+  $("recurringSave").textContent=savePct?state.frequency+" selected — "+savePct+"% savings applied per visit.":"";
   $("summaryFoot").textContent=isCommercial()
     ?"The business reviews the request before confirming pricing or scheduling. No payment is collected in this demo."
     :"Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.";
@@ -608,6 +620,13 @@ $("homeType").addEventListener("change",render);
 $("commercialType").addEventListener("change",render);
 $("commercialSqft").addEventListener("change",render);
 $("commercialFrequency").addEventListener("change",render);
+function checkZip(input,status){
+  const digits=input.value.replace(/\D/g,"").slice(0,5); input.value=digits;
+  if(digits.length===5){status.textContent="✓ Demo service area available — continue to see the flow.";status.style.color="var(--blue-deep)"}
+  else{status.textContent="Demo check — enter 5 digits to preview service availability.";status.style.color="var(--muted)"}
+}
+$("zip").addEventListener("input",()=>checkZip($("zip"),$("zipStatus")));
+$("commercialZip").addEventListener("input",()=>checkZip($("commercialZip"),$("commercialZipStatus")));
 
 document.querySelectorAll("#frequency button").forEach(btn=>btn.addEventListener("click",()=>{
   document.querySelectorAll("#frequency button").forEach(x=>x.classList.remove("active"));
@@ -662,8 +681,8 @@ $("reviewBtn").addEventListener("click",()=>$("summary").scrollIntoView({behavio
 $("submitBtn").addEventListener("click",()=>{
   $("modalTitle").textContent=isCommercial()?"Quote request received.":"Request received.";
   $("modalCopy").textContent=isCommercial()
-    ?"In a real Booking Flow, the owner receives the commercial details, prepares the custom quote, and follows up from one organized place."
-    :"In a real Booking Flow, this complete request can move into confirmation, scheduling and follow-up without rebuilding the client details.";
+    ?"That’s the client side. The owner now has the commercial details organized to review, prepare a custom quote and follow up."
+    :"That’s the client side. The owner now has the request organized and ready to confirm, schedule and follow up — without re-entering the client details.";
   $("modal").classList.add("open");
   window.tleTrackEvent?.("demo_complete",{request_type:isCommercial()?"quote":"booking"});
   $("demoOffer").focus();
