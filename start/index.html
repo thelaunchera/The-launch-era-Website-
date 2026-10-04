@@ -639,7 +639,7 @@ footer{color:#707573}
     <div class="wrap">
       <div class="what-you-see-head"><span class="hero-badge">ONE REQUEST · TWO SIDES</span><h2>The client sees the booking. You get the system behind it.</h2><p>Booking Flow connects the customer experience to the owner-side actions that happen after submit.</p></div>
       <div class="two-sides">
-        <article class="side-card"><small>CLIENT SEES</small><h3>A simple path to send the request.</h3><ul><li>Choose service and property details</li><li>See an approximate estimate</li><li>Choose a preferred time</li><li>Receive confirmation that the request went through</li></ul></article>
+        <article class="side-card"><small>CLIENT SEES</small><h3>A simple path to send the request.</h3><ul><li>Check service-area ZIP code first</li><li>Choose service and property details</li><li>See an approximate estimate</li><li>Choose a preferred time</li><li>Receive confirmation that the request went through</li></ul></article>
         <article class="side-card owner"><small>OWNER GETS</small><h3>The lead, the next step and the follow-up.</h3><ul><li>Detailed owner alert</li><li>Private lead card with request details</li><li>New → Reviewing → Confirm / Custom Quote → Booked</li><li>Automatic follow-up attached to the lead</li></ul></article>
       </div>
       <div class="clarity-line"><strong>Need only the client-facing page?</strong> Choose the <a href="/booking-page/" style="text-decoration:underline;text-underline-offset:3px">Booking Page</a>. <strong>Need the whole operating workspace?</strong> Choose the <a href="/cleaning-app/" style="text-decoration:underline;text-underline-offset:3px">Cleaning Web App</a>.</div>
@@ -662,6 +662,7 @@ footer{color:#707573}
       <div class="estimate-card" aria-label="Sample approximate cleaning estimate calculator">
         <div class="estimate-card-top"><div><small>LIVE DEMO</small><strong>Approximate cleaning estimate</strong></div><span>Updates instantly</span></div>
         <div class="estimate-fields">
+          <label class="estimate-full">Service ZIP code<input id="flowEstZip" inputmode="numeric" maxlength="5" placeholder="e.g. 33436" style="width:100%;min-height:48px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 12px;color:var(--black);font:inherit"><small id="flowEstZipStatus" style="font-size:9px;color:var(--muted);font-weight:500">Enter 5 digits to preview service availability.</small></label>
           <label>Service<select id="flowEstService"><option value="129">Standard Cleaning</option><option value="219">Deep Cleaning</option><option value="249">Move-In / Move-Out</option><option value="119">Recurring Cleaning</option></select></label>
           <label>Home size<select id="flowEstSqft"><option value="-10">Under 1,000 sq ft</option><option value="0" selected>1,000–1,999 sq ft</option><option value="40">2,000–2,999 sq ft</option><option value="85">3,000+ sq ft</option></select></label>
           <label>Bedrooms<select id="flowEstBeds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
@@ -771,7 +772,7 @@ footer{color:#707573}
         </div>
 
         <aside class="benefits reveal">
-          <div class="benefit"><span>▣</span><p>Custom Booking Page</p></div>
+          <div class="benefit"><span>▣</span><p>Custom Booking Page + service-area ZIP check</p></div>
           <div class="benefit"><span>≈</span><p>Approximate price estimate</p></div>
           <div class="benefit"><span>✉</span><p>Owner email alert + client confirmation</p></div>
           <div class="benefit"><span>▤</span><p>Detailed Private Lead Tracker</p></div>
@@ -845,6 +846,8 @@ footer{color:#707573}
 })();
 
 (()=>{
+  const zip=document.getElementById("flowEstZip"), zipStatus=document.getElementById("flowEstZipStatus");
+  if(zip&&zipStatus){zip.addEventListener("input",()=>{zip.value=zip.value.replace(/\\D/g,"").slice(0,5);const ok=zip.value.length===5;zipStatus.textContent=ok?"✓ Demo service area available":"Enter 5 digits to preview service availability.";zipStatus.style.color=ok?"#355F78":"var(--muted)";});}
   const ids=["flowEstService","flowEstSqft","flowEstBeds","flowEstBaths","flowEstFrequency"];
   const els=ids.map(id=>document.getElementById(id));
   if(els.some(x=>!x)) return;
