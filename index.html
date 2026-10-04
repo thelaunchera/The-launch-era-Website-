@@ -76,7 +76,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(
 </div>
 </div></section>
 
-<section class="feature"><div class="wrap feature-row"><div><small>SPECIAL OFFER</small><h2>Booking Flow Setup</h2><p>A client sends a request. They get confirmation. You get the lead organized in one place, and follow-up no longer depends on memory. <strong>$49.99 now</strong> · <s>$99 regular price</s>.</p></div><a class="btn light" href="/start/">See the Offer →</a></div></section>
+<section class="feature" id="homeBookingFlowOffer" data-sale-end="2026-10-11T11:01:04Z"><div class="wrap feature-row"><div><small id="homeOfferLabel">1-WEEK OFFER</small><h2>Booking Flow Setup</h2><p>A client sends a request. They get confirmation. You get the lead organized in one place, and follow-up no longer depends on memory. <strong id="homeOfferPrice">$29.99 now</strong> · <s id="homeOfferRegular">$99 regular price</s>.</p></div><a class="btn light" href="/start/" id="homeOfferCta">See the Offer →</a></div></section>
 
 <section class="section contact" id="contact"><div class="wrap contact-grid">
 <div class="contact-copy"><span class="kicker">CONTACT</span><h2>Not sure which service fits?</h2><p>Tell me what feels messy. I’ll point you toward the most relevant option.</p></div>
@@ -116,4 +116,6 @@ footer{padding:34px 0;border-top:1px solid var(--line);font-size:12px;color:var(
   }));
 })();
 </script>
-</body></html>
+<script>
+(()=>{const el=document.getElementById("homeBookingFlowOffer");if(!el)return;const end=new Date(el.dataset.saleEnd).getTime();if(Date.now()>=end){document.getElementById("homeOfferLabel").textContent="BOOKING FLOW SETUP";document.getElementById("homeOfferPrice").textContent="$99 one-time";document.getElementById("homeOfferRegular").style.display="none";document.getElementById("homeOfferCta").textContent="See Booking Flow →";}})();
+</script></body></html>
