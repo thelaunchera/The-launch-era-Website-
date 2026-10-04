@@ -36,7 +36,10 @@ header{background:rgba(250,248,243,.96);border-bottom:1px solid rgba(25,25,25,.0
 </main>
 <script>
 const endpoint="https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-booking-flow-tracker";
-const token=new URLSearchParams(location.search).get("token")||"";let all=[];
+const params=new URLSearchParams(location.search);
+const token=params.get("token")||"";
+const demoMode=params.get("demo")==="1";
+let all=[];
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const val=(x,...keys)=>{for(const k of keys){const v=x?.raw_payload?.[k]??x?.[k];if(v!==null&&v!==undefined&&String(v).trim())return String(v).trim()}return""};
 const stage=x=>x.workflow_stage||({new:"new",contacted:"reviewing",booked:"booked",closed:"closed",lost:"lost"}[x.status]||"new");
@@ -58,8 +61,35 @@ function render(){
  el.querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>update(b.dataset.id,b.dataset.status));
 }
 async function api(payload){const r=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token,...payload})});const d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load tracker.");return d}
-async function load(){try{const d=await api({action:"list"});all=d.leads||[];document.getElementById("business").textContent=(d.account?.business_name||"Your business")+" leads";render()}catch(e){document.getElementById("list").innerHTML='<div class="error">'+esc(e.message)+'</div>'}}
-async function update(id,status){try{const d=await api({action:"update",lead_id:id,status});all=d.leads||[];render()}catch(e){alert(e.message)}}
+async function load(){
+ if(demoMode){
+  all=[{
+   id:"demo-lead-1",request_type:"booking",customer_name:"Jordan M.",customer_email:"jordan@example.com",customer_phone:"(555) 014-2810",
+   service_name:"Standard Cleaning",service_address:"123 Sample St.",status:"new",workflow_stage:"new",
+   follow_up_at:new Date(Date.now()+86400000).toISOString(),notes:"Dog in home; please text before arrival.",
+   raw_payload:{property_type:"House",bedrooms:"3",bathrooms:"2",square_footage:"1,000–1,999 sq ft",frequency:"One time",extras:"Inside oven",estimate_display:"$145–$170",requested_date:"Monday, Oct 5",requested_time:"10:30 AM"}
+  }];
+  document.getElementById("business").textContent="Luma Home Cleaning leads";
+  document.querySelector(".private").textContent="PRIVATE LEAD TRACKER · DEMO";
+  render(); return;
+ }
+ try{const d=await api({action:"list"});all=d.leads||[];document.getElementById("business").textContent=(d.account?.business_name||"Your business")+" leads";render()}catch(e){document.getElementById("list").innerHTML='<div class="error">'+esc(e.message)+'</div>'}
+}
+async function update(id,status){
+ if(demoMode){
+  const x=all.find(v=>v.id===id); if(!x)return;
+  if(status==="restart"){x.workflow_stage="reviewing";x.status="contacted";x.follow_up_at=new Date(Date.now()+86400000).toISOString();}
+  else if(status==="pause"){x.follow_up_at=null;}
+  else if(status==="new"){x.workflow_stage="new";x.status="new";x.follow_up_at=new Date(Date.now()+86400000).toISOString();}
+  else if(status==="reviewing"||status==="contacted"){x.workflow_stage="reviewing";x.status="contacted";}
+  else if(status==="quoted"){x.workflow_stage="quoted";x.status="contacted";x.follow_up_at=new Date(Date.now()+86400000).toISOString();}
+  else if(status==="booked"){x.workflow_stage="booked";x.status="booked";x.follow_up_at=null;}
+  else if(status==="closed"){x.workflow_stage="closed";x.status="closed";x.follow_up_at=null;}
+  else if(status==="lost"){x.workflow_stage="lost";x.status="lost";x.follow_up_at=null;}
+  render(); return;
+ }
+ try{const d=await api({action:"update",lead_id:id,status});all=d.leads||[];render()}catch(e){alert(e.message)}
+}
 document.getElementById("filter").onchange=render;document.getElementById("refresh").onclick=load;load();
 </script>
 </body></html>
