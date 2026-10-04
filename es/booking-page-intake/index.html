@@ -20,7 +20,7 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 .actions{margin-top:18px}.btn{width:100%;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:16px 20px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}.btn:disabled{opacity:.45}
 .status{margin-top:14px;font-weight:700}.small{font-size:12px;color:var(--muted)}.lang{float:right;font-size:12px;font-weight:800}
 @media(max-width:650px){.grid,.checks{grid-template-columns:1fr}.section{padding:22px}.hero{padding-top:42px}}
-</style>
+.optional-details{margin:14px 0;border:1px solid var(--line);background:#fff;padding:0 16px}.optional-details summary{cursor:pointer;font-weight:800;padding:14px 0}.quick-note{font-size:12px;color:var(--muted);margin-top:8px}</style>
 <script src="../../assets/analytics.js"></script>
 </head>
 <body>
@@ -30,87 +30,59 @@ textarea{min-height:105px;resize:vertical}.checks{display:grid;grid-template-col
 <div class="kicker">Formulario del cliente</div>
 <h1>Vamos a crear tu página de reservas y conectar el sistema detrás.</h1>
 <p>Completa este formulario una sola vez después de comprar tu Página de Reservas. Este formulario es para clientes que seleccionaron español al pagar.</p>
-<div class="note"><strong>Qué pasa después:</strong> creamos tus opciones de Reserva y Cotización, las conectamos a tu Página de Reservas profesional y enviamos las nuevas solicitudes al destino que tú elijas. Si quieres usar la Web App de Limpieza, tienes 60 días de acceso incluidos sin costo adicional. Funciona en el navegador y puedes añadirla a tu pantalla de inicio para usarla como una app. <strong>Tiempo de producción: 24 horas después de recibir el formulario completo y los materiales necesarios.</strong></div>
-</section>
-
-<form id="intakeForm">
+<div class="note"><strong>Qué pasa después:</strong> creamos tus opciones de Reserva y Cotización, las conectamos a tu Página de Reservas profesional y enviamos las nuevas solicitudes al destino que tú elijas. Si quieres usar la Web App de Limpieza, tienes 60 días de acceso incluidos sin costo adicional. Funci<form id="intakeForm">
 <input type="hidden" name="type" value="tle.booking_app_intake">
-
-<section class="section">
-<h2>1. Información del negocio</h2><p>Cuéntanos lo esencial.</p>
-<div class="grid">
 <input type="hidden" name="language" value="spanish">
-<div><label>Tu nombre</label><input name="full_name" required></div>
-<div><label>Nombre del negocio</label><input name="business_name" required></div>
-<div><label>Correo electrónico</label><input type="email" name="email" required></div>
-<div><label>Teléfono</label><input name="phone" required></div>
-<div><label>Correo para la Web App <span class="small">(opcional)</span></label><input type="email" name="app_account_email" placeholder="Solo si quieres usar el acceso incluido a la Web App"></div>
-<div><label>Zona horaria del negocio</label><input name="time_zone" required placeholder="Ejemplo: America/New_York"></div>
-<div><label>Moneda para tus precios</label><input name="currency_code" required placeholder="USD, CAD, EUR, GBP..."></div>
-<div class="full"><label>Áreas de servicio</label><input name="service_areas" required placeholder="Ciudades, códigos postales, condados..."></div>
-<div><label>Enlace de Instagram</label><input type="url" name="instagram_url" placeholder="https://..."></div>
-<div><label>Enlace del Perfil de Empresa en Google</label><input type="url" name="google_business_url" placeholder="https://..."></div>
-</div>
-</section>
+<input type="hidden" name="time_zone" id="time_zone" value="America/New_York">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="pricing_style" value="mixed">
+<input type="hidden" name="minimum_booking_notice" value="24 hours">
+<input type="hidden" name="buffer_time" value="30 minutes">
+<input type="hidden" name="booking_window" value="60 days">
+<input type="hidden" name="preferred_contact" value="email">
+<input type="hidden" name="inquiry_destination" value="business_email">
+<input type="hidden" name="owner_email" id="owner_email">
+<input type="hidden" name="business_hours_display" id="business_hours_display">
+<input type="checkbox" name="contact_email" checked hidden>
 
-<section class="section">
-<h2>2. página de reservas</h2><p>Lo que verán tus clientes primero.</p>
-<div class="grid">
-<div><label>Dominio actual</label><input name="existing_domain" placeholder="Déjalo vacío si no tienes"></div>
-<div><label>Colores de marca</label><input name="brand_colors" placeholder="Nombres o códigos hex"></div>
-<div class="full"><label>Enlace de logo y archivos de marca</label><input type="url" name="logo_assets_link" placeholder="Google Drive, Dropbox, Canva, etc."></div>
-<div class="full"><label>Enlace de carpeta de fotos</label><input type="url" name="photos_link" placeholder="Google Drive, Dropbox, etc."></div>
-<div class="full"><label>Sobre el negocio</label><textarea name="about_business" placeholder="¿Qué debería saber un cliente nuevo?"></textarea></div>
-<div class="full"><label>Reseñas</label><textarea name="reviews" placeholder="Pega 2–4 reseñas o un enlace"></textarea></div>
-<div class="full"><label>Mensaje u oferta principal</label><textarea name="main_offer" placeholder="Opcional"></textarea></div>
-<div class="full"><label>Horario que quieres mostrar en tu página</label><textarea name="business_hours_display" required placeholder="Ejemplo: lunes a viernes 8 a. m.–5 p. m.; sábado 8 a. m.–12 p. m."></textarea></div>
-</div>
-</section>
+<section class="section"><h2>1. Lo esencial</h2><p>Solo lo que necesitamos para empezar.</p><div class="grid">
+<div><label>Tu nombre *</label><input name="full_name" required autocomplete="name"></div>
+<div><label>Nombre del negocio *</label><input name="business_name" required autocomplete="organization"></div>
+<div><label>Correo del negocio *</label><input type="email" name="email" id="email" required autocomplete="email"></div>
+<div><label>Teléfono <span class="small">(opcional)</span></label><input name="phone" autocomplete="tel"></div>
+<div class="full"><label>Área de servicio *</label><input name="service_areas" required placeholder="Ej.: Boynton Beach, Delray Beach, Boca Raton"></div>
+</div></section>
 
-<section class="section">
-<h2>3. Servicios + precios</h2><p>Esto nos ayuda a configurar tu Página de Reservas.</p>
-<div class="grid">
-<div class="full"><label>Servicios de limpieza</label><textarea name="services" required placeholder="Uno por línea: Servicio — Precio O Cotización — Duración aproximada&#10;Ejemplo: Limpieza estándar — $120 — 2 horas&#10;Limpieza profunda — Requiere cotización — 4 horas"></textarea></div>
-<div><label>Tipo de precio</label><select name="pricing_style" required><option value="fixed">Precio fijo</option><option value="starting_at">Desde</option><option value="quote_only">Solo cotización</option><option value="mixed">Depende del servicio</option></select></div>
-<div><label>Duración típica del servicio</label><input name="service_duration" placeholder="Ejemplo: 2–3 horas"></div>
-<div class="full"><label>Extras</label><textarea name="add_ons" placeholder="Incluye precio y tiempo adicional. Ejemplo: Interior del horno — +$35 — +30 min"></textarea></div>
-</div>
-</section>
-
-<section class="section">
-<h2>4. Reservas + cotizaciones</h2><p>Conectamos las dos opciones por ti: <strong>Reservar una limpieza</strong> y <strong>Pedir una cotización</strong>.</p>
-<input type="hidden" name="booking_enabled" value="true">
-<input type="hidden" name="quote_enabled" value="true">
-<div class="grid" style="margin-top:16px">
-<div class="full"><label>Disponibilidad para reservar</label><textarea name="availability" required placeholder="Ejemplo: lunes a viernes 8 a. m.–4 p. m.; sábado 9 a. m.–1 p. m."></textarea></div>
-<div><label>Aviso mínimo para reservar</label><input name="minimum_booking_notice" required placeholder="Ejemplo: 24 horas"></div>
-<div><label>Tiempo entre trabajos</label><input name="buffer_time" required placeholder="Ejemplo: 30 minutos"></div>
-<div><label>¿Con cuánta anticipación pueden reservar?</label><input name="booking_window" required placeholder="Ejemplo: 60 días"></div>
-<div><label>¿Dónde quieres recibir las nuevas reservas y cotizaciones?</label><select name="inquiry_destination" required><option value="business_email">En mi correo de negocio</option><option value="other_workflow">En otro inbox o flujo que uso</option><option value="cleaning_app">En The Launch Era Cleaning Web App</option></select></div>
-<div><label>Correo de destino / detalles del flujo</label><input name="inquiry_destination_details" required placeholder="Ejemplo: reservas@tunegocio.com o el flujo que usas"></div>
-<div><label>Método de contacto principal</label><select name="preferred_contact" required><option value="email">Correo electrónico</option><option value="text">Mensaje de texto</option><option value="whatsapp">WhatsApp</option></select></div>
-<div class="full"><label>Opciones de contacto para clientes</label><div class="checks">
-<label class="check"><input type="checkbox" name="contact_email" checked><span>Correo electrónico</span></label>
-<label class="check"><input type="checkbox" name="contact_text"><span>Mensaje de texto</span></label>
-<label class="check"><input type="checkbox" name="contact_whatsapp"><span>WhatsApp</span></label>
-</div></div>
-<div><label>Correo del negocio que verán tus clientes</label><input type="email" name="owner_email" required></div>
-<div class="full"><label>Métodos de pago</label><div class="checks">
+<section class="section"><h2>2. Reservas</h2><p>Lo que el cliente necesita para enviar su solicitud.</p><div class="grid">
+<div class="full"><label>Servicios + precios *</label><textarea name="services" required placeholder="Ej.: Limpieza Estándar — $140&#10;Limpieza Profunda — desde $220&#10;Comercial — Cotización"></textarea></div>
+<div class="full"><label>¿Cuándo pueden reservar? *</label><textarea name="availability" id="availability" required placeholder="Ej.: Lun–Vie 8 AM–4 PM; Sáb 9 AM–1 PM"></textarea></div>
+<div class="full"><label>Extras <span class="small">(opcional)</span></label><textarea name="add_ons" placeholder="Ej.: Horno por dentro +$35"></textarea></div>
+<div class="full"><label>¿A qué correo deben llegar las solicitudes?</label><input type="email" name="inquiry_destination_details" id="destination_email" placeholder="Déjalo vacío para usar el correo del negocio"></div>
+<div class="full"><label>¿Cómo aceptas pagos? *</label><div class="checks">
 <label class="check"><input type="checkbox" name="payment_cash"><span>Efectivo</span></label>
 <label class="check"><input type="checkbox" name="payment_check"><span>Cheque</span></label>
-<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle <span class="small">(EE. UU.)</span></span></label>
+<label class="check"><input type="checkbox" name="payment_zelle"><span>Zelle</span></label>
 <label class="check"><input type="checkbox" name="payment_other"><span>Otro</span></label>
 </div></div>
-<div class="full" style="margin-top:16px"><label>Política de cancelación o cambios</label><textarea name="cancellation_policy" required placeholder="Ejemplo: Avísanos con 24 horas para cancelar o cambiar la cita."></textarea></div>
 </div>
+<details class="optional-details"><summary>Añadir marca o políticas (opcional)</summary><div class="grid">
+<div><label>Website</label><input name="existing_domain" type="url" placeholder="https://..."></div>
+<div><label>Instagram</label><input name="instagram_url" type="url" placeholder="https://instagram.com/..."></div>
+<div class="full"><label>Logo / fotos</label><input name="logo_assets_link" type="url" placeholder="Google Drive, Dropbox, etc."></div>
+<div><label>Colores</label><input name="brand_colors"></div>
+<div><label>Cancelación / cambios</label><input name="cancellation_policy" placeholder="Ej.: aviso con 24 horas"></div>
+<div class="full"><label>Algo importante sobre tu negocio</label><textarea name="about_business"></textarea></div>
+</div></details>
 </section>
 
-<section class="section">
-<h2>5. Notas finales</h2><p>¿Hay algo que debamos saber antes de comenzar?</p>
-<div class="grid">
-<div><label>Fecha deseada de lanzamiento</label><input type="date" name="target_launch_date"></div>
-<div><label>Web App <span class="small">(beneficio opcional)</span></label><select name="app_setup_needed" required><option value="not_using_app">Solo quiero la Página de Reservas</option><option value="new">Quiero usar el acceso incluido a la Web App — configúrenla por mí</option><option value="review">Ya tengo una cuenta — configúrenla</option></select></div>
-<div class="full"><label>¿Algo más?</label><textarea name="notes"></textarea></div>
+<section class="section"><h2>3. Última elección</h2><p>Tu página funciona sin la Web App.</p><div class="grid">
+<div><label>Cleaning Web App <span class="small">(opcional)</span></label><select name="app_setup_needed"><option value="not_using_app">Solo quiero la Página de Reservas</option><option value="new">Quiero usar los 60 días incluidos</option><option value="review">Ya tengo cuenta</option></select></div>
+<div><label>Fecha ideal <span class="small">(opcional)</span></label><input type="date" name="target_launch_date"></div>
+<div class="full"><label>¿Algo más? <span class="small">(opcional)</span></label><textarea name="notes"></textarea></div>
+</div><p class="quick-note">Usamos valores iniciales simples para aviso de reserva, tiempo entre trabajos y ventana de calendario. Podemos ajustarlos después.</p></section>
+
+<div class="actions"><button class="btn" id="submitBtn" type="submit">Enviar Mi Información</button><div class="status" id="status" aria-live="polite"></div></div>
+</form>area name="notes"></textarea></div>
 </div>
 </section>
 
@@ -161,7 +133,7 @@ if(!purchaseSession){
 }
 form.addEventListener("submit",async(e)=>{
  e.preventDefault(); btn.disabled=true; statusEl.textContent="Enviando…";
- const fd=new FormData(form);
+ try{document.getElementById("time_zone").value=Intl.DateTimeFormat().resolvedOptions().timeZone||"America/New_York";}catch{} const email=document.getElementById("email").value.trim();document.getElementById("owner_email").value=email;document.getElementById("business_hours_display").value=document.getElementById("availability").value.trim();if(!document.getElementById("destination_email").value.trim())document.getElementById("destination_email").value=email; const fd=new FormData(form);
  const obj={};
  for(const [k,v] of fd.entries()){ if(k!=="type") obj[k]=v; }
  ["payment_cash","payment_check","payment_zelle","payment_other","contact_email","contact_text","contact_whatsapp"].forEach(k=>obj[k]=bool(fd,k));
