@@ -183,6 +183,37 @@
     }
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
+  
+    /* Guided booking flow: one clear decision at a time. */
+    .wizard-section{display:none!important;border-bottom:0!important;margin-bottom:0!important;padding-bottom:8px!important}
+    .wizard-section.wizard-active{display:block!important;animation:wizardIn .24s ease}
+    @keyframes wizardIn{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .wizard-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+    .wizard-nav button{min-height:46px;border-radius:12px;padding:0 17px;font-weight:900}
+    .wizard-back{border:1px solid var(--line);background:#fff;color:var(--ink)}
+    .wizard-next{border:0;background:var(--ink);color:#fff;margin-left:auto;min-width:150px}
+    .wizard-next:disabled{opacity:.35;cursor:not-allowed}
+    .stepper{overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+    .stepper::-webkit-scrollbar{display:none}
+    .stepper span{opacity:.5}
+    .stepper span.is-active,.stepper span.is-complete{opacity:1}
+    .stepper span.is-active b{background:var(--ink);color:#fff}
+    .stepper span.is-complete b{background:var(--eucalyptus);color:var(--deep)}
+    .estimate-note{margin:7px 0 2px;padding:11px 12px;border-radius:11px;background:var(--eucalyptus2);color:var(--deep);font-size:11px;line-height:1.4;font-weight:800}
+    #frequency .pill small{font-size:10px;margin-left:4px;opacity:.75}
+    .summary.estimate-pop{animation:estimatePop .18s ease}
+    @keyframes estimatePop{50%{transform:scale(1.012)}}
+    .booking-type{padding:14px;border:1px solid var(--line);border-radius:15px;background:#FFFDF9}
+    .cleaning-type-btn{min-height:52px;font-size:14px}
+    @media(max-width:620px){
+      .wizard-nav{position:sticky;bottom:86px;background:#fff;padding:14px 0 3px;z-index:8}
+      .wizard-nav button{min-height:48px}
+      .stepper{margin-left:-2px;margin-right:-2px}
+      .stepper span{font-size:10px}
+      .stepper span:not(:last-child):after{width:10px}
+      .booking-type{padding:11px}
+    }
+
   </style>
 </head>
 <body>
@@ -200,8 +231,8 @@
         <div>
           <div class="eyebrow"><span class="eyebrow-dot"></span> Real booking experience</div>
           <h1>A clean home starts with an easier booking.</h1>
-          <p>Choose your service, tell us about your home, and pick an available time — all in a few simple steps.</p>
-          <div class="hero-points"><span>✓ Clear service options</span><span>✓ Live-style availability</span><span>✓ Mobile friendly</span></div>
+          <p>Choose your space, service, home details, and extras. Your sample estimate updates as you go — then choose an available time.</p>
+          <div class="hero-points"><span>✓ Instant sample estimate</span><span>✓ Live-style availability</span><span>✓ Mobile friendly</span></div>
           <div class="hero-actions"><button class="start-btn" onclick="setRequestMode('book');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book a Cleaning →</button><button class="secondary-start-btn" onclick="setRequestMode('quote');document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Get a Quote</button></div>
         </div>
         <div class="hero-photo">
@@ -263,7 +294,7 @@
               <div class="field"><label for="sqft">Approx. square footage</label><select id="sqft"><option>Under 1,000 sq ft</option><option selected>1,000–1,999 sq ft</option><option>2,000–2,999 sq ft</option><option>3,000+ sq ft</option></select></div>
               <div class="field" id="residentialPropertyField"><label for="homeType">Property type</label><select id="homeType"><option selected>House</option><option>Apartment</option><option>Townhome</option><option>Condo</option></select></div>
               <div class="field" id="commercialDetails" hidden><label for="commercialType">Commercial space</label><select id="commercialType"><option selected>Office</option><option>Storefront / Retail</option><option>Restaurant</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Other commercial space</option></select></div>
-              <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected">One time</button><button class="pill">Weekly</button><button class="pill">Biweekly</button><button class="pill">Monthly</button></div></div>
+              <div class="field full"><label>How often?</label><div class="pills" id="frequency"><button class="pill selected" data-frequency="One time">One time</button><button class="pill" data-frequency="Weekly">Weekly <small>−15%</small></button><button class="pill" data-frequency="Biweekly">Biweekly <small>−10%</small></button><button class="pill" data-frequency="Monthly">Monthly <small>−5%</small></button></div></div>
             </div>
           </section>
 
@@ -317,9 +348,10 @@
           <div class="summary-row"><span>Date</span><strong id="sumDate">Mon, Oct 5</strong></div>
           <div class="summary-row"><span>Time</span><strong id="sumTime">10:30 AM</strong></div>
           <div class="summary-row"><span>Extras</span><strong id="sumExtras">None</strong></div>
-          <div class="total"><span id="totalLabel">Sample starting estimate</span><strong id="sumTotal">—</strong></div>
+          <div class="total"><span id="totalLabel">Sample instant estimate</span><strong id="sumTotal">—</strong></div>
+          <div class="estimate-note" id="estimateNote">Updates with service, home size, frequency and extras.</div>
           <button class="submit" id="submitBtn">Request cleaning →</button>
-          <p class="micro" id="summaryMicro">Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.</p>
+          <p class="micro" id="summaryMicro">Sample estimate only. Final pricing depends on the cleaning business. No payment is collected in this demo.</p>
         </aside>
       </div>
     </section>
@@ -504,12 +536,116 @@
       });
     }
 
+
+    function calculateEstimate(){
+      if(state.mode==='quote'||!state.service) return {total:null,discount:0,discountLabel:''};
+      let subtotal=Number(state.base||0);
+
+      // Demo pricing logic: owner-configurable in a real Booking Page.
+      if(state.cleaningType==='Residential'){
+        subtotal += Math.max(0,state.beds-2)*12;
+        subtotal += Math.max(0,state.baths-1)*18;
+
+        const sqftValue=$('sqft')?.value||'';
+        const sqftAdjustment={
+          'Under 1,000 sq ft':-10,
+          '1,000–1,999 sq ft':0,
+          '2,000–2,999 sq ft':40,
+          '3,000+ sq ft':85
+        }[sqftValue]||0;
+        subtotal += sqftAdjustment;
+      }
+
+      subtotal += state.extras.reduce((sum,item)=>sum+Number(item.price||0),0);
+
+      const discountRate={
+        'Weekly':.15,
+        'Biweekly':.10,
+        'Monthly':.05
+      }[state.frequency]||0;
+
+      const total=Math.max(79,Math.round(subtotal*(1-discountRate)));
+      return {
+        total,
+        discount:discountRate,
+        discountLabel:discountRate?Math.round(discountRate*100)+'% recurring savings':''
+      };
+    }
+
+    let wizardStep=0;
+    let wizardSections=[];
+
+    function renderWizard(){
+      if(!wizardSections.length) return;
+      wizardSections.forEach((section,index)=>section.classList.toggle('wizard-active',index===wizardStep));
+      document.querySelectorAll('.stepper span').forEach((item,index)=>{
+        item.classList.toggle('is-active',index===wizardStep);
+        item.classList.toggle('is-complete',index<wizardStep);
+      });
+
+      const back=$('wizardBack');
+      const next=$('wizardNext');
+      if(back) back.hidden=wizardStep===0;
+      if(next){
+        next.disabled=wizardStep===0&&!state.service;
+        next.textContent=wizardStep===wizardSections.length-1?'Review request →':'Continue →';
+      }
+    }
+
+    function goWizard(direction){
+      if(direction>0&&wizardStep===0&&!state.service) return;
+      if(direction>0&&wizardStep===wizardSections.length-1){
+        $('bookingSummary').classList.add('estimate-pop');
+        setTimeout(()=>$('bookingSummary').classList.remove('estimate-pop'),220);
+        $('bookingSummary').scrollIntoView({behavior:'smooth',block:'center'});
+        return;
+      }
+      wizardStep=Math.max(0,Math.min(wizardSections.length-1,wizardStep+direction));
+      renderWizard();
+      document.querySelector('.panel.flow').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function initWizard(){
+      const serviceSection=$('serviceTitle').closest('.section');
+      const propertySection=$('residentialCounters').closest('.section');
+      const scheduleSection=$('dateTitle').closest('.section');
+      const extrasSection=$('extrasTitle').closest('.section');
+      const detailsSection=$('name').closest('.section');
+
+      // Put add-ons before scheduling so price is clear before a customer picks a time.
+      scheduleSection.parentNode.insertBefore(extrasSection,scheduleSection);
+      wizardSections=[serviceSection,propertySection,extrasSection,scheduleSection,detailsSection];
+
+      const stepLabels=['Service','Space','Extras','Schedule','Review'];
+      document.querySelector('.stepper').innerHTML=stepLabels.map((label,index)=>'<span><b>'+String(index+1).padStart(2,'0')+'</b> '+label+'</span>').join('');
+
+      const labels=[
+        '01 · Service',
+        '02 · Property details',
+        '03 · Extras',
+        '04 · Date & time',
+        '05 · Review & contact'
+      ];
+      wizardSections.forEach((section,index)=>{
+        section.classList.add('wizard-section');
+        section.querySelector('.section-label').textContent=labels[index];
+      });
+
+      const nav=document.createElement('div');
+      nav.className='wizard-nav';
+      nav.innerHTML='<button type="button" class="wizard-back" id="wizardBack">← Back</button><button type="button" class="wizard-next" id="wizardNext">Continue →</button>';
+      document.querySelector('.panel.flow').appendChild(nav);
+      $('wizardBack').addEventListener('click',()=>goWizard(-1));
+      $('wizardNext').addEventListener('click',()=>goWizard(1));
+      renderWizard();
+    }
+
     function render(){
       $('sumService').textContent=state.service||'Choose a service';
       $('sumPropertyLabel').textContent=state.cleaningType==='Commercial'?'Space':'Home';
       $('sumHome').textContent=state.cleaningType==='Commercial'
         ? 'Commercial · '+($('commercialType')?.value||'Commercial space')+' · '+state.restrooms+' restroom'+(state.restrooms===1?'':'s')+' · '+state.floors+' level'+(state.floors===1?'':'s')
-        : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath';
+        : 'Residential · '+($('homeType')?.value||'Home')+' · '+state.beds+' bed · '+state.baths+' bath · '+($('sqft')?.value||'');
       $('sumFrequency').textContent=state.frequency;
       $('sumDate').textContent=state.date;
       $('sumTime').textContent=state.time;
@@ -519,15 +655,20 @@
       const quote=state.mode==='quote';
       $('summaryKicker').textContent=quote?'Your quote request':'Your booking';
       $('summaryTitle').textContent=!state.service?'Start with a service.':quote?'Ready to request.':'Almost done.';
-      $('totalLabel').textContent=quote?'Pricing':'Sample starting estimate';
-      $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(state.base+state.extras.reduce((s,x)=>s+x.price,0));
+      const estimate=calculateEstimate();
+      $('totalLabel').textContent=quote?'Pricing':'Sample instant estimate';
+      $('sumTotal').textContent=!state.service?'—':quote?'Custom quote':money(estimate.total);
       $('submitBtn').textContent=quote?'Get my quote →':'Request cleaning →';
-      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Sample starting estimate';
+      $('mobileEstimateLabel').textContent=quote?'Custom pricing':'Instant sample estimate';
       $('mobileEstimate').textContent=!state.service?'Choose a service':quote?'Request a quote':$('sumTotal').textContent;
       $('reviewBooking').textContent=quote?'Review quote →':'Review booking →';
+      $('estimateNote').textContent=quote
+        ? 'Custom pricing is prepared from the space and details you selected.'
+        : 'Updates with service, home size, frequency and extras'+(estimate.discountLabel?' · '+estimate.discountLabel:'')+'.';
       $('summaryMicro').textContent=quote
         ? 'The business will review these details and send a custom price. No payment is collected in this demo.'
-        : 'Sample starting prices. Final pricing depends on the job. No payment is collected in this demo.';
+        : 'Sample estimate only. Final pricing depends on the cleaning business. No payment is collected in this demo.';
+      if(wizardSections.length) renderWizard();
     }
 
     document.querySelectorAll('.request-mode-btn').forEach(btn=>btn.addEventListener('click',()=>setRequestMode(btn.dataset.mode)));
@@ -599,7 +740,7 @@
     document.querySelectorAll('#frequency .pill').forEach(btn=>btn.addEventListener('click',()=>{
       document.querySelectorAll('#frequency .pill').forEach(x=>x.classList.remove('selected'));
       btn.classList.add('selected');
-      state.frequency=btn.textContent.trim();
+      state.frequency=btn.dataset.frequency||btn.textContent.trim();
       render();
     }));
 
@@ -657,6 +798,7 @@
     populateDemoDates();
     updateDemoPhotos();
     setRequestMode('book');
+    initWizard();
   </script>
 </body>
 </html>
