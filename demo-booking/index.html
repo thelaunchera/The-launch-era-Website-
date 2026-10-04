@@ -55,8 +55,6 @@ h1{font-size:clamp(38px,6vw,64px);line-height:.98;margin:12px 0 12px;max-width:6
 .space-switch{display:grid;grid-template-columns:1fr 1fr;gap:5px;background:#F3F3EF;border:1px solid #ECEAE4;border-radius:11px;padding:5px;margin-bottom:24px}
 .space-switch button{min-height:48px;border:0;border-radius:8px;background:transparent;color:#737875;font-weight:800}
 .space-switch button.active{background:#fff;color:var(--ink);box-shadow:0 3px 10px rgba(25,25,25,.055)}
-.commercial-note{display:none;margin:-12px 0 22px;padding:11px 13px;border-left:3px solid var(--blue-deep);background:var(--blue-soft);font-size:11px;line-height:1.5;color:var(--blue-deep)}
-body.commercial .commercial-note{display:block}
 .progress{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:28px}
 .progress button{border:0;background:transparent;padding:0;text-align:left}
 .progress-bar{display:block;height:4px;border-radius:999px;background:#ECEDEB;margin-bottom:7px}
@@ -207,8 +205,6 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
   <section class="booking" id="booking">
     <div class="wrap shell">
       <div class="form-card">
-        <p class="commercial-note" style="display:block">Choose a residential cleaning below. Need something custom or commercial? Use <strong>Request a Quote</strong> at the end of the service list.</p>
-
         <div class="progress" aria-label="Booking steps">
           <button type="button" data-jump="0"><span class="progress-bar"></span><small>1 · Service</small></button>
           <button type="button" data-jump="1"><span class="progress-bar"></span><small>2 · Property</small></button>
@@ -233,9 +229,7 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
             <button class="service" type="button" data-service="Move-In / Move-Out" data-price="249"><strong>Move-In / Move-Out</strong><p>Detailed cleaning for an empty or nearly empty home.</p><span>From $249</span></button>
             <button class="service quote-service" type="button" data-service="Request a Quote" data-price="0" data-quote="true"><strong>Request a Quote</strong><p>Commercial, post-construction or a job that needs custom pricing.</p><span>Custom pricing →</span></button>
           </div>
-          <div class="commercial-services" hidden>
-            <div class="commercial-note" style="display:block;margin:0">No residential price range is shown here. The business reviews the property, scope and frequency before preparing a custom quote.</div>
-          </div>
+          <div class="commercial-services" hidden></div>
         </section>
 
         <section class="step" data-step="1">
@@ -581,20 +575,6 @@ function render(){
   syncOwnerView();
   renderProgress();
 }
-
-document.querySelectorAll("[data-space]").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll("[data-space]").forEach(x=>x.classList.remove("active"));
-  btn.classList.add("active");
-  state.space=btn.dataset.space;
-  state.step=0;
-  if(isCommercial()){
-    state.service="Commercial Cleaning";state.base=0;state.extras=[];
-  }else{
-    state.service=document.querySelector(".residential-services .service.active")?.dataset.service||"Standard Cleaning";
-    state.base=Number(document.querySelector(".residential-services .service.active")?.dataset.price||129);
-  }
-  render();
-}));
 
 document.querySelectorAll(".service").forEach(btn=>btn.addEventListener("click",()=>{
   const group=btn.parentElement;
