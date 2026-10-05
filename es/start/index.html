@@ -544,6 +544,26 @@ footer{color:#707573}
 
 /* TLE visual system — 2026-10-05 */
 body{background:#fff}.hero{background:radial-gradient(circle at 12% 8%,rgba(199,231,250,.95) 0%,rgba(199,231,250,0) 44%),linear-gradient(135deg,#EEF8FD 0%,#FFFFFF 62%,#FAF8F3 100%)}
+
+/* Tablet composition repair — 2026-10-05 */
+@media (min-width:721px) and (max-width:1100px){
+  .hero{padding:58px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-grid>div:first-child{max-width:820px}
+  .hero-art{min-height:500px;width:100%;margin:0 auto;border-radius:28px}
+  .laptop{left:5%;right:22%;bottom:6%;transform:none}
+  .phone{width:190px;right:3%;bottom:3%;transform:none}
+  .system-strip{padding:0 0 34px}
+  .system-strip-grid{grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}
+  .system-strip-grid .strip-arrow{display:none}
+  .system-strip-grid>span:not(.strip-arrow){padding:15px 9px;min-width:0;font-size:11px;line-height:1.35}
+  .system-strip-grid b{display:grid;margin:0 auto 6px}
+  .what-you-see{padding-top:34px}
+  .what-you-see-head{max-width:820px;margin-bottom:26px}
+  .what-you-see-head h2{font-size:clamp(40px,5.2vw,56px);max-width:780px}
+  .two-sides{gap:16px}
+  .side-card{padding:22px}
+}
 </style>
 </head>
 <body>
