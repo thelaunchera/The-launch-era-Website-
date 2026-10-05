@@ -169,3 +169,20 @@ header{background:rgba(251,247,238,.94);border-bottom:1px solid rgba(16,47,85,.1
  .creative-hero .hero-alert{width:160px!important;box-shadow:4px 5px 0 rgba(16,47,85,.08)!important}
  .doodle-one{font-size:34px;left:10px;top:24px}.doodle-two{font-size:24px;right:14px;top:15px}
 }
+
+/* Final mobile hero geometry: alerts live only inside the photo scene */
+.creative-hero .hero-scene{isolation:isolate}
+.creative-hero .hero-message{position:relative;z-index:6}
+.creative-hero .hero-live-from-photo{top:auto!important;left:auto!important;right:5%!important;bottom:7%!important;width:48%!important;height:46%!important}
+.creative-hero .hero-live-from-photo .hero-alert{position:absolute!important;left:auto!important;right:0!important;width:min(260px,100%)!important;min-height:58px;display:flex!important;align-items:center!important;gap:10px!important;padding:10px 13px!important;border-radius:18px!important;background:rgba(248,248,248,.96)!important;border:1px solid rgba(16,47,85,.10)!important;box-shadow:0 10px 28px rgba(16,47,85,.13)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important}
+.creative-hero .hero-live-from-photo .alert-one{top:0!important;right:8%!important}.creative-hero .hero-live-from-photo .alert-two{top:34%!important;right:0!important}.creative-hero .hero-live-from-photo .alert-three{top:68%!important;right:10%!important}
+.creative-hero .hero-live-from-photo .alert-dot{width:28px!important;height:28px!important;box-shadow:none!important;background:#9bcff2!important;position:relative}
+.creative-hero .hero-live-from-photo .alert-dot:after{content:"";position:absolute;inset:7px;border:2px solid white;border-radius:50%}
+.creative-hero .hero-live-from-photo small{font-size:7px!important;letter-spacing:.08em!important;color:#6b7e91!important}.creative-hero .hero-live-from-photo strong{font-size:10px!important;color:#102f55!important}
+@media(max-width:620px){
+ .creative-hero .hero-live-from-photo{right:4%!important;bottom:5%!important;width:62%!important;height:42%!important}
+ .creative-hero .hero-live-from-photo .hero-alert{width:100%!important;min-height:48px;padding:8px 10px!important;border-radius:15px!important}
+ .creative-hero .hero-live-from-photo .alert-one{top:0!important;right:8%!important}.creative-hero .hero-live-from-photo .alert-two{top:35%!important;right:0!important}.creative-hero .hero-live-from-photo .alert-three{top:70%!important;right:6%!important}
+ .creative-hero .hero-live-from-photo .alert-dot{width:24px!important;height:24px!important;flex:0 0 24px!important}
+ .creative-hero .hero-live-from-photo strong{font-size:9px!important}.creative-hero .hero-live-from-photo small{font-size:6px!important}
+}
