@@ -119,3 +119,17 @@ header{background:rgba(240,248,253,.96);backdrop-filter:none}
  .support-section,.how,.contact{padding:76px 0}.support-card,.interaction,.form-card{border-radius:26px}.support-card{min-height:270px;padding:26px}.interaction{padding:26px}
  .feature{padding:56px 0}
 }
+
+/* Notifications originate from the real phone in the hero photograph */
+.hero-live-from-photo{position:absolute;z-index:4;right:7%;bottom:70px;width:300px;height:245px;pointer-events:none}
+.hero-live-from-photo .hero-alert{left:auto;right:0;width:220px;padding:11px 13px;border-radius:17px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.9);box-shadow:0 16px 38px rgba(23,54,75,.13);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0}
+.hero-live-from-photo .alert-one{top:12px;right:4px;animation-delay:.3s}
+.hero-live-from-photo .alert-two{top:80px;right:38px;animation-delay:2.5s}
+.hero-live-from-photo .alert-three{top:148px;right:10px;animation-delay:4.7s}
+@media(max-width:920px) and (min-width:621px){.hero-live-from-photo{right:4%;bottom:54px;transform:scale(.86);transform-origin:bottom right}}
+@media(max-width:620px){
+ .hero-live-from-photo{right:7%;bottom:42px;width:205px;height:175px;transform:none}
+ .hero-live-from-photo .hero-alert{width:165px;padding:8px 9px;border-radius:13px}
+ .hero-live-from-photo .alert-one{top:2px;right:0}.hero-live-from-photo .alert-two{top:52px;right:24px}.hero-live-from-photo .alert-three{top:102px;right:3px}
+ .hero-live-from-photo .hero-alert strong{font-size:8px}.hero-live-from-photo .hero-alert small{font-size:6px}
+}
