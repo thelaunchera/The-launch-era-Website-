@@ -20,15 +20,15 @@ header{background:rgba(240,248,253,.96);backdrop-filter:none}
 .finder{position:relative;z-index:1;background:#f4f8fb}
 @media(max-width:920px) and (min-width:621px){.hero.hero-photo{min-height:650px;padding:82px 0}.hero-photo .hero-message{max-width:52%}.hero-photo h1{font-size:52px}.hero-photo .hero-copy p{font-size:15px}.hero-photo-layer img{object-position:63% center}.hero-photo .hero-actions{gap:9px}}
 @media(max-width:620px){
- .hero.hero-photo{min-height:850px;padding:42px 0 385px}
+ .hero.hero-photo{min-height:610px;padding:34px 0 245px}
  .hero-photo-layer{inset:0 0 -28px}
- .hero-photo-layer img{object-position:69% bottom;height:57%;position:absolute;bottom:0}
- .hero-photo:before{background:linear-gradient(180deg,#edf6fc 0%,#f5f9fc 35%,rgba(245,249,252,.95) 47%,rgba(245,249,252,.2) 62%,transparent 75%)}
+ .hero-photo-layer img{object-position:68% bottom;height:48%;position:absolute;bottom:0}
+ .hero-photo:before{background:linear-gradient(180deg,#edf6fc 0%,#f7fafc 43%,rgba(247,250,252,.86) 55%,rgba(247,250,252,.18) 70%,transparent 82%)}
  .hero-photo .hero-message{max-width:100%}
- .hero-photo h1{font-size:clamp(40px,11.4vw,56px);line-height:1.1;letter-spacing:-.035em;margin:18px 0}
+ .hero-photo h1{font-size:clamp(34px,9.5vw,44px);line-height:1.08;letter-spacing:-.032em;margin:14px 0;max-width:355px}
  .hero-photo .kicker{font-size:9px;letter-spacing:.07em}
- .hero-photo .hero-copy{gap:20px}
- .hero-photo .hero-copy p{font-size:15px;line-height:1.65}
+ .hero-photo .hero-copy{gap:16px}
+ .hero-photo .hero-copy p{font-size:14px;line-height:1.55;max-width:355px}
  .hero-photo .hero-actions{width:100%;gap:9px}
  .hero-photo .hero-actions .btn{width:auto;padding:12px 16px;font-size:12px}
  .hero-services{padding:20px 0}
