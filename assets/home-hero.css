@@ -61,3 +61,28 @@ header{background:rgba(240,248,253,.96);backdrop-filter:none}
  .alert-one{top:45px}.alert-two{top:94px;left:10px}.alert-three{top:143px}
 }
 @media(prefers-reduced-motion:reduce){.hero-alert{opacity:1;animation:none}.alert-one{transform:none}.alert-two{transform:none}.alert-three{transform:none}}
+
+/* Refined editorial product composition — replaces rustic notification stack */
+.hero-live-ui{right:1.5%;bottom:-24px;width:390px;height:455px}
+.hero-phone{right:34px;bottom:0;width:188px;height:370px;padding:7px;border:1px solid rgba(23,54,75,.13);border-radius:38px;background:rgba(255,255,255,.96);box-shadow:0 30px 70px rgba(23,54,75,.16),0 8px 24px rgba(23,54,75,.08);transform:rotate(1.5deg)}
+.hero-phone:after{content:"";position:absolute;inset:7px;border-radius:31px;border:1px solid rgba(23,54,75,.06);pointer-events:none}
+.hero-phone-screen{border-radius:31px;background:linear-gradient(155deg,rgba(234,247,255,.98),rgba(255,255,255,.98) 58%,rgba(242,248,252,.98));padding:50px 17px 22px}
+.hero-phone-screen:before{content:"";position:absolute;left:18px;right:18px;top:66px;height:118px;border-radius:22px;background:linear-gradient(135deg,rgba(199,231,250,.76),rgba(235,226,241,.58));box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+.hero-phone-screen strong,.hero-phone-screen>span:last-child{position:relative;z-index:2}
+.hero-phone-notch{background:#17364b;top:15px;width:62px;height:18px}
+.hero-alert{width:230px;padding:12px 14px;border:1px solid rgba(255,255,255,.82);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 18px 45px rgba(23,54,75,.13);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.alert-one{top:72px;left:4px}.alert-two{top:143px;left:34px}.alert-three{top:214px;left:10px}
+.hero-alert small{font-size:7px;font-weight:600}.hero-alert strong{font-size:10px;font-weight:600}
+@media(max-width:620px){
+ .hero.hero-photo{min-height:640px;padding:32px 0 270px}
+ .hero-live-ui{right:2px;bottom:0;width:270px;height:278px}
+ .hero-phone{right:4px;bottom:0;width:122px;height:238px;padding:5px;border-radius:26px;box-shadow:0 18px 42px rgba(23,54,75,.15)}
+ .hero-phone:after{inset:5px;border-radius:21px}
+ .hero-phone-screen{border-radius:21px;padding:38px 10px 13px}
+ .hero-phone-screen:before{left:10px;right:10px;top:48px;height:74px;border-radius:14px}
+ .hero-phone-notch{top:10px;width:40px;height:11px}
+ .hero-alert{width:176px;padding:9px 10px;border-radius:14px;box-shadow:0 12px 28px rgba(23,54,75,.12)}
+ .alert-one{top:46px;left:0}.alert-two{top:99px;left:18px}.alert-three{top:152px;left:2px}
+ .hero-alert strong{font-size:8px;line-height:1.25}
+ .hero-photo-layer img{height:50%;object-position:66% bottom}
+}
