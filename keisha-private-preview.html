@@ -95,11 +95,16 @@
   <div class="sticky"><span><span class="mini">Current selection</span><br><b id="stickyService">Choose a service</b></span><span id="stickyPrice">—</span></div>
 </main>
 <script>
-let service='',price='',freq='',tm='',extras=[];
+let service='',price='',basePrice=0,freq='',tm='',extras=[];
 const titles=['Choose a service','Tell us about your home','Pick a date & time','Your details','Review your booking'];
-function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;stickyService.textContent=s;stickyPrice.textContent=p}
+function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;basePrice=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;stickyService.textContent=s;updateTotal()}
 function pickFreq(el,v){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v}
 function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
-function toggleExtra(el,v,p){el.classList.toggle('sel');const i=extras.findIndex(x=>x[0]===v);if(i>=0)extras.splice(i,1);else extras.push([v,p])}
+function toggleExtra(el,v,p){el.classList.toggle('sel');const amount=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;const i=extras.findIndex(x=>x[0]===v);if(i>=0)extras.splice(i,1);else extras.push([v,p,amount]);updateTotal()}function updateTotal(){if(price==='Custom'){stickyPrice.textContent='Custom quote';return}const total=basePrice+extras.reduce((sum,x)=>sum+(x[2]||0),0);stickyPrice.textContent=basePrice?'
+function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price==='Custom'?'Custom quote':(basePrice?'}window.scrollTo({top:180,behavior:'smooth'})}
+</script></body></html>+total.toFixed(0):'—'}
+function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price||'Custom quote'}window.scrollTo({top:180,behavior:'smooth'})}
+</script></body></html>+(basePrice+extras.reduce((sum,x)=>sum+(x[2]||0),0)).toFixed(0):'—')}window.scrollTo({top:180,behavior:'smooth'})}
+</script></body></html>+total.toFixed(0):'—'}
 function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price||'Custom quote'}window.scrollTo({top:180,behavior:'smooth'})}
 </script></body></html>
