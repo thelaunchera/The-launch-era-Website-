@@ -139,41 +139,27 @@
   <div class="sticky"><span><span class="mini">Current selection</span><br><b id="stickyService">Choose a service</b></span><span id="stickyPrice">—</span></div>
 </main>
 <script>
-let service='', price='', basePrice=0, freq='', discountPct=0, tm='', extras=[];
+let service='',price='',basePrice=0,freq='',discountPct=0,tm='',extras=[];
 const titles=['Choose a service','Tell us about your home','Pick a date & time','Your details','Review your booking'];
 const $=id=>document.getElementById(id);
 function bedroomCount(){const v=parseInt($('beds').value,10);return Number.isFinite(v)?v:2}
 function bathroomCount(){const v=parseInt($('baths').value,10);return Number.isFinite(v)?v:1}
 function roomAddOn(){return Math.max(0,bedroomCount()-2)*20+Math.max(0,bathroomCount()-1)*15}
 function calcPricing(){const subtotal=basePrice+roomAddOn()+extras.reduce((sum,x)=>sum+x.amount,0);const savings=subtotal*(discountPct/100);return{subtotal,savings,total:subtotal-savings}}
-function updateTotal(){if(price==='Custom'){$('stickyPrice').textContent='Custom quote';return}const p=calcPricing();$('stickyPrice').textContent=basePrice?'$'+p.total.toFixed(0)+(discountPct?' · save '+discountPct+'%':''):'—'}
-function hideAllSteps(){document.querySelectorAll('.step').forEach(x=>x.classList.remove('active'))}
-function openCommercial(el){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service='Commercial Cleaning';price='Custom';basePrice=0;$('stickyService').textContent='Commercial Cleaning';$('stickyPrice').textContent='Custom quote';hideAllSteps();$('commercialStep').classList.add('active');$('title').textContent='Request a commercial quote';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
+function updateTotal(){if(price==='Custom'){$('stickyPrice').textContent='Custom quote';return}const p=calcPricing();$('stickyPrice').textContent=basePrice?'Est. $'+p.total.toFixed(0)+(discountPct?' · save '+discountPct+'%':''):'—'}
+function hideAllSteps(){document.querySelectorAll('#demoBooking .step').forEach(x=>x.classList.remove('active'))}
+function openCommercial(el){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service='Commercial Cleaning';price='Custom';basePrice=0;$('stickyService').textContent=service;$('stickyPrice').textContent='Custom quote';hideAllSteps();$('commercialStep').classList.add('active');$('title').textContent='Request a commercial quote';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
 function showCommercialReview(){$('cqType').textContent=$('commercialType').value;$('cqSize').textContent=$('commercialSize').value;$('cqFreq').textContent=$('commercialFreq').value;hideAllSteps();$('commercialReview').classList.add('active');$('title').textContent='Review quote request';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
 function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;basePrice=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;$('stickyService').textContent=s;updateTotal()}
 function pickFreq(el,v,d){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v;discountPct=Number(d)||0;updateTotal()}
 function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
 function toggleExtra(el,v,p){el.classList.toggle('sel');const amount=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;const i=extras.findIndex(x=>x.name===v);if(i>=0)extras.splice(i,1);else extras.push({name:v,amount});updateTotal()}
-function renderReview(){
- $('sService').textContent=service||'—'; $('sFreq').textContent=freq||'One time';
- $('sHome').textContent=$('beds').value+' · '+$('baths').value;
- $('sDate').textContent=$('date').value||'Preferred date'; $('sTime').textContent=tm||'Preferred time';
- $('sExtras').textContent=extras.length?extras.map(x=>x.name).join(', '):'None';
- if(price==='Custom'){$('sSubtotal').textContent='—';$('sSavings').textContent='—';$('sPrice').textContent='Custom quote';$('discountLabel').textContent='Frequency discount'}
- else {const p=calcPricing();$('sSubtotal').textContent=basePrice?'$'+p.subtotal.toFixed(0):'—';$('discountLabel').textContent=discountPct?'Frequency discount ('+discountPct+'%)':'Frequency discount';$('sSavings').textContent=discountPct?'−$'+p.savings.toFixed(0):'$0';$('sPrice').textContent=basePrice?'$'+p.total.toFixed(0):'—'}
-}
-function submitDemoRequest(){
- const n=($('name').value||'Your test request').trim(), e=($('email').value||'').trim();
- const p=price==='Custom'?null:calcPricing();
- const estimate=p?'Est. document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));$('title').textContent=titles[n];$('count').textContent=(n+1)+' of 5';if(n===4)renderReview();window.scrollTo({top:180,behavior:'smooth'})}function backToMain(){go(0);window.scrollTo({top:0,behavior:'smooth'})}
-updateTotal();
-</script></body></html>+p.total.toFixed(0):'Custom quote';
- $('personalRequest').innerHTML='<div class="requestCard" style="border-color:#191919"><div class="requestTop"><b>'+escapeHtml(n)+'</b><span class="status">Your test</span></div><div class="mini">'+escapeHtml(service||'Cleaning request')+' · '+escapeHtml(freq||'One time')+' · '+estimate+'</div><div class="mini" style="margin-top:7px">'+(e?'Test confirmation destination: '+escapeHtml(e):'Add your email in the booking to test confirmation')+'</div><button class="tinyBtn" style="margin-top:10px" onclick="testConfirmation()">Send Test Confirmation</button></div>';
- $('demoBooking').classList.add('hidden');$('demoInbox').classList.add('active');document.querySelector('.sticky').style.display='none';window.scrollTo({top:0,behavior:'smooth'});
-}
+function renderReview(){$('sService').textContent=service||'—';$('sFreq').textContent=freq||'One time';$('sHome').textContent=$('beds').value+' · '+$('baths').value;$('sDate').textContent=$('date').value||'Preferred date';$('sTime').textContent=tm||'Preferred time';$('sExtras').textContent=extras.length?extras.map(x=>x.name).join(', '):'None';if(price==='Custom'){$('sSubtotal').textContent='—';$('sSavings').textContent='—';$('sPrice').textContent='Custom quote';$('discountLabel').textContent='Frequency discount'}else{const p=calcPricing();$('sSubtotal').textContent=basePrice?'$'+p.subtotal.toFixed(0):'—';$('discountLabel').textContent=discountPct?'Frequency discount ('+discountPct+'%)':'Frequency discount';$('sSavings').textContent=discountPct?'−$'+p.savings.toFixed(0):'$0';$('sPrice').textContent=basePrice?'$'+p.total.toFixed(0):'—'}}
 function escapeHtml(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function testConfirmation(){const e=($('email').value||'').trim();if(!e){alert('Add your own email in the booking request first.');return}alert('Demo safety: test confirmations are only sent to the email entered in your own test request. Email delivery will be enabled only for the private recipient test.')}
+function submitDemoRequest(){const n=($('name').value||'Your test request').trim(),e=($('email').value||'').trim();const p=price==='Custom'?null:calcPricing();const estimate=p?'Est. $'+p.total.toFixed(0):'Custom quote';$('personalRequest').innerHTML='<div class="requestCard" style="border-color:#191919"><div class="requestTop"><b>'+escapeHtml(n)+'</b><span class="status">Your test</span></div><div class="mini">'+escapeHtml(service||'Cleaning request')+' · '+escapeHtml(freq||'One time')+' · '+estimate+'</div><div class="mini" style="margin-top:7px">'+(e?'Test confirmation destination: '+escapeHtml(e):'Add your email in the booking to test confirmation')+'</div><button class="tinyBtn" style="margin-top:10px" onclick="testConfirmation()">Send Test Confirmation</button></div>';$('demoBooking').classList.add('hidden');$('demoInbox').classList.add('active');document.querySelector('.sticky').style.display='none';window.scrollTo({top:0,behavior:'smooth'})}
+function testConfirmation(){const e=($('email').value||'').trim();if(!e){alert('Add your own email in the booking request first.');return}alert('Test confirmation is restricted to the email entered in this demo request.')}
 function backToBookingDemo(){$('demoInbox').classList.remove('active');$('demoBooking').classList.remove('hidden');document.querySelector('.sticky').style.display='flex';backToMain()}
-function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));$('title').textContent=titles[n];$('count').textContent=(n+1)+' of 5';if(n===4)renderReview();window.scrollTo({top:180,behavior:'smooth'})}function backToMain(){go(0);window.scrollTo({top:0,behavior:'smooth'})}
+function go(n){document.querySelectorAll('#demoBooking .step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));$('title').textContent=titles[n];$('count').textContent=(n+1)+' of 5';if(n===4)renderReview();window.scrollTo({top:180,behavior:'smooth'})}
+function backToMain(){$('demoInbox').classList.remove('active');$('demoBooking').classList.remove('hidden');document.querySelector('.sticky').style.display='flex';go(0);window.scrollTo({top:0,behavior:'smooth'})}
 updateTotal();
 </script></body></html>
