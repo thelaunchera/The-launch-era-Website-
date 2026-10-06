@@ -1,1 +1,97 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keisha — Private Booking Demo</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#191919;background:#eef5f8}body:before{content:"THE LAUNCH ERA  •  PRIVATE DEMO  •  THE LAUNCH ERA  •  PRIVATE DEMO";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(-28deg);font-size:clamp(28px,6vw,72px);font-weight:800;letter-spacing:.12em;color:rgba(25,25,25,.045);z-index:0;pointer-events:none}.top{position:relative;z-index:2;background:#191919;color:#fff;text-align:center;padding:9px;font-size:10px;letter-spacing:.16em}.wrap{position:relative;z-index:1;max-width:520px;margin:auto;padding:26px 16px 60px}.brand{text-align:center;font-size:11px;letter-spacing:.2em;font-weight:800;margin:8px}.card{background:#FAF8F3;border-radius:26px;padding:25px 20px;box-shadow:0 16px 50px #18303b20}.eyebrow{font-size:12px;color:#61727a}.card h1{font-size:35px;line-height:1.02;margin:8px 0}.card>p{color:#59646a;line-height:1.5}.progress{display:flex;gap:6px;margin:22px 0}.progress i{height:5px;flex:1;background:#dedbd3;border-radius:5px}.progress i.on{background:#F2D85B}.step{display:none}.step.active{display:block}.option{display:block;width:100%;background:white;border:1px solid #ddd9d0;border-radius:16px;padding:15px;margin:10px 0;text-align:left;font-size:15px}.option:hover,.option.sel{border-color:#191919;background:#fffdf4}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot{background:white;border:1px solid #ddd9d0;border-radius:12px;padding:12px 4px;text-align:center}.field{width:100%;padding:14px;border:1px solid #ddd9d0;border-radius:12px;margin:6px 0;background:#fff;font-size:15px}.next{width:100%;border:0;background:#191919;color:#fff;border-radius:999px;padding:15px;margin-top:18px;font-size:15px;font-weight:700}.back{border:0;background:transparent;padding:14px 0;color:#59646a}.note{font-size:12px;color:#6d7375;text-align:center;margin-top:18px}.lock{background:#eef5f8;border-radius:16px;padding:16px;margin-top:16px;font-size:13px;line-height:1.45}.summary{background:white;border-radius:16px;padding:16px;line-height:1.7}.badge{display:inline-block;background:#F2D85B;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:700}</style></head><body><div class="top">PRIVATE INTERACTIVE DEMO — LIVE BOOKING DISABLED</div><div class="wrap"><div class="brand">THE LAUNCH ERA</div><div class="card"><span class="badge">KEISHA'S MINI DEMO</span><h1>Book your cleaning</h1><p>See how simple your customer experience could feel.</p><div class="progress"><i class="on"></i><i></i><i></i><i></i></div><section class="step active"><div class="eyebrow">STEP 1 · SERVICE</div><button class="option" onclick="pick(this,'Standard Cleaning')">✨ Standard Cleaning</button><button class="option" onclick="pick(this,'Deep Cleaning')">🧼 Deep Cleaning</button><button class="option" onclick="pick(this,'Move In / Move Out')">🏠 Move In / Move Out</button><button class="option" onclick="pick(this,'Request a Quote')">💬 Request a Quote</button><button class="next" onclick="go(1)">Continue</button></section><section class="step"><div class="eyebrow">STEP 2 · PREFERRED DATE</div><input class="field" type="date" id="date"><p class="eyebrow">AVAILABLE TIMES</p><div class="grid"><button class="slot" onclick="time(this)">9:00 AM</button><button class="slot" onclick="time(this)">11:30 AM</button><button class="slot" onclick="time(this)">2:00 PM</button></div><button class="next" onclick="go(2)">Continue</button><button class="back" onclick="go(0)">← Back</button></section><section class="step"><div class="eyebrow">STEP 3 · YOUR DETAILS</div><input class="field" placeholder="Name"><input class="field" placeholder="Email"><input class="field" placeholder="Phone"><input class="field" placeholder="Service address"><button class="next" onclick="go(3)">Review request</button><button class="back" onclick="go(1)">← Back</button></section><section class="step"><div class="eyebrow">STEP 4 · PREVIEW</div><div class="summary"><b>Your booking request</b><br><span id="sumservice">Cleaning service</span><br><span id="sumdate">Preferred date</span><br><span id="sumtime">Preferred time</span></div><div class="lock">🔒 <b>Demo stops here.</b><br>This preview does not submit a booking, collect customer information, or activate a live system. Your working version is activated after setup with The Launch Era.</div><button class="next" onclick="location.href='mailto:hello@thelaunchera.com?subject=I%20want%20my%20booking%20system'">Activate my version</button><button class="back" onclick="go(2)">← Back</button></section><div class="note">Concept preview by The Launch Era · Not licensed for business use</div></div></div><script>let service='',tm='';function pick(e,v){document.querySelectorAll('.option').forEach(x=>x.classList.remove('sel'));e.classList.add('sel');service=v}function time(e){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));e.classList.add('sel');tm=e.innerText}function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));if(n===3){document.getElementById('sumservice').innerText=service||'Selected cleaning service';document.getElementById('sumdate').innerText=document.getElementById('date').value||'Selected preferred date';document.getElementById('sumtime').innerText=tm||'Selected preferred time'}scrollTo({top:0,behavior:'smooth'})}</script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keisha — Private Booking Demo</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#191919;background:#f4f6f7}button,input,select{font:inherit}body:before{content:"THE LAUNCH ERA  •  PRIVATE DEMO  •  THE LAUNCH ERA  •  PRIVATE DEMO";position:fixed;inset:-25%;display:flex;align-items:center;justify-content:center;transform:rotate(-25deg);font-size:clamp(34px,7vw,90px);font-weight:800;letter-spacing:.13em;color:rgba(25,25,25,.035);z-index:0;pointer-events:none;white-space:nowrap}
+.top{position:sticky;top:0;z-index:10;background:#191919;color:#fff;text-align:center;padding:8px 12px;font-size:10px;letter-spacing:.14em}.shell{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:0 14px 44px}.hero{margin:14px 0 12px;border-radius:26px;overflow:hidden;min-height:200px;position:relative;background:linear-gradient(135deg,#cbdde8,#f7edc0)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(25,25,25,.48) 100%)}.heroImg{position:absolute;inset:0;background:radial-gradient(circle at 72% 22%,#fff9 0 14%,transparent 15%),linear-gradient(135deg,#dbe8ef 0 42%,#f3e7aa 42% 100%)}.heroText{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;color:white}.heroText small{font-size:11px;letter-spacing:.14em}.heroText h1{margin:6px 0 0;font-size:30px;line-height:1.02}.trust{display:flex;gap:8px;overflow:auto;padding:2px 0 14px}.pill{white-space:nowrap;background:#fff;border:1px solid #e6e6e1;border-radius:999px;padding:8px 11px;font-size:11px}.panel{background:#FAF8F3;border-radius:24px;padding:22px 18px;box-shadow:0 14px 36px rgba(19,29,33,.08)}.stephead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.eyebrow{font-size:11px;letter-spacing:.12em;color:#65747a;font-weight:700}.stephead h2{margin:5px 0 4px;font-size:24px}.stepcount{font-size:11px;background:#eef3f5;border-radius:999px;padding:7px 9px;color:#53636a}.progress{display:flex;gap:5px;margin:17px 0 22px}.progress i{height:5px;flex:1;border-radius:6px;background:#e0ded7}.progress i.on{background:#F2D85B}.step{display:none}.step.active{display:block}.service{width:100%;display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:12px;background:white;border:1px solid #e0ddd5;border-radius:18px;padding:13px;margin:10px 0;text-align:left}.service.sel,.choice.sel,.slot.sel,.extra.sel{border-color:#191919;box-shadow:0 0 0 1px #191919 inset}.ico{width:48px;height:48px;border-radius:14px;background:#eef5f8;display:grid;place-items:center;font-size:22px}.service b{display:block;font-size:15px}.service span{font-size:12px;color:#718087}.price{font-size:12px;font-weight:700}.choiceRow{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.choice,.extra{border:1px solid #e0ddd5;background:white;border-radius:15px;padding:13px;text-align:left}.choice b,.extra b{display:block;font-size:13px}.choice span,.extra span{font-size:11px;color:#718087}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot{border:1px solid #e0ddd5;background:white;border-radius:13px;padding:12px 4px;text-align:center;font-size:12px}.field,.select{width:100%;padding:14px 13px;border:1px solid #ddd9d0;border-radius:13px;background:white;margin:6px 0}.label{font-size:11px;font-weight:700;color:#65747a;margin:14px 0 4px}.next{width:100%;border:0;background:#191919;color:white;border-radius:999px;padding:15px 18px;margin-top:18px;font-weight:700}.back{width:100%;border:0;background:transparent;color:#69767b;padding:12px}.summary{background:white;border:1px solid #e3e0d8;border-radius:18px;padding:16px;margin-top:10px}.sumrow{display:flex;justify-content:space-between;gap:18px;padding:8px 0;border-bottom:1px solid #efede7;font-size:13px}.sumrow:last-child{border:0}.sumrow span:first-child{color:#718087}.total{font-size:17px;font-weight:800}.lock{background:#eef5f8;border-radius:16px;padding:15px;margin-top:14px;font-size:12px;line-height:1.5}.note{text-align:center;color:#798489;font-size:10px;margin:17px 0 2px}.mini{font-size:11px;color:#718087;line-height:1.45}.sticky{position:sticky;bottom:8px;margin-top:12px;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border:1px solid #e5e2db;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px}.sticky b{font-size:14px}
+</style></head><body>
+<div class="top">PRIVATE PREVIEW • LIVE BOOKINGS DISABLED</div>
+<main class="shell">
+  <section class="hero">
+    <div class="heroImg"></div>
+    <div class="heroText"><small>PERSONALIZED FOR KEISHA</small><h1>A smoother way to book your cleaning.</h1></div>
+  </section>
+  <div class="trust"><span class="pill">✓ Easy mobile booking</span><span class="pill">✓ Clear service choices</span><span class="pill">✓ Organized follow-up</span></div>
+  <section class="panel">
+    <div class="stephead"><div><div class="eyebrow">BOOKING PREVIEW</div><h2 id="title">Choose a service</h2></div><div class="stepcount" id="count">1 of 5</div></div>
+    <div class="progress"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+    <div class="step active">
+      <button class="service" onclick="pickService(this,'Standard Cleaning','$120')"><span class="ico">✨</span><span><b>Standard Cleaning</b><span>Routine home cleaning</span></span><span class="price">from $120</span></button>
+      <button class="service" onclick="pickService(this,'Deep Cleaning','$190')"><span class="ico">🧼</span><span><b>Deep Cleaning</b><span>Detailed top-to-bottom clean</span></span><span class="price">from $190</span></button>
+      <button class="service" onclick="pickService(this,'Move In / Move Out','$240')"><span class="ico">🏠</span><span><b>Move In / Move Out</b><span>Empty-home reset</span></span><span class="price">from $240</span></button>
+      <button class="service" onclick="pickService(this,'Request a Quote','Custom')"><span class="ico">💬</span><span><b>Request a Quote</b><span>For larger or custom jobs</span></span><span class="price">custom</span></button>
+      <button class="next" onclick="go(1)">Continue</button>
+    </div>
+
+    <div class="step">
+      <div class="label">HOW OFTEN?</div>
+      <div class="choiceRow">
+        <button class="choice" onclick="pickFreq(this,'One time')"><b>One time</b><span>Single appointment</span></button>
+        <button class="choice" onclick="pickFreq(this,'Weekly')"><b>Weekly</b><span>Best for busy homes</span></button>
+        <button class="choice" onclick="pickFreq(this,'Biweekly')"><b>Biweekly</b><span>Every 2 weeks</span></button>
+        <button class="choice" onclick="pickFreq(this,'Monthly')"><b>Monthly</b><span>Maintenance clean</span></button>
+      </div>
+      <div class="label">HOME DETAILS</div>
+      <div class="choiceRow">
+        <select class="select" id="beds"><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option></select>
+        <select class="select" id="baths"><option>1 bathroom</option><option>2 bathrooms</option><option>3 bathrooms</option><option>4+ bathrooms</option></select>
+      </div>
+      <button class="next" onclick="go(2)">Continue</button><button class="back" onclick="go(0)">← Back</button>
+    </div>
+
+    <div class="step">
+      <div class="label">PREFERRED DATE</div>
+      <input class="field" type="date" id="date">
+      <div class="label">AVAILABLE TIMES</div>
+      <div class="grid3">
+        <button class="slot" onclick="pickTime(this,'9:00 AM')">9:00 AM</button>
+        <button class="slot" onclick="pickTime(this,'11:30 AM')">11:30 AM</button>
+        <button class="slot" onclick="pickTime(this,'2:00 PM')">2:00 PM</button>
+      </div>
+      <div class="label">POPULAR EXTRAS</div>
+      <div class="choiceRow">
+        <button class="extra" onclick="toggleExtra(this,'Inside fridge','+$25')"><b>Inside fridge</b><span>+$25</span></button>
+        <button class="extra" onclick="toggleExtra(this,'Inside oven','+$30')"><b>Inside oven</b><span>+$30</span></button>
+      </div>
+      <button class="next" onclick="go(3)">Continue</button><button class="back" onclick="go(1)">← Back</button>
+    </div>
+
+    <div class="step">
+      <div class="label">CONTACT DETAILS</div>
+      <input class="field" id="name" placeholder="Full name">
+      <input class="field" id="email" placeholder="Email address">
+      <input class="field" id="phone" placeholder="Phone number">
+      <div class="label">SERVICE ADDRESS</div>
+      <input class="field" id="address" placeholder="Street address">
+      <input class="field" id="city" placeholder="City, State ZIP">
+      <div class="label">ANYTHING WE SHOULD KNOW?</div>
+      <input class="field" placeholder="Pets, gate code, focus areas...">
+      <button class="next" onclick="go(4)">Review booking</button><button class="back" onclick="go(2)">← Back</button>
+    </div>
+
+    <div class="step">
+      <div class="eyebrow">REVIEW YOUR REQUEST</div>
+      <div class="summary">
+        <div class="sumrow"><span>Service</span><b id="sService">—</b></div>
+        <div class="sumrow"><span>Frequency</span><b id="sFreq">—</b></div>
+        <div class="sumrow"><span>Home</span><b id="sHome">—</b></div>
+        <div class="sumrow"><span>Date</span><b id="sDate">—</b></div>
+        <div class="sumrow"><span>Time</span><b id="sTime">—</b></div>
+        <div class="sumrow"><span>Extras</span><b id="sExtras">None</b></div>
+        <div class="sumrow total"><span>Estimated starting price</span><b id="sPrice">—</b></div>
+      </div>
+      <div class="lock">🔒 <b>This is where the live booking would normally be submitted.</b><br>No appointment is created, no customer data is saved, and no payment is collected in this preview.</div>
+      <button class="next" onclick="location.href='mailto:hello@thelaunchera.com?subject=I%20want%20my%20booking%20system'">Activate my version</button>
+      <button class="back" onclick="go(3)">← Back</button>
+    </div>
+    <div class="note">Private concept by The Launch Era • Preview only • Not licensed for business use</div>
+  </section>
+  <div class="sticky"><span><span class="mini">Current selection</span><br><b id="stickyService">Choose a service</b></span><span id="stickyPrice">—</span></div>
+</main>
+<script>
+let service='',price='',freq='',tm='',extras=[];
+const titles=['Choose a service','Tell us about your home','Pick a date & time','Your details','Review your booking'];
+function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;stickyService.textContent=s;stickyPrice.textContent=p}
+function pickFreq(el,v){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v}
+function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
+function toggleExtra(el,v,p){el.classList.toggle('sel');const i=extras.findIndex(x=>x[0]===v);if(i>=0)extras.splice(i,1);else extras.push([v,p])}
+function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price||'Custom quote'}window.scrollTo({top:180,behavior:'smooth'})}
+</script></body></html>
