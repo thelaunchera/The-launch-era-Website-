@@ -19,6 +19,36 @@ const leadConfigs={
  novaclean:{label:'NOVACLEAN',hero:'https://immanuel.com/hs-fs/hubfs/assets/images/1200x1200/housekeeper-making-a-bed.jpg?height=3000&name=housekeeper-making-a-bed.jpg&width=3000'},
  gleamglow:{label:'GLEAM GLOW CLEANING',hero:'https://framerusercontent.com/images/RlXAKkFyuTI5tmmTzwdufXcRa0.png?height=959&width=952'}
 };
+const demoParams=new URLSearchParams(location.search);
+const customBusiness=(demoParams.get('business')||'').trim().slice(0,140);
+const customArea=(demoParams.get('area')||'').trim().slice(0,140);
+const customServices=(demoParams.get('services')||'').trim().slice(0,220);
+const customRid=(demoParams.get('rid')||'').trim().slice(0,60);
+if(customBusiness){
+ document.getElementById('leadName').textContent='PERSONALIZED FOR '+customBusiness.toUpperCase();
+ document.title=customBusiness+' — Private Booking Demo';
+ const tracker=document.getElementById('trackerLink');
+ if(tracker){
+  const q=new URLSearchParams();
+  q.set('business',customBusiness);
+  if(customArea)q.set('area',customArea);
+  if(customServices)q.set('services',customServices);
+  if(customRid)q.set('rid',customRid);
+  tracker.href='lead-demo-tracker.html?'+q.toString();
+ }
+ if(customServices){
+  const intro=document.querySelector('.trust');
+  if(intro){const s=document.createElement('span');s.className='pill';s.textContent='✓ Based on '+customServices;intro.appendChild(s)}
+ }
+ if(customArea){
+  const h=document.querySelector('.heroText h1');
+  if(h)h.insertAdjacentHTML('afterend','<div style="margin-top:8px;font-size:12px;opacity:.92">Serving '+customArea.replace(/[&<>"']/g,'')+'</div>');
+ }
+ if(customRid){
+  fetch('https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-personalized-demo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'viewed',id:customRid})}).catch(()=>{});
+ }
+}
+
 const leadKey=new URLSearchParams(location.search).get('lead')||'';
 const leadCfg=leadConfigs[leadKey];
 if(leadCfg){
