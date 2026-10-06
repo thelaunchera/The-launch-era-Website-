@@ -17,8 +17,40 @@
       <button class="service" onclick="pickService(this,'Standard Cleaning','$120')"><span class="ico">✨</span><span><b>Standard Cleaning</b><span>Routine home cleaning</span></span><span class="price">from $120</span></button>
       <button class="service" onclick="pickService(this,'Deep Cleaning','$190')"><span class="ico">🧼</span><span><b>Deep Cleaning</b><span>Detailed top-to-bottom clean</span></span><span class="price">from $190</span></button>
       <button class="service" onclick="pickService(this,'Move In / Move Out','$240')"><span class="ico">🏠</span><span><b>Move In / Move Out</b><span>Empty-home reset</span></span><span class="price">from $240</span></button>
+      <button class="service" onclick="openCommercial(this)"><span class="ico">🏢</span><span><b>Commercial Cleaning</b><span>Offices, studios & business spaces</span></span><span class="price">quote</span></button>
       <button class="service" onclick="pickService(this,'Request a Quote','Custom')"><span class="ico">💬</span><span><b>Request a Quote</b><span>For larger or custom jobs</span></span><span class="price">custom</span></button>
       <button class="next" onclick="go(1)">Continue</button>
+    </div>
+
+    <div class="step" id="commercialStep">
+      <div class="eyebrow">COMMERCIAL QUOTE REQUEST</div>
+      <div class="label">TYPE OF PROPERTY</div>
+      <select class="select" id="commercialType"><option>Office</option><option>Retail store</option><option>Salon / Studio</option><option>Medical / Professional office</option><option>Other business space</option></select>
+      <div class="label">APPROXIMATE SIZE</div>
+      <select class="select" id="commercialSize"><option>Under 1,500 sq ft</option><option>1,500–3,000 sq ft</option><option>3,000–5,000 sq ft</option><option>5,000+ sq ft</option></select>
+      <div class="label">HOW OFTEN DO YOU NEED CLEANING?</div>
+      <select class="select" id="commercialFreq"><option>One time</option><option>Weekly</option><option>2–3 times per week</option><option>5 days per week</option><option>Custom schedule</option></select>
+      <div class="label">WHAT DOES THE SPACE NEED?</div>
+      <input class="field" id="commercialNeeds" placeholder="Restrooms, floors, break room, windows...">
+      <div class="label">CONTACT DETAILS</div>
+      <input class="field" id="commercialName" placeholder="Business / contact name">
+      <input class="field" id="commercialEmail" placeholder="Email address">
+      <input class="field" id="commercialPhone" placeholder="Phone number">
+      <div class="lock">💬 <b>No instant price is shown for commercial cleaning.</b><br>The details are sent as a quote request so the job can be reviewed before pricing.</div>
+      <button class="next" onclick="showCommercialReview()">Review quote request</button>
+      <button class="back" onclick="backToMain()">← Back to Main</button>
+    </div>
+    <div class="step" id="commercialReview">
+      <div class="eyebrow">REVIEW COMMERCIAL REQUEST</div>
+      <div class="summary">
+        <div class="sumrow"><span>Property</span><b id="cqType">—</b></div>
+        <div class="sumrow"><span>Size</span><b id="cqSize">—</b></div>
+        <div class="sumrow"><span>Frequency</span><b id="cqFreq">—</b></div>
+        <div class="sumrow"><span>Pricing</span><b>Custom quote</b></div>
+      </div>
+      <div class="lock">✓ <b>The customer would automatically receive a quote-request confirmation.</b><br>Keisha receives the organized request to review and price. Appointment reminders begin only after the quote is approved and a service date is scheduled.</div>
+      <button class="next" onclick="location.href='mailto:hello@thelaunchera.com?subject=I%20want%20my%20commercial%20quote%20system'">Activate my version</button>
+      <button class="back" onclick="backToMain()">← Back to Main</button>
     </div>
 
     <div class="step">
@@ -103,6 +135,9 @@ function bathroomCount(){const v=parseInt($('baths').value,10);return Number.isF
 function roomAddOn(){return Math.max(0,bedroomCount()-2)*20+Math.max(0,bathroomCount()-1)*15}
 function calcPricing(){const subtotal=basePrice+roomAddOn()+extras.reduce((sum,x)=>sum+x.amount,0);const savings=subtotal*(discountPct/100);return{subtotal,savings,total:subtotal-savings}}
 function updateTotal(){if(price==='Custom'){$('stickyPrice').textContent='Custom quote';return}const p=calcPricing();$('stickyPrice').textContent=basePrice?'$'+p.total.toFixed(0)+(discountPct?' · save '+discountPct+'%':''):'—'}
+function hideAllSteps(){document.querySelectorAll('.step').forEach(x=>x.classList.remove('active'))}
+function openCommercial(el){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service='Commercial Cleaning';price='Custom';basePrice=0;$('stickyService').textContent='Commercial Cleaning';$('stickyPrice').textContent='Custom quote';hideAllSteps();$('commercialStep').classList.add('active');$('title').textContent='Request a commercial quote';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
+function showCommercialReview(){$('cqType').textContent=$('commercialType').value;$('cqSize').textContent=$('commercialSize').value;$('cqFreq').textContent=$('commercialFreq').value;hideAllSteps();$('commercialReview').classList.add('active');$('title').textContent='Review quote request';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
 function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;basePrice=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;$('stickyService').textContent=s;updateTotal()}
 function pickFreq(el,v,d){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v;discountPct=Number(d)||0;updateTotal()}
 function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
