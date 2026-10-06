@@ -732,5 +732,24 @@ $("modal").addEventListener("click",e=>{if(e.target.id==="modal") $("modal").cla
 populateDates();
 render();
 </script>
-</body>
+<script>
+(function(){
+ const p=new URLSearchParams(location.search);
+ if(p.get('personalized')!=='1')return;
+ const business=(p.get('business')||'Your Cleaning Business').slice(0,140);
+ const area=(p.get('area')||'').slice(0,140);
+ const services=(p.get('services')||'').slice(0,220);
+ const rid=(p.get('rid')||'').slice(0,60);
+ document.title=business+' — Personalized Booking Demo';
+ const brand=document.querySelector('.brand-copy strong'); if(brand)brand.textContent=business.toUpperCase();
+ const mark=document.querySelector('.mark'); if(mark)mark.textContent=(business.trim()[0]||'B').toUpperCase();
+ const sub=document.querySelector('.brand-copy span'); if(sub)sub.textContent=area?('Serving '+area):'Personalized demo';
+ const note=document.querySelector('.demo-note'); if(note)note.textContent='PERSONALIZED DEMO PREVIEW — This is an illustrative example. Your final product may differ.';
+ const intro=document.querySelector('.intro p'); if(intro)intro.textContent='Try this example created around '+business+'. Choose a service, watch the estimate update, and see how a clearer booking flow could feel for your clients.';
+ if(services){const side=document.querySelector('.intro-side');if(side){const x=document.createElement('small');x.style.marginTop='8px';x.textContent='Based on: '+services;side.appendChild(x)}}
+ document.querySelectorAll('.owner-link').forEach(el=>{el.textContent='See how the flow works'});
+ if(rid){fetch('https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-personalized-demo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'viewed',id:rid})}).catch(()=>{});}
+ document.querySelectorAll('a[href*="/pay/"],a[href*="service-checkout"],a.owner-cta').forEach(a=>a.addEventListener('click',()=>{if(rid)fetch('https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-personalized-demo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'get_started',id:rid})}).catch(()=>{});}));
+})();
+</script></body>
 </html>
