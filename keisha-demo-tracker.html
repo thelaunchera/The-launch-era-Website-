@@ -25,4 +25,4 @@ async function sendEstimate(){
  try{const payload={email:d.email,name:d.name,service:d.service,zip:d.zip,estimate:Number(document.getElementById('editEstimate').value||0),discount:Number(document.getElementById('editDiscount').value||0),travel:Number(document.getElementById('editTravel').value||0),finalPrice:Number(document.getElementById('editFinal').value||0)};const r=await fetch('https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/keisha-demo-estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const out=await r.json().catch(()=>({}));if(!r.ok)throw new Error(out.error||'Could not send');d.finalPrice=payload.finalPrice;localStorage.setItem('tleKeishaDemoRequest',JSON.stringify(d));btn.textContent='Estimate sent ✓';msg.textContent='Check the same email used in your test request. Tap “Confirm Cleaning” there to complete the demo.'}catch(err){btn.disabled=false;btn.textContent='Send estimate to my email';msg.textContent=err.message||'Could not send the test estimate.'}
 }
 render();
-</script></body></html>
+</script><!-- deploy-refresh-2026-10-06-082x --></body></html>
