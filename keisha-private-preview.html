@@ -29,10 +29,10 @@
         <button class="choice" onclick="pickFreq(this,'Biweekly')"><b>Biweekly</b><span>Every 2 weeks</span></button>
         <button class="choice" onclick="pickFreq(this,'Monthly')"><b>Monthly</b><span>Maintenance clean</span></button>
       </div>
-      <div class="label">HOME DETAILS</div>
+      <div class="label">HOME DETAILS</div><div class="mini" style="margin-bottom:7px">Starting price includes 2 bedrooms + 1 bathroom. Additional bedrooms +$20 each · additional bathrooms +$15 each.</div>
       <div class="choiceRow">
-        <select class="select" id="beds"><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option></select>
-        <select class="select" id="baths"><option>1 bathroom</option><option>2 bathrooms</option><option>3 bathrooms</option><option>4+ bathrooms</option></select>
+        <select class="select" id="beds" onchange="updateTotal()"><option>2 bedrooms</option><option>3 bedrooms</option><option>4 bedrooms</option><option>5+ bedrooms</option></select>
+        <select class="select" id="baths" onchange="updateTotal()"><option>1 bathroom</option><option>2 bathrooms</option><option>3 bathrooms</option><option>4+ bathrooms</option></select>
       </div>
       <button class="next" onclick="go(2)">Continue</button><button class="back" onclick="go(0)">← Back</button>
     </div>
@@ -104,7 +104,7 @@ function toggleExtra(el,v,p){el.classList.toggle('sel');const amount=parseFloat(
 function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price==='Custom'?'Custom quote':(basePrice?'}window.scrollTo({top:180,behavior:'smooth'})}
 </script></body></html>+total.toFixed(0):'—'}
 function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price||'Custom quote'}window.scrollTo({top:180,behavior:'smooth'})}
-</script></body></html>+(basePrice+extras.reduce((sum,x)=>sum+(x[2]||0),0)).toFixed(0):'—')}window.scrollTo({top:180,behavior:'smooth'})}
+</script></body></html>+(basePrice+roomAddOn()+extras.reduce((sum,x)=>sum+(x[2]||0),0)).toFixed(0):'—')}window.scrollTo({top:180,behavior:'smooth'})}
 </script></body></html>+total.toFixed(0):'—'}
 function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price||'Custom quote'}window.scrollTo({top:180,behavior:'smooth'})}
 </script></body></html>
