@@ -26,6 +26,31 @@ async function sendEstimate(){
 }
 render();
 
+const demoParams=new URLSearchParams(location.search);
+const customBusiness=(demoParams.get('business')||'').trim().slice(0,140);
+const customArea=(demoParams.get('area')||'').trim().slice(0,140);
+const customServices=(demoParams.get('services')||'').trim().slice(0,220);
+const customRid=(demoParams.get('rid')||'').trim().slice(0,60);
+if(customBusiness){
+ document.getElementById('trackerBrand').textContent='PRIVATE DEMO • '+customBusiness.toUpperCase();
+ document.title=customBusiness+' — Demo Tracker';
+ const booking=document.getElementById('bookingLink');
+ if(booking){
+  const q=new URLSearchParams();
+  q.set('business',customBusiness);
+  if(customArea)q.set('area',customArea);
+  if(customServices)q.set('services',customServices);
+  if(customRid)q.set('rid',customRid);
+  booking.href='lead-private-preview.html?'+q.toString();
+ }
+ const brand=document.querySelector('.brand .mini');
+ if(brand)brand.textContent=(customServices?customServices+' · ':'')+(customArea?'Serving '+customArea:'Your services · your pricing · your workflow');
+ const h2=document.querySelector('.brand h2'); if(h2)h2.textContent='Built around '+customBusiness+'.';
+ if(customRid){
+  document.querySelectorAll('a.primary').forEach(a=>a.addEventListener('click',()=>fetch('https://bowacxhmjvrqixtwaikv.supabase.co/functions/v1/tle-personalized-demo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'get_started',id:customRid})}).catch(()=>{})));
+ }
+}
+
 const leadLabels={paula:'PAULA DIAS CLEANING',yalanda:'HAVENS TOUCH HOUSEKEEPING',ako:'AKO CLEANING SERVICES',ceaz:'CEAZ CLEANING SERVICES',maidright:'CLEANING MAID RIGHT',novaclean:'NOVACLEAN',gleamglow:'GLEAM GLOW CLEANING'};
 const leadKey=new URLSearchParams(location.search).get('lead')||'';
 if(leadLabels[leadKey]){
