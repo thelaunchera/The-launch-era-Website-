@@ -24,10 +24,10 @@
     <div class="step">
       <div class="label">HOW OFTEN?</div>
       <div class="choiceRow">
-        <button class="choice" onclick="pickFreq(this,'One time')"><b>One time</b><span>Single appointment</span></button>
-        <button class="choice" onclick="pickFreq(this,'Weekly')"><b>Weekly</b><span>Best for busy homes</span></button>
-        <button class="choice" onclick="pickFreq(this,'Biweekly')"><b>Biweekly</b><span>Every 2 weeks</span></button>
-        <button class="choice" onclick="pickFreq(this,'Monthly')"><b>Monthly</b><span>Maintenance clean</span></button>
+        <button class="choice" onclick="pickFreq(this,'One time',0)"><b>One time</b><span>Single appointment · no discount</span></button>
+        <button class="choice" onclick="pickFreq(this,'Weekly',15)"><b>Weekly</b><span>Save 15% every visit</span></button>
+        <button class="choice" onclick="pickFreq(this,'Biweekly',10)"><b>Biweekly</b><span>Save 10% every visit</span></button>
+        <button class="choice" onclick="pickFreq(this,'Monthly',5)"><b>Monthly</b><span>Save 5% every visit</span></button>
       </div>
       <div class="label">HOME DETAILS</div><div class="mini" style="margin-bottom:7px">Starting price includes 2 bedrooms + 1 bathroom. Additional bedrooms +$20 each · additional bathrooms +$15 each.</div>
       <div class="choiceRow">
@@ -76,7 +76,7 @@
         <div class="sumrow"><span>Date</span><b id="sDate">—</b></div>
         <div class="sumrow"><span>Time</span><b id="sTime">—</b></div>
         <div class="sumrow"><span>Extras</span><b id="sExtras">None</b></div>
-        <div class="sumrow total"><span>Estimated starting price</span><b id="sPrice">—</b></div>
+        <div class="sumrow"><span>Subtotal</span><b id="sSubtotal">—</b></div><div class="sumrow" id="discountRow"><span id="discountLabel">Frequency discount</span><b id="sSavings">—</b></div><div class="sumrow total"><span>Estimated total per visit</span><b id="sPrice">—</b></div>
       </div>
       <div class="lock">🔒 <b>This is where the live booking would normally be submitted.</b><br>No appointment is created, no customer data is saved, and no payment is collected in this preview.</div>
 <div style="margin-top:18px"><div class="eyebrow">WHAT HAPPENS AUTOMATICALLY AFTER A REAL BOOKING</div>
@@ -95,10 +95,10 @@
   <div class="sticky"><span><span class="mini">Current selection</span><br><b id="stickyService">Choose a service</b></span><span id="stickyPrice">—</span></div>
 </main>
 <script>
-let service='',price='',basePrice=0,freq='',tm='',extras=[];
+let service='',price='',basePrice=0,freq='',discountPct=0,tm='',extras=[];
 const titles=['Choose a service','Tell us about your home','Pick a date & time','Your details','Review your booking'];
 function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;basePrice=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;stickyService.textContent=s;updateTotal()}
-function pickFreq(el,v){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v}
+function pickFreq(el,v,d){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v;discountPct=d||0;updateTotal()}
 function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
 function toggleExtra(el,v,p){el.classList.toggle('sel');const amount=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;const i=extras.findIndex(x=>x[0]===v);if(i>=0)extras.splice(i,1);else extras.push([v,p,amount]);updateTotal()}function updateTotal(){if(price==='Custom'){stickyPrice.textContent='Custom quote';return}const total=basePrice+extras.reduce((sum,x)=>sum+(x[2]||0),0);stickyPrice.textContent=basePrice?'
 function go(n){document.querySelectorAll('.step').forEach((x,i)=>x.classList.toggle('active',i===n));document.querySelectorAll('.progress i').forEach((x,i)=>x.classList.toggle('on',i<=n));title.textContent=titles[n];count.textContent=(n+1)+' of 5';if(n===4){sService.textContent=service||'Standard Cleaning';sFreq.textContent=freq||'One time';sHome.textContent=beds.value+' · '+baths.value;sDate.textContent=date.value||'Preferred date';sTime.textContent=tm||'Preferred time';sExtras.textContent=extras.length?extras.map(x=>x[0]).join(', '):'None';sPrice.textContent=price==='Custom'?'Custom quote':(basePrice?'}window.scrollTo({top:180,behavior:'smooth'})}
