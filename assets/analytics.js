@@ -64,16 +64,19 @@
     if(!link) return;
     let target;
     try{target=new URL(link.href,location.href);}catch{return;}
+    const servicePath=cleanPath();
+    const serviceName=servicePath.startsWith("/cleaning-app")?"cleaning_web_app":servicePath.startsWith("/start")?"booking_lead_automation":servicePath.startsWith("/automation")?"website_automation":servicePath.startsWith("/virtual-assistant")?"virtual_assistant":null;
+    if(serviceName&&target.hostname==="thelaunchera.com"&&target.pathname!==servicePath){ window.tleTrackEvent("service_view",{service_name:serviceName,destination:target.pathname}); }
     if(link.dataset?.catalogItem){
       window.tleTrackEvent("catalog_item_click",{item:link.dataset.catalogItem,link_path:target.pathname});
     }else if(link.hasAttribute("data-demo-offer")){
       window.tleTrackEvent("demo_offer_click",{link_path:target.pathname});
     }else if(target.pathname.includes("/demo-booking")){
-      window.tleTrackEvent("demo_click",{link_path:target.pathname});
+      window.tleTrackEvent("booking_demo_view",{link_path:target.pathname});
     }else if(target.pathname.includes("/booking-checkout")||target.pathname.includes("/pay/booking-flow")){
-      window.tleTrackEvent("booking_offer_click",{link_path:target.pathname});
+      window.tleTrackEvent("checkout_click",{product:"booking_lead_automation",link_path:target.pathname});
     }else if(target.hostname==="app.thelaunchera.com"){
-      window.tleTrackEvent("cleaning_app_click",{link_path:target.pathname||"/"});
+      window.tleTrackEvent("trial_start",{product:"cleaning_web_app",link_path:target.pathname||"/"});
     }
   },true);
 })();
