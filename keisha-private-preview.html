@@ -72,6 +72,14 @@
     </div>
 
     <div class="step">
+      <div class="label">WHAT TYPE OF HOME?</div>
+      <div class="choiceRow" id="homeTypeChoices">
+        <button class="choice" onclick="pickHomeType(this,'House')"><b>🏠 House</b><span>Single-family home</span></button>
+        <button class="choice" onclick="pickHomeType(this,'Apartment')"><b>🏢 Apartment</b><span>Apartment home</span></button>
+        <button class="choice" onclick="pickHomeType(this,'Condo')"><b>🏙️ Condo</b><span>Condo residence</span></button>
+        <button class="choice" onclick="pickHomeType(this,'Townhouse')"><b>🏘️ Townhouse</b><span>Multi-level home</span></button>
+        <button class="choice" onclick="pickHomeType(this,'Other')"><b>＋ Other</b><span>Another home type</span></button>
+      </div>
       <div class="label">HOW OFTEN?</div>
       <div class="choiceRow">
         <button class="choice" onclick="pickFreq(this,'One time',0)"><b>One time</b><span>Single appointment · no discount</span></button>
@@ -121,7 +129,7 @@
       <div class="eyebrow">REVIEW YOUR REQUEST</div>
       <div class="summary">
         <div class="sumrow"><span>Service</span><b id="sService">—</b></div>
-        <div class="sumrow"><span>Frequency</span><b id="sFreq">—</b></div>
+        <div class="sumrow"><span>Home type</span><b id="sHomeType">—</b></div><div class="sumrow"><span>Frequency</span><b id="sFreq">—</b></div>
         <div class="sumrow"><span>Home</span><b id="sHome">—</b></div>
         <div class="sumrow"><span>Date</span><b id="sDate">—</b></div>
         <div class="sumrow"><span>Time</span><b id="sTime">—</b></div>
@@ -157,7 +165,7 @@
   <div class="sticky"><span><span class="mini">Current selection</span><br><b id="stickyService">Choose a service</b></span><span id="stickyPrice">—</span></div>
 </main>
 <script>
-let service='',price='',basePrice=0,freq='',discountPct=0,tm='',extras=[];
+let service='',price='',basePrice=0,homeType='',freq='',discountPct=0,tm='',extras=[];
 const titles=['Choose a service','Tell us about your home','Pick a date & time','Your details','Review your booking'];
 const $=id=>document.getElementById(id);
 function bedroomCount(){const v=parseInt($('beds').value,10);return Number.isFinite(v)?v:2}
@@ -172,10 +180,11 @@ function submitHomeQuote(){const n=($('hqName').value||'Your test request').trim
 function openCommercial(el){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service='Commercial Cleaning';price='Custom';basePrice=0;$('stickyService').textContent=service;$('stickyPrice').textContent='Custom quote';hideAllSteps();$('commercialStep').classList.add('active');$('title').textContent='Request a commercial quote';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
 function showCommercialReview(){$('cqType').textContent=$('commercialType').value;$('cqSize').textContent=$('commercialSize').value;$('cqFreq').textContent=$('commercialFreq').value;hideAllSteps();$('commercialReview').classList.add('active');$('title').textContent='Review quote request';$('count').textContent='Quote';window.scrollTo({top:180,behavior:'smooth'})}
 function pickService(el,s,p){document.querySelectorAll('.service').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');service=s;price=p;basePrice=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;$('stickyService').textContent=s;updateTotal()}
+function pickHomeType(el,v){document.querySelectorAll('#homeTypeChoices .choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');homeType=v}
 function pickFreq(el,v,d){document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');freq=v;discountPct=Number(d)||0;updateTotal()}
 function pickTime(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');tm=v}
 function toggleExtra(el,v,p){el.classList.toggle('sel');const amount=parseFloat(String(p).replace(/[^0-9.]/g,''))||0;const i=extras.findIndex(x=>x.name===v);if(i>=0)extras.splice(i,1);else extras.push({name:v,amount});updateTotal()}
-function renderReview(){$('sService').textContent=service||'—';$('sFreq').textContent=freq||'One time';$('sHome').textContent=$('beds').value+' · '+$('baths').value;$('sDate').textContent=$('date').value||'Preferred date';$('sTime').textContent=tm||'Preferred time';$('sExtras').textContent=extras.length?extras.map(x=>x.name).join(', '):'None';if(price==='Custom'){$('sSubtotal').textContent='—';$('sSavings').textContent='—';$('sPrice').textContent='Custom quote';$('discountLabel').textContent='Frequency discount'}else{const p=calcPricing();$('sSubtotal').textContent=basePrice?'$'+p.subtotal.toFixed(0):'—';$('discountLabel').textContent=discountPct?'Frequency discount ('+discountPct+'%)':'Frequency discount';$('sSavings').textContent=discountPct?'−$'+p.savings.toFixed(0):'$0';$('sPrice').textContent=basePrice?'$'+p.total.toFixed(0):'—'}}
+function renderReview(){$('sService').textContent=service||'—';$('sHomeType').textContent=homeType||'—';$('sFreq').textContent=freq||'One time';$('sHome').textContent=$('beds').value+' · '+$('baths').value;$('sDate').textContent=$('date').value||'Preferred date';$('sTime').textContent=tm||'Preferred time';$('sExtras').textContent=extras.length?extras.map(x=>x.name).join(', '):'None';if(price==='Custom'){$('sSubtotal').textContent='—';$('sSavings').textContent='—';$('sPrice').textContent='Custom quote';$('discountLabel').textContent='Frequency discount'}else{const p=calcPricing();$('sSubtotal').textContent=basePrice?'$'+p.subtotal.toFixed(0):'—';$('discountLabel').textContent=discountPct?'Frequency discount ('+discountPct+'%)':'Frequency discount';$('sSavings').textContent=discountPct?'−$'+p.savings.toFixed(0):'$0';$('sPrice').textContent=basePrice?'$'+p.total.toFixed(0):'—'}}
 function escapeHtml(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function submitDemoRequest(){const n=($('name').value||'Your test request').trim(),e=($('email').value||'').trim();const p=price==='Custom'?null:calcPricing();const estimate=p?'Est. $'+p.total.toFixed(0):'Custom quote';$('personalRequest').innerHTML='<div class="requestCard" style="border-color:#191919"><div class="requestTop"><b>'+escapeHtml(n)+'</b><span class="status">Your test</span></div><div class="mini">'+escapeHtml(service||'Cleaning request')+' · '+escapeHtml(freq||'One time')+' · '+estimate+'</div><div class="mini" style="margin-top:7px">'+(e?'Test confirmation destination: '+escapeHtml(e):'Add your email in the booking to test confirmation')+'</div><button class="tinyBtn" style="margin-top:10px" onclick="testConfirmation()">Send Test Confirmation</button></div>';$('demoBooking').classList.add('hidden');$('demoInbox').classList.add('active');document.querySelector('.sticky').style.display='none';window.scrollTo({top:0,behavior:'smooth'})}
 function testConfirmation(){const e=($('email').value||'').trim();if(!e){alert('Add your own email in the booking request first.');return}alert('Test confirmation is restricted to the email entered in this demo request.')}
