@@ -521,7 +521,7 @@ const round5=n=>Math.max(5,Math.round(n/5)*5);
 function isCommercial(){return state.space==="Commercial"}
 function customQuote(){return state.intent==="quote"||state.serviceMode!=="flat"}
 function activeExtras(){return isCommercial()?
- [...document.querySelectorAll("[data-commercial-extra]:checked")].map(x=>({name:x.dataset.commercialExtra,price:0})):
+ [...document.querySelectorAll("[data-commercial-extra]:checked")].map(x=>({name:x.dataset.commercialExtra,price:Number(x.dataset.price||0)})):
  state.extras}
 function chooseCategory(space){
  state.space=space;
@@ -673,6 +673,7 @@ function render(){
 
   syncOwnerView();
   renderProgress();
+  if(window.TLE_LIVE_CONFIG&&typeof window.TLE_LIVE_RENDER==="function")window.TLE_LIVE_RENDER();
 }
 
 document.querySelectorAll("[data-space]").forEach(btn=>btn.addEventListener("click",()=>chooseCategory(btn.dataset.space)));
@@ -759,6 +760,7 @@ $("nextBtn").addEventListener("click",()=>{
 $("reviewBtn").addEventListener("click",()=>$("summary").scrollIntoView({behavior:"smooth",block:"center"}));
 
 $("submitBtn").addEventListener("click",()=>{
+  if(window.TLE_LIVE_CONFIG)return;
   $("modalTitle").textContent=state.intent==="quote"?"Quote request preview.":state.intent==="estimate"?"Estimate request preview.":"Booking preview.";
   $("modalCopy").textContent="This is the exact customer experience template we personalize for a cleaning business. In the demo nothing is sent. A purchased page routes real requests into that business’s private Command Center.";
   $("modal").classList.add("open");
