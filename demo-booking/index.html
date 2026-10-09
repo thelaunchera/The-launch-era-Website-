@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#FAF8F3">
-<title>Luma Home Cleaning — Booking Demo</title>
+<title>Luma Cleaning Co. — Booking Experience</title>
 <meta name="description" content="Interactive cleaning booking page demo by The Launch Era. Sample business, availability and pricing only.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,6 +215,15 @@ footer a{color:var(--ink);font-weight:800;text-decoration:none}
 
 /* TLE visual system — 2026-10-05 */
 body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff}.owner-view,.owner-section{background:#191919;color:#fff}
+.service-category,.request-intent{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 15px}
+.service-category button,.request-intent button{border:1px solid #cde4f2;background:#f8fbfd;color:#305e79;font:800 12px Prompt,Arial,sans-serif;border-radius:999px;padding:11px 16px;min-height:42px}
+.service-category button.active,.request-intent button.active{background:var(--blue-deep);border-color:var(--blue-deep);color:#fff}
+.intent-help{font-size:11px;color:var(--muted);line-height:1.55;margin:-4px 0 18px}
+.commercial-addon-grid{margin-bottom:10px}
+.live-hero-image{width:100%;max-height:270px;aspect-ratio:16/8;object-fit:cover;border-radius:18px;display:block;margin-top:14px}
+#liveError{display:none;margin:14px 0;color:#923737;border:1px solid #f3caca;background:#fff2f2;border-radius:12px;padding:12px;font-size:12px}
+#liveError.show{display:block}
+@media(max-width:610px){.service-category button,.request-intent button{flex:1;padding:11px 9px;font-size:11px}.commercial-addon-grid{grid-template-columns:1fr}}
 </style>
 <script src="/assets/analytics.js" defer></script><script src="/assets/demo-language.js?v=20261004-human1" defer></script></head>
 <body>
@@ -223,7 +232,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
   <div class="wrap nav">
     <div class="brand">
       <div class="mark">L</div>
-      <div class="brand-copy"><strong>LUMA HOME CLEANING</strong><span>Professional home care</span></div>
+      <div class="brand-copy"><strong>LUMA CLEANING CO.</strong><span>Residential & commercial cleaning</span></div>
     </div>
     <div class="nav-actions"><button type="button" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Try the demo</button><button type="button" class="owner-link" onclick="showOwnerView()">See owner view</button></div>
   </div>
@@ -237,7 +246,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
         <h1>See what booking could feel like for your clients.</h1>
         <p>Try the experience yourself: choose a service, watch the estimate update, and then see exactly what the cleaning business receives on the other side.</p>
       </div>
-      <div class="intro-side"><small>Try the full demo</small><strong>About 2 minutes</strong></div>
+      <div id="liveError" role="alert"></div><img id="businessHero" class="live-hero-image" alt="Cleaning business" hidden><div class="intro-side"><small>Try the full demo</small><strong>About 2 minutes</strong></div>
     </div>
   </section>
 
@@ -254,21 +263,39 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
         <section class="step active" data-step="0">
           <span class="step-label">Step 1</span>
           <div class="residential-service-copy">
-            <h2>What kind of home cleaning do you need?</h2>
-            <p class="step-intro">Choose the residential service that best fits your home. You can change it before you finish.</p>
+            <h2>What kind of cleaning do you need?</h2>
+            <p class="step-intro">Choose a home or commercial service, or request a custom estimate.</p>
           </div>
           <div class="commercial-service-copy" hidden>
             <h2>Tell us what needs a custom quote.</h2>
-            <p class="step-intro">Commercial, post-construction and custom jobs use a quote path instead of a residential instant estimate.</p>
+            <p class="step-intro">Choose a commercial service and tell us about your space. We will prepare a customized estimate or quote.</p>
           </div>
-          <div class="services residential-services">
+          <div class="service-category" id="serviceCategory" role="group" aria-label="Choose property category">
+ <button type="button" class="active" data-space="Residential" aria-pressed="true">Home / Residential</button>
+ <button type="button" data-space="Commercial" aria-pressed="false">Business / Commercial</button>
+</div>
+<div class="request-intent" id="requestIntent" role="group" aria-label="Choose how to proceed">
+ <button type="button" class="active" data-intent="estimate" aria-pressed="true">Get an estimate</button>
+ <button type="button" data-intent="quote" aria-pressed="false">Request a quote</button>
+ <button type="button" data-intent="book" aria-pressed="false">Book a service</button>
+</div>
+<p class="intent-help" id="intentHelp">Estimates are approximate. The business confirms final pricing before booking.</p>
+<div class="services residential-services">
             <button class="service active" type="button" data-service="Recurring Cleaning" data-price="119"><strong>Recurring Cleaning</strong><p>Ongoing home cleaning on a weekly, biweekly or monthly schedule.</p><span>From $119</span></button>
             <button class="service" type="button" data-service="Standard Cleaning" data-price="129"><strong>Standard Cleaning</strong><p>Routine one-time cleaning for a home that needs a fresh reset.</p><span>From $129</span></button>
             <button class="service" type="button" data-service="Deep Cleaning" data-price="219"><strong>Deep Cleaning</strong><p>More detail for buildup and often-missed areas.</p><span>From $219</span></button>
             <button class="service" type="button" data-service="Move-In / Move-Out" data-price="249"><strong>Move-In / Move-Out</strong><p>Detailed cleaning for an empty or nearly empty home.</p><span>From $249</span></button>
             <button class="service quote-service" type="button" data-service="Request a Quote" data-price="0" data-quote="true"><strong>Request a Quote</strong><p>Commercial, post-construction or a job that needs custom pricing.</p><span>Custom pricing →</span></button>
           </div>
-          <div class="commercial-services" hidden></div>
+          <div class="services commercial-services" hidden>
+ <button class="service active" type="button" data-service="Office Cleaning" data-price="0" data-quote="true"><strong>Office Cleaning</strong><p>Routine or recurring cleaning for offices and shared workspaces.</p><span>Custom estimate →</span></button>
+ <button class="service" type="button" data-service="Retail & Showroom Cleaning" data-price="0" data-quote="true"><strong>Retail & Showrooms</strong><p>Sales floors, fitting rooms, entryways and display spaces.</p><span>Custom estimate →</span></button>
+ <button class="service" type="button" data-service="Medical & Professional Spaces" data-price="0" data-quote="true"><strong>Medical & Professional</strong><p>Professional spaces with special cleaning requirements.</p><span>Request quote →</span></button>
+ <button class="service" type="button" data-service="Salon & Studio Cleaning" data-price="0" data-quote="true"><strong>Salons & Studios</strong><p>Workstations, floors and shared client spaces.</p><span>Custom estimate →</span></button>
+ <button class="service" type="button" data-service="Restaurant Cleaning" data-price="0" data-quote="true"><strong>Restaurants & Hospitality</strong><p>Dining areas, service spaces and specialized recurring needs.</p><span>Request quote →</span></button>
+ <button class="service" type="button" data-service="Post-Construction Cleaning" data-price="0" data-quote="true"><strong>Post-Construction</strong><p>Site-specific cleanup and project requirements.</p><span>Request quote →</span></button>
+ <button class="service" type="button" data-service="Custom Commercial Quote" data-price="0" data-quote="true"><strong>Other Commercial Service</strong><p>Tell us what needs to be cleaned, even if it isn't listed here.</p><span>Request quote →</span></button>
+</div>
         </section>
 
         <section class="step" data-step="1">
@@ -277,7 +304,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
           <p class="step-intro" id="propertyIntro">A few quick details help calculate the approximate residential cleaning range.</p>
 
           <div class="residential-property">
-            <div class="field full" style="margin-bottom:11px"><label for="zip">Service ZIP code</label><input id="zip" inputmode="numeric" maxlength="5" placeholder="e.g. 33436"><small id="zipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to preview service availability.</small></div>
+            <div class="field full" style="margin-bottom:11px"><label for="zip">Service ZIP code</label><input id="zip" inputmode="numeric" maxlength="5" placeholder="e.g. 30303"><small id="zipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to preview service availability.</small></div>
             <div class="counters">
               <div class="counter"><div><strong>Bedrooms</strong><small>Sleeping rooms</small></div><div class="counter-controls"><button type="button" data-counter="beds" data-dir="-1">−</button><b id="beds">3</b><button type="button" data-counter="beds" data-dir="1">+</button></div></div>
               <div class="counter"><div><strong>Bathrooms</strong><small>Full or half baths</small></div><div class="counter-controls"><button type="button" data-counter="baths" data-dir="-1">−</button><b id="baths">2</b><button type="button" data-counter="baths" data-dir="1">+</button></div></div>
@@ -289,7 +316,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
           </div>
 
           <div class="commercial-property" hidden>
-            <div class="field full" style="margin-bottom:11px"><label for="commercialZip">Business ZIP code</label><input id="commercialZip" inputmode="numeric" maxlength="5" placeholder="e.g. 33436"><small id="commercialZipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to continue with a quote request.</small></div>
+            <div class="field full" style="margin-bottom:11px"><label for="commercialZip">Business ZIP code</label><input id="commercialZip" inputmode="numeric" maxlength="5" placeholder="e.g. 60601"><small id="commercialZipStatus" style="display:block;margin-top:5px;color:var(--muted)">Demo check — enter 5 digits to continue with a quote request.</small></div>
             <div class="fields">
               <div class="field"><label for="commercialType">Space type</label><select id="commercialType"><option>Office</option><option>Storefront / Retail</option><option>Salon / Studio</option><option>Medical / Professional</option><option>Restaurant</option><option>Other commercial space</option></select></div>
               <div class="field"><label for="commercialSqft">Approx. square footage</label><select id="commercialSqft"><option>Under 2,000 sq ft</option><option>2,000–4,999 sq ft</option><option>5,000–9,999 sq ft</option><option>10,000+ sq ft</option></select></div>
@@ -322,7 +349,17 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
             </div>
           </div>
           <div class="commercial-extras" hidden>
-            <div class="fields">
+ <label style="display:block;font-weight:800;font-size:12px;margin:0 0 10px">Commercial add-ons / Special requests</label>
+ <div class="extras commercial-addon-grid">
+  <label class="extra"><input type="checkbox" data-commercial-extra="Interior glass & partitions"><span><strong>Interior glass & partitions</strong><small>Custom pricing</small></span></label>
+  <label class="extra"><input type="checkbox" data-commercial-extra="Restroom deep clean"><span><strong>Restroom deep clean</strong><small>Custom pricing</small></span></label>
+  <label class="extra"><input type="checkbox" data-commercial-extra="Breakroom / Kitchenette"><span><strong>Breakroom / Kitchenette</strong><small>Custom pricing</small></span></label>
+  <label class="extra"><input type="checkbox" data-commercial-extra="Floor scrubbing / Detailing"><span><strong>Floor scrubbing / Detailing</strong><small>Custom pricing</small></span></label>
+  <label class="extra"><input type="checkbox" data-commercial-extra="High-touch disinfection"><span><strong>High-touch disinfection</strong><small>Custom pricing</small></span></label>
+  <label class="extra"><input type="checkbox" data-commercial-extra="After-hours service"><span><strong>After-hours service</strong><small>Custom pricing</small></span></label>
+ </div>
+ <div style="height:18px"></div>
+ <div class="fields">
               <div class="field full"><label for="commercialFrequency">How often do you need cleaning?</label><select id="commercialFrequency"><option>One time</option><option>Weekly</option><option>2–3 times per week</option><option>5 times per week</option><option>Not sure yet</option></select></div>
               <div class="field full"><label for="commercialScope">What should we include?</label><textarea id="commercialScope" rows="4" placeholder="Restrooms, floors, trash, glass, breakroom, high-touch areas..."></textarea></div>
             </div>
@@ -369,7 +406,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
       <aside class="summary" id="summary">
         <div class="summary-head">
           <div><small id="summaryKicker">YOUR BOOKING</small><h3 id="summaryTitle">Your request at a glance.</h3></div>
-          <span class="demo-pill">DEMO</span>
+          <span class="demo-pill" id="modeBadge">DEMO</span>
         </div>
         <div class="summary-row"><span>Service</span><strong id="sumService">Standard Cleaning</strong></div>
         <div class="summary-row"><span>Property</span><strong id="sumProperty">3 bed · 2 bath</strong></div>
@@ -391,7 +428,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
     <div class="wrap">
       <div class="owner-card">
         <div class="owner-top">
-          <div><span class="eyebrow">OWNER VIEW</span><h2>Every new request, already organized.</h2><p>Client details, service, estimate, status and follow-up are ready when you open it.</p></div>
+          <div><span class="eyebrow">OWNER VIEW</span><h2>Bookings, estimates and quote requests — in one place.</h2><p>Client details, service, estimate, status and follow-up are ready when you open it.</p></div>
           <span class="owner-badge">CURRENT FLOW · DEMO</span>
         </div>
         <div class="owner-grid">
@@ -410,7 +447,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
             <div class="mail-actions"><span>Reviewing</span><span>Quote / Confirm</span><span>Booked</span><span>Pause follow-up</span></div>
           </div>
           <div class="owner-panel">
-            <h3>2 · Private Lead Tracker</h3>
+            <h3>2 · Private Command Center</h3>
             <small>The same request is saved automatically so the owner can move it forward without rebuilding the conversation.</small>
             <div class="tracker-card">
               <div class="tracker-head"><div><div class="tracker-name" id="trackerName">Jordan M.</div><div class="tracker-meta" id="trackerMeta">booking · Standard Cleaning · jordan@example.com</div></div><div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end"><span class="tracker-status" style="background:#F2D85B" id="demoAttention">NEEDS ATTENTION</span><span class="tracker-status" id="trackerStatus">NEW</span></div></div>
@@ -425,7 +462,7 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
               <div class="lead-row"><span>Next follow-up</span><strong id="ownerNextFollowup">Tomorrow · 10:30 AM</strong></div>
               <div class="tracker-actions"><span>Pause / restart</span><span>Close</span><span>Lost</span></div>
             </div>
-            <p class="truth-note">Client details, status and next follow-up stay attached to the lead.</p>
+            <p class="truth-note">Client details, service, estimate, booking status and follow-ups stay together.</p>
           </div>
         </div>
         <div style="margin:22px 0;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff">
