@@ -499,6 +499,8 @@ body{background:#FAF8F3}.demo-shell,.booking-shell,.booking-card{background:#fff
 <script>
 const state={
   space:"Residential",
+  intent:"estimate",
+  serviceMode:"flat",
   step:0,
   service:"Recurring Cleaning",
   base:119,
@@ -517,19 +519,37 @@ const money=n=>"$"+Math.round(n);
 const round5=n=>Math.max(5,Math.round(n/5)*5);
 
 function isCommercial(){return state.space==="Commercial"}
+function customQuote(){return state.intent==="quote"||state.serviceMode!=="flat"}
+function activeExtras(){return isCommercial()?
+ [...document.querySelectorAll("[data-commercial-extra]:checked")].map(x=>({name:x.dataset.commercialExtra,price:0})):
+ state.extras}
+function chooseCategory(space){
+ state.space=space;
+ const root=document.querySelector(space==="Commercial"?".commercial-services":".residential-services");
+ root.querySelectorAll(".service").forEach(x=>x.classList.remove("active"));
+ const first=root.querySelector(".service");if(first){first.classList.add("active");state.service=first.dataset.service;state.base=Number(first.dataset.price||0);state.serviceMode=first.dataset.quote==="true"?"quote":"flat"}
+ state.intent=state.serviceMode==="flat"?"estimate":"quote";
+ document.querySelectorAll("[data-space]").forEach(b=>{b.classList.toggle("active",b.dataset.space===space);b.setAttribute("aria-pressed",String(b.dataset.space===space))});
+ syncIntentButtons();render();
+}
+function syncIntentButtons(){
+ const canBook=state.serviceMode==="flat";
+ document.querySelectorAll("[data-intent]").forEach(b=>{b.disabled=b.dataset.intent==="book"&&!canBook;b.classList.toggle("active",b.dataset.intent===state.intent);b.setAttribute("aria-pressed",String(b.dataset.intent===state.intent))});
+ const note=$("intentHelp");if(note)note.textContent=state.intent==="book"?"Available fixed-price services can be booked directly after the time is checked.":state.intent==="quote"?"Get a personalized quote for your specific cleaning needs.":"Get an estimate based on the property, service and add-ons. Final pricing is confirmed by the business.";
+}
 function syncOwnerView(){
   const name=($("name")?.value||"").trim()||"Jordan M.";
   const email=($("email")?.value||"").trim()||"jordan@example.com";
   const phone=($("phone")?.value||"").trim()||"(555) 014-2810";
   const address=($("address")?.value||"").trim()||"123 Sample St.";
-  const type=isCommercial()?"quote":"booking";
-  const service=isCommercial()?"Request a Quote":state.service;
+  const type=state.intent==="book"&&!customQuote()?"booking":state.intent==="estimate"?"estimate":"quote";
+  const service=state.service;
   const property=isCommercial()
     ? $("commercialType").value+" · "+$("commercialSqft").value
     : state.homeType+" · "+state.beds+" bed · "+state.baths+" bath";
   const est=calculate();
-  const estimate=isCommercial()?"Custom quote":money(est.low)+"–"+money(est.high);
-  const extras=isCommercial()?"Included in quote":(state.extras.length?state.extras.map(x=>x.name).join(", "):"None");
+  const estimate=isCommercial()?(state.intent==="estimate"?"Estimate requested":"Custom quote"):customQuote()?"Custom quote":money(est.low)+"–"+money(est.high);
+  const picked=activeExtras();const extras=picked.length?picked.map(x=>x.name).join(", "):"None";
   $("ownerSubject").textContent="New "+type+" request — "+name;
   $("ownerRequest").textContent=service;
   $("ownerProperty").textContent=property;
@@ -545,7 +565,7 @@ function syncOwnerView(){
   $("trackerMeta").textContent=type+" · "+service+" · "+email;
   $("ownerNextFollowup").textContent="Tomorrow · "+state.time;
   const quoteStage=$("demoQuoteStage");
-  if(quoteStage){quoteStage.textContent=isCommercial()?"Custom Quote":"Confirm";quoteStage.dataset.demoStage=isCommercial()?"CUSTOM QUOTE":"CONFIRM";}
+  if(quoteStage){quoteStage.textContent=state.intent==="book"?"Confirm":"Prepare estimate / quote";quoteStage.dataset.demoStage=state.intent==="book"?"CONFIRM":"QUOTE";}
 }
 function showOwnerView(){
   syncOwnerView();
@@ -604,8 +624,7 @@ function render(){
   $("commercialTimes").hidden=!isCommercial();
 
   if(isCommercial()){
-    state.service="Request a Quote";
-    state.base=0;
+    state.base=Number(state.base||0);
     state.frequency=$("commercialFrequency").value;
     state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
     $("propertyHeading").textContent="Tell us about the business space.";
@@ -630,53 +649,44 @@ function render(){
     ? $("commercialType").value+" · "+$("commercialSqft").value
     : state.homeType+" · "+state.beds+" bed · "+state.baths+" bath";
   $("sumFrequency").textContent=state.frequency;
-  $("sumExtras").textContent=isCommercial()?"Included in quote":(state.extras.length?state.extras.map(x=>x.name).join(", "):"None");
+  $("sumExtras").textContent=activeExtras().length?activeExtras().map(x=>x.name).join(", "):"None";
   $("sumSchedule").textContent=state.date?(state.date+" · "+state.time):"Choose in step 4";
 
   const est=calculate();
-  $("summaryKicker").textContent=isCommercial()?"YOUR QUOTE REQUEST":"YOUR BOOKING";
-  $("estimateLabel").textContent=isCommercial()?"PRICING":"APPROXIMATE RANGE";
-  $("estimateValue").textContent=isCommercial()?"Custom quote":money(est.low)+"–"+money(est.high);
+  $("summaryKicker").textContent=state.intent==="book"?"YOUR BOOKING":state.intent==="estimate"?"YOUR ESTIMATE REQUEST":"YOUR QUOTE REQUEST";
+  $("estimateLabel").textContent=state.intent==="book"?"BOOKING PRICE":state.intent==="estimate"?"ESTIMATE":"CUSTOM QUOTE";
+  $("estimateValue").textContent=isCommercial()?(state.intent==="estimate"?"Estimate requested":"Custom quote"):customQuote()?"Custom quote":money(est.low)+"–"+money(est.high);
   if(!isCommercial()){$("estimateValue").animate?.([{transform:"scale(1)"},{transform:"scale(1.045)"},{transform:"scale(1)"}],{duration:220});}
   $("estimateNote").textContent=isCommercial()
-    ?"Commercial pricing is prepared from the space and scope you send."
-    :"Updates instantly as you customize the cleaning.";
+    ?"Commercial estimates and quotes account for your space, scope and add-ons."
+    :state.intent==="quote"?"The business will prepare a custom quote from your details.":"Updates as you customize the cleaning; the business sets final pricing.";
   const savePct=Math.round((state.discount||0)*100);
   $("savingsNote").style.display=(!isCommercial()&&savePct)?"block":"none";
   $("savingsNote").textContent=savePct?state.frequency+" · Save "+savePct+"% per visit":"";
   $("recurringSave").style.display=(!isCommercial()&&savePct)?"block":"none";
   $("recurringSave").textContent=savePct?state.frequency+" selected — "+savePct+"% savings applied per visit.":"";
-  $("summaryFoot").textContent=isCommercial()
-    ?"The business reviews the request before confirming pricing or scheduling. No payment is collected in this demo."
-    :"Demo pricing only. Final pricing is set by the cleaning business. No payment is collected here.";
-  $("submitBtn").textContent=isCommercial()?"Send quote request →":"Send booking request →";
-  $("mobileLabel").textContent=isCommercial()?"Custom pricing":"Approximate range";
-  $("mobileEstimate").textContent=isCommercial()?"Request a quote":money(est.low)+"–"+money(est.high);
+  $("summaryFoot").textContent="Demo only. No real booking, email or payment is created. Your purchased Booking Page uses your own service prices and availability.";
+  $("submitBtn").textContent=state.intent==="book"?"Review booking →":state.intent==="estimate"?"Request estimate →":"Request quote →";
+  $("mobileLabel").textContent=state.intent==="book"?"Booking preview":state.intent==="estimate"?"Estimate preview":"Quote preview";
+  $("mobileEstimate").textContent=isCommercial()?"Custom pricing":customQuote()?"Custom quote":money(est.low)+"–"+money(est.high);
+  syncIntentButtons();
 
   syncOwnerView();
   renderProgress();
 }
 
+document.querySelectorAll("[data-space]").forEach(btn=>btn.addEventListener("click",()=>chooseCategory(btn.dataset.space)));
+document.querySelectorAll("[data-intent]").forEach(btn=>btn.addEventListener("click",()=>{
+  if(btn.disabled)return;state.intent=btn.dataset.intent;render();
+}));
 document.querySelectorAll(".service").forEach(btn=>btn.addEventListener("click",()=>{
-  const group=btn.parentElement;
-  group.querySelectorAll(".service").forEach(x=>x.classList.remove("active"));
+  const group=btn.parentElement;group.querySelectorAll(".service").forEach(x=>x.classList.remove("active"));
   btn.classList.add("active");
-  if(btn.dataset.quote==="true"){
-    state.space="Commercial";
-    state.service="Request a Quote";
-    state.base=0;
-    state.extras=[];
-    state.step=1;
-    render();
-    document.querySelector(".form-card").scrollIntoView({behavior:"smooth",block:"start"});
-    return;
-  }
-  state.space="Residential";
-  state.service=btn.dataset.service;
-  state.base=Number(btn.dataset.price||0);
+  state.service=btn.dataset.service||"Custom cleaning";state.base=Number(btn.dataset.price||0);
+  state.serviceMode=btn.dataset.quote==="true"?"quote":"flat";
+  if(state.serviceMode!=="flat")state.intent="quote";
   render();
 }));
-
 document.querySelectorAll("[data-counter]").forEach(btn=>btn.addEventListener("click",()=>{
   const key=btn.dataset.counter;
   state[key]=Math.max(0,Math.min(10,state[key]+Number(btn.dataset.dir)));
@@ -705,6 +715,7 @@ document.querySelectorAll("#frequency button").forEach(btn=>btn.addEventListener
   render();
 }));
 
+document.querySelectorAll("[data-commercial-extra]").forEach(box=>box.addEventListener("change",render));
 document.querySelectorAll("[data-extra]").forEach(box=>box.addEventListener("change",()=>{
   state.extras=[...document.querySelectorAll("[data-extra]:checked")].map(x=>({name:x.dataset.extra,price:Number(x.dataset.price||0)}));
   render();
@@ -748,12 +759,10 @@ $("nextBtn").addEventListener("click",()=>{
 $("reviewBtn").addEventListener("click",()=>$("summary").scrollIntoView({behavior:"smooth",block:"center"}));
 
 $("submitBtn").addEventListener("click",()=>{
-  $("modalTitle").textContent=isCommercial()?"Quote request received.":"Request received.";
-  $("modalCopy").textContent=isCommercial()
-    ?"That’s the client side. The owner now has the commercial details organized to review, prepare a custom quote and follow up."
-    :"That’s the client side. The owner now has the request organized and ready to confirm, schedule and follow up — without re-entering the client details.";
+  $("modalTitle").textContent=state.intent==="quote"?"Quote request preview.":state.intent==="estimate"?"Estimate request preview.":"Booking preview.";
+  $("modalCopy").textContent="This is the exact customer experience template we personalize for a cleaning business. In the demo nothing is sent. A purchased page routes real requests into that business’s private Command Center.";
   $("modal").classList.add("open");
-  window.tleTrackEvent?.("demo_complete",{request_type:isCommercial()?"quote":"booking"});
+  window.tleTrackEvent?.("demo_complete",{request_type:state.intent,category:state.space});
   $("demoOffer").focus();
 });
 $("seeOwnerAfter").addEventListener("click",()=>{$("modal").classList.remove("open");setTimeout(showOwnerView,40)});
