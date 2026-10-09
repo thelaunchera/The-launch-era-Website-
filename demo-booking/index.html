@@ -626,7 +626,7 @@ function render(){
   if(isCommercial()){
     state.base=Number(state.base||0);
     state.frequency=$("commercialFrequency").value;
-    state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
+    if(!window.TLE_LIVE_CONFIG)state.time=document.querySelector("#commercialTimes .time-btn.active")?.textContent||"Flexible";
     $("propertyHeading").textContent="Tell us about the business space.";
     $("propertyIntro").textContent="Share the basics the cleaning business needs to prepare a custom commercial quote.";
     $("extrasHeading").textContent="Tell us what the space needs.";
@@ -780,6 +780,7 @@ $("modal").addEventListener("click",e=>{if(e.target.id==="modal") $("modal").cla
 populateDates();
 render();
 </script>
+<script src="/assets/booking-live.js?v=20261009-unified"></script>
 <script>
 (function(){
  const p=new URLSearchParams(location.search);
