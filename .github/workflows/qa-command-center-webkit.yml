@@ -1,0 +1,29 @@
+name: Verify mirrored Command Center Safari
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/qa-command-center-webkit.mjs','.github/workflows/qa-command-center-webkit.yml']
+permissions:
+  contents: read
+jobs:
+  webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps webkit
+      - name: Check alternate and full private sign-in
+        run: node scripts/qa-command-center-webkit.mjs
+      - name: Attach screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mirrored-command-center-access
+          path: qa-*.png
+          if-no-files-found: ignore
