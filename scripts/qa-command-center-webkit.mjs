@@ -6,9 +6,13 @@ page.on('pageerror',err=>console.log('PAGE_ERROR',String(err.message).slice(0,35
 page.on('requestfailed',req=>console.log('FAILED_REQUEST',req.url().slice(0,150),req.failure()?.errorText));
 page.on('response',res=>{if(res.status()>=400)console.log('HTTP_'+res.status(),res.url().slice(0,150));});
 async function test(name,url,field){
- const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:22000});
+ // On iPad Safari the full app can delay DOMContentLoaded while its libraries load.
+ // Detect navigation at response commit, then independently require a visible login form.
+ const response=await page.goto(url,{waitUntil:'commit',timeout:45000});
  console.log('HTTP_STATUS',name,response?.status());
- await page.waitForTimeout(name==='main'?12500:1200);
+ if(!response?.ok())throw new Error(name+' access URL failed: HTTP '+response?.status());
+ await page.locator(field).waitFor({state:'visible',timeout:45000});
+ await page.waitForTimeout(name==='main'?3500:1200);
  const state=await page.evaluate(sel=>{
  const input=document.querySelector(sel),loader=document.querySelector('#tleLoading');
  const visible=el=>!!el&&getComputedStyle(el).visibility!=='hidden'&&getComputedStyle(el).display!=='none';
