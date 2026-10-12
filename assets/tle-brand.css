@@ -1,0 +1,4 @@
+/* The Launch Era agency logo only. Transparent and proportionate; not applied to customer brands. */
+a.brand:has(img.tle-brand-logo),a.logo:has(img.tle-brand-logo),a.wordmark:has(img.tle-brand-logo){display:inline-flex!important;align-items:center!important;line-height:1!important;white-space:nowrap}
+img.tle-brand-logo{display:block!important;width:clamp(126px,14vw,178px)!important;max-width:100%!important;height:auto!important;object-fit:contain!important}
+@media(max-width:640px){img.tle-brand-logo{width:132px!important}}
