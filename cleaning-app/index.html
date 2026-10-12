@@ -1,15 +1,18 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0;url=https://thelaunchera.com/cleaning-web-app/">
-<link rel="canonical" href="https://thelaunchera.com/cleaning-web-app/">
-<title>Cleaning Web App | The Launch Era</title>
-</head>
-<body>
-<p><a href="https://thelaunchera.com/cleaning-web-app/">Go to the current Cleaning Web App page</a></p>
-<script>window.location.replace("https://thelaunchera.com/cleaning-web-app/");</script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><meta name="referrer" content="no-referrer">
+<title>Opening your app | The Launch Era</title></head>
+<body><p>Opening your The Launch Era account… <a href="https://thelaunchera.com/cleaning-web-app/">Continue to the Cleaning App</a></p>
+<script>
+(function(){
+ const params=new URLSearchParams(location.hash.slice(1));
+ const isRecovery=params.get('type')==='recovery'&&params.has('access_token');
+ const destination=isRecovery
+  ?'https://thelaunchera.com/auth-recovery.html'
+  :'https://thelaunchera.com/cleaning-web-app/';
+ location.replace(destination+(isRecovery?location.hash:''));
+})();
+</script>
+<noscript>Please enable JavaScript to continue. If you are resetting a password, open the reset link in your regular browser.</noscript>
+</body></html>
