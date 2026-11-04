@@ -15,3 +15,4 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/check-inline-scripts.mjs
+      - run: node scripts/qa-legacy-brand-assets.mjs

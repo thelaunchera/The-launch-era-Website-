@@ -1,0 +1,25 @@
+{
+  "id": "./?app=cb-depot",
+  "name": "CB Depot Command Center",
+  "short_name": "CB Depot",
+  "description": "CB Depot private Command Center",
+  "start_url": "./?app=cb-depot",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111318",
+  "theme_color": "#191919",
+  "icons": [
+    {
+      "src": "https://thelaunchera.com/assets/clients/cb-depot/approved-favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://thelaunchera.com/assets/clients/cb-depot/approved-favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
